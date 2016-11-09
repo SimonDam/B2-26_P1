@@ -1,12 +1,4 @@
 										Interessenter
-Interessenterne
-	-	Uddannelsesministeriet
-	-	Kommunen
-	-	Skoleleder
-	-	Afdelingsleder
-	-	Lærer
-	-	Elver
-	-	forældre
 
 Hvorfor er disse mennesker interesseret i vores produkt? 
 
