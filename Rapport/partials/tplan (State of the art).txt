@@ -1,0 +1,19 @@
+										tplan (State of the art)
+
+Dette er et lidt dyre program, der beskriver sig selv som at have følgende egenskaber til at lave et bedre skema:
+-	Meget hurtigere lægning af grundskemaer
+-	Drag-and-drop skemabrikker
+-	Se resultater af lægning i real-tid
+-	Store muligheder for at ’lege’ med skemaet – og straks se konsekvenser
+-	Altid samme resultat med ens forudsætninger (deterministisk)
+-	Ikke nødvendigt at kende elever – i første omgang er det tilstrækkeligt med lærere, klasser, hold og skolens blokstruktur
+
+Tplan blev brugt af flere end 70 skoler og gymnasier rundt i Danmark i skoleåret 2013-14. Blandt andet Aalborg katedralskole og Aalborg gymnasium. 
+
+Da det er et stort og kraftigt program, kan man også se dette på prisen. Når du køber en ny brugerlicens indebærer det også en 3-årig kontrakt. Det første år koster tplan 14.950kr, men i de to efterfølgende år. Koster tplan bare 7.950kr. og efter de tre år kan man beholde tplan for bare 6.850kr. Vær opmærksom på at dette kun gælder én linje, og selv der kan der ske ændringer i prisen alt afhængig af hvor stor skolen er. Hvis man har en skole med flere linjer, skal man betale dette pr linje. Man får også adgang til et kursus omkring hvordan man bruger tplan, dette kursus koster dog 1475kr pr. mand pr. dag. Hvert år er du også forpligtet til at opdatere din version af tplan til den nyeste, og genaktivere end licens. 
+
+Det som dette program kan, er at give dig et helt skema for alle ens klasser. Man kan ændre på dette skema ved drag-and-drop. Man kan blandt andet, forinden skemaet bliver lagt, tilføje nogle faste moduler, og ændre mange flere parametre for hvordan dette skema skal lægges. 
+
+(Indsæt billede: "tplan-billede")
+
+Kilde: http://www.tplan.dk/?page_id=305 
