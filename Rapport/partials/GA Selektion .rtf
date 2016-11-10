@@ -1,0 +1,24 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab1304
+\pard\pardeftab1304\ri-952\partightenfactor0
+
+\f0\fs24 \cf0 Selektion \
+Roulette metoden \
+Man kan forestille sig at hvert individ er tildelt et stykke p\'e5 en roulette og st\'f8rrelsen p\'e5 stykket er proportional med individets fitness. Roulette bliver spinnet n antal gange det vil tage for at v\'e6lge for\'e6ldrene til den n\'e6ste generation. Under hvert spin bliver individet under roulettens mark\'f8r valgt til at v\'e6re en del af en gruppe af for\'e6ldre til den n\'e6ste generation. En kandidat kan godt blive valgt til at v\'e6re for\'e6ldre flere gange, dette er okay da vi v\'e6lge for\'e6ldre til n\'e6ste generation og ikke selve individerne i generationen. Form\'e5let med denne metode er at f\'e5 valgt de for\'e6ldre med den st\'f8rste fitness til n\'e6ste generation da de har st\'f8rre sandsynlig for at skabe individer st\'f8rre fitness. Problemet med denne metode er dog at den genetiske algoritme hurtigt vil st\'e5 fast i den ene del af fitness rummet da det er muligt at v\'e6lge den samme for\'e6ldre flere gange og derved kan der blive skabt en meget ens artet population som g\'f8r at der kun vil blive udforsket et bestemt omr\'e5de af rummet i stedet for at udforske hele rummet. \
+\
+Rank metoden \
+Metoden har ligheder med roulette metoden med i stedet for at proportionel med den absolute fitness er den proportionel med den relative fitness. Der er alts\'e5 ligegyldigt om den fitteste har 10 gange h\'f8jere fitness en den n\'e6ste i rangen eller om den har 0.0001% h\'f8jere fitness. I begge cases vil sandsynligheden for den den fitteste v\'e6re den samme. \
+\
+Tournament metoden \
+2 tilf\'e6ldige individer bliver valgt fra populationen. Man generer en tilf\'e6ldig v\'e6rdi fra 0-1 for sammenligner den med valgte sandsynligheds v\'e6rdi. Hvis v\'e6rdien er mindre eller lige med sandsynlighedsv\'e6rdien bliver det individ med h\'f8jst fitness valgt ellers bliver individet med den lavere fitness valgt. Sandsynlighedsv\'e6rdien bliver altid sat h\'f8jere end 0.5 for at favorisere individet med den h\'f8jeste fitness.  \
+\
+\
+\
+\'94Seach space\'94 referer til en gruppe af kandidat l\'f8sning til et problem, hvor der er en \'94distance\'94 i mellem kandidaterne. For eksempel lad os tage vigtigt problem indenfor bioengeering, hvordan man designer et protein. Antaget at man vil s\'f8ge efter et protein som er en sekvens af aminosyre som kan blive brugt til at bek\'e6mpe en virus. \'94Seach space\'94 vil v\'e6re en kollektion af alle mulige proteiner. Dette vil give os uendelige mange muligheder derfor begr\'e6nser vi l\'e6ngden af proteinet til l\'e6ngden 50 som stadig vil v\'e6re et stort \'94seach space\'94 siden der er 20 mulige aminosyre i hver position i proteinet. Hvis vi repr\'e6senter aminosyrerne i form af alfabetet vil et muligt protein se ledes ud.  \
+ASDKEGHB\'85. Vi definer distance mellem proteinerne som forskellen i alfabetet p\'e5 den tilsvarende position i et andet protein fx ASDKEGHB og BSDKEGHB er distance 1 og distance mellem ASDKEGHB og GCCHAKAA er 8. \
+\
+Fitness rum repr\'e6sentere alle mulige kandidater i rummet samtidig med deres fitness. \
+}
