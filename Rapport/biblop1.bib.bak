@@ -1,0 +1,55 @@
+% Encoding: UTF-8
+
+@Booklet{dennyefolkeskole,
+  title = {Den nye folkeskole - en kort guide til reformen},
+}
+
+@Article{Harris2014,
+  author = {Harris, Darlene Marie},
+  title  = {EXPLORING THE IMPACT OF TRADITIONAL AND BLOCK SCHEDULING: AN EXAMINATION OF HIGH SCHOOL STUDENT ACHIEVEMENT (ALGEBRA, BIOLOGY AND ENGLISH), ATTENDANCE RATES, AND DISCIPLINARY INCIDENTS},
+  year   = {2014},
+}
+
+@Article{Greenhow2008,
+  author = {Greenhow, Christine amd Robelia, Beth and Hughes, Joan E.},
+  title  = {Learning, Teaching, and Scholarship in a Digital Age},
+  year   = {2008},
+}
+
+@Article{Silvernail2012,
+  author = {Silvernail, David L. and Stump, Erika K. and Barnes, Richard and Kunin, Kenneth and Wintle, Sarah},
+  title  = {More Efficient Public Schools In Maine: Learning Communities Building the Foundation of Intellectual Work},
+  year   = {2012},
+}
+
+@Article{Kubitschek2005,
+  author = {Kubitschek, Warren N. and Hallinan, Maureen T. and Arnett, Stephanie M. and Galipeau, Kim S.},
+  title  = {High School Schedule Changes and the Effect of Lost Instructional Time on Achievement},
+  year   = {2005},
+}
+
+@Article{Owens2014,
+  author = {Owens, Judith A. and Au, Rhoda and Carskadon, Mary and Millman, Richard and Wolfson, Amy},
+  title  = {School Start Times for Adolescents},
+  year   = {2014},
+}
+
+@Article{Li2013,
+  author = {Li, Shenghui and Arguelles, Lester and Chen, Wenjuan and Jin, Xingming and Yan, Chonghuai and Tian, Ying and Hong, Xiumei, Hong and Qian, Ceng and Zhang, Jun and Wang, Xiaobin and Shen, Xiaoming},
+  title  = {Sleep, School Performance, and a School-Based Intervention among School-Aged Children: A Sleep Series Study in China},
+  year   = {2013},
+}
+
+@Article{Astinm1984,
+  author = {Astinm, Alexander W.},
+  title  = {Student Involvement: A Development Theory for Higher Education},
+  year   = {1984},
+}
+
+@Article{,
+  author = {Canady, Robert Lynn and Rettig, Michael D. Rettig},
+  title  = {The Power of Innovative Scheduling},
+  year   = {1995},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

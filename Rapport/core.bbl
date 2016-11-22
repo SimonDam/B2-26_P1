@@ -1,0 +1,65 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{none/global/}
+  \entry{Greenhow2008}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GBCaR}{%
+         family={Greenhow},
+         familyi={G\bibinitperiod},
+         suffix={Christine amd\bibnamedelima Robelia},
+         suffixi={C\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim
+  R\bibinitperiod},
+         given={Beth},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HJE}{%
+         family={Hughes},
+         familyi={H\bibinitperiod},
+         given={Joan\bibnamedelima E.},
+         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GCaRBHJE1}
+    \strng{fullhash}{GCaRBHJE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Learning, Teaching, and Scholarship in a Digital Age}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Harris2014}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HDM}{%
+         family={Harris},
+         familyi={H\bibinitperiod},
+         given={Darlene\bibnamedelima Marie},
+         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HDM1}
+    \strng{fullhash}{HDM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{EXPLORING THE IMPACT OF TRADITIONAL AND BLOCK SCHEDULING: AN
+  EXAMINATION OF HIGH SCHOOL STUDENT ACHIEVEMENT (ALGEBRA, BIOLOGY AND
+  ENGLISH), ATTENDANCE RATES, AND DISCIPLINARY INCIDENTS}
+    \field{year}{2014}
+  \endentry
+\endsortlist
+\endinput
