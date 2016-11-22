@@ -3,13 +3,14 @@
 #include <time.h>
 #include <string.h>
 
-#define LESSON_NAME_MAX 12
+#define LESSON_NAME_MAX 13
 #define SCHOOL_DAYS_IN_WEEK 5
 #define TEACHER_NAME_MAX 3
 #define LESSONS_PER_DAY_MAX 8
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
 #define NUMBER_OF_DIFFERENT_LESSONS 13
 
+/*
 #define LESSONS_DAN 7
 #define LESSONS_MAT 5
 #define LESSONS_ENG 4
@@ -23,6 +24,7 @@
 #define LESSONS_GYM 2
 #define LESSONS_FRI 2
 #define LESSONS_REL 1
+*/
 
 #define FITNESS_LESSONS_IN_ROW 10
 
@@ -62,6 +64,7 @@ int main(void){
 /**************************************************************/
 
 void create_individual(int individual[]){
+  /* Creating the individual */
   /* Makring it random */
   individual[0] = 1;
   individual[1] = 1;
@@ -73,8 +76,7 @@ void create_individual(int individual[]){
 }
 
 void calculate_fitness(int individual[], int *fitness){
-  *fitness = 10;
-  /* Lessons in row? */
+  /* Lessons in row (breaks counts as a lesson)*/
   for (int i = 0; i < LESSONS_PER_WEEK_MAX; i = i +2){
     if (individual[i] == individual[i+1]){
       *fitness = *fitness + FITNESS_LESSONS_IN_ROW;
@@ -84,6 +86,7 @@ void calculate_fitness(int individual[], int *fitness){
 
 void create_skema(lesson week[], int individual[]){
   int lesson_now = 0;
+  /* Creating the skema based on the individual */
   for(int i = 0; i < LESSONS_PER_WEEK_MAX; i++){
     week[i] = create_lesson(individual[i]);
   }
@@ -91,6 +94,7 @@ void create_skema(lesson week[], int individual[]){
 
 lesson create_lesson(int num){
   lesson result;
+  /* Making the lessons name */
   switch (num){
     case dan:
       strcpy(result.lesson_name, "Dan");
@@ -136,30 +140,41 @@ lesson create_lesson(int num){
       printf("ERROR: The number is: %d\n", num);
       break;
   }
+
+  /* Making lessons teacher name */
   strcpy(result.teacher_name, "JC");
 
   return result;
 }
 
 void print_skema(lesson week[]){
-  int lesson_of_day = 0, day_of_week = 1, lesson_in_individual = 0, done = 0;
+  int lesson_of_day = 0, day_of_week = 0, lesson_in_individual = 0, done = 0;
   printf("Mandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
   printf("-------------------------------------------------------------------------\n");
   while (!done){
+    /* Making the next number for the lesson */
+    lesson_in_individual = (LESSONS_PER_DAY_MAX*day_of_week)+lesson_of_day;
+    day_of_week++;
+
+    /* Printing the lesson and the teacher */
     print_lesson_teacher(week[lesson_in_individual]);
-    /*printf(" %d ", lesson_in_individual);*/
     print_lesson(week[lesson_in_individual]);
 
+    /* Making new line */
     if (day_of_week == SCHOOL_DAYS_IN_WEEK){
       day_of_week = 0;
       lesson_of_day++;
+      /* Making an ekstra new line to act as a break ind school */
+      if ((lesson_of_day % 2) == 0){
+        printf("\n");
+      }
       printf("\n");
     }
+
+    /* If all the lessons has printed, then break the while */
     if (lesson_of_day == LESSONS_PER_DAY_MAX){
       done = 1;
     }
-    lesson_in_individual = (LESSONS_PER_DAY_MAX*day_of_week)+lesson_of_day;
-    day_of_week++;
   }
 }
 
