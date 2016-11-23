@@ -3,9 +3,9 @@
 #include <time.h>
 #include <string.h>
 
-#define LESSON_NAME_MAX 13
+#define LESSON_NAME_MAX 12
 #define SCHOOL_DAYS_IN_WEEK 5
-#define TEACHER_NAME_MAX 3
+#define TEACHER_NAME_MAX 4
 #define LESSONS_PER_DAY_MAX 8
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
 #define NUMBER_OF_DIFFERENT_LESSONS 13
@@ -33,13 +33,21 @@ individual choose_individual(individual individuals[]);
 void calculate_fitness_all(individual individuals[]);
 void calculate_fitness_one(individual *indi);
 void print_skema(lesson week[]);
-void create_skema(lesson week[], individual indi);
-lesson create_lesson(int num);
+void create_skema(lesson week[], individual indi, char teachers_names[]);
+lesson create_lesson(int num, char teachers_names[]);
 void print_lesson(lesson l);
 void print_lesson_teacher(lesson l);
+void make_teachers_names(FILE *teachers, char teachers_names[]);
 
 /***************************MAIN******************************/
 int main(void){
+  /* read teachers */
+  FILE *teachers = fopen("teachers.txt", "r");
+  char teachers_names[TEACHER_NAME_MAX * NUMBER_OF_DIFFERENT_LESSONS];
+  memset(teachers_names, '\0', TEACHER_NAME_MAX * NUMBER_OF_DIFFERENT_LESSONS);
+  make_teachers_names(teachers, teachers_names);
+  fclose(teachers);
+
   /* init 9 */
   lesson week9[LESSONS_PER_WEEK_MAX];
   individual chosen_individual9;
@@ -69,18 +77,51 @@ int main(void){
   chosen_individual8 = choose_individual(individuals8);
   chosen_individual7 = choose_individual(individuals7);
 
-  create_skema(week9, chosen_individual9);
+  printf("  9. klasse: \n");
+  create_skema(week9, chosen_individual9, teachers_names);
   print_skema(week9);
-  printf("\n\n");
-  create_skema(week8, chosen_individual8);
+  printf("\n\n  8. klasse:\n");
+  create_skema(week8, chosen_individual8, teachers_names);
   print_skema(week8);
-  printf("\n\n");
-  create_skema(week7, chosen_individual7);
+  printf("\n\n  7. klasse:\n");
+  create_skema(week7, chosen_individual7, teachers_names);
   print_skema(week7);
 
   return 0;
 }
 /**************************************************************/
+
+void make_teachers_names(FILE *teachers, char teachers_names[]){
+  char temp_name[TEACHER_NAME_MAX];
+  char temp_lesson[5];
+  int res = 0, done = 0;
+
+  while (!done){
+    res += fscanf(teachers, " %s %s ",temp_lesson, temp_name);  
+    
+    /* Doing so it is always three long */
+    if (strlen(temp_name) > 3){
+      printf("ERROR: A name is longer then three");
+    }
+    while (strlen(temp_name) < 3){
+      strcat(temp_name, " ");
+    }
+
+    /* Looking for when to stop */
+    if ((temp_name[0] == 'E') && (temp_name[1] == 'N') && (temp_name[2] == 'D')){
+      printf("DONE\n");
+      done = 1;
+    }
+    /* Creating the list of names */
+    else {
+      strcat(teachers_names, temp_name);
+      printf("%s  %d -  %s\n", temp_name, res, teachers_names);
+    }
+  }
+  if (res != 28){
+    printf("Error occurred reading file\n\n");
+  }
+}
 
 void create_individuals(individual individuals[]){
   for (int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
@@ -137,16 +178,28 @@ individual choose_individual(individual individuals[]){
   return chosen;
 }
 
-void create_skema(lesson week[], individual indi){
+void create_skema(lesson week[], individual indi, char teachers_names[]){
   int lesson_now = 0;
   /* Creating the skema based on the individual */
   for(int i = 0; i < LESSONS_PER_WEEK_MAX; i++){
-    week[i] = create_lesson(indi.individual_num[i]);
+    week[i] = create_lesson(indi.individual_num[i], teachers_names);
   }
 }
 
-lesson create_lesson(int num){
+lesson create_lesson(int num, char teachers_names[]){
   lesson result;
+  char temp_name[TEACHER_NAME_MAX];
+  memset(temp_name, '\0', TEACHER_NAME_MAX);
+  int num2 = 0;
+
+  memset(result.teacher_name, '\0', TEACHER_NAME_MAX);
+  
+  for (int i = 0; i < TEACHER_NAME_MAX -1; i++){
+    num2 = (num*(TEACHER_NAME_MAX-1))+i;
+    temp_name[i] = teachers_names[num2];
+  }
+  strcat(result.teacher_name, temp_name);
+  
   /* Making the lessons name */
   switch (num){
     case dan:
@@ -194,18 +247,15 @@ lesson create_lesson(int num){
       break;
   }
 
-  /* Making lessons teacher name */
-  strcpy(result.teacher_name, "JC");
-
   return result;
 }
 
 void print_skema(lesson week[]){
   int lesson_of_day = 0, day_of_week = 0, lesson_in_individual = 0, done = 0;
-  printf("Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
-  printf("------------------------------------------------------------------------------------------------\n");
+  printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
+  printf("  ------------------------------------------------------------------------------------------------\n");
   /* printing the first time */
-  printf(" 8.00 -  8.45  |\t");
+  printf("   8.00 -  8.45  |\t");
 
   /* Printing the skema */
   while (!done){
@@ -225,7 +275,7 @@ void print_skema(lesson week[]){
       if ((lesson_of_day % 2) == 0){
         printf("\n");
       }
-      printf("\n");
+      printf("\n  ");
 
       if(lesson_of_day == 1){
         printf(" 8.45 -  9.30  |\t");
@@ -259,7 +309,7 @@ void print_skema(lesson week[]){
 
 void print_lesson_teacher(lesson l){
   printf("%s",l.teacher_name);
-  for(int i = 0; i < TEACHER_NAME_MAX-strlen(l.teacher_name); i++){
+  for(int i = 0; i < TEACHER_NAME_MAX - strlen(l.teacher_name); i++){
     printf(" ");
   }
 }
@@ -270,7 +320,6 @@ void print_lesson(lesson l){
     printf(" ");
   }
 }
-
 
 /*
   Et rigtigt skoleskema fra 9. - 36timer i alt om ugen

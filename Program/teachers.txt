@@ -1,0 +1,14 @@
+Dan: Da1
+Mat: Ca
+Eng: En1
+Tys: Ty1
+Fys: Fy1
+His: Hi1
+Sam: Sa1
+Val: Va1
+Geo: Ge1
+Bio: Bi1
+Gym: Gy1
+Fri: Fr1
+Rel: Re1
+END: END
