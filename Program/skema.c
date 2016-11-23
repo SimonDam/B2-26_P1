@@ -11,22 +11,6 @@
 #define NUMBER_OF_DIFFERENT_LESSONS 13
 #define NUMBER_OF_INDIVIDUALS 10
 
-/*
-#define LESSONS_DAN 7
-#define LESSONS_MAT 5
-#define LESSONS_ENG 4
-#define LESSONS_TYS 4
-#define LESSONS_FYS 3
-#define LESSONS_HIS 2
-#define LESSONS_SAM 2
-#define LESSONS_VALG 2
-#define LESSONS_GEO 2
-#define LESSONS_BIO 2
-#define LESSONS_GYM 2
-#define LESSONS_FRI 2
-#define LESSONS_REL 1
-*/
-
 #define FITNESS_LESSONS_IN_ROW 10
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel};
@@ -56,20 +40,43 @@ void print_lesson_teacher(lesson l);
 
 /***************************MAIN******************************/
 int main(void){
-  lesson week[LESSONS_PER_WEEK_MAX];
-  individual chosen_individual;
-  individual individuals[NUMBER_OF_INDIVIDUALS];
+  /* init 9 */
+  lesson week9[LESSONS_PER_WEEK_MAX];
+  individual chosen_individual9;
+  individual individuals9[NUMBER_OF_INDIVIDUALS];
   
+  /* init 8 */
+  lesson week8[LESSONS_PER_WEEK_MAX];
+  individual chosen_individual8;
+  individual individuals8[NUMBER_OF_INDIVIDUALS];
+
+  /* init 7 */
+  lesson week7[LESSONS_PER_WEEK_MAX];
+  individual chosen_individual7;
+  individual individuals7[NUMBER_OF_INDIVIDUALS];
+
+  /* Stuff */
   srand(time(NULL));
 
-  create_individuals(individuals);
-  calculate_fitness_all(individuals);
+  create_individuals(individuals9);
+  calculate_fitness_all(individuals9);
+  create_individuals(individuals8);
+  calculate_fitness_all(individuals8);
+  create_individuals(individuals7);
+  calculate_fitness_all(individuals7);
 
-  chosen_individual = choose_individual(individuals);
-  printf("Fitness: %d \n\n", chosen_individual.fitness);
+  chosen_individual9 = choose_individual(individuals9);
+  chosen_individual8 = choose_individual(individuals8);
+  chosen_individual7 = choose_individual(individuals7);
 
-  create_skema(week, chosen_individual);
-  print_skema(week);
+  create_skema(week9, chosen_individual9);
+  print_skema(week9);
+  printf("\n\n");
+  create_skema(week8, chosen_individual8);
+  print_skema(week8);
+  printf("\n\n");
+  create_skema(week7, chosen_individual7);
+  print_skema(week7);
 
   return 0;
 }
@@ -107,14 +114,11 @@ void calculate_fitness_one(individual *indi){
   indi->fitness = 0;
 
   /* Lessons in row (breaks counts as a lesson)*/
-  for (int i = 0; i < LESSONS_PER_WEEK_MAX; i = i +2){
+  for (int i = 0; i < LESSONS_PER_WEEK_MAX; i = i + 2){
     if (indi->individual_num[i] == indi->individual_num[i+1]){
       indi->fitness = indi->fitness + FITNESS_LESSONS_IN_ROW;
     }
   }
-
-  /* printing the fitness for testing */
-  printf("Fitness: %d\n", indi->fitness);
 }
 
 individual choose_individual(individual individuals[]){
@@ -129,7 +133,7 @@ individual choose_individual(individual individuals[]){
       }
     }
   }
-  printf("BEST FITNESS: %d", chosen.fitness);
+  printf("BEST FITNESS: %d\n", chosen.fitness);
   return chosen;
 }
 
@@ -198,8 +202,12 @@ lesson create_lesson(int num){
 
 void print_skema(lesson week[]){
   int lesson_of_day = 0, day_of_week = 0, lesson_in_individual = 0, done = 0;
-  printf("Mandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
-  printf("-------------------------------------------------------------------------\n");
+  printf("Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
+  printf("------------------------------------------------------------------------------------------------\n");
+  /* printing the first time */
+  printf(" 8.00 -  8.45  |\t");
+
+  /* Printing the skema */
   while (!done){
     /* Making the next number for the lesson */
     lesson_in_individual = (LESSONS_PER_DAY_MAX*day_of_week)+lesson_of_day;
@@ -218,6 +226,28 @@ void print_skema(lesson week[]){
         printf("\n");
       }
       printf("\n");
+
+      if(lesson_of_day == 1){
+        printf(" 8.45 -  9.30  |\t");
+      }
+      else if(lesson_of_day == 2){
+        printf(" 9.50 - 10.35  |\t");
+      }
+      else if(lesson_of_day == 3){
+        printf("10.35 - 11.20  |\t");
+      }
+      else if(lesson_of_day == 4){
+        printf("11.50 - 12.35  |\t");
+      }
+      else if(lesson_of_day == 5){
+        printf("12.35 - 13.20  |\t");
+      }
+      else if(lesson_of_day == 6){
+        printf("13.30 - 14.15  |\t");
+      }
+      else if(lesson_of_day == 7){
+        printf("14.15 - 15.00  |\t");
+      }
     }
 
     /* If all the lessons has printed, then break the while */
@@ -268,7 +298,7 @@ void print_lesson(lesson l){
   printf("*------------+------------+------------+------------+------------+------------*\n");
   printf("| 9.50-10.35 |JC TYSK     |AC MAT      |RA GEO      |AC MAT      |SP DANSK    |\n");
   printf("*------------+------------+------------+------------+------------+------------*\n");
-  printf("|10.45-11.20 |SL SAM      |AC MAT      |RA GEO      |MM HIS      |SP DANSK    |\n");
+  printf("|10.35-11.20 |SL SAM      |AC MAT      |RA GEO      |MM HIS      |SP DANSK    |\n");
   printf("*------------+------------+------------+------------+------------+------------*\n");
   printf("|11.20-11.50 |Pause       |Pause       |Pause       |Pause       |Pause       |\n");
   printf("*------------+------------+------------+------------+------------+------------*\n");
