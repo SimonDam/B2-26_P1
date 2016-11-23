@@ -46,10 +46,10 @@
   year   = {1984},
 }
 
-@Article{,
+@Article{Canady1995,
   author = {Canady, Robert Lynn and Rettig, Michael D. Rettig},
   title  = {The Power of Innovative Scheduling},
   year   = {1995},
 }
 
-@Comment{jabref-meta: databaseType:bibtex;}
+@Comment{jabref-meta: databaseType:biblatex;}
