@@ -9,6 +9,7 @@
 #define LESSONS_PER_DAY_MAX 8
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
 #define NUMBER_OF_DIFFERENT_LESSONS 13
+#define NUMBER_OF_INDIVIDUALS 10
 
 /*
 #define LESSONS_DAN 7
@@ -36,10 +37,19 @@ struct lesson{
   char lesson_name[LESSON_NAME_MAX];
 };
 
-void create_individual(int individual[]);
-void calculate_fitness(int individual[], int *fitness);
+typedef struct individual individual;
+struct individual{
+  int individual_num[LESSONS_PER_WEEK_MAX];
+  int fitness;
+};
+
+void create_individuals(individual individuals[]);
+individual create_individual();
+individual choose_individual(individual individuals[]);
+void calculate_fitness_all(individual individuals[]);
+void calculate_fitness_one(individual *indi);
 void print_skema(lesson week[]);
-void create_skema(lesson week[], int individual[]);
+void create_skema(lesson week[], individual indi);
 lesson create_lesson(int num);
 void print_lesson(lesson l);
 void print_lesson_teacher(lesson l);
@@ -47,48 +57,87 @@ void print_lesson_teacher(lesson l);
 /***************************MAIN******************************/
 int main(void){
   lesson week[LESSONS_PER_WEEK_MAX];
-  int individual[LESSONS_PER_WEEK_MAX];
-  int fitness = 0;
+  individual chosen_individual;
+  individual individuals[NUMBER_OF_INDIVIDUALS];
+  
   srand(time(NULL));
 
-  create_individual(individual);
-  calculate_fitness(individual, &fitness);
+  create_individuals(individuals);
+  calculate_fitness_all(individuals);
 
-  printf("Fitness: %d \n\n", fitness);
+  chosen_individual = choose_individual(individuals);
+  printf("Fitness: %d \n\n", chosen_individual.fitness);
 
-  create_skema(week, individual);
+  create_skema(week, chosen_individual);
   print_skema(week);
 
   return 0;
 }
 /**************************************************************/
 
-void create_individual(int individual[]){
+void create_individuals(individual individuals[]){
+  for (int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    individuals[i] = create_individual();
+  }
+}
+
+individual create_individual(){
+  individual result;
   /* Creating the individual */
   /* Makring it random */
-  individual[0] = 1;
-  individual[1] = 1;
-  individual[2] = 1;
-  individual[3] = 1;
+  result.individual_num[0] = mat;
+  result.individual_num[1] = mat;
+  result.individual_num[2] = mat;
+  result.individual_num[3] = mat;
   for(int i = 4; i < LESSONS_PER_WEEK_MAX; i++){
-    individual[i] = rand() % NUMBER_OF_DIFFERENT_LESSONS;
+    result.individual_num[i] = rand() % NUMBER_OF_DIFFERENT_LESSONS;
+  }
+
+  return result;
+}
+
+void calculate_fitness_all(individual individuals[]){
+  for (int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    calculate_fitness_one(&(individuals[i]));
   }
 }
 
-void calculate_fitness(int individual[], int *fitness){
+void calculate_fitness_one(individual *indi){
+  /* Reset the fitness */
+  indi->fitness = 0;
+
   /* Lessons in row (breaks counts as a lesson)*/
   for (int i = 0; i < LESSONS_PER_WEEK_MAX; i = i +2){
-    if (individual[i] == individual[i+1]){
-      *fitness = *fitness + FITNESS_LESSONS_IN_ROW;
+    if (indi->individual_num[i] == indi->individual_num[i+1]){
+      indi->fitness = indi->fitness + FITNESS_LESSONS_IN_ROW;
     }
   }
+
+  /* printing the fitness for testing */
+  printf("Fitness: %d\n", indi->fitness);
 }
 
-void create_skema(lesson week[], int individual[]){
+individual choose_individual(individual individuals[]){
+  individual chosen;
+  chosen.fitness = 0;
+
+  for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    if (individuals[i].fitness > chosen.fitness){
+      chosen.fitness = individuals[i].fitness;
+      for(int j = 0; j < LESSONS_PER_WEEK_MAX; j++){
+        chosen.individual_num[j] = individuals[i].individual_num[j];
+      }
+    }
+  }
+  printf("BEST FITNESS: %d", chosen.fitness);
+  return chosen;
+}
+
+void create_skema(lesson week[], individual indi){
   int lesson_now = 0;
   /* Creating the skema based on the individual */
   for(int i = 0; i < LESSONS_PER_WEEK_MAX; i++){
-    week[i] = create_lesson(individual[i]);
+    week[i] = create_lesson(indi.individual_num[i]);
   }
 }
 
