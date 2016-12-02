@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <assert.h>
 
 #define LESSON_NAME_MAX 12
 #define SCHOOL_DAYS_IN_WEEK 5
@@ -25,6 +26,7 @@ typedef struct individual individual;
 struct individual{
   int individual_num[LESSONS_PER_WEEK_MAX];
   int fitness;
+  int grade;
 };
 
 void create_individuals(individual individuals[]);
@@ -38,6 +40,11 @@ lesson create_lesson(int num, char teachers_names[]);
 void print_lesson(lesson l);
 void print_lesson_teacher(lesson l);
 void make_teachers_names(FILE *teachers, char teachers_names[]);
+individual merge_individuals(individual individualA, individual individualB);
+void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2);
+int complete_missing_day(individual * incomplete_individual);
+
+
 
 /***************************MAIN******************************/
 int main(void){
@@ -363,7 +370,111 @@ void print_lesson(lesson l){
   printf("*------------+------------+------------+------------+------------+------------*\n");
 */
 
+
+
+/* child solution is created by using 2 random days from parrent A, 2 random days from parrent B and then filling in the last day so the required
+   ammount of lesson for each class is met */
+
 individual merge_individuals(individual individualA, individual individualB){
+
+  individual new_individual;
+
+  new_individual.grade = individualA.grade;
+
+  int i;
+
+  /* resets all lessons in the new individual */
+
+  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
+
+    new_individual.individual_num[i] = -1;
+  }
+
+  srand(time(NULL));  /* ############# SKAL VI GØRE DETTE I HVER FUNKTION, DEN SKAL BRUGES?. ELLER KAN DET GØRES GLOBALT? ################# */ 
+
+  /* First, two days (1-5) are picked from both parrents, making sure that no parrents deliver the same day */
+
+  int dayA1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  int dayA2;
+
+  do
+  dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  while(dayA2 == dayA1);
+
+  insert_new_days(&new_individual, individualA, dayA1, dayA2);
+
+  int dayB1, dayB2;
+
+  do
+  dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  while(dayB1 == dayA1 || dayB1 == dayA2);
+
+  do
+  dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  while(dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
+
+  insert_new_days(&new_individual, individualB, dayB1, dayB2);
+
+  int test = complete_missing_day(&new_individual);
+
+  if(!test)
+    merge_individuals(individualA, individualB);
+
+
+
+
+// LESSONS_PER_DAY_MAX
+// SCHOOL_DAYS_IN_WEEK
+// LESSONS_PER_WEEK_MAX
+}
+
+void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2){
+
+  int count1 = (LESSONS_PER_DAY_MAX * day1) - LESSONS_PER_DAY_MAX;
+  int count2 = (LESSONS_PER_DAY_MAX * day2) - LESSONS_PER_DAY_MAX;
+
+  int i;
+
+  for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+
+    dest_individual->individual_num[count1] = deliver_individual.individual_num[count1];
+    dest_individual->individual_num[count2] = deliver_individual.individual_num[count2];
+
+    count1++;
+    count2++;
+
+  }
+}
+
+int complete_missing_day(individual * incomplete_individual){
+
+  int i;
+
+  int count = -1;
+
+  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
+
+    if(incomplete_individual->individual_num[i] == -1){
+
+      count = i;
+      break;
+    }
+  }
+
+  assert(count != -1);
+
+  int danish_reg, english_req, language_reg, history_req, religion_req, 
+      socialstudies_req, math_reg, geography_reg, biology_req, gym_rec,
+      crafting_req, elective_reg;
+
+  switch(incomplete_individual.grade){
+
+    case 7:
+    
+    case 8:
+
+    case 9:
+  }
 
 
 }
