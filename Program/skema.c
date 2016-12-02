@@ -306,12 +306,12 @@ void print_skema(lesson week[]){
     }
   }
 }
-
-void print_lesson_teacher(lesson l){
-  printf("%s",l.teacher_name);
-  for(int i = 0; i < TEACHER_NAME_MAX - strlen(l.teacher_name); i++){
-    printf(" ");
-  }
+                                                                              
+void print_lesson_teacher(lesson l){                                           // KOMMENTAR TIL OS SELV
+  printf("%s",l.teacher_name);                                                 // hvis vi går ud fra at størrelsen på lærernavn er standard, kan vi lave printf som
+  for(int i = 0; i < TEACHER_NAME_MAX - strlen(l.teacher_name); i++){          //  printf("%-4s",l.teacher_name); og så er for loopet helt unødvendigt. Det samme 
+    printf(" ");                                                               //  gælder i funktionen nedenunder - Malthe
+  }                                                                            
 }
 
 void print_lesson(lesson l){
@@ -362,3 +362,8 @@ void print_lesson(lesson l){
   printf("|14.15-15.00 |SP VALG1    |FRI         |RA FYS      |MMJ REL     |SP ENG      |\n");
   printf("*------------+------------+------------+------------+------------+------------*\n");
 */
+
+individual merge_individuals(individual individualA, individual individualB){
+
+
+}
