@@ -42,7 +42,7 @@ void print_lesson_teacher(lesson l);
 void make_teachers_names(FILE *teachers, char teachers_names[]);
 individual merge_individuals(individual individualA, individual individualB);
 void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2);
-int complete_missing_day(individual * incomplete_individual);
+void complete_missing_day(individual * incomplete_individual);
 
 
 
@@ -415,10 +415,9 @@ individual merge_individuals(individual individualA, individual individualB){
 
   insert_new_days(&new_individual, individualB, dayB1, dayB2);
 
-  int test = complete_missing_day(&new_individual);
+  complete_missing_day(&new_individual);
 
-  if(!test)
-    merge_individuals(individualA, individualB);
+  return new_individual;
 
 
 
@@ -446,7 +445,7 @@ void insert_new_days(individual * dest_individual, individual deliver_individual
   }
 }
 
-int complete_missing_day(individual * incomplete_individual){
+void complete_missing_day(individual * incomplete_individual){
 
   int i;
 
