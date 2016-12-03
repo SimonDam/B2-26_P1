@@ -14,7 +14,7 @@
 
 #define FITNESS_LESSONS_IN_ROW 10
 
-enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel};
+enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel, hda};
 
 typedef struct lesson lesson;
 struct lesson{
@@ -463,18 +463,127 @@ int complete_missing_day(individual * incomplete_individual){
 
   assert(count != -1);
 
-  int danish_reg, english_req, language_reg, history_req, religion_req, 
-      socialstudies_req, math_reg, geography_reg, biology_req, gym_rec,
-      crafting_req, elective_reg;
+  int danish_req, math_req, english_req, language_req, physics_req, history_req, religion_req, 
+      socialstudies_req, geography_req, biology_req, gym_req,
+      crafting_req, elective_req;
 
-  switch(incomplete_individual.grade){
+  switch(incomplete_individual->grade){
 
     case 7:
-    
+    /* Indstil kravet for hver klasse til hver lektion */
+      break;
     case 8:
-
+      break;
     case 9:
+      break;
+    default:
+      printf("error \n");
+      exit(0);
   }
 
+  for(i = 0; i < LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i++){
+
+    switch(incomplete_individual->individual_num[i]){
+
+      case dan:
+        danish_req--;
+        break;
+      case mat:
+        math_req--;
+        break;
+      case eng:
+        english_req--;
+        break;
+      case tys:
+        language_req--;
+        break;
+      case fys:
+        physics_req--;
+        break;
+      case his:
+        history_req--;
+        break;
+      case sam:
+        socialstudies_req--;
+        break;
+      case valg:
+        socialstudies_req--;
+        break;
+      case geo:
+        geography_req--;
+        break;
+      case bio:
+        biology_req--;
+        break;
+      case gym:
+        gym_req--;
+        break;
+      case fri:
+        break;
+      case rel:
+        religion_req--;
+        break;
+      case hda:
+        crafting_req--;
+        break;
+    }
+  }
+
+  for(i = LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i < LESSONS_PER_WEEK_MAX; i++){
+
+    if(danish_req > 0){
+      incomplete_individual->individual_num[i] = dan;
+      danish_req--;
+    }
+    if(english_req > 0){
+      incomplete_individual->individual_num[i] = eng;
+      english_req--;
+    }
+    if(language_req > 0){
+      incomplete_individual->individual_num[i] = tys;
+      language_req--;
+    }
+    if(history_req > 0){
+      incomplete_individual->individual_num[i] = his;
+      history_req--;
+    }
+    if(religion_req > 0){
+      incomplete_individual->individual_num[i] = rel;
+      religion_req--;
+    }
+    if(socialstudies_req > 0){
+      incomplete_individual->individual_num[i] = sam;
+      socialstudies_req--;
+    }
+    if(math_req > 0){
+      incomplete_individual->individual_num[i] = mat;
+      math_req--;
+    }
+    if(geography_req > 0){
+      incomplete_individual->individual_num[i] = geo;
+      geography_req--;
+    }
+    if(physics_req > 0){
+      incomplete_individual->individual_num[i] = fys;
+      physics_req--;
+    }
+    if(biology_req > 0){
+      incomplete_individual->individual_num[i] = bio;
+      biology_req--;
+    }
+    if(crafting_req > 0){
+      incomplete_individual->individual_num[i] = hda;
+      crafting_req--;
+    }
+    if(elective_req > 0){
+      incomplete_individual->individual_num[i] = valg;
+      elective_req--;
+    }
+    if(gym_req > 0){
+      incomplete_individual->individual_num[i] = gym;
+      gym_req--;
+    }
+
+  }
 
 }
