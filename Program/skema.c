@@ -24,7 +24,7 @@ struct lesson{
 
 typedef struct individual individual;
 struct individual{
-  int individual_num[LESSONS_PER_WEEK_MAX];
+  int individual_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
   int grade;
 };
@@ -160,13 +160,9 @@ void calculate_fitness_all(individual individuals[]){
 void calculate_fitness_one(individual *indi){
   /* Reset the fitness */
   indi->fitness = 0;
+  
 
-  /* Lessons in row (breaks counts as a lesson)*/
-  for (int i = 0; i < LESSONS_PER_WEEK_MAX; i = i + 2){
-    if (indi->individual_num[i] == indi->individual_num[i+1]){
-      indi->fitness = indi->fitness + FITNESS_LESSONS_IN_ROW;
-    }
-  }
+  
 }
 
 individual choose_individual(individual individuals[]){
