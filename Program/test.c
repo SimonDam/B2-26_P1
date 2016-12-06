@@ -37,7 +37,6 @@ struct teacher{
   int number_of_lessons;
 };
 
-
 int find_number_of_teachers();
 void make_teachers_names(FILE *teachers, char teachers_names[]);
 void create_individuals(individual individuals[]);
@@ -53,6 +52,10 @@ lesson create_lesson(int num, char teachers_names[]);
 void print_skema(lesson week[][SCHOOL_DAYS_IN_WEEK]);
 void print_lesson_teacher(lesson l);
 void print_lesson(lesson l);
+
+individual merge_individuals(individual individualA, individual individualB);
+void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2);
+void complete_missing_day(individual * incomplete_individual);
 
 /***************************MAIN******************************/
 int main(void){
@@ -105,15 +108,14 @@ int main(void){
 }
 /**************************************************************/
 
-
 int find_number_of_teachers(){                                          
   FILE *teacher_file = fopen("teacherinfo.txt", "r");
   int i = 0;    
   char str[200];
   if(teacher_file == NULL){
-  perror("Error the file is empty");
-  fclose(teacher_file);
-  return -1; 
+    perror("Error the file is empty");
+    fclose(teacher_file);
+    return -1; 
   }
   while(!feof(teacher_file)){
     fgets(str, DEFAULT_LENGTH_STRING, teacher_file); 
@@ -122,7 +124,6 @@ int find_number_of_teachers(){
   fclose(teacher_file);
   return i; 
 }
-
 
 void make_teachers_names(FILE *teachers, char teachers_names[]){
   char temp_name[TEACHER_NAME_MAX];
@@ -191,12 +192,13 @@ void calculate_fitness_one(individual *indi){
 
   /* Lessons in row (breaks counts as a lesson)*/
   for (int j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-    for(int i = 0; i < LESSONS_PER_DAY_MAX; i += 2)
+    for(int i = 0; i < LESSONS_PER_DAY_MAX; i += 2){
       if (indi->individual_num[i][j] == indi->individual_num[i+1][j]){
         indi->fitness = indi->fitness + FITNESS_LESSONS_IN_ROW;
       }
     }
   }
+}
 
 individual choose_individual(individual individuals[]){
   individual chosen;
@@ -218,7 +220,6 @@ individual choose_individual(individual individuals[]){
   printf("BEST FITNESS: %d\n", chosen.fitness);
   return chosen;
 }
-
 
 void create_skema(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]){
   int lesson_now = 0;
@@ -349,11 +350,17 @@ void print_skema(lesson week[][SCHOOL_DAYS_IN_WEEK]){
     }
   }
 }
-                                                                              
-void print_lesson_teacher(lesson l){                                           // KOMMENTAR TIL OS SELV
-  printf("%s",l.teacher_name);                                                 // hvis vi går ud fra at størrelsen på lærernavn er standard, kan vi lave printf som
-  for(int i = 0; i < TEACHER_NAME_MAX - strlen(l.teacher_name); i++){          //  printf("%-4s",l.teacher_name); og så er for loopet helt unødvendigt. Det samme 
-    printf(" ");                                                               //  gælder i funktionen nedenunder - Malthe
+
+/* KOMMENTAR TIL OS SELV */
+/* hvis vi går ud fra at størrelsen på lærernavn er standard, kan vi lave printf som */
+/* KOMMENTAR TIL OS SELV */
+/* printf("%-4s",l.teacher_name); og så er for loopet helt unødvendigt. Det samme */
+/* gælder i funktionen nedenunder - Malthe */
+
+void print_lesson_teacher(lesson l){
+  printf("%s",l.teacher_name);
+  for(int i = 0; i < TEACHER_NAME_MAX - strlen(l.teacher_name); i++){
+    printf(" ");
   }                                                                            
 }
 
@@ -361,5 +368,236 @@ void print_lesson(lesson l){
   printf("%s",l.lesson_name);
   for(int i = 0; i < LESSON_NAME_MAX-strlen(l.lesson_name); i++){
     printf(" ");
+  }
+}
+
+/*
+  Et rigtigt skoleskema fra 9. - 36timer i alt om ugen
+  7 dan     - 3*2 er sammen 1 for sig selv
+  5 mat     - 1*2 er sammen 3 for sig selv
+  4 eng     - 2*2 er sammen
+  4 tysk    - ingen sammenhængende
+  3 fys     - 1*2 er sammen 1 for sig selv
+  2 his     - ingen sammenhængende
+  2 sam     - ingen sammenhængende
+  2 valg    - 1*2 er sammen
+  2 geo     - 1*2 er sammen
+  2 bio     - 1*2 er sammen
+  2 gym     - 1*2 er sammen
+  1 rel     - ingen sammenhængende
+
+  printf("*------------*------------*------------*------------*------------*------------*\n");
+  printf("|            |Mandag      |Tirsdag     |Onsdag      |Torsdag     |Fredag      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("| 8.00- 8.45 |SP ENG      |SP VALG2    |SCI BIO     |AH IDR GYM  |FRI         |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("| 8.45- 9.30 |SP ENG      |SP VALG2    |SCI BIO     |AH IDR GYM  |MM HIS      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("| 9.30- 9.50 |Pause       |Pause       |Pause       |Pause       |Pause       |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("| 9.50-10.35 |JC TYSK     |AC MAT      |RA GEO      |AC MAT      |SP DANSK    |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|10.35-11.20 |SL SAM      |AC MAT      |RA GEO      |MM HIS      |SP DANSK    |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|11.20-11.50 |Pause       |Pause       |Pause       |Pause       |Pause       |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|11.50-12.35 |SP DANSK    |RA FYS      |SP DANSK    |SP DANSK    |SL SAM      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|12.35-13.20 |SP DANSK    |RA FYS      |AC MAT      |SP DANSK    |AC MAT      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|13.20-13.30 |Pause       |Pause       |Pause       |Pause       |Pause       |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|13.30-14.15 |SP VALG1    |JC TYSK     |JC TYSK     |JC TYSK     |SP ENG      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+  printf("|14.15-15.00 |SP VALG1    |FRI         |RA FYS      |MMJ REL     |SP ENG      |\n");
+  printf("*------------+------------+------------+------------+------------+------------*\n");
+*/
+
+/* child solution is created by using 2 random days from parrent A, 2 random days from parrent B and then filling in the last day so the required
+   ammount of lesson for each class is met */
+
+individual merge_individuals(individual individualA, individual individualB){
+  individual new_individual;
+  new_individual.grade = individualA.grade;
+  int i;
+
+  /* resets all lessons in the new individual */
+  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
+    new_individual.individual_num[i] = -1;
+  }
+
+  /* First, two days (1-5) are picked from both parrents, making sure that no parrents deliver the same day */
+
+  int dayA1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  int dayA2;
+
+  do {
+    dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while (dayA2 == dayA1);
+
+  insert_new_days(&new_individual, individualA, dayA1, dayA2);
+
+  int dayB1, dayB2;
+
+  do {
+    dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while (dayB1 == dayA1 || dayB1 == dayA2);
+
+  do {
+    dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while (dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
+
+  insert_new_days(&new_individual, individualB, dayB1, dayB2);
+  complete_missing_day(&new_individual);
+  return new_individual;
+
+  /* LESSONS_PER_DAY_MAX */
+  /* SCHOOL_DAYS_IN_WEEK */
+  /* LESSONS_PER_WEEK_MAX */
+}
+
+void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2){
+  int count1 = (LESSONS_PER_DAY_MAX * day1) - LESSONS_PER_DAY_MAX;
+  int count2 = (LESSONS_PER_DAY_MAX * day2) - LESSONS_PER_DAY_MAX;
+
+  int i;
+  for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+    dest_individual->individual_num[count1] = deliver_individual.individual_num[count1];
+    dest_individual->individual_num[count2] = deliver_individual.individual_num[count2];
+
+    count1++;
+    count2++;
+  }
+}
+
+void complete_missing_day(individual * incomplete_individual){
+  int i;
+  int count = -1;
+
+  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
+    if(incomplete_individual->individual_num[i] == -1){
+      count = i;
+      break;
+    }
+  }
+
+  assert(count != -1);
+
+  int danish_req, math_req, english_req, language_req, physics_req, history_req, religion_req, 
+      socialstudies_req, geography_req, biology_req, gym_req,
+      crafting_req, elective_req;
+
+  switch(incomplete_individual->grade){
+    case 7:
+    /* Indstil kravet for hver klasse til hver lektion */
+      break;
+    case 8:
+      break;
+    case 9:
+      break;
+    default:
+      printf("error \n");
+      exit(0);
+  }
+
+  for(i = 0; i < LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i++){
+    switch(incomplete_individual->individual_num[i]){
+      case dan:
+        danish_req--;
+        break;
+      case mat:
+        math_req--;
+        break;
+      case eng:
+        english_req--;
+        break;
+      case tys:
+        language_req--;
+        break;
+      case fys:
+        physics_req--;
+        break;
+      case his:
+        history_req--;
+        break;
+      case sam:
+        socialstudies_req--;
+        break;
+      case valg:
+        socialstudies_req--;
+        break;
+      case geo:
+        geography_req--;
+        break;
+      case bio:
+        biology_req--;
+        break;
+      case gym:
+        gym_req--;
+        break;
+      case fri:
+        break;
+      case rel:
+        religion_req--;
+        break;
+      case hda:
+        crafting_req--;
+        break;
+    }
+  }
+
+  for(i = LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i < LESSONS_PER_WEEK_MAX; i++){
+    if(danish_req > 0){
+      incomplete_individual->individual_num[i] = dan;
+      danish_req--;
+    }
+    if(english_req > 0){
+      incomplete_individual->individual_num[i] = eng;
+      english_req--;
+    }
+    if(language_req > 0){
+      incomplete_individual->individual_num[i] = tys;
+      language_req--;
+    }
+    if(history_req > 0){
+      incomplete_individual->individual_num[i] = his;
+      history_req--;
+    }
+    if(religion_req > 0){
+      incomplete_individual->individual_num[i] = rel;
+      religion_req--;
+    }
+    if(socialstudies_req > 0){
+      incomplete_individual->individual_num[i] = sam;
+      socialstudies_req--;
+    }
+    if(math_req > 0){
+      incomplete_individual->individual_num[i] = mat;
+      math_req--;
+    }
+    if(geography_req > 0){
+      incomplete_individual->individual_num[i] = geo;
+      geography_req--;
+    }
+    if(physics_req > 0){
+      incomplete_individual->individual_num[i] = fys;
+      physics_req--;
+    }
+    if(biology_req > 0){
+      incomplete_individual->individual_num[i] = bio;
+      biology_req--;
+    }
+    if(crafting_req > 0){
+      incomplete_individual->individual_num[i] = hda;
+      crafting_req--;
+    }
+    if(elective_req > 0){
+      incomplete_individual->individual_num[i] = valg;
+      elective_req--;
+    }
+    if(gym_req > 0){
+      incomplete_individual->individual_num[i] = gym;
+      gym_req--;
+    }
   }
 }
