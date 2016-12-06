@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  6 DEC 2016 10:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  6 DEC 2016 12:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -792,33 +792,41 @@ Package biblatex Info: ... file 'core.bbl' found.
 Package biblatex Info: Reference section=0 on input line 17.
 Package biblatex Info: Reference segment=0 on input line 17.
  (./partials/body.tex (./partials/chapters/indledning.tex)
-Overfull \hbox (4.03386pt too wide) in paragraph at lines 9--3
+Overfull \hbox (4.03386pt too wide) in paragraph at lines 6--3
 []\OT1/cmr/m/n/10.95 "Hvilke parame-tre tages der h^^\jde for n^^War der plan-l
 ^^Zgges skoleskema i folkeskol-erne, og hvorledes
  []
 
-(./partials/chapters/skemaetsopbygning.tex)) (./partials/footer.tex [1
+(./partials/chapters/problemanalyse.tex)
+(./partials/chapters/skemaetsopbygning.tex)
+(./partials/chapters/lovmessigekrav.tex [1
 
-{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [2] (./core.au
-x)
+{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./partials/ch
+apters/casestudy.tex [2])
+(./partials/chapters/interresentanalyse.tex [3])
+(./partials/chapters/delkonklusion.tex) [4]
+(./partials/chapters/problemafgrensning.tex)
+(./partials/chapters/problemformulering.tex)
+(./partials/chapters/designovervejelser.tex)) (./partials/footer.tex [5])
+[6] (./core.aux)
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 9571 strings out of 493013
- 160458 string characters out of 6136992
- 440409 words of memory out of 5000000
+ 9595 strings out of 493013
+ 161192 string characters out of 6136992
+ 443409 words of memory out of 5000000
  13006 multiletter control sequences out of 15000+600000
  5150 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,4n,45p,837b,1465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,4n,45p,1556b,1465s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on core.pdf (2 pages, 37290 bytes).
+Output written on core.pdf (6 pages, 54645 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
- 12 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
