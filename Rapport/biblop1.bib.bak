@@ -52,4 +52,50 @@
   year   = {1995},
 }
 
-@Comment{jabref-meta: databaseType:biblatex;}
+@Online{Winston2014,
+  author = {Patrick Winston},
+  title  = {13. Learning: Genetic Algorithms},
+  year   = {2014},
+  date   = {2014/01/10},
+  url    = {https://www.youtube.com/watch?v=kHyNqSnzP8Y},
+}
+
+@Online{tutorialspoint,
+  title = {Genetic Algorithms - Fitness Function},
+  url   = {https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_fitness_function.htm},
+}
+
+@Online{timefolke2016,
+  title = {Undervisningstimetal i folkeskolen},
+  url   = {https://www.uvm.dk/Service/Statistik/Statistik-om-folkeskolen-og-frie-skoler/Statistik-om-elever-i-folkeskolen-og-frie-skoler/Statistik-om-undervisningstimetal-i-folkeskolen?allowCookies=on},
+}
+
+@Online{lov2016,
+  title = {Bekendtgørelse af lov om folkeskolen},
+  year  = {2016},
+  date  = {2016/06/20},
+  url   = {https://www.retsinformation.dk/forms/r0710.aspx?id=182008},
+}
+
+@Online{timetal2016,
+  title = {Timetal},
+  year  = {2016},
+  date  = {2016/05/11},
+  url   = {https://www.uvm.dk/Uddannelser/Folkeskolen/Fag-timetal-og-overgange/Timetal},
+}
+
+@Online{timeskema2016,
+  title = {Timetal (minimumstimetal og vejledende timetal) for fagene i folkeskolen},
+  url   = {https://www.uvm.dk/-/media/UVM/Filer/Udd/Folke/PDF15/Juli/150710-Timetalsskema_PDF.ashx?la=da},
+}
+
+@Online{Ebbesen2015,
+  author = {Ebbesen, Vilhelm},
+  title  = {tabulex 2015 SKEMALÆGNING},
+  year   = {2015},
+  url    = {http://docplayer.dk/3713728-Tabulex-2015-skemalaegning.html},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-entrytype: Online: req[author/editor;title;year/date;url] opt[subtitle;titleaddon;note;organization;urldate;language;version;month;addendum;pubstate]}
