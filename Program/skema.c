@@ -45,9 +45,29 @@ struct teacher{
   char teacher_name[TEACHER_NAME_MAX];
   char lesson_name[LESSON_NAME_MAX];
   int number_of_lessons;
+  char class_name[TEACHER_NAME_MAX];
+};
+
+typedef struct requirements reqs;
+struct requirements{
+  int Dan_reg;
+  int Mat_reg;
+  int Eng_reg;
+  int Tys_reg;
+  int Fys_reg;
+  int His_reg;
+  int Sam_reg;
+  int Val_reg;
+  int Geo_reg;
+  int Bio_reg;
+  int Gym_reg;
+  int Fri_reg;
+  int Rel_reg;
 };
 
 int find_number_of_teachers();
+void read_teachers_name(teacher teacher_data[], int number_teachers);
+reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher);
 void make_teachers_names(FILE *teachers, char teachers_names[]);
 void create_individuals(individual individuals[]);
 individual create_individual();
@@ -79,6 +99,8 @@ int main(void){
   memset(teachers_names, '\0', TEACHER_NAME_MAX * NUMBER_OF_DIFFERENT_LESSONS);
   make_teachers_names(teachers, teachers_names);
   fclose(teachers);
+
+  int number_of_teacher;
 
   /* init general stuff */
   int H_fag[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
@@ -122,6 +144,12 @@ int main(void){
   individual chosen_individual7c;
   individual individuals7c[NUMBER_OF_INDIVIDUALS];
 
+  /*teacherinfo*/
+  teacher *teacher_data;
+  /*Finds number of teacher and reads in info*/
+  number_of_teacher = find_number_of_teachers();
+  teacher_data = (teacher*)calloc(number_of_teacher, sizeof(teacher));
+  read_teachers_name(teacher_data, number_of_teacher);
 
   /* Init genetic algorithem */
   srand(time(NULL));
@@ -195,7 +223,7 @@ int main(void){
     chosen_individual7c = choose_individual(individuals7c);
 
     printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual9a.fitness, chosen_individual9b.fitness, chosen_individual9c.fitness, chosen_individual8a.fitness, chosen_individual8b.fitness, chosen_individual8c.fitness, chosen_individual7a.fitness, chosen_individual7b.fitness, chosen_individual7c.fitness);
-
+  
   }
 
   /* Get the best */
@@ -244,7 +272,6 @@ int main(void){
   create_skema(week7c, chosen_individual7c, teachers_names);
   print_skema(week7c);
   printf("\n\n");
-
   return 0;
 }
 /**************************************************************/
@@ -319,6 +346,79 @@ int find_number_of_teachers(){
   }
   fclose(teacher_file);
   return i; 
+}
+
+void read_teachers_name(teacher teacher_data[], int number_teachers){
+
+ FILE *teacherinfo = fopen("teacherinfo.txt", "r");
+  if(teacherinfo == NULL){
+  perror("Error the file is empty");
+  fclose(teacherinfo);
+  }
+  teacher local_teacher_data;
+  int i = 0;
+  while(i < number_teachers){
+    fscanf(teacherinfo,
+    " %s "
+    "%s "
+    "%d "
+    "%s ",
+    local_teacher_data.teacher_name, 
+    local_teacher_data.lesson_name, 
+    &local_teacher_data.number_of_lessons, 
+    local_teacher_data.class_name);
+
+    teacher_data[i] = local_teacher_data; 
+    i++;
+  }
+  fclose(teacherinfo);
+}
+
+reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher){
+
+  reqs local_req;
+  int i = 0;
+  local_req.Dan_reg = 0;
+  for(i = 0; i < number_of_teacher; i ++){
+    if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Dan", teacher_data[i].lesson_name) == 0){
+      local_req.Dan_reg = teacher_data[i].number_of_lessons;
+      printf("%d \n ", local_req.Dan_reg);
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Mat", teacher_data[i].lesson_name) == 0){
+      local_req.Mat_reg = teacher_data[i].number_of_lessons;
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Eng", teacher_data[i].lesson_name) == 0){
+      local_req.Eng_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Tys", teacher_data[i].lesson_name) == 0){
+      local_req.Tys_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fys", teacher_data[i].lesson_name) == 0){
+      local_req.Fys_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("His", teacher_data[i].lesson_name) == 0){
+      local_req.His_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Val", teacher_data[i].lesson_name) == 0){
+      local_req.Val_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Geo", teacher_data[i].lesson_name) == 0){
+      local_req.Geo_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Bio", teacher_data[i].lesson_name) == 0){
+      local_req.Bio_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Gym", teacher_data[i].lesson_name) == 0){
+      local_req.Gym_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Rel", teacher_data[i].lesson_name) == 0){
+      local_req.Rel_reg = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fri", teacher_data[i].lesson_name) == 0){
+      local_req.Fri_reg = teacher_data[i].number_of_lessons;  
+    }
+  }
+  return local_req;
 }
 
 void make_teachers_names(FILE *teachers, char teachers_names[]){
