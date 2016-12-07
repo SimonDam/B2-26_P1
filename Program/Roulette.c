@@ -11,9 +11,11 @@ individual pick_individual(individual individuals[]){
     sum += individuals[i].fitness;
   }
 
+  int field = rand() % sum;
+
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
 
-    if(sum < individuals[i].fitness){
+    if(field < individuals[i].fitness){
 
       return individuals[i];
     }
