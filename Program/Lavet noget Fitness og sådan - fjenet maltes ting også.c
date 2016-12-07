@@ -13,11 +13,11 @@
 #define NUMBER_OF_INDIVIDUALS 100
 #define DEFAULT_LENGTH_STRING 200
 #define LESSON_OVER_MIDDAY 4
-#define NUMBER_OF_HEAVY_LESSONS 4
+#define NUMBER_OF_HEAVY_LESSONS 5
 
-#define FITNESS_LESSONS_IN_ROW 1
-#define FITNESS_PARALEL_CLASS 5
-#define FITNESS_HEAVY_LESSONS -50
+#define FITNESS_LESSONS_IN_ROW 20
+#define FITNESS_PARALEL_CLASS 50
+#define FITNESS_HEAVY_LESSONS -20
 #define FITNESS_FREE_IN_MIDLE -1000
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel, hda};
@@ -72,7 +72,7 @@ int main(void){
   fclose(teachers);
 
   /* init general stuff */
-  int H_fag[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan};
+  int H_fag[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
   /* init 9 */
   lesson week9a[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
@@ -279,7 +279,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
     }
   }
 
-  /* Parallel klasser - ens timer samme tid */
+  /* Parallel classes - lessons in a sync */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       if (individual_master->individual_num[i][j] == individual_other1->individual_num[i][j]){
@@ -291,7 +291,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
     }
   }
 
-  /* Tunge fag over middag  */
+  /* Heavy lessons after 11.20 is bad  */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSON_OVER_MIDDAY; i++){
       for (k = 0; k < NUMBER_OF_HEAVY_LESSONS; k++){
@@ -319,6 +319,15 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   }
 
   /* forberedsestimer */
+
+
+  /* Not too many of the same in a row */
+
+
+  /* If it is negative, change to zero */
+  if (individual_master->fitness < 0){
+    individual_master->fitness = 0;
+  }
 
   /* Printing fitness - debugging */
   printf("  \t Fit: %d", individual_master->fitness);

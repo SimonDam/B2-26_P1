@@ -16,56 +16,42 @@ struct requirements{
 };
 
 
-
-
 individual merge_individuals(individual individualA, individual individualB){
-
   individual new_individual;
-
   new_individual.grade = individualA.grade;
-
   int i, j;
 
   /* resets all lessons in the new individual */
-
   for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-
       new_individual.individual_num[j][i] = fri;
     }
   }
 
-  srand(time(NULL));  /* ############# SKAL VI GØRE DETTE I HVER FUNKTION, DEN SKAL BRUGES?. ELLER KAN DET GØRES GLOBALT? ################# */ 
+  srand(time(NULL));  /* ############# SKAL VI GØRE DETTE I HVER FUNKTION, DEN SKAL BRUGES?. ELLER KAN DET GØRES GLOBALT? ################# */
 
   /* First, two days (1-5) are picked from both parrents, making sure that no parrents deliver the same day */
-
   int dayA1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
   int dayA2;
 
-  do
-  dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  while(dayA2 == dayA1);
+  do {
+    dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while(dayA2 == dayA1);
 
   insert_new_days(&new_individual, individualA, dayA1, dayA2);
-
   int dayB1, dayB2;
 
-  do
-  dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  while(dayB1 == dayA1 || dayB1 == dayA2);
+  do {
+    dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while(dayB1 == dayA1 || dayB1 == dayA2);
 
-  do
-  dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  while(dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
+  do {
+    dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  } while(dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
 
   insert_new_days(&new_individual, individualB, dayB1, dayB2);
-
   complete_missing_day(&new_individual);
-
   return new_individual;
-
-
 
 
 // LESSONS_PER_DAY_MAX
@@ -74,34 +60,24 @@ individual merge_individuals(individual individualA, individual individualB){
 }
 
 void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2){
-
   int count1 = (LESSONS_PER_DAY_MAX * day1) - LESSONS_PER_DAY_MAX;
   int count2 = (LESSONS_PER_DAY_MAX * day2) - LESSONS_PER_DAY_MAX;
-
   int i;
 
   for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-
     dest_individual->individual_num[day1][i] = deliver_individual.individual_num[i][day1];
     dest_individual->individual_num[day2][i] = deliver_individual.individual_num[i][day2];
-
   }
 }
 
 void complete_missing_day(individual * incomplete_individual){
-
   reqs local_requirements;
-
   find_req(incomplete_individual->grade, local_requirements);
-
   int i, j;
 
   for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-
       switch(incomplete_individual->individual_num[i][j]){
-
       case dan:
         local_requirements->danish_req--;
         break;
@@ -150,9 +126,7 @@ void complete_missing_day(individual * incomplete_individual){
   }
 
   for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-
       if(local_requirements->danish_req > 0){
         incomplete_individual->individual_num[i][j] = dan;
         local_requirements->danish_req--;
@@ -207,5 +181,4 @@ void complete_missing_day(individual * incomplete_individual){
       }
     }
   }
-
 }
