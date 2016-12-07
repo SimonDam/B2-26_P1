@@ -40,11 +40,11 @@ individual merge_individuals(individual individualA, individual individualB){
 
   /* First, two days (1-5) are picked from both parrents, making sure that no parrents deliver the same day */
 
-  int dayA1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  int dayA1 = rand() % SCHOOL_DAYS_IN_WEEK;
   int dayA2;
 
   do
-  dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  dayA2 = rand() % SCHOOL_DAYS_IN_WEEK;
   while(dayA2 == dayA1);
 
   insert_new_days(&new_individual, individualA, dayA1, dayA2);
@@ -52,11 +52,11 @@ individual merge_individuals(individual individualA, individual individualB){
   int dayB1, dayB2;
 
   do
-  dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  dayB1 = rand() % SCHOOL_DAYS_IN_WEEK;
   while(dayB1 == dayA1 || dayB1 == dayA2);
 
   do
-  dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
+  dayB2 = rand() % SCHOOL_DAYS_IN_WEEK;
   while(dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
 
   insert_new_days(&new_individual, individualB, dayB1, dayB2);
@@ -75,15 +75,13 @@ individual merge_individuals(individual individualA, individual individualB){
 
 void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2){
 
-  int count1 = (LESSONS_PER_DAY_MAX * day1) - LESSONS_PER_DAY_MAX;
-  int count2 = (LESSONS_PER_DAY_MAX * day2) - LESSONS_PER_DAY_MAX;
 
   int i;
 
   for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
 
-    dest_individual->individual_num[day1][i] = deliver_individual.individual_num[i][day1];
-    dest_individual->individual_num[day2][i] = deliver_individual.individual_num[i][day2];
+    dest_individual->individual_num[i][day1] = deliver_individual.individual_num[i][day1];
+    dest_individual->individual_num[i][day2] = deliver_individual.individual_num[i][day2];
 
   }
 }
@@ -92,7 +90,7 @@ void complete_missing_day(individual * incomplete_individual){
 
   reqs local_requirements;
 
-  find_req(incomplete_individual->grade, local_requirements);
+  find_req(incomplete_individual->grade, &local_requirements);
 
   int i, j;
 
@@ -157,51 +155,51 @@ void complete_missing_day(individual * incomplete_individual){
         incomplete_individual->individual_num[i][j] = dan;
         local_requirements->danish_req--;
       }
-      if(local_requirements->english_req > 0){
+      else if(local_requirements->english_req > 0){
         incomplete_individual->individual_num[i][j] = eng;
         local_requirements->english_req--;
       }
-      if(local_requirements->language_req > 0){
+      else if(local_requirements->language_req > 0){
         incomplete_individual->individual_num[i][j] = tys;
         local_requirements->language_req--;
       }
-      if(local_requirements->history_req > 0){
-        incomplete_individual->individual_num[i][j] = his;
-        local_requirements->history_req--;
-      }
-      if(local_requirements->religion_req > 0){
-        incomplete_individual->individual_num[i][j] = rel;
-        local_requirements->religion_req--;
-      }
-      if(local_requirements->socialstudies_req > 0){
-        incomplete_individual->individual_num[i][j] = sam;
-        local_requirements->socialstudies_req--;
-      }
-      if(local_requirements->math_req > 0){
+      else if(local_requirements->math_req > 0){
         incomplete_individual->individual_num[i][j] = mat;
         local_requirements->math_req--;
       }
-      if(local_requirements->geography_req > 0){
-        incomplete_individual->individual_num[i][j] = geo;
-        local_requirements->geography_req--;
-      }
-      if(local_requirements->physics_req > 0){
+      else if(local_requirements->physics_req > 0){
         incomplete_individual->individual_num[i][j] = fys;
         local_requirements->physics_req--;
       }
-      if(local_requirements->biology_req > 0){
+      else if(local_requirements->history_req > 0){
+        incomplete_individual->individual_num[i][j] = his;
+        local_requirements->history_req--;
+      }
+      else if(local_requirements->religion_req > 0){
+        incomplete_individual->individual_num[i][j] = rel;
+        local_requirements->religion_req--;
+      }
+      else if(local_requirements->socialstudies_req > 0){
+        incomplete_individual->individual_num[i][j] = sam;
+        local_requirements->socialstudies_req--;
+      }
+      else if(local_requirements->geography_req > 0){
+        incomplete_individual->individual_num[i][j] = geo;
+        local_requirements->geography_req--;
+      }
+      else if(local_requirements->biology_req > 0){
         incomplete_individual->individual_num[i][j] = bio;
         local_requirements->biology_req--;
       }
-      if(local_requirements->crafting_req > 0){
+      else if(local_requirements->crafting_req > 0){
         incomplete_individual->individual_num[i][j] = hda;
         local_requirements->crafting_req--;
       }
-      if(local_requirements->elective_req > 0){
+      else if(local_requirements->elective_req > 0){
         incomplete_individual->individual_num[i][j] = valg;
         local_requirements->elective_req--;
       }
-      if(local_requirements->gym_req > 0){
+      else if(local_requirements->gym_req > 0){
         incomplete_individual->individual_num[i][j] = gym;
         local_requirements->gym_req--;
       }

@@ -12,6 +12,7 @@
 #define NUMBER_OF_DIFFERENT_LESSONS 13
 #define NUMBER_OF_INDIVIDUALS 10
 #define DEFAULT_LENGTH_STRING 200
+#define CLASS_NAME_MAX 3
 
 #define FITNESS_LESSONS_IN_ROW 10
 
@@ -27,7 +28,7 @@ typedef struct individual individual;
 struct individual{
   int individual_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
-  int grade;
+  char grade[CLASS_NAME_MAX];
 };
 
 typedef struct teacher teacher;
