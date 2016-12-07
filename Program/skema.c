@@ -10,11 +10,20 @@
 #define LESSONS_PER_DAY_MAX 8
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
 #define NUMBER_OF_DIFFERENT_LESSONS 13
-#define NUMBER_OF_INDIVIDUALS 10
 #define DEFAULT_LENGTH_STRING 200
-#define CLASS_NAME_MAX 3
+#define LESSON_OVER_MIDDAY 4
+#define NUMBER_OF_HEAVY_LESSONS 5
 
-#define FITNESS_LESSONS_IN_ROW 10
+#define NUMBER_OF_INDIVIDUALS 100
+#define NUMBER_OF_GENERATIONS 50
+
+#define CHANCE_OF_MUTATION 20
+#define MAX_MUTATIONS_PER_INDIVIDUAL 5
+
+#define FITNESS_LESSONS_IN_ROW 20
+#define FITNESS_PARALEL_CLASS 50
+#define FITNESS_HEAVY_LESSONS -20
+#define FITNESS_FREE_IN_MIDLE -1000
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel, hda};
 
@@ -28,7 +37,7 @@ typedef struct individual individual;
 struct individual{
   int individual_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
-  char grade[CLASS_NAME_MAX];
+  int grade;
 };
 
 typedef struct teacher teacher;
@@ -43,8 +52,8 @@ void make_teachers_names(FILE *teachers, char teachers_names[]);
 void create_individuals(individual individuals[]);
 individual create_individual();
 individual choose_individual(individual individuals[]);
-void calculate_fitness_all(individual individuals[]);
-void calculate_fitness_one(individual *indi);
+void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int H_fag[]);
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int H_fag[]);
 individual choose_individual(individual individuals[]);
 void create_skema(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]);
 lesson create_lesson(int num, char teachers_names[]);
@@ -53,6 +62,10 @@ lesson create_lesson(int num, char teachers_names[]);
 void print_skema(lesson week[][SCHOOL_DAYS_IN_WEEK]);
 void print_lesson_teacher(lesson l);
 void print_lesson(lesson l);
+void mutation(individual individuals[]);
+
+void selektion(individual individuals[]);
+individual pick_individual(individual individuals[]);
 
 individual merge_individuals(individual individualA, individual individualB);
 void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2);
@@ -66,48 +79,230 @@ int main(void){
   memset(teachers_names, '\0', TEACHER_NAME_MAX * NUMBER_OF_DIFFERENT_LESSONS);
   make_teachers_names(teachers, teachers_names);
   fclose(teachers);
+
+  /* init general stuff */
+  int H_fag[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
+
   /* init 9 */
-  lesson week9[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
-  individual chosen_individual9;
-  individual individuals9[NUMBER_OF_INDIVIDUALS];
+  lesson week9a[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual9a;
+  individual individuals9a[NUMBER_OF_INDIVIDUALS];
   
+  lesson week9b[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual9b;
+  individual individuals9b[NUMBER_OF_INDIVIDUALS];
+
+  lesson week9c[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual9c;
+  individual individuals9c[NUMBER_OF_INDIVIDUALS];
+
   /* init 8 */
-  lesson week8[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
-  individual chosen_individual8;
-  individual individuals8[NUMBER_OF_INDIVIDUALS];
+  lesson week8a[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual8a;
+  individual individuals8a[NUMBER_OF_INDIVIDUALS];
+
+  lesson week8b[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual8b;
+  individual individuals8b[NUMBER_OF_INDIVIDUALS];
+
+  lesson week8c[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual8c;
+  individual individuals8c[NUMBER_OF_INDIVIDUALS];
 
   /* init 7 */
-  lesson week7[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
-  individual chosen_individual7;
-  individual individuals7[NUMBER_OF_INDIVIDUALS];
+  lesson week7a[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual7a;
+  individual individuals7a[NUMBER_OF_INDIVIDUALS];
 
-  /* Stuff */
+  lesson week7b[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual7b;
+  individual individuals7b[NUMBER_OF_INDIVIDUALS];
+
+  lesson week7c[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  individual chosen_individual7c;
+  individual individuals7c[NUMBER_OF_INDIVIDUALS];
+
+
+  /* Init genetic algorithem */
   srand(time(NULL));
 
-  create_individuals(individuals9);
-  calculate_fitness_all(individuals9);
-  create_individuals(individuals8);
-  calculate_fitness_all(individuals8);
-  create_individuals(individuals7);
-  calculate_fitness_all(individuals7);
-
-  chosen_individual9 = choose_individual(individuals9);
-  chosen_individual8 = choose_individual(individuals8);
-  chosen_individual7 = choose_individual(individuals7);
-
-  printf("  9. klasse: \n");
-  create_skema(week9, chosen_individual9, teachers_names);
-  print_skema(week9);
-  printf("\n\n  8. klasse:\n");
-  create_skema(week8, chosen_individual8, teachers_names);
-  print_skema(week8);
-  printf("\n\n  7. klasse:\n");
-  create_skema(week7, chosen_individual7, teachers_names);
-  print_skema(week7);
+  create_individuals(individuals9a);
+  create_individuals(individuals9b);
+  create_individuals(individuals9c);
   
+  create_individuals(individuals8a);
+  create_individuals(individuals8b);
+  create_individuals(individuals8c);
+  
+  create_individuals(individuals7a);
+  create_individuals(individuals7b);
+  create_individuals(individuals7c);
+  
+
+
+  calculate_fitness_all(individuals9a, individuals9b, individuals9c, H_fag);
+  calculate_fitness_all(individuals8a, individuals8b, individuals8c, H_fag);
+  calculate_fitness_all(individuals7a, individuals7b, individuals7c, H_fag);
+
+  /* Genetic algorithem */
+  int i;
+  for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
+    /* Fitness */
+    calculate_fitness_all(individuals9a, individuals9b, individuals9c, H_fag);
+    calculate_fitness_all(individuals8a, individuals8b, individuals8c, H_fag);
+    calculate_fitness_all(individuals7a, individuals7b, individuals7c, H_fag);
+
+    /* Selektion */
+    selektion(individuals9a);
+    selektion(individuals9b);
+    selektion(individuals9c);
+
+    selektion(individuals8a);
+    selektion(individuals8b);
+    selektion(individuals8c);
+
+    selektion(individuals7a);
+    selektion(individuals7b);
+    selektion(individuals7c);
+
+    /* Mutation */
+    mutation(individuals9a);
+    mutation(individuals9b);
+    mutation(individuals9c);
+
+    mutation(individuals8a);
+    mutation(individuals8b);
+    mutation(individuals8c);
+    
+    mutation(individuals7a);
+    mutation(individuals7b);
+    mutation(individuals7c);
+
+    /* Crossover */
+
+
+    /* Tests */
+    chosen_individual9a = choose_individual(individuals9a);
+    chosen_individual9b = choose_individual(individuals9b);
+    chosen_individual9c = choose_individual(individuals9c);
+
+    chosen_individual8a = choose_individual(individuals8a);
+    chosen_individual8b = choose_individual(individuals8b);
+    chosen_individual8c = choose_individual(individuals8c);
+
+    chosen_individual7a = choose_individual(individuals7a);
+    chosen_individual7b = choose_individual(individuals7b);
+    chosen_individual7c = choose_individual(individuals7c);
+
+    printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual9a.fitness, chosen_individual9b.fitness, chosen_individual9c.fitness, chosen_individual8a.fitness, chosen_individual8b.fitness, chosen_individual8c.fitness, chosen_individual7a.fitness, chosen_individual7b.fitness, chosen_individual7c.fitness);
+
+  }
+
+  /* Get the best */
+  chosen_individual9a = choose_individual(individuals9a);
+  chosen_individual9b = choose_individual(individuals9b);
+  chosen_individual9c = choose_individual(individuals9c);
+
+  chosen_individual8a = choose_individual(individuals8a);
+  chosen_individual8b = choose_individual(individuals8b);
+  chosen_individual8c = choose_individual(individuals8c);
+
+  chosen_individual7a = choose_individual(individuals7a);
+  chosen_individual7b = choose_individual(individuals7b);
+  chosen_individual7c = choose_individual(individuals7c);
+
+  /* Printing */
+  printf("  The fitness is: %d   9.A's Skoleskema: \n", chosen_individual9a.fitness);
+  create_skema(week9a, chosen_individual9a, teachers_names);
+  print_skema(week9a);
+  printf("  The fitness is: %d   9.B's Skoleskema: \n", chosen_individual9b.fitness);
+  create_skema(week9b, chosen_individual9b, teachers_names);
+  print_skema(week9b);
+  printf("  The fitness is: %d   9.C's Skoleskema: \n", chosen_individual9c.fitness);
+  create_skema(week9c, chosen_individual9c, teachers_names);
+  print_skema(week9c);
+  printf("\n\n");
+
+  printf("  The fitness is: %d   8.A's Skoleskema: \n", chosen_individual8a.fitness);
+  create_skema(week8a, chosen_individual8a, teachers_names);
+  print_skema(week8a);
+  printf("  The fitness is: %d   8.B's Skoleskema: \n", chosen_individual8b.fitness);
+  create_skema(week8b, chosen_individual8b, teachers_names);
+  print_skema(week8b);
+  printf("  The fitness is: %d   8.C's Skoleskema: \n", chosen_individual8c.fitness);
+  create_skema(week8c, chosen_individual8c, teachers_names);
+  print_skema(week8c);
+  printf("\n\n");
+
+  printf("  The fitness is: %d   7.A's Skoleskema: \n", chosen_individual7a.fitness);
+  create_skema(week7a, chosen_individual7a, teachers_names);
+  print_skema(week7a);
+  printf("  The fitness is: %d   7.B's Skoleskema: \n", chosen_individual7b.fitness);
+  create_skema(week7b, chosen_individual7b, teachers_names);
+  print_skema(week7b);
+  printf("  The fitness is: %d   7.C's Skoleskema: \n", chosen_individual7c.fitness);
+  create_skema(week7c, chosen_individual7c, teachers_names);
+  print_skema(week7c);
+  printf("\n\n");
+
   return 0;
 }
 /**************************************************************/
+
+void selektion(individual individuals[]){
+  individual individuals_temp[NUMBER_OF_INDIVIDUALS];
+  int i;
+
+  /* temp == individual */
+  for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    individuals_temp[i] = individuals[i];
+  }
+
+  for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    individuals[i] = pick_individual(individuals_temp);
+  }
+}
+
+individual pick_individual(individual individuals[]){
+  int i, sum = 0;
+  int fitness_test = 0;
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    sum += individuals[i].fitness;
+  }
+
+  int field = rand()% sum;
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    fitness_test += individuals[i].fitness;
+    if(field < fitness_test){
+      return individuals[i];
+    }
+  }
+}
+
+void mutation(individual individuals[]){
+  int i = 0, j = 0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    chance = rand()% 100;
+    mutations = rand()% MAX_MUTATIONS_PER_INDIVIDUAL;
+    for (j = 0; j < mutations; j++){
+      if (chance > CHANCE_OF_MUTATION){
+        do {
+          ran1Week = rand()% SCHOOL_DAYS_IN_WEEK;
+          ran1Day = rand()% LESSONS_PER_DAY_MAX;
+          ran2Week = rand()% SCHOOL_DAYS_IN_WEEK;
+          ran2Day = rand()% LESSONS_PER_DAY_MAX;
+        } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
+        
+        temp = individuals[i].individual_num[ran1Day][ran1Week];
+        individuals[i].individual_num[ran1Day][ran1Week] = individuals[i].individual_num[ran2Day][ran2Week];
+        individuals[i].individual_num[ran2Day][ran2Week] = temp;
+      }
+    }
+  }
+}
 
 int find_number_of_teachers(){                                          
   FILE *teacher_file = fopen("teacherinfo.txt", "r");
@@ -143,14 +338,12 @@ void make_teachers_names(FILE *teachers, char teachers_names[]){
     }
 
     /* Looking for when to stop */
-    if ((temp_name[0] == 'E') && (temp_name[1] == 'N') && (temp_name[2] == 'D')){
-      printf("DONE\n");
+    if (strcmp(temp_name, "END") == 0){
       done = 1;
     }
     /* Creating the list of names */
     else {
       strcat(teachers_names, temp_name);
-      printf("%s  %d -  %s\n", temp_name, res, teachers_names);
     }
   }
   if (res != 28){
@@ -168,57 +361,106 @@ individual create_individual(){
   individual result;
   /* Creating the individual */
   /* Makring it random */
-  for(int j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-    for(int i = 0; i < LESSONS_PER_DAY_MAX; i++){
+  int i, j;
+  for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       result.individual_num[i][j] = rand() % NUMBER_OF_DIFFERENT_LESSONS;
     }
   }
-  result.individual_num[0][0] = mat;
-  result.individual_num[1][0] = mat;
-  result.individual_num[2][0] = mat;
-  result.individual_num[3][0] = mat;
-
+  
   return result;
 }
 
-void calculate_fitness_all(individual individuals[]){
+void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int H_fag[]){
   for (int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    calculate_fitness_one(&(individuals[i]));
+    calculate_fitness_one(&(individuals_a[i]), &(individuals_b[i]), &(individuals_c[i]), H_fag);
+    calculate_fitness_one(&(individuals_b[i]), &(individuals_a[i]), &(individuals_c[i]), H_fag);
+    calculate_fitness_one(&(individuals_c[i]), &(individuals_a[i]), &(individuals_b[i]), H_fag);
   }
 }
 
-void calculate_fitness_one(individual *indi){
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int H_fag[]){
   /* Reset the fitness */
-  indi->fitness = 0;
+  individual_master->fitness = 0;
+
+  int i, j, k;
 
   /* Lessons in row (breaks counts as a lesson)*/
-  for (int j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-    for(int i = 0; i < LESSONS_PER_DAY_MAX; i += 2){
-      if (indi->individual_num[i][j] == indi->individual_num[i+1][j]){
-        indi->fitness = indi->fitness + FITNESS_LESSONS_IN_ROW;
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i += 2){
+      if (individual_master->individual_num[i][j] == individual_master->individual_num[i+1][j]){
+        individual_master->fitness += FITNESS_LESSONS_IN_ROW;
       }
     }
+  }
+
+  /* Parallel classes - lessons in a sync */
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      if (individual_master->individual_num[i][j] == individual_other1->individual_num[i][j]){
+        individual_master->fitness += FITNESS_PARALEL_CLASS;
+      }
+      if (individual_master->individual_num[i][j] == individual_other2->individual_num[i][j]){
+        individual_master->fitness += FITNESS_PARALEL_CLASS;
+      }
+    }
+  }
+
+  /* Heavy lessons after 11.20 is bad  */
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSON_OVER_MIDDAY; i++){
+      for (k = 0; k < NUMBER_OF_HEAVY_LESSONS; k++){
+        if (individual_master->individual_num[i][j] == H_fag[k]){
+          individual_master->fitness += FITNESS_HEAVY_LESSONS;
+        }
+      }
+    }
+  }
+
+  /* Free lessons - in the middle */
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      if (i < 6){
+        if (individual_master->individual_num[i][j] == fri){
+          individual_master->fitness += FITNESS_FREE_IN_MIDLE;
+        }
+      }
+      if (i == 6){
+        if ((individual_master->individual_num[i][j] == fri) && (individual_master->individual_num[i+1][j] != fri)){
+          individual_master->fitness += FITNESS_FREE_IN_MIDLE;
+        } 
+      }
+    }
+  }
+
+  /* forberedsestimer */
+
+
+  /* Not too many of the same in a row */
+
+
+  /* If it is negative, change to zero */
+  if (individual_master->fitness < 0){
+    individual_master->fitness = 0;
   }
 }
 
 individual choose_individual(individual individuals[]){
   individual chosen;
-  chosen.fitness = 0;
+  chosen.fitness = -100000;
 
-  int i = 0;
-  int k = 0;
-  int j = 0;
-  for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
-    if (individuals[i].fitness > chosen.fitness){
-      chosen.fitness = individuals[i].fitness;
+  int i, j, k;
+  for (k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
+    if (individuals[k].fitness > chosen.fitness){
       for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
         for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
           chosen.individual_num[i][j] = individuals[k].individual_num[i][j];
+          chosen.fitness = individuals[k].fitness;
         }
       }
     }
   }
-  printf("BEST FITNESS: %d\n", chosen.fitness);
+
   return chosen;
 }
 
@@ -282,7 +524,7 @@ lesson create_lesson(int num, char teachers_names[]){
       strcpy(result.lesson_name, "Gym");
       break;
     case fri:
-      strcpy(result.lesson_name, "Fri");
+      strcpy(result.lesson_name, "---");
       break;
     case rel:
       strcpy(result.lesson_name, "Rel");
@@ -413,192 +655,3 @@ void print_lesson(lesson l){
   printf("|14.15-15.00 |SP VALG1    |FRI         |RA FYS      |MMJ REL     |SP ENG      |\n");
   printf("*------------+------------+------------+------------+------------+------------*\n");
 */
-
-/* child solution is created by using 2 random days from parrent A, 2 random days from parrent B and then filling in the last day so the required
-   ammount of lesson for each class is met */
-
-individual merge_individuals(individual individualA, individual individualB){
-  individual new_individual;
-  new_individual.grade = individualA.grade;
-  int i;
-
-  /* resets all lessons in the new individual */
-  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
-    new_individual.individual_num[i] = -1;
-  }
-
-  /* First, two days (1-5) are picked from both parrents, making sure that no parrents deliver the same day */
-
-  int dayA1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  int dayA2;
-
-  do {
-    dayA2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  } while (dayA2 == dayA1);
-
-  insert_new_days(&new_individual, individualA, dayA1, dayA2);
-
-  int dayB1, dayB2;
-
-  do {
-    dayB1 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  } while (dayB1 == dayA1 || dayB1 == dayA2);
-
-  do {
-    dayB2 = rand() % (SCHOOL_DAYS_IN_WEEK + 1);
-  } while (dayB2 == dayA1 || dayB2 == dayA2 || dayB2 == dayB1);
-
-  insert_new_days(&new_individual, individualB, dayB1, dayB2);
-  complete_missing_day(&new_individual);
-  return new_individual;
-
-  /* LESSONS_PER_DAY_MAX */
-  /* SCHOOL_DAYS_IN_WEEK */
-  /* LESSONS_PER_WEEK_MAX */
-}
-
-void insert_new_days(individual * dest_individual, individual deliver_individual, int day1, int day2){
-  int count1 = (LESSONS_PER_DAY_MAX * day1) - LESSONS_PER_DAY_MAX;
-  int count2 = (LESSONS_PER_DAY_MAX * day2) - LESSONS_PER_DAY_MAX;
-
-  int i;
-  for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-    dest_individual->individual_num[count1] = deliver_individual.individual_num[count1];
-    dest_individual->individual_num[count2] = deliver_individual.individual_num[count2];
-
-    count1++;
-    count2++;
-  }
-}
-
-void complete_missing_day(individual * incomplete_individual){
-  int i;
-  int count = -1;
-
-  for(i = 0; i < LESSONS_PER_WEEK_MAX; i++){
-    if(incomplete_individual->individual_num[i] == -1){
-      count = i;
-      break;
-    }
-  }
-
-  assert(count != -1);
-
-  int danish_req, math_req, english_req, language_req, physics_req, history_req, religion_req, 
-      socialstudies_req, geography_req, biology_req, gym_req,
-      crafting_req, elective_req;
-
-  switch(incomplete_individual->grade){
-    case 7:
-    /* Indstil kravet for hver klasse til hver lektion */
-      break;
-    case 8:
-      break;
-    case 9:
-      break;
-    default:
-      printf("error \n");
-      exit(0);
-  }
-
-  for(i = 0; i < LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i++){
-    switch(incomplete_individual->individual_num[i]){
-      case dan:
-        danish_req--;
-        break;
-      case mat:
-        math_req--;
-        break;
-      case eng:
-        english_req--;
-        break;
-      case tys:
-        language_req--;
-        break;
-      case fys:
-        physics_req--;
-        break;
-      case his:
-        history_req--;
-        break;
-      case sam:
-        socialstudies_req--;
-        break;
-      case valg:
-        socialstudies_req--;
-        break;
-      case geo:
-        geography_req--;
-        break;
-      case bio:
-        biology_req--;
-        break;
-      case gym:
-        gym_req--;
-        break;
-      case fri:
-        break;
-      case rel:
-        religion_req--;
-        break;
-      case hda:
-        crafting_req--;
-        break;
-    }
-  }
-
-  for(i = LESSONS_PER_WEEK_MAX - LESSONS_PER_DAY_MAX; i < LESSONS_PER_WEEK_MAX; i++){
-    if(danish_req > 0){
-      incomplete_individual->individual_num[i] = dan;
-      danish_req--;
-    }
-    if(english_req > 0){
-      incomplete_individual->individual_num[i] = eng;
-      english_req--;
-    }
-    if(language_req > 0){
-      incomplete_individual->individual_num[i] = tys;
-      language_req--;
-    }
-    if(history_req > 0){
-      incomplete_individual->individual_num[i] = his;
-      history_req--;
-    }
-    if(religion_req > 0){
-      incomplete_individual->individual_num[i] = rel;
-      religion_req--;
-    }
-    if(socialstudies_req > 0){
-      incomplete_individual->individual_num[i] = sam;
-      socialstudies_req--;
-    }
-    if(math_req > 0){
-      incomplete_individual->individual_num[i] = mat;
-      math_req--;
-    }
-    if(geography_req > 0){
-      incomplete_individual->individual_num[i] = geo;
-      geography_req--;
-    }
-    if(physics_req > 0){
-      incomplete_individual->individual_num[i] = fys;
-      physics_req--;
-    }
-    if(biology_req > 0){
-      incomplete_individual->individual_num[i] = bio;
-      biology_req--;
-    }
-    if(crafting_req > 0){
-      incomplete_individual->individual_num[i] = hda;
-      crafting_req--;
-    }
-    if(elective_req > 0){
-      incomplete_individual->individual_num[i] = valg;
-      elective_req--;
-    }
-    if(gym_req > 0){
-      incomplete_individual->individual_num[i] = gym;
-      gym_req--;
-    }
-  }
-}
