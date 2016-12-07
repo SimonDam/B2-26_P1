@@ -1,18 +1,18 @@
 typedef struct requirements reqs;
 struct requirements{
-  int danish_req;
-  int math_req;
-  int english_req;
-  int language_req;
-  int physics_req;
-  int history_req; 
-  int religion_req;
-  int socialstudies_req;
-  int geography_req;
-  int biology_req;
+  int dan_req;
+  int mat_req;
+  int eng_req;
+  int tys_req;
+  int fys_req;
+  int his_req; 
+  int rel_req;
+  int sam_req;
+  int geo_req;
+  int bio_req;
   int gym_req;
-  int crafting_req; 
-  int elective_req;
+  int crafting_req; /* MANGLER FORKORTELSE. BRUG CRTL + F VED RETTELSE, DA DEN OGSÅ STÅR LÆNGERE NEDE */
+  int val_req;
 };
 
 
@@ -122,34 +122,34 @@ void complete_missing_day(individual * incomplete_individual, int emptyday){
       switch(incomplete_individual->individual_num[i][j]){
 
       case dan:
-        local_requirements->danish_req--;
+        local_requirements->dan_req--;
         break;
       case mat:
-        local_requirements->math_req--;
+        local_requirements->mat_req--;
         break;
       case eng:
-        local_requirements->english_req--;
+        local_requirements->eng_req--;
         break;
       case tys:
-        local_requirements->language_req--;
+        local_requirements->tys_req--;
         break;
       case fys:
-        local_requirements->physics_req--;
+        local_requirements->fys_req--;
         break;
       case his:
-        local_requirements->history_req--;
+        local_requirements->his_req--;
         break;
       case sam:
-        local_requirements->socialstudies_req--;
+        local_requirements->sam_req--;
         break;
       case valg:
-        local_requirements->socialstudies_req--;
+        local_requirements->sam_req--;
         break;
       case geo:
-        local_requirements->geography_req--;
+        local_requirements->geo_req--;
         break;
       case bio:
-        local_requirements->biology_req--;
+        local_requirements->bio_req--;
         break;
       case gym:
         local_requirements->gym_req--;
@@ -157,7 +157,7 @@ void complete_missing_day(individual * incomplete_individual, int emptyday){
       case fri:
         break;
       case rel:
-        local_requirements->religion_req--;
+        local_requirements->rel_req--;
         break;
       case hda:
         local_requirements->crafting_req--;
@@ -172,53 +172,53 @@ void complete_missing_day(individual * incomplete_individual, int emptyday){
 
   for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
 
-    if(local_requirements->danish_req > 0){
+    if(local_requirements->dan_req > 0){
       incomplete_individual->individual_num[i][emptyday] = dan;
-      local_requirements->danish_req--;
+      local_requirements->dan_req--;
     }
-    else if(local_requirements->english_req > 0){
+    else if(local_requirements->eng_req > 0){
       incomplete_individual->individual_num[i][emptyday] = eng;
-      local_requirements->english_req--;
+      local_requirements->eng_req--;
     }
-    else if(local_requirements->language_req > 0){
+    else if(local_requirements->tys_req > 0){
       incomplete_individual->individual_num[i][emptyday] = tys;
-      local_requirements->language_req--;
+      local_requirements->tys_req--;
     }
-    else if(local_requirements->math_req > 0){
+    else if(local_requirements->mat_req > 0){
       incomplete_individual->individual_num[i][emptyday] = mat;
-      local_requirements->math_req--;
+      local_requirements->mat_req--;
     }
-    else if(local_requirements->physics_req > 0){
+    else if(local_requirements->fys_req > 0){
       incomplete_individual->individual_num[i][emptyday] = fys;
-      local_requirements->physics_req--;
+      local_requirements->fys_req--;
     }
-    else if(local_requirements->history_req > 0){
+    else if(local_requirements->his_req > 0){
       incomplete_individual->individual_num[i][emptyday] = his;
-      local_requirements->history_req--;
+      local_requirements->his_req--;
     }
-    else if(local_requirements->religion_req > 0){
+    else if(local_requirements->rel_req > 0){
       incomplete_individual->individual_num[i][emptyday] = rel;
-      local_requirements->religion_req--;
+      local_requirements->rel_req--;
     }
-    else if(local_requirements->socialstudies_req > 0){
+    else if(local_requirements->sam_req > 0){
       incomplete_individual->individual_num[i][emptyday] = sam;
-      local_requirements->socialstudies_req--;
+      local_requirements->sam_req--;
     }
-    else if(local_requirements->geography_req > 0){
+    else if(local_requirements->geo_req > 0){
       incomplete_individual->individual_num[i][emptyday] = geo;
-      local_requirements->geography_req--;
+      local_requirements->geo_req--;
     }
-    else if(local_requirements->biology_req > 0){
+    else if(local_requirements->bio_req > 0){
       incomplete_individual->individual_num[i][emptyday] = bio;
-      local_requirements->biology_req--;
+      local_requirements->bio_req--;
     }
     else if(local_requirements->crafting_req > 0){
       incomplete_individual->individual_num[i][emptyday] = hda;
       local_requirements->crafting_req--;
     }
-    else if(local_requirements->elective_req > 0){
+    else if(local_requirements->val_req > 0){
       incomplete_individual->individual_num[i][emptyday] = valg;
-      local_requirements->elective_req--;
+      local_requirements->val_req--;
     }
     else if(local_requirements->gym_req > 0){
       incomplete_individual->individual_num[i][emptyday] = gym;
