@@ -63,3 +63,8 @@ løsning til problemet.
 4.	Processen gentages fra trin 2 i x antal givende generationer eller indtil et givet kriterium er opfyldt.
 
 Algoritmen er færdig når x antal generationer er kørt igennem eller et givet kriterium er opfyldt og der vil være en population med potentielle løsninger til problemet, hvor der herudfra vil blive valgt en løsning til problemet som typisk er løsningen med højst fitness. Genetiske algoritmer kan bruges til at optimere problemet med skemalægning, udefra en række retningslinjer som bliver bestemt. Det vil udmunde i en optimal løsning til skemalægningsproblemet, hvis der bliver givet de korrekte retningslinjer.
+
+\subsbusection{Searchspace}
+
+”Seach space” referer til en gruppe af kandidat løsning til et problem, hvor der er en ”distance” i mellem kandidaterne. For eksempel lad os tage vigtigt problem indenfor bioengeering, hvordan man designer et protein. Antaget at man vil søge efter et protein som er en sekvens af aminosyre som kan blive brugt til at bekæmpe en virus. ”Seach space” vil være en kollektion af alle mulige proteiner. Dette vil give os uendelige mange muligheder derfor begrænser vi længden af proteinet til længden 50 som stadig vil være et stort ”seach space” siden der er 20 mulige aminosyre i hver position i proteinet. Hvis vi repræsenter aminosyrerne i form af alfabetet vil et muligt protein se ledes ud. 
+ASDKEGHB…. Vi definer distance mellem proteinerne som forskellen i alfabetet på den tilsvarende position i et andet protein fx ASDKEGHB og BSDKEGHB er distance 1 og distance mellem ASDKEGHB og GCCHAKAA er 8.
