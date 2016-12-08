@@ -73,14 +73,14 @@ void make_teachers_names(FILE *teachers, char teachers_names[]);
 void create_individuals(individual individuals[]);
 individual create_individual();
 individual choose_individual(individual individuals[]);
-void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int H_fag[]);
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int H_fag[]);
+void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int h_classes[]);
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[]);
 individual choose_individual(individual individuals[]);
-void create_skema(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]);
+void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]);
 lesson create_lesson(int num, char teachers_names[]);
-void create_skema(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]);
+void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]);
 lesson create_lesson(int num, char teachers_names[]);
-void print_skema(lesson week[][SCHOOL_DAYS_IN_WEEK]);
+void print_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK]);
 void print_lesson_teacher(lesson l);
 void print_lesson(lesson l);
 void mutation(individual individuals[]);
@@ -104,7 +104,7 @@ int main(void){
   int number_of_teacher;
 
   /* init general stuff */
-  int H_fag[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
+  int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
   /* init 9 */
   lesson week9a[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
@@ -169,17 +169,17 @@ int main(void){
   
 
 
-  calculate_fitness_all(individuals9a, individuals9b, individuals9c, H_fag);
-  calculate_fitness_all(individuals8a, individuals8b, individuals8c, H_fag);
-  calculate_fitness_all(individuals7a, individuals7b, individuals7c, H_fag);
+  calculate_fitness_all(individuals9a, individuals9b, individuals9c, h_classes);
+  calculate_fitness_all(individuals8a, individuals8b, individuals8c, h_classes);
+  calculate_fitness_all(individuals7a, individuals7b, individuals7c, h_classes);
 
   /* Genetic algorithem */
   int i;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
     /* Fitness */
-    calculate_fitness_all(individuals9a, individuals9b, individuals9c, H_fag);
-    calculate_fitness_all(individuals8a, individuals8b, individuals8c, H_fag);
-    calculate_fitness_all(individuals7a, individuals7b, individuals7c, H_fag);
+    calculate_fitness_all(individuals9a, individuals9b, individuals9c, h_classes);
+    calculate_fitness_all(individuals8a, individuals8b, individuals8c, h_classes);
+    calculate_fitness_all(individuals7a, individuals7b, individuals7c, h_classes);
 
     /* Selektion */
     selektion(individuals9a);
@@ -241,37 +241,37 @@ int main(void){
   chosen_individual7c = choose_individual(individuals7c);
 
   /* Printing */
-  printf("  The fitness is: %d   9.A's Skoleskema: \n", chosen_individual9a.fitness);
-  create_skema(week9a, chosen_individual9a, teachers_names);
-  print_skema(week9a);
-  printf("  The fitness is: %d   9.B's Skoleskema: \n", chosen_individual9b.fitness);
-  create_skema(week9b, chosen_individual9b, teachers_names);
-  print_skema(week9b);
-  printf("  The fitness is: %d   9.C's Skoleskema: \n", chosen_individual9c.fitness);
-  create_skema(week9c, chosen_individual9c, teachers_names);
-  print_skema(week9c);
+  printf("  The fitness is: %d   9.A's Skoleschedule: \n", chosen_individual9a.fitness);
+  create_schedule(week9a, chosen_individual9a, teachers_names);
+  print_schedule(week9a);
+  printf("  The fitness is: %d   9.B's Skoleschedule: \n", chosen_individual9b.fitness);
+  create_schedule(week9b, chosen_individual9b, teachers_names);
+  print_schedule(week9b);
+  printf("  The fitness is: %d   9.C's Skoleschedule: \n", chosen_individual9c.fitness);
+  create_schedule(week9c, chosen_individual9c, teachers_names);
+  print_schedule(week9c);
   printf("\n\n");
 
-  printf("  The fitness is: %d   8.A's Skoleskema: \n", chosen_individual8a.fitness);
-  create_skema(week8a, chosen_individual8a, teachers_names);
-  print_skema(week8a);
-  printf("  The fitness is: %d   8.B's Skoleskema: \n", chosen_individual8b.fitness);
-  create_skema(week8b, chosen_individual8b, teachers_names);
-  print_skema(week8b);
-  printf("  The fitness is: %d   8.C's Skoleskema: \n", chosen_individual8c.fitness);
-  create_skema(week8c, chosen_individual8c, teachers_names);
-  print_skema(week8c);
+  printf("  The fitness is: %d   8.A's Skoleschedule: \n", chosen_individual8a.fitness);
+  create_schedule(week8a, chosen_individual8a, teachers_names);
+  print_schedule(week8a);
+  printf("  The fitness is: %d   8.B's Skoleschedule: \n", chosen_individual8b.fitness);
+  create_schedule(week8b, chosen_individual8b, teachers_names);
+  print_schedule(week8b);
+  printf("  The fitness is: %d   8.C's Skoleschedule: \n", chosen_individual8c.fitness);
+  create_schedule(week8c, chosen_individual8c, teachers_names);
+  print_schedule(week8c);
   printf("\n\n");
 
-  printf("  The fitness is: %d   7.A's Skoleskema: \n", chosen_individual7a.fitness);
-  create_skema(week7a, chosen_individual7a, teachers_names);
-  print_skema(week7a);
-  printf("  The fitness is: %d   7.B's Skoleskema: \n", chosen_individual7b.fitness);
-  create_skema(week7b, chosen_individual7b, teachers_names);
-  print_skema(week7b);
-  printf("  The fitness is: %d   7.C's Skoleskema: \n", chosen_individual7c.fitness);
-  create_skema(week7c, chosen_individual7c, teachers_names);
-  print_skema(week7c);
+  printf("  The fitness is: %d   7.A's Skoleschedule: \n", chosen_individual7a.fitness);
+  create_schedule(week7a, chosen_individual7a, teachers_names);
+  print_schedule(week7a);
+  printf("  The fitness is: %d   7.B's Skoleschedule: \n", chosen_individual7b.fitness);
+  create_schedule(week7b, chosen_individual7b, teachers_names);
+  print_schedule(week7b);
+  printf("  The fitness is: %d   7.C's Skoleschedule: \n", chosen_individual7c.fitness);
+  create_schedule(week7c, chosen_individual7c, teachers_names);
+  print_schedule(week7c);
   printf("\n\n");
   return 0;
 }
@@ -376,7 +376,6 @@ void read_teachers_name(teacher teacher_data[], int number_teachers){
 }
 
 reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher){
-
   reqs local_req;
   int i = 0;
   local_req.Dan_req = 0;
@@ -475,15 +474,15 @@ individual create_individual(){
   return result;
 }
 
-void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int H_fag[]){
+void calculate_fitness_all(individual individuals_a[], individual individuals_b[], individual individuals_c[], int h_classes[]){
   for (int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    calculate_fitness_one(&(individuals_a[i]), &(individuals_b[i]), &(individuals_c[i]), H_fag);
-    calculate_fitness_one(&(individuals_b[i]), &(individuals_a[i]), &(individuals_c[i]), H_fag);
-    calculate_fitness_one(&(individuals_c[i]), &(individuals_a[i]), &(individuals_b[i]), H_fag);
+    calculate_fitness_one(&(individuals_a[i]), &(individuals_b[i]), &(individuals_c[i]), h_classes);
+    calculate_fitness_one(&(individuals_b[i]), &(individuals_a[i]), &(individuals_c[i]), h_classes);
+    calculate_fitness_one(&(individuals_c[i]), &(individuals_a[i]), &(individuals_b[i]), h_classes);
   }
 }
 
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int H_fag[]){
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[]){
   /* Reset the fitness */
   individual_master->fitness = 0;
 
@@ -514,7 +513,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSON_OVER_MIDDAY; i++){
       for (k = 0; k < NUMBER_OF_HEAVY_LESSONS; k++){
-        if (individual_master->individual_num[i][j] == H_fag[k]){
+        if (individual_master->individual_num[i][j] == h_classes[k]){
           individual_master->fitness += FITNESS_HEAVY_LESSONS;
         }
       }
@@ -568,9 +567,9 @@ individual choose_individual(individual individuals[]){
   return chosen;
 }
 
-void create_skema(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]){
+void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK], individual indi, char teachers_names[]){
   int lesson_now = 0;
-  /* Creating the skema based on the individual */
+  /* Creating the schedule based on the individual */
   for(int j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(int i = 0; i < LESSONS_PER_DAY_MAX; i++){
       week[i][j] = create_lesson(indi.individual_num[i][j], teachers_names);
@@ -642,14 +641,14 @@ lesson create_lesson(int num, char teachers_names[]){
   return result;
 }
 
-void print_skema(lesson week[][SCHOOL_DAYS_IN_WEEK]){
+void print_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK]){
   int lesson_of_day = 0, day_of_week = 0, lesson_in_individual = 0, done = 0;
   printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
   printf("  ------------------------------------------------------------------------------------------------\n");
   /* printing the first time */
   printf("   8.00 -  8.45  |\t");
 
-  /* Printing the skema */
+  /* Printing the schedule */
   while (!done){
     /* Making the next number for the lesson */
     /* Printing the lesson and the teacher */
@@ -719,7 +718,7 @@ void print_lesson(lesson l){
 }
 
 /*
-  Et rigtigt skoleskema fra 9. - 36timer i alt om ugen
+  Et rigtigt skoleschedule fra 9. - 36timer i alt om ugen
   7 dan     - 3*2 er sammen 1 for sig selv
   5 mat     - 1*2 er sammen 3 for sig selv
   4 eng     - 2*2 er sammen
