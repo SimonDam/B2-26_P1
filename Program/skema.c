@@ -50,19 +50,20 @@ struct teacher{
 
 typedef struct requirements reqs;
 struct requirements{
-  int Dan_reg;
-  int Mat_reg;
-  int Eng_reg;
-  int Tys_reg;
-  int Fys_reg;
-  int His_reg;
-  int Sam_reg;
-  int Val_reg;
-  int Geo_reg;
-  int Bio_reg;
-  int Gym_reg;
-  int Fri_reg;
-  int Rel_reg;
+  int Dan_req;
+  int Mat_req;
+  int Eng_req;
+  int Tys_req;
+  int Fys_req;
+  int His_req;
+  int Sam_req;
+  int Val_req;
+  int Geo_req;
+  int Bio_req;
+  int Gym_req;
+  int Fri_req;
+  int Rel_req;
+  int Pra_req;
 };
 
 int find_number_of_teachers();
@@ -378,44 +379,47 @@ reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher){
 
   reqs local_req;
   int i = 0;
-  local_req.Dan_reg = 0;
+  local_req.Dan_req = 0;
   for(i = 0; i < number_of_teacher; i ++){
     if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Dan", teacher_data[i].lesson_name) == 0){
-      local_req.Dan_reg = teacher_data[i].number_of_lessons;
-      printf("%d \n ", local_req.Dan_reg);
+      local_req.Dan_req = teacher_data[i].number_of_lessons;
+      printf("%d \n ", local_req.Dan_req);
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Mat", teacher_data[i].lesson_name) == 0){
-      local_req.Mat_reg = teacher_data[i].number_of_lessons;
+      local_req.Mat_req = teacher_data[i].number_of_lessons;
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Eng", teacher_data[i].lesson_name) == 0){
-      local_req.Eng_reg = teacher_data[i].number_of_lessons;  
+      local_req.Eng_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Tys", teacher_data[i].lesson_name) == 0){
-      local_req.Tys_reg = teacher_data[i].number_of_lessons;  
+      local_req.Tys_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fys", teacher_data[i].lesson_name) == 0){
-      local_req.Fys_reg = teacher_data[i].number_of_lessons;  
+      local_req.Fys_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("His", teacher_data[i].lesson_name) == 0){
-      local_req.His_reg = teacher_data[i].number_of_lessons;  
+      local_req.His_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Val", teacher_data[i].lesson_name) == 0){
-      local_req.Val_reg = teacher_data[i].number_of_lessons;  
+      local_req.Val_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Geo", teacher_data[i].lesson_name) == 0){
-      local_req.Geo_reg = teacher_data[i].number_of_lessons;  
+      local_req.Geo_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Bio", teacher_data[i].lesson_name) == 0){
-      local_req.Bio_reg = teacher_data[i].number_of_lessons;  
+      local_req.Bio_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Gym", teacher_data[i].lesson_name) == 0){
-      local_req.Gym_reg = teacher_data[i].number_of_lessons;  
+      local_req.Gym_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Rel", teacher_data[i].lesson_name) == 0){
-      local_req.Rel_reg = teacher_data[i].number_of_lessons;  
+      local_req.Rel_req = teacher_data[i].number_of_lessons;  
     }
     else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fri", teacher_data[i].lesson_name) == 0){
-      local_req.Fri_reg = teacher_data[i].number_of_lessons;  
+      local_req.Fri_req = teacher_data[i].number_of_lessons;  
+    }
+    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Pra", teacher_data[i].lesson_name) == 0){
+      local_req.Fri_req = teacher_data[i].number_of_lessons;  
     }
   }
   return local_req;
