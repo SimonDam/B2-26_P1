@@ -17,49 +17,44 @@
 \endgroup
 
 \sortlist[entry]{none/global/}
-  \entry{Greenhow2008}{article}{}
-    \name{author}{2}{}{%
-      {{hash=GBCaR}{%
-         family={Greenhow},
-         familyi={G\bibinitperiod},
-         suffix={Christine amd\bibnamedelima Robelia},
-         suffixi={C\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim
-  R\bibinitperiod},
-         given={Beth},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=HJE}{%
-         family={Hughes},
-         familyi={H\bibinitperiod},
-         given={Joan\bibnamedelima E.},
-         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GCaRBHJE1}
-    \strng{fullhash}{GCaRBHJE1}
-    \field{labelnamesource}{author}
+  \entry{lov2016}{online}{}
     \field{labeltitlesource}{title}
-    \field{title}{Learning, Teaching, and Scholarship in a Digital Age}
-    \field{year}{2008}
+    \field{title}{Bekendtgørelse af lov om folkeskolen}
+    \verb{url}
+    \verb https://www.retsinformation.dk/forms/r0710.aspx?id=182008
+    \endverb
+    \field{year}{2016}
+    \warn{\item Invalid format of field 'date' \item Invalid format of field
+  'date'}
   \endentry
 
-  \entry{Harris2014}{article}{}
-    \name{author}{1}{}{%
-      {{hash=HDM}{%
-         family={Harris},
-         familyi={H\bibinitperiod},
-         given={Darlene\bibnamedelima Marie},
-         giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{HDM1}
-    \strng{fullhash}{HDM1}
-    \field{labelnamesource}{author}
+  \entry{timeskema2016}{online}{}
     \field{labeltitlesource}{title}
-    \field{title}{EXPLORING THE IMPACT OF TRADITIONAL AND BLOCK SCHEDULING: AN
-  EXAMINATION OF HIGH SCHOOL STUDENT ACHIEVEMENT (ALGEBRA, BIOLOGY AND
-  ENGLISH), ATTENDANCE RATES, AND DISCIPLINARY INCIDENTS}
-    \field{year}{2014}
+    \field{title}{Timetal (minimumstimetal og vejledende timetal) for fagene i
+  folkeskolen}
+    \verb{url}
+    \verb https://www.uvm.dk/-/media/UVM/Filer/Udd/Folke/PDF15/Juli/150710-Time
+    \verb talsskema_PDF.ashx?la=da
+    \endverb
+  \endentry
+
+  \entry{timetalifolkeskolen2016}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Undervisningstimetal i folkeskolen}
+    \verb{url}
+    \verb https://www.uvm.dk/Service/Statistik/Statistik-om-folkeskolen-og-frie
+    \verb -skoler/Statistik-om-elever-i-folkeskolen-og-frie-skoler/Statistik-om
+    \verb -undervisningstimetal-i-folkeskolen?allowCookies=on
+    \endverb
+    \field{day}{05}
+    \field{month}{08}
+    \field{year}{2016}
+    \warn{\item Can't use 'date' + 'year'}
+  \endentry
+
+  \entry{dennyefolkeskole}{booklet}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Den nye folkeskole - en kort guide til reformen}
   \endentry
 \endsortlist
 \endinput
