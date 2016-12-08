@@ -1,0 +1,45 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Indledning}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Problemanalyse}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Skeamets opbygning}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Lovm\IeC {\ae }ssige krav til folkeskoleskemaet}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}Interresentanalyse}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}Genetiske algoritmer}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.1}Brute Force}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.2}Genetiske algoritmer}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Selektion}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Crossover}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Mutation}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Mangfoldighed}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.3}Searchspace}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Delkonklusion}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Problemafgr\IeC {\ae }nsing}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Problemformulering}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Designovervejelser}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.0.1}Roulette metoden}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.0.2}Rank metoden}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.0.3}Tournament metoden}{10}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.31)  8 DEC 2016 09:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  8 DEC 2016 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -727,18 +727,18 @@ File: danish.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
 ) (./core.aux)
 \openout1 = `core.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -831,23 +831,104 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                - Can't use 'date' + 'year'.
 
 )
-Package biblatex Info: Reference section=0 on input line 25.
-Package biblatex Info: Reference segment=0 on input line 25.
- (./partials/body.tex (./partials/chapters/indledning.tex)
+Package biblatex Info: Reference section=0 on input line 22.
+Package biblatex Info: Reference segment=0 on input line 22.
+ (./partials/header.tex (./partials/frontpage.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+
+
+LaTeX Warning: No \author given.
+
+<partials/graphics/forside.png, id=1, 603.25375pt x 302.12875pt>
+File: partials/graphics/forside.png Graphic file (type png)
+
+<use partials/graphics/forside.png>
+Package pdftex.def Info: partials/graphics/forside.png used on input line 11.
+(pdftex.def)             Requested size: 542.92336pt x 271.91336pt.
+
+Overfull \hbox (77.7217pt too wide) in paragraph at lines 11--12
+ [][] 
+ []
+
+[1
+
+{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./partials/grap
+hics/forside.png>]) (./core.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 9.
+)
+\tf@toc=\write5
+\openout5 = `core.toc'.
+
+ [1
+
+
+]) (./partials/body.tex
+(./partials/chapters/indledning.tex)
 Overfull \hbox (4.03386pt too wide) in paragraph at lines 7--3
 []\OT1/cmr/m/n/10.95 "Hvilke parame-tre tages der h^^\jde for n^^War der plan-l
 ^^Zgges skoleskema i folkeskol-erne, og hvorledes
  []
 
 (./partials/chapters/problemanalyse.tex)
-(./partials/chapters/skemaetsopbygning.tex) [1
-
-{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./partials/cha
-pters/lovmessigekrav.tex
-<partials/graphics/overallskemaovertimetal.png, id=8, 390.86024pt x 479.99326pt
->
+(./partials/chapters/skemaetsopbygning.tex) [2]
+(./partials/chapters/lovmessigekrav.tex
+<partials/graphics/overallskemaovertimetal.png, id=20, 390.86024pt x 479.99326p
+t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
-input line 16.
-(pdftex.def)             Requested size: 35
+input line 17.
+(pdftex.def)             Requested size: 351.77097pt x 431.98993pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]) (./partials/chapters/casestudy.tex [4 <./partials/graphics/overallskemaove
+rtimetal.png>]) (./partials/chapters/interresentanalyse.tex [5])
+(./partials/chapters/genetiskealgoritmer.tex [6] [7]) [8]
+(./partials/chapters/delkonklusion.tex)
+(./partials/chapters/problemafgrensning.tex)
+(./partials/chapters/problemformulering.tex)
+(./partials/chapters/designovervejelser.tex [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 3.
+
+(c:/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
+)) (./partials/footer.tex
+[10]) [11] (./core.aux)
+Package logreq Info: Writing requests to 'core.run.xml'.
+\openout1 = `core.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 10098 strings out of 493013
+ 169232 string characters out of 6136992
+ 454814 words of memory out of 5000000
+ 13464 multiletter control sequences out of 15000+600000
+ 9626 words of font info for 34 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 40i,6n,45p,1823b,1536s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on core.pdf (12 pages, 213489 bytes).
+PDF statistics:
+ 84 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+
