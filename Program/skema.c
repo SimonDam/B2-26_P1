@@ -66,6 +66,7 @@ struct requirements{
   int Pra_req;
 };
 
+void crossover(individual individuals[]);
 int find_number_of_teachers();
 void read_teachers_name(teacher teacher_data[], int number_teachers);
 reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher);
@@ -202,15 +203,14 @@ int main(void){
     mutation(individuals8a);
     mutation(individuals8b);
     mutation(individuals8c);
-    
-    mutation(individuals7a);
+  
+    mutation(individuals7a);  
     mutation(individuals7b);
     mutation(individuals7c);
-
     /* Crossover */
-
-
+    crossover(individuals7a);
     /* Tests */
+
     chosen_individual9a = choose_individual(individuals9a);
     chosen_individual9b = choose_individual(individuals9b);
     chosen_individual9c = choose_individual(individuals9c);
@@ -239,7 +239,7 @@ int main(void){
   chosen_individual7a = choose_individual(individuals7a);
   chosen_individual7b = choose_individual(individuals7b);
   chosen_individual7c = choose_individual(individuals7c);
-
+  
   /* Printing */
   printf("  The fitness is: %d   9.A's Skoleschedule: \n", chosen_individual9a.fitness);
   create_schedule(week9a, chosen_individual9a, teachers_names);
@@ -273,6 +273,7 @@ int main(void){
   create_schedule(week7c, chosen_individual7c, teachers_names);
   print_schedule(week7c);
   printf("\n\n");
+  
   return 0;
 }
 /**************************************************************/
@@ -331,6 +332,52 @@ void mutation(individual individuals[]){
     }
   }
 }
+
+
+void crossover(individual individuals[]){
+  int i = 0, ran1day = 0, ran2day = 0, ran3day = 0, ran4day = 0, ran5day = 0, ran6day = 0, ran_lesson = 0, k = 0;
+  individual individuals_temp[NUMBER_OF_INDIVIDUALS]; 
+  individual parent1;
+  individual parent2;
+
+    /* temp == individual */
+  for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    individuals_temp[i] = individuals[i];
+  }
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    ran1day = rand()% SCHOOL_DAYS_IN_WEEK;
+    ran2day = rand()% SCHOOL_DAYS_IN_WEEK;
+    while(ran3day == ran1day){
+      ran3day = rand()% SCHOOL_DAYS_IN_WEEK;
+    }
+    while(ran4day == ran2day){
+      ran4day = rand()% SCHOOL_DAYS_IN_WEEK;
+    }
+    while(ran5day == ran1day || ran5day == ran3day){
+      ran5day = rand()% SCHOOL_DAYS_IN_WEEK;
+    }
+    while(ran6day == ran2day || ran6day == ran4day){
+      ran6day = rand()% SCHOOL_DAYS_IN_WEEK;
+    }            
+    parent1 = pick_individual(individuals_temp); 
+    parent2 = pick_individual(individuals_temp);
+    for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
+      individuals[i].individual_num[k][0] = parent1.individual_num[k][ran1day];
+      individuals[i].individual_num[k][1] = parent2.individual_num[k][ran2day];
+      individuals[i].individual_num[k][4] = parent2.individual_num[k][ran2day]; 
+    }
+    ran_lesson = rand()% LESSONS_PER_DAY_MAX;
+    for(k = 0; k < ran_lesson; k++){   
+      individuals[i].individual_num[k][2] = parent2.individual_num[k][ran6day];
+      individuals[i].individual_num[k][3] = parent1.individual_num[k][ran5day];
+    }
+    for(k = LESSONS_PER_DAY_MAX - ran_lesson; k < LESSONS_PER_DAY_MAX; k++){   
+      individuals[i].individual_num[k][2] = parent1.individual_num[k][ran3day];
+      individuals[i].individual_num[k][3] = parent2.individual_num[k][ran4day];
+    }
+  }
+} 
 
 int find_number_of_teachers(){                                          
   FILE *teacher_file = fopen("teacherinfo.txt", "r");
