@@ -1,6 +1,4 @@
-\subsubsection{Algoritme}
-
-For at lave algoritmen til at f.eks. at planlægge et skema, er der forskellige metoder. Hver metode har fordele og ulemper og er derfor egnet til forskellige problemer.
+For at lave algoritmen til at planlægge et skema, er der forskellige metoder. Hver metode har fordele og ulemper og er derfor egnet til forskellige problemer.
 
 \subsubsection{Brute Force}
 
@@ -30,19 +28,19 @@ En genetisk algoritme består af følgende dele.
 
 En population bliver muteret ved følgende operationer:
 
-\textbf{Selektion}
+\subsubsubsection{Selektion}
 
 Operatoren vælger individer til reproduktionen, jo større fitness individerne har, jo større sandsynlighed er der for, at de bliver valgt til reproduktion. Reproduktion kombiner 2 individer og danner ud fra deres kromosomer et nyt individ.
 
-\textbf{Crossover}
+\subsubsubsection{Crossover}
 
 Operatoren vælger 2 tilfældige kromosomer og blander dem så der bliver dannet 2 nye kromosomer som er en kombination af de 2 kromosomer fx strengene 1110100 1011111 bliver krydset og danner de 2 nye strenge 1010100 1111111.
 
-\textbf{Mutation}
+\subsubsubsection{Mutation}
 
 Operationen flipper tilfældigt nogle stykker af kromosomet fx strengen 1001000 bliver muteret i dens tredje position til 1011000. Mutation kan ske i alle positioner i strengen med en hvis sandsynlighed. For en simpel algoritme kan fungere skal der være givet et defineret problem og et individ som en mulig
 
-\textbf{Mangfoldighed}
+\subsubsubsection{Mangfoldighed}
 
 Når man prøver at finde den optimale løsning, er det vigtigt at man ikke bliver fanget på et lokalt højde-punkt, men at man kan komme over disse til det globale højdepunkt. Eksempelvis, hvis et problem havde 5 parametre, og man udregnede fitness heraf. Heri vil der forekomme selektion, crossover og mutation. Dette gør at vi nu kan udregne endnu en fitness for den givne population, men hvad nu hvis, at man hænger fast. 
 
