@@ -80,6 +80,10 @@ void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 individual pick_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class);
 void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS]);
+void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], individual indi, int class);
+lesson create_lesson(int num);
+void print_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], int class);
+void print_lesson(lesson l);
 
 
 int main(void){
@@ -95,15 +99,8 @@ int main(void){
 
   individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   
-  individual chosen_individual7a;
-  individual chosen_individual7b;
-  individual chosen_individual7c;
-  individual chosen_individual8a;
-  individual chosen_individual8b;
-  individual chosen_individual8c;
-  individual chosen_individual9a;
-  individual chosen_individual9b;
-  individual chosen_individual9c;
+  individual chosen_individual[NUMBER_OF_CLASSES];
+  lesson week[NUMBER_OF_CLASSES][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX];
   /*teacherinfo*/
   teacher *teacher_data;
   /*Finds number of teacher and reads in info*/
@@ -128,31 +125,29 @@ int main(void){
     selektion(individuals);
 
 
-
     /* Mutation */
     mutation(individuals);
 
+
     /* Crossover */
     crossover(individuals);
+
     /* Tests */
+    int i = 0;
+    for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    chosen_individual[i] = choose_individual(individuals, i);  
+    }
 
-    chosen_individual9a = choose_individual(individuals, 0);
-    chosen_individual9b = choose_individual(individuals, 1);
-    chosen_individual9c = choose_individual(individuals, 2);
 
-    chosen_individual8a = choose_individual(individuals, 3);
-    chosen_individual8b = choose_individual(individuals, 4);
-    chosen_individual8c = choose_individual(individuals, 5);
-
-    chosen_individual7a = choose_individual(individuals, 6);
-    chosen_individual7b = choose_individual(individuals, 7);
-    chosen_individual7c = choose_individual(individuals, 8);
-
-    printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual9a.fitness, chosen_individual9b.fitness, chosen_individual9c.fitness, chosen_individual8a.fitness, chosen_individual8b.fitness, chosen_individual8c.fitness, chosen_individual7a.fitness, chosen_individual7b.fitness, chosen_individual7c.fitness);
+    printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual[0].fitness, chosen_individual[1].fitness, chosen_individual[2].fitness, chosen_individual[3].fitness, chosen_individual[4].fitness, chosen_individual[5].fitness, chosen_individual[6].fitness, chosen_individual[7].fitness, chosen_individual[8].fitness);
   
   }
-  
-
+  int k = 0;
+  for(k = 0; k < NUMBER_OF_CLASSES; k++){
+  printf("  The fitness is: %d   8.A's Skoleschedule: \n", chosen_individual[k].fitness);
+  create_schedule(week, chosen_individual[k], k);
+  print_schedule(week, k);
+  }
   return 0;
 }
 
@@ -493,4 +488,130 @@ void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS]){
     }
   }
 } 
+
+void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], individual indi, int class){
+  int lesson_now = 0, j = 0, k = 0;
+  /* Creating the schedule based on the individual */
+  for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(int i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      week[class][k] = create_lesson(indi.individual_num[i][j]);
+      k++;
+    }
+  }
+}
+
+lesson create_lesson(int num){
+  lesson result;
+  
+  /* Making the lessons name */
+  switch (num){
+    case dan:
+      strcpy(result.lesson_name, "Dan");
+      break;
+    case mat:
+      strcpy(result.lesson_name, "Mat");
+      break;
+    case eng:
+      strcpy(result.lesson_name, "Eng");
+      break;
+    case tys:
+      strcpy(result.lesson_name, "Tysk");
+      break;
+    case fys:
+      strcpy(result.lesson_name, "Fys");
+      break;
+    case his:
+      strcpy(result.lesson_name, "His");
+      break;
+    case sam:
+      strcpy(result.lesson_name, "Sam");
+      break;
+    case valg:
+      strcpy(result.lesson_name, "Valg");
+      break;
+    case geo:
+      strcpy(result.lesson_name, "Geo");
+      break;
+    case bio:
+      strcpy(result.lesson_name, "Bio");
+      break;
+    case gym:
+      strcpy(result.lesson_name, "Gym");
+      break;
+    case fri:
+      strcpy(result.lesson_name, "---");
+      break;
+    case rel:
+      strcpy(result.lesson_name, "Rel");
+      break;
+    default:
+      strcpy(result.lesson_name, "ERROR");
+      printf("ERROR: The number is: %d\n", num);
+      break;
+  }
+
+  return result;
+}
+
+void print_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], int class){
+  int lesson_of_day = 0, day_of_week = 0, lesson_in_individual = 0, done = 0, lesson_number = 0;
+  printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
+  printf("  ------------------------------------------------------------------------------------------------\n");
+  /* printing the first time */
+  printf("   8.00 -  8.45  |\t");
+
+  /* Printing the schedule */
+  while (!done){
+    /* Making the next number for the lesson */
+    /* Printing the lesson and the teacher */
+    print_lesson(week[class][lesson_number]);
+    lesson_number++;
+    day_of_week++;
+
+    /* Making new line */
+    if (day_of_week == SCHOOL_DAYS_IN_WEEK){
+      day_of_week = 0;
+      lesson_of_day++;
+      /* Making an ekstra new line to act as a break ind school */
+      if ((lesson_of_day % 2) == 0){
+        printf("\n");
+      }
+      printf("\n  ");
+
+      if(lesson_of_day == 1){
+        printf(" 8.45 -  9.30  |\t");
+      }
+      else if(lesson_of_day == 2){
+        printf(" 9.50 - 10.35  |\t");
+      }
+      else if(lesson_of_day == 3){
+        printf("10.35 - 11.20  |\t");
+      }
+      else if(lesson_of_day == 4){
+        printf("11.50 - 12.35  |\t");
+      }
+      else if(lesson_of_day == 5){
+        printf("12.35 - 13.20  |\t");
+      }
+      else if(lesson_of_day == 6){
+        printf("13.30 - 14.15  |\t");
+      }
+      else if(lesson_of_day == 7){
+        printf("14.15 - 15.00  |\t");
+      }
+    }
+
+    /* If all the lessons has printed, then break the while */
+    if (lesson_of_day == LESSONS_PER_DAY_MAX){
+      done = 1;
+    }
+  }
+}
+
+void print_lesson(lesson l){
+  printf("%s",l.lesson_name);
+  for(int i = 0; i < LESSON_NAME_MAX-strlen(l.lesson_name); i++){
+    printf(" ");
+  }
+}
 
