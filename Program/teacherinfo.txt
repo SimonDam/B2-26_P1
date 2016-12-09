@@ -11,7 +11,6 @@ MA Bio 2 7a
 WA Gym 2 7a
 DA Rel 0 7a
 UA Pra 2 7a
-
 CB Dan 6 7b
 JB Mat 4 7b
 HB Eng 3 7b
@@ -25,7 +24,6 @@ MB Bio 2 7b
 WB Gym 2 7b
 DB Rel 0 7b
 UB Pra 2 7b
-
 CC Dan 6 7c
 JC Mat 4 7c
 HC Eng 3 7c
@@ -39,7 +37,6 @@ MC Bio 2 7c
 WC Gym 2 7c
 DC Rel 0 7c
 UC Pra 2 7c
-
 CD Dan 6 8a
 JD Mat 4 8a
 HC Eng 3 8a
@@ -53,7 +50,6 @@ MD Bio 2 8a
 WD Gym 2 8a
 DD Rel 1 8a
 UD Pra 0 8a
-
 CE Dan 6 8b
 JA Mat 4 8b
 HA Eng 3 8b
@@ -67,7 +63,6 @@ ME Bio 2 8b
 WE Gym 2 8b
 DE Rel 1 8b
 UE Pra 0 8b
-
 CF Dan 6 8c
 JF Mat 4 8c
 HF Eng 3 8c
@@ -81,7 +76,6 @@ MF Bio 2 8c
 WF Gym 2 8c
 DF Rel 1 8c
 UF Pra 0 8c
-
 CR Dan 6 9a
 JR Mat 4 9a
 HR Eng 3 9a
@@ -95,7 +89,6 @@ MR Bio 1 9a
 WR Gym 2 9a
 DR Rel 1 9a
 UR Pra 0 9a
-
 CS Dan 6 9b
 JS Mat 4 9b
 HS Eng 3 9b
@@ -109,7 +102,6 @@ MS Bio 1 9b
 WS Gym 2 9b
 DS Rel 1 9b
 US Pra 0 9b
-
 CA Dan 6 9c
 JB Mat 4 9c
 HC Eng 3 9c
