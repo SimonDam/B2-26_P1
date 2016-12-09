@@ -129,14 +129,6 @@
   url   = {https://www.uvm.dk/Service/Statistik/Statistik-om-folkeskolen-og-frie-skoler/Statistik-om-elever-i-folkeskolen-og-frie-skoler/Statistik-om-undervisningstimetal-i-folkeskolen?allowCookies=on},
 }
 
-@Book{Mitchell1996,
-  title     = {AN INTRODUCTION TO GENETIC ALGORITHMS},
-  publisher = {MIT Press},
-  year      = {1996},
-  author    = {Mitchell, Melanie},
-  edition   = {Fifth},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-entrytype: Online: req[author/editor;title;year/date;url] opt[subtitle;titleaddon;note;organization;urldate;language;version;month;addendum;pubstate]}

@@ -1,0 +1,33 @@
+Mutation er til for at lave små ændringer i skemaet. Den skal kunne sørge for at der er mangfoldighed, som sørger for at skemaet ikke ender i et lokalt maksimum. %forklar hvad et lokalt maksimum er
+
+Mutationer er lavet ved at tage et individ, finde to helt tilfældige timer på hele skemaet og bytter disse ud. Dette laver to variabler, der kan finpudses for at finde den bedste løsning. %Hvad menes der?
+Der er chancen for at en mutation kan ske og antal mutationer, der maksimalt kan ske pr individ. %Forstår ikke hvad der står her
+
+Her under ses koden til mutations funktionen, som er brugt i programmet.
+
+\begin{lstlisting}[language = C]
+void mutation(individual individuals[]){
+  int i = 0, j = 0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    chance = rand()\% 100;
+    mutations = rand()\% MAX_MUTATIONS_PER_INDIVIDUAL;
+    for (j = 0; j < mutations; j++){
+      if (chance > CHANCE_OF_MUTATION){
+        do {
+          ran1Week = rand()\% SCHOOL_DAYS_IN_WEEK;
+          ran1Day = rand()\% LESSONS_PER_DAY_MAX;
+          ran2Week = rand()\% SCHOOL_DAYS_IN_WEEK;
+          ran2Day = rand()\% LESSONS_PER_DAY_MAX;
+        } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
+        
+        temp = individuals[i].individual_num[ran1Day][ran1Week];
+        individuals[i].individual_num[ran1Day][ran1Week] = individuals[i].individual_num[ran2Day][ran2Week];
+        individuals[i].individual_num[ran2Day][ran2Week] = temp;
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+Programmet kører igennem tre for-lykker. Den første tæller klassen op, så mutationer først bliver lavet for 9.a, så 9.b osv. Dernæst bliver endnu en for-lykke kørt gennem, som går gennem antallet af individer, og til sidst generes et tilfældigt tal mellem 0 og det maksimale antal mutationer, som kan ske pr. individ. Den sidste lykke igennem det antal gange, der kan ske en mutation. Der bliver også generet et tal, som skal bestemme om der skal ske en mutation på denne mulige plads. Hvis der skal ske en mutation genereres fire yderligere tal, som hører sammen to og to. Disse tal står for en tilfældig time på en tilfældig dag. Disse to timer bliver nu byttet om. 
