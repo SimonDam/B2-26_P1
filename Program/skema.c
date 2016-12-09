@@ -482,6 +482,7 @@ void make_teachers_names(FILE *teachers, char teachers_names[]){
     /* Doing so it is always three long */
     if (strlen(temp_name) > 3){
       printf("ERROR: A name is longer then three");
+      exit(0);
     }
     while (strlen(temp_name) < 3){
       strcat(temp_name, " ");
@@ -498,6 +499,7 @@ void make_teachers_names(FILE *teachers, char teachers_names[]){
   }
   if (res != 28){
     printf("Error occurred reading file\n\n");
+    exit(0);
   }
 }
 
