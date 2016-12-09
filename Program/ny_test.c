@@ -41,7 +41,8 @@ typedef struct individual individual;
 struct individual{
   int individual_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
-  int grade;
+  char class[9];
+  int individual;
 };
 
 typedef struct teacher teacher;
@@ -127,22 +128,27 @@ int main(void){
     /* Crossover */
     crossover(individuals);
 
-    /* Tests */
+    /* Tests 
     int i = 0;
     for(i = 0; i < NUMBER_OF_CLASSES; i++){
       chosen_individual[i] = choose_individual(individuals, i);  
     }
 
     printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual[0].fitness, chosen_individual[1].fitness, chosen_individual[2].fitness, chosen_individual[3].fitness, chosen_individual[4].fitness, chosen_individual[5].fitness, chosen_individual[6].fitness, chosen_individual[7].fitness, chosen_individual[8].fitness);
+    */
   }
 
   /* Printing */
   for(i = 0; i < NUMBER_OF_CLASSES; i++){
-    printf("  The fitness is: %d   8.A's Skoleschedule: \n", chosen_individual[i].fitness);
+    chosen_individual[i] = choose_individual(individuals, i);
+  }
+
+  for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    printf("  Individual: %d  The fitness is: %d   %s's Skoleschedule: \n", chosen_individual[i].individual, chosen_individual[i].fitness, chosen_individual[i].class);
     create_schedule(week, chosen_individual[i], i);
     print_schedule(week, i);
 
-    if (i % 3 == 0){
+    if (i % 3 == 2){
       printf("\n\n");
     }
   }
@@ -268,7 +274,6 @@ void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   }
 }
 
-
 individual create_individual(){
   individual result;
   /* Creating the individual */
@@ -376,34 +381,74 @@ void calculate_fitness_one(individual *individual_master, individual *individual
 
 individual choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class){
   individual chosen;
-  chosen.fitness = -100000;
+  chosen.fitness = -1;
 
-  int i, j, k, f;
-    for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
-      if (individuals[class][k].fitness > chosen.fitness){
-        for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-          for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-            chosen.individual_num[i][j] = individuals[class][k].individual_num[i][j];
-            chosen.fitness = individuals[class][k].fitness;
+  int i, j, k, f, g, h, test_fitness, best_fitness = -1;
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    test_fitness = 0;
+    for (k = 0; k < NUMBER_OF_CLASSES; k++){
+      test_fitness += individuals[k][i].fitness;
+    }
+
+    if (test_fitness > best_fitness){
+      best_fitness = test_fitness;
+      for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+        for(f = 0; f < LESSONS_PER_DAY_MAX; f++){
+          chosen.individual_num[f][j] = individuals[class][i].individual_num[f][j];
+          chosen.fitness = individuals[class][i].fitness;
+          chosen.individual = i;
+          switch (class){
+            case 0:
+              strcpy(chosen.class, "9.A");
+              break;
+            case 1:
+              strcpy(chosen.class, "9.B");
+              break;
+            case 2:
+              strcpy(chosen.class, "9.C");
+              break;
+            case 3:
+              strcpy(chosen.class, "8.A");
+              break;
+            case 4:
+              strcpy(chosen.class, "8.B");
+              break;
+            case 5:
+              strcpy(chosen.class, "8.C");
+              break;
+            case 6:
+              strcpy(chosen.class, "7.A");
+              break;
+            case 7:
+              strcpy(chosen.class, "7.B");
+              break;
+            case 8:
+              strcpy(chosen.class, "7.C");
+              break;
+            default:
+              strcpy(chosen.class, "ERROR");
+              break;
           }
         }
       }
-    } 
+    }
+  }
 
   return chosen;
 }
 
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  int i;
+  int i, j;
 
   /* temp == individual */
-  for(int j = 0; j < NUMBER_OF_CLASSES; j++){
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals_temp[j][i] = individuals[j][i];
     }
   }
-  for(int j = 0; j < NUMBER_OF_CLASSES; j++){
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals[j][i] = pick_individual(individuals_temp, j);
     }
@@ -411,16 +456,27 @@ void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
 }
 
 individual pick_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class){
-  int i, sum = 0, j;
+  int i, sum = 0, j, k;
   int fitness_test = 0;
+  
+  /* Finding the sum */
+  int max = 0;
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    sum += individuals[class][i].fitness;
+    for (k = 0; k < NUMBER_OF_CLASSES; k++){
+      sum += individuals[k][i].fitness;
+    }
   }
 
+  /* Picking the parent */
   int field = rand()% sum;
+  int fitness_classes = 0;
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    fitness_test += individuals[class][i].fitness;
+    for (j = 0; j < NUMBER_OF_CLASSES; j++){
+      fitness_classes += individuals[j][i].fitness;
+    }
+    fitness_test += fitness_classes;
     if(field < fitness_test){
+      printf("I: %d \n", i);
       return individuals[class][i];
     }
   } 
