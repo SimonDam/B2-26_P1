@@ -260,12 +260,45 @@ reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher){
   return local_req;
 }
 
+<<<<<<< HEAD
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   for (int j = 0; j < NUMBER_OF_CLASSES; j++ ){
     for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals[j][i] = create_individual();
     }
   }
+=======
+void make_teachers_names(FILE *teachers, char teachers_names[]){
+  char temp_name[TEACHER_NAME_MAX];
+  char temp_lesson[5];
+  int res = 0, done = 0;
+
+  while (!done){
+    res += fscanf(teachers, " %s %s ",temp_lesson, temp_name);  
+    
+    /* Doing so it is always three long */
+    if (strlen(temp_name) > 3){
+      printf("ERROR: A name is longer then three");
+      exit(0);
+    }
+    while (strlen(temp_name) < 3){
+      strcat(temp_name, " ");
+    }
+
+    /* Looking for when to stop */
+    if (strcmp(temp_name, "END") == 0){
+      done = 1;
+    }
+    /* Creating the list of names */
+    else {
+      strcat(teachers_names, temp_name);
+    }
+  }
+  if (res != 28){
+    printf("Error occurred reading file\n\n");
+    exit(0);
+  }
+>>>>>>> origin/master
 }
 
 
