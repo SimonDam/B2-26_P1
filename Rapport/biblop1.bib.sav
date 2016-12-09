@@ -1,0 +1,134 @@
+% Encoding: UTF-8
+
+@Booklet{dennyefolkeskole,
+  title = {Den nye folkeskole - en kort guide til reformen},
+}
+
+@Article{Harris2014,
+  author = {Harris, Darlene Marie},
+  title  = {EXPLORING THE IMPACT OF TRADITIONAL AND BLOCK SCHEDULING: AN EXAMINATION OF HIGH SCHOOL STUDENT ACHIEVEMENT (ALGEBRA, BIOLOGY AND ENGLISH), ATTENDANCE RATES, AND DISCIPLINARY INCIDENTS},
+  year   = {2014},
+}
+
+@Article{Greenhow2008,
+  author = {Greenhow, Christine amd Robelia, Beth and Hughes, Joan E.},
+  title  = {Learning, Teaching, and Scholarship in a Digital Age},
+  year   = {2008},
+}
+
+@Article{Silvernail2012,
+  author = {Silvernail, David L. and Stump, Erika K. and Barnes, Richard and Kunin, Kenneth and Wintle, Sarah},
+  title  = {More Efficient Public Schools In Maine: Learning Communities Building the Foundation of Intellectual Work},
+  year   = {2012},
+}
+
+@Article{Kubitschek2005,
+  author = {Kubitschek, Warren N. and Hallinan, Maureen T. and Arnett, Stephanie M. and Galipeau, Kim S.},
+  title  = {High School Schedule Changes and the Effect of Lost Instructional Time on Achievement},
+  year   = {2005},
+}
+
+@Article{Owens2014,
+  author = {Owens, Judith A. and Au, Rhoda and Carskadon, Mary and Millman, Richard and Wolfson, Amy},
+  title  = {School Start Times for Adolescents},
+  year   = {2014},
+}
+
+@Article{Li2013,
+  author = {Li, Shenghui and Arguelles, Lester and Chen, Wenjuan and Jin, Xingming and Yan, Chonghuai and Tian, Ying and Hong, Xiumei, Hong and Qian, Ceng and Zhang, Jun and Wang, Xiaobin and Shen, Xiaoming},
+  title  = {Sleep, School Performance, and a School-Based Intervention among School-Aged Children: A Sleep Series Study in China},
+  year   = {2013},
+}
+
+@Article{Astinm1984,
+  author = {Astinm, Alexander W.},
+  title  = {Student Involvement: A Development Theory for Higher Education},
+  year   = {1984},
+}
+
+@Article{Canady1995,
+  author = {Canady, Robert Lynn and Rettig, Michael D. Rettig},
+  title  = {The Power of Innovative Scheduling},
+  year   = {1995},
+}
+
+@Online{Winston2014,
+  author = {Patrick Winston},
+  title  = {13. Learning: Genetic Algorithms},
+  year   = {2014},
+  date   = {2014/01/10},
+  url    = {https://www.youtube.com/watch?v=kHyNqSnzP8Y},
+}
+
+@Online{tutorialspoint,
+  title = {Genetic Algorithms - Fitness Function},
+  url   = {https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_fitness_function.htm},
+}
+
+@Online{timefolke2016,
+  title = {Undervisningstimetal i folkeskolen},
+  url   = {https://www.uvm.dk/Service/Statistik/Statistik-om-folkeskolen-og-frie-skoler/Statistik-om-elever-i-folkeskolen-og-frie-skoler/Statistik-om-undervisningstimetal-i-folkeskolen?allowCookies=on},
+}
+
+@Online{lov2016,
+  title = {Bekendtgørelse af lov om folkeskolen},
+  year  = {2016},
+  date  = {2016/06/20},
+  url   = {https://www.retsinformation.dk/forms/r0710.aspx?id=182008},
+}
+
+@Online{timetal2016,
+  title = {Timetal},
+  year  = {2016},
+  date  = {2016/05/11},
+  url   = {https://www.uvm.dk/Uddannelser/Folkeskolen/Fag-timetal-og-overgange/Timetal},
+}
+
+@Online{timeskema2016,
+  title = {Timetal (minimumstimetal og vejledende timetal) for fagene i folkeskolen},
+  url   = {https://www.uvm.dk/-/media/UVM/Filer/Udd/Folke/PDF15/Juli/150710-Timetalsskema_PDF.ashx?la=da},
+}
+
+@Online{Ebbesen2015,
+  author = {Ebbesen, Vilhelm},
+  title  = {tabulex 2015 SKEMALÆGNING},
+  year   = {2015},
+  url    = {http://docplayer.dk/3713728-Tabulex-2015-skemalaegning.html},
+}
+
+@Online{lantiv2016,
+  url = {http://timetablingturbo.com/advantages.html#1clicktimetabling},
+}
+
+@Online{untis2016,
+  url = {http://untis.dk/},
+}
+
+@Online{Brute2016,
+  title = {Brute force cracking},
+  year  = {2016},
+  url   = {http://searchsecurity.techtarget.com/definition/brute-force-cracking},
+}
+
+@Online{Selection,
+  title = {Selection},
+  url   = {http://www.obitko.com/tutorials/genetic-algorithms/selection.php},
+}
+
+@Article{Jebari2013,
+  author = {Jebari, Khalid and Madiafi Mohammed},
+  title  = {Selection Methods for Genetic Algorithms},
+  year   = {2013},
+  date   = {2013-12-01},
+}
+
+@Online{timetalifolkeskolen2016,
+  title = {Undervisningstimetal i folkeskolen},
+  year  = {2016},
+  date  = {2016-08-05},
+  url   = {https://www.uvm.dk/Service/Statistik/Statistik-om-folkeskolen-og-frie-skoler/Statistik-om-elever-i-folkeskolen-og-frie-skoler/Statistik-om-undervisningstimetal-i-folkeskolen?allowCookies=on},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-entrytype: Online: req[author/editor;title;year/date;url] opt[subtitle;titleaddon;note;organization;urldate;language;version;month;addendum;pubstate]}
