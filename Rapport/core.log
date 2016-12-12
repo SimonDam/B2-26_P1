@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  12 DEC 2016 02:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  12 DEC 2016 09:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -749,11 +749,7 @@ Package biblatex Info: ... file 'danish.lbx' found.
 
 (c:/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/danish.lbx
 File: danish.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
-) (./core.aux
-
-LaTeX Warning: Label `fig:Timetal' multiply defined.
-
-)
+) (./core.aux)
 \openout1 = `core.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -912,45 +908,39 @@ Overfull \hbox (4.03386pt too wide) in paragraph at lines 7--3
 File: partials/graphics/fagkrav.png Graphic file (type png)
 
 <use partials/graphics/fagkrav.png>
-Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 5.
+Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 6.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 
 <partials/graphics/overallskemaovertimetal.png, id=21, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
-input line 23.
+input line 24.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3]) (./partials/chapters/casestudy.tex [4 <./partials/graphics/fagkrav.png>])
-(./partials/chapters/interresentanalyse.tex [5])
+ [3])
+(./partials/chapters/casestudy.tex [4 <./partials/graphics/fagkrav.png>]
+[5 <./partials/graphics/overallskemaovertimetal.png>])
+(./partials/chapters/interresentanalyse.tex [6])
 (./partials/chapters/stateoftheart.tex
-(./partials/chapters/stateoftheartdocendo.tex) [6]
+(./partials/chapters/stateoftheartdocendo.tex)
 (./partials/chapters/stateoftheartlantiv.tex
 
 LaTeX Warning: Citation 'lantiv2016' on page 7 undefined on input line 1.
 
-) (./partials/chapters/stateofthearttabulex.tex)
+[7]) (./partials/chapters/stateofthearttabulex.tex)
 Overfull \hbox (15.43301pt too wide) in paragraph at lines 1--12
 \OT1/cmr/m/n/10.95 Skemal^^Zgningsprogrammerne er dog ikke prob-lem-fri. Selvom
  pro-gram-met op-fylder de mest v^^Zsentlige
  []
 
-(./partials/chapters/stateoftheartuntis.tex)) [7]
+(./partials/chapters/stateoftheartuntis.tex)) [8]
 (./partials/chapters/genetiskealgoritmer.tex
-(./partials/chapters/genetiskalgoogskoleskemaer.tex) [8] [9]
+(./partials/chapters/genetiskalgoogskoleskemaer.tex) [9] [10]
 
-LaTeX Warning: Citation 'Winston2014' on page 10 undefined on input line 53.
+LaTeX Warning: Citation 'Winston2014' on page 11 undefined on input line 53.
 
-) (./partials/chapters/delkonklusion.tex) [10]
+) (./partials/chapters/delkonklusion.tex) [11]
 (./partials/chapters/problemafgrensning.tex)
 (./partials/chapters/problemformulering.tex)
 (./partials/chapters/designovervejelser.tex
@@ -961,14 +951,13 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
- [11]))
-(./partials/footer.tex [12]) [13] [14 <./partials/graphics/overallskemaovertime
-tal.png>] (./core.aux)
+ [12]))
+(./partials/footer.tex [13]) [14] (./core.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
@@ -980,10 +969,10 @@ Package logreq Info: Writing requests to 'core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11460 strings out of 493013
- 188963 string characters out of 6136992
- 473242 words of memory out of 5000000
- 14795 multiletter control sequences out of 15000+600000
+ 11461 strings out of 493013
+ 188973 string characters out of 6136992
+ 474242 words of memory out of 5000000
+ 14796 multiletter control sequences out of 15000+600000
  9626 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,6n,45p,2226b,1538s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -995,7 +984,7 @@ type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on core.pdf (15 pages, 234337 bytes).
+Output written on core.pdf (15 pages, 234520 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream

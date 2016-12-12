@@ -12,44 +12,44 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Interresentanalyse}{5}
+\contentsline {subsection}{\numberline {2.4}Interresentanalyse}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}State of the art}{6}
+\contentsline {subsection}{\numberline {2.5}State of the art}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{6}
+\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{7}
+\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{7}
+\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{8}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.4}Untis}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{8}
+\contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Brute Force}{8}
+\contentsline {subsubsection}{\numberline {2.6.1}Brute Force}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Genetiske algoritmer}{9}
+\contentsline {subsubsection}{\numberline {2.6.2}Genetiske algoritmer}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Selektion}{9}
+\contentsline {paragraph}{Selektion}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Crossover}{9}
+\contentsline {paragraph}{Crossover}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Mutation}{9}
+\contentsline {paragraph}{Mutation}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Mangfoldighed}{9}
+\contentsline {paragraph}{Mangfoldighed}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{10}
+\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Delkonklusion}{10}
+\contentsline {section}{\numberline {3}Delkonklusion}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Problemafgr\IeC {\ae }nsing}{11}
+\contentsline {section}{\numberline {4}Problemafgr\IeC {\ae }nsing}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Problemformulering}{11}
+\contentsline {section}{\numberline {5}Problemformulering}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Designovervejelser}{11}
+\contentsline {section}{\numberline {6}Designovervejelser}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Roulette metoden}{12}
+\contentsline {subsection}{\numberline {6.1}Roulette metoden}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Rank metoden}{12}
+\contentsline {subsection}{\numberline {6.2}Rank metoden}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Tournament metoden}{12}
+\contentsline {subsection}{\numberline {6.3}Tournament metoden}{13}

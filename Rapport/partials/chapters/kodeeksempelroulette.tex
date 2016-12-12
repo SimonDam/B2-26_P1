@@ -2,7 +2,7 @@ Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at all
 
 Herefter køres en for-løkke der starter fra bunden af rouletten og lægger hver individs fitness oveni summen af de forrige, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver det i'ende individ returneret fra selektionen.  
 
-\begin{lstlisting}[langueage=c]
+\begin{lstlisting}[language = c]
 
 individual pick_individual(individual individuals[]){
   int i, sum = 0;
