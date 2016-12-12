@@ -16,7 +16,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5}State of the art}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{7}
+\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{7}
 \defcounter {refsection}{0}\relax 
@@ -48,8 +48,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Designovervejelser}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.0.1}Roulette metoden}{12}
+\contentsline {subsection}{\numberline {6.1}Roulette metoden}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.0.2}Rank metoden}{12}
+\contentsline {subsection}{\numberline {6.2}Rank metoden}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.0.3}Tournament metoden}{12}
+\contentsline {subsection}{\numberline {6.3}Tournament metoden}{12}

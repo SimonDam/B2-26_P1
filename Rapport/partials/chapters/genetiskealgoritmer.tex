@@ -1,3 +1,5 @@
+\input{partials/chapters/genetiskalgoogskoleskemaer.tex}
+
 For at lave algoritmen til at planlægge et skema, er der forskellige metoder. Hver metode har fordele og ulemper og er derfor egnet til forskellige problemer.
 
 \subsubsection{Brute Force}
@@ -42,14 +44,13 @@ Operationen flipper tilfældigt nogle stykker af kromosomet fx strengen 1001000 
 
 \paragraph{Mangfoldighed}
 
-Når man prøver at finde den optimale løsning, er det vigtigt at man ikke bliver fanget på et lokalt højde-punkt, men at man kan komme over disse til det globale højdepunkt. Eksempelvis, hvis et problem havde 5 parametre, og man udregnede fitness heraf. Heri vil der forekomme selektion, crossover og mutation. Dette gør at vi nu kan udregne endnu en fitness for den givne population, men hvad nu hvis, at man hænger fast. 
+Når den optimale løsning skal findes, er det vigtigt at algoritmen ikke bliver fanget på et lokalt højde-punkt, men at man kan komme over disse til det globale højdepunkt. Eksempelvis, hvis et problem havde 5 parametre, og man udregnede fitness heraf. Heri vil der forekomme selektion, crossover og mutation. Dette betyder at endnu en fitness kan udregnes for den givne population. Men hvad nu, hvis algoritmen hænger fast. 
 
-Hvis at man ved at ændre parametre kun en lille smule for hver gang, gør at man nu hænger fast, da tallene omkring disse parametre ikke gør at der kommer en højre fitness. Man har ved hjælp af parametrene muligheden for at udregne den højeste fitness, alt afhængigt af hvor meget parametrene skal justeres, da minimale ændringer vil ikke nødvendigvis resultater i den højeste fitness, hvorimod store ændringer i parametrene vil muligvis udregne det højeste fitness. Altså vil vi i starten gerne finde løsninger, som lægger spredt ud over hele problemet, og så derefter fjerne denne mangfoldighed igen for at ’zoome’ ind på den endelige optimale løsning. 
-Det man gerne vil have er et individ med, ikke bare stor fitness, men et som heller ikke ligner de andre. Hvis at man kigger på figur XX, vil man finde det individ der ligger på linjerne.
+Hvis parametrene kun ændres en lille smule for hver generation, gør at programmet nu hænger fast, da tallene omkring disse parametre ikke gør at der kommer en højere fitness. Ud fra parametrene muligheden er det mligt at udregne den højeste fitness alt afhængigt af, hvor meget parametrene skal justeres. Minimale ændringer vil ikke nødvendigvis resultere i den højeste fitness, hvorimod store ændringer i parametrene vil muligvis udregne det højeste fitness. Programmet skal i starten gerne finde løsninger, som lægger spredt ud over hele problemet, og så derefter fjerne denne mangfoldighed igen for at ’zoome’ ind på den endelige optimale løsning. 
+Det er gavnligt at have er et individ med, ikke bare stor fitness, men et som heller ikke ligner de andre. På figur XX%mangler figur xx
+ ses, at der forsøges at finde det individ, der ligger på linjerne.
 
-Både ved brug af brute force og generisk algoritme, er målet at finde den optimale løsning. Denne beregnes ud fra et fitness niveau, hvor der på hver løsning laves en udregning ud fra valgte parametre. Denne returnerer et fitnessniveau. Herefter gemmes løsningen med det bedste fitnessniveau. Det bedste fitnessniveau kan være defineret ved den højest mulige eller lavest mulige værdi.  
- 
-Kilde til mangfoldighed: https://www.youtube.com/watch?v=kHyNqSnzP8Y 
+Både ved brug af brute force og generisk algoritme er målet at finde den optimale løsning. Denne beregnes ud fra et fitness niveau, hvor der på hver løsning laves en udregning ud fra valgte parametre. Denne returnerer et fitnessniveau. Herefter gemmes løsningen med det bedste fitnessniveau. Det bedste fitnessniveau kan være defineret ved den højest mulige eller lavest mulige værdi.\cite{Winston2014}
 
 løsning til problemet.
 1.	Der bliver tilfældet generet en population af n-individer med l-kromosomer.
