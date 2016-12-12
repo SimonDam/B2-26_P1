@@ -182,7 +182,7 @@ int find_number_of_teachers(){
   if(teacher_file == NULL){
     perror("Error the file is empty");
     fclose(teacher_file);
-    exit(1)
+    exit(1);
   }
   while(!feof(teacher_file)){
     fgets(str, DEFAULT_LENGTH_STRING, teacher_file); 
@@ -277,9 +277,9 @@ void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   }
 }
 individual create_individual(){
-  individual result;
   /* Creating the individual */
-  /* Makring it random */
+  individual result;
+  /* Making it random */
   int i, j;
   for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
