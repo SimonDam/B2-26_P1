@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  12 DEC 2016 09:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  12 DEC 2016 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -749,7 +749,11 @@ Package biblatex Info: ... file 'danish.lbx' found.
 
 (c:/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/danish.lbx
 File: danish.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
-) (./core.aux)
+) (./core.aux
+
+LaTeX Warning: Label `fig:lantiv' multiply defined.
+
+)
 \openout1 = `core.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -856,6 +860,17 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'timetalifolkeskolen2016':
 (biblatex)                - Can't use 'date' + 'year'.
 
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'jebari2013':
+(biblatex)                - Can't use 'date' + 'year'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'winston2014':
+(biblatex)                - Invalid format of field 'date' 
+(biblatex)                - Invalid format of field 'date'.
+
 )
 Package biblatex Info: Reference section=0 on input line 23.
 Package biblatex Info: Reference segment=0 on input line 23.
@@ -895,54 +910,76 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ]) (./partials/body.tex
-(./partials/chapters/indledning.tex)
-Overfull \hbox (4.03386pt too wide) in paragraph at lines 7--3
-[]\OT1/cmr/m/n/10.95 "Hvilke parame-tre tages der h^^\jde for n^^War der plan-l
-^^Zgges skoleskema i folkeskol-erne, og hvorledes
- []
-
+(./partials/chapters/indledning.tex [2])
 (./partials/chapters/problemanalyse.tex)
-(./partials/chapters/skemaetsopbygning.tex) [2]
-(./partials/chapters/lovmessigekrav.tex
-<partials/graphics/fagkrav.png, id=20, 510.40688pt x 289.08pt>
+(./partials/chapters/skemaetsopbygning.tex)
+(./partials/chapters/lovmessigekrav.tex [3]
+<partials/graphics/fagkrav.png, id=23, 510.40688pt x 289.08pt>
 File: partials/graphics/fagkrav.png Graphic file (type png)
 
 <use partials/graphics/fagkrav.png>
 Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 6.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
 
-<partials/graphics/overallskemaovertimetal.png, id=21, 390.86024pt x 479.99326p
+<partials/graphics/overallskemaovertimetal.png, id=24, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
 input line 24.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
- [3])
-(./partials/chapters/casestudy.tex [4 <./partials/graphics/fagkrav.png>]
-[5 <./partials/graphics/overallskemaovertimetal.png>])
-(./partials/chapters/interresentanalyse.tex [6])
+ [4 <./partials/graphics/fagkrav.png>]) [5 <./partials/graphics/overallskemaove
+rtimetal.png>]
+(./partials/chapters/casestudy.tex) (./partials/chapters/interresentanalyse.tex
+[6]
+<partials/graphics/interessentanalyse.png, id=37, 445.06274pt x 453.49425pt>
+File: partials/graphics/interessentanalyse.png Graphic file (type png)
+
+<use partials/graphics/interessentanalyse.png>
+Package pdftex.def Info: partials/graphics/interessentanalyse.png used on input
+ line 15.
+(pdftex.def)             Requested size: 465.20166pt x 474.0448pt.
+) [7]
 (./partials/chapters/stateoftheart.tex
-(./partials/chapters/stateoftheartdocendo.tex)
-(./partials/chapters/stateoftheartlantiv.tex
+(./partials/chapters/stateoftheartdocendo.tex
+<partials/graphics/docendo.png, id=41, 517.33275pt x 310.761pt>
+File: partials/graphics/docendo.png Graphic file (type png)
 
-LaTeX Warning: Citation 'lantiv2016' on page 7 undefined on input line 1.
+<use partials/graphics/docendo.png>
+Package pdftex.def Info: partials/graphics/docendo.png used on input line 4.
+(pdftex.def)             Requested size: 465.20166pt x 279.4547pt.
+ [8 <./partials/graphics/interessentanalyse.png>]) (./partials/chapters/stateof
+theartlantiv.tex
+<partials/graphics/LANTIV.png, id=46, 404.10976pt x 363.15675pt>
+File: partials/graphics/LANTIV.png Graphic file (type png)
 
-[7]) (./partials/chapters/stateofthearttabulex.tex)
+<use partials/graphics/LANTIV.png>
+Package pdftex.def Info: partials/graphics/LANTIV.png used on input line 4.
+(pdftex.def)             Requested size: 465.20166pt x 418.07031pt.
+ [9 <./partials/graphics/docendo.png>])
+(./partials/chapters/stateofthearttabulex.tex)
 Overfull \hbox (15.43301pt too wide) in paragraph at lines 1--12
 \OT1/cmr/m/n/10.95 Skemal^^Zgningsprogrammerne er dog ikke prob-lem-fri. Selvom
  pro-gram-met op-fylder de mest v^^Zsentlige
  []
 
-(./partials/chapters/stateoftheartuntis.tex)) [8]
+[10 <./partials/graphics/LANTIV.png>]
+(./partials/chapters/stateoftheartuntis.tex
+<partials/graphics/untis.png, id=55, 634.16925pt x 339.669pt>
+File: partials/graphics/untis.png Graphic file (type png)
+
+<use partials/graphics/untis.png>
+Package pdftex.def Info: partials/graphics/untis.png used on input line 5.
+(pdftex.def)             Requested size: 465.20166pt x 249.16911pt.
+))
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 (./partials/chapters/genetiskealgoritmer.tex
-(./partials/chapters/genetiskalgoogskoleskemaer.tex) [9] [10]
-
-LaTeX Warning: Citation 'Winston2014' on page 11 undefined on input line 53.
-
-) (./partials/chapters/delkonklusion.tex) [11]
-(./partials/chapters/problemafgrensning.tex)
-(./partials/chapters/problemformulering.tex)
+(./partials/chapters/genetiskalgoogskoleskemaer.tex [11]) [12 <./partials/graph
+ics/untis.png>] [13]) (./partials/chapters/delkonklusion.tex) [14]
+(./partials/chapters/problemafgrensning.tex [15])
+(./partials/chapters/problemformulering.tex [16])
 (./partials/chapters/designovervejelser.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 3.
 
@@ -951,31 +988,23 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
- [12]))
-(./partials/footer.tex [13]) [14] (./core.aux)
+)) (./partials/footer.tex
+[17]) [18] (./core.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                core
-(biblatex)                and rerun LaTeX afterwards.
+LaTeX Warning: There were multiply-defined labels.
 
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11461 strings out of 493013
- 188973 string characters out of 6136992
- 474242 words of memory out of 5000000
- 14796 multiletter control sequences out of 15000+600000
+ 11509 strings out of 493013
+ 190400 string characters out of 6136992
+ 471242 words of memory out of 5000000
+ 14840 multiletter control sequences out of 15000+600000
  9626 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,45p,2226b,1538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,6n,45p,2226b,1538s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-d
@@ -984,10 +1013,10 @@ type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on core.pdf (15 pages, 234520 bytes).
+Output written on core.pdf (19 pages, 820394 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

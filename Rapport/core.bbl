@@ -17,6 +17,24 @@
 \endgroup
 
 \sortlist[entry]{none/global/}
+  \entry{interview}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=s}{%
+         prefix={swb2},
+         prefixi={s\bibinitperiod},
+         family={26},
+         familyi={\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{s1}
+    \strng{fullhash}{s1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Interview med Søren Kusk fra Sofiendahlskolen}
+    \field{month}{10}
+    \field{year}{2016}
+  \endentry
+
   \entry{lov2016}{online}{}
     \field{labeltitlesource}{title}
     \field{title}{Bekendtgørelse af lov om folkeskolen}
@@ -55,6 +73,105 @@
   \entry{dennyefolkeskole}{booklet}{}
     \field{labeltitlesource}{title}
     \field{title}{Den nye folkeskole - en kort guide til reformen}
+  \endentry
+
+  \entry{docendo}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Docendo}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=F-heCUy4bZ4
+    \endverb
+    \field{month}{09}
+    \field{year}{2014}
+  \endentry
+
+  \entry{lantiv2016}{online}{}
+    \verb{url}
+    \verb http://timetablingturbo.com/advantages.html#1clicktimetabling
+    \endverb
+  \endentry
+
+  \entry{tabulex}{manual}{}
+    \list{organization}{1}{%
+      {Tabulex}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{tabulex 2015 SKEMALÆGNING}
+    \verb{url}
+    \verb http://docplayer.dk/3713728-Tabulex-2015-skemalaegning.html
+    \endverb
+    \field{year}{2015}
+  \endentry
+
+  \entry{untis2016}{online}{}
+    \verb{url}
+    \verb http://untis.dk/
+    \endverb
+  \endentry
+
+  \entry{brute2016}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Brute force cracking}
+    \verb{url}
+    \verb http://searchsecurity.techtarget.com/definition/brute-force-cracking
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{jebari2013}{article}{}
+    \name{author}{2}{}{%
+      {{hash=JK}{%
+         family={Jebari},
+         familyi={J\bibinitperiod},
+         given={Khalid},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Mohammed},
+         familyi={M\bibinitperiod},
+         given={Madiafi},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JKMM1}
+    \strng{fullhash}{JKMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Selection Methods for Genetic Algorithms}
+    \field{day}{01}
+    \field{month}{12}
+    \field{year}{2013}
+    \warn{\item Can't use 'date' + 'year'}
+  \endentry
+
+  \entry{winston2014}{online}{}
+    \name{author}{1}{}{%
+      {{hash=WP}{%
+         family={Winston},
+         familyi={W\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WP1}
+    \strng{fullhash}{WP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{13. Learning: Genetic Algorithms}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=kHyNqSnzP8Y
+    \endverb
+    \field{year}{2014}
+    \warn{\item Invalid format of field 'date' \item Invalid format of field
+  'date'}
+  \endentry
+
+  \entry{selection}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Selection}
+    \verb{url}
+    \verb http://www.obitko.com/tutorials/genetic-algorithms/selection.php
+    \endverb
   \endentry
 \endsortlist
 \endinput
