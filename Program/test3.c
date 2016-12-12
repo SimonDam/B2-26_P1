@@ -193,7 +193,7 @@ int find_number_of_teachers(){
 
 void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teachers){
  
- FILE *teacherinfo = fopen("info.txt", "r");
+ FILE *teacherinfo = fopen("teacherinfo.txt", "r");
   if(teacherinfo == NULL){
   perror("Error the file is empty");
   fclose(teacherinfo);
@@ -322,7 +322,7 @@ int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], indivi
 
   /* Then starts from the bottum and adds the sum of the fitness for three parallelclasses to the sum of the previous fitness (fitness test). Then checks if the 
      summed fitness if greater than field, in which case the random spot is found and the current individuals are being saved*/
-  
+
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
     fitness_test += sum_parrallel[i];
     if(field < fitness_test){
