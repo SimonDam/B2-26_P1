@@ -182,7 +182,7 @@ int find_number_of_teachers(){
   if(teacher_file == NULL){
     perror("Error the file is empty");
     fclose(teacher_file);
-    return -1; 
+    exit(1)
   }
   while(!feof(teacher_file)){
     fgets(str, DEFAULT_LENGTH_STRING, teacher_file); 
@@ -198,6 +198,7 @@ void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teache
   if(teacherinfo == NULL){
   perror("Error the file is empty");
   fclose(teacherinfo);
+  exit(1);
   }
   teacher local_teacher_data;
   int i = 0, j = 0;
