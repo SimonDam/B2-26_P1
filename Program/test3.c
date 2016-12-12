@@ -184,6 +184,9 @@ int find_number_of_teachers(){
     fclose(teacher_file);
     exit(1);
   }
+  /* Keeps reading data into str from teacherinfo, until end of file is reached
+     Each line represent a single teacher, so everytime a line is read, i is
+     being counted up by one */
   while(!feof(teacher_file)){
     fgets(str, DEFAULT_LENGTH_STRING, teacher_file); 
     i++;
