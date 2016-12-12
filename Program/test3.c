@@ -313,11 +313,20 @@ int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], indivi
   int fitness_test = 0;
   int sum_parrallel[NUMBER_OF_INDIVIDUALS];
 
+  /* First the fitness from all individuels is added together to make the roulette */
+
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
     sum_parrallel[i] = temp_individuals[class][i].fitness + temp_individuals[class+1][i].fitness + temp_individuals[class+2][i].fitness;
     sum += sum_parrallel[i];
   }
+
+  /* Then a random spot is chosen on the roulette */
+
   int field = rand()% sum;
+
+  /* Then starts from the bottum and adds the sum of the fitness for three parallelclasses to the sum of the previous fitness (fitness test). Then checks if the 
+     summed fitness if greater than field, in which case the random spot is found and the current individuals are being saved*/
+  
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
     fitness_test += sum_parrallel[i];
     if(field < fitness_test){
