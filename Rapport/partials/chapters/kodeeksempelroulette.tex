@@ -1,27 +1,30 @@
-Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at alle individer først lægges sammen for at finde størrelsen på rouletten. Denne gemmes i variablen "sum", som er en integer. Herefter vælges et tilfældigt punkt på rouletten ved hjælp af rand() modolus summen. Punktet gemmes i field integer'en.
+Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at fitnessen for alle individer i et bestemt klassetrin først lægges sammen for at finde størrelsen på rouletten. Denne gemmes i variablen "sum", som er en integer. Herefter vælges et tilfældigt punkt på rouletten ved hjælp af rand() modolus summen. Punktet gemmes i field integer'en.
 
-Herefter køres en for-løkke der starter fra bunden af rouletten og lægger hver individs fitness oveni summen af de forrige, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver det i'ende individ returneret fra selektionen.  
+Herefter køres en for-løkke der starter fra bunden af rouletten og lægger summen af fitnessen for tre parralelklasser sammen med summen af den forrige sum, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver de i'ende individer (tre parralelklasser) valgt og gemt ned i temp_individuals.  
 
 \begin{lstlisting}[language = c]
 
-individual pick_individual(individual individuals[]){
-  int i, sum = 0;
+int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number){
+  int i, sum = 0, j;
   int fitness_test = 0;
+  int sum_parrallel[NUMBER_OF_INDIVIDUALS];
 
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    sum += individuals[i].fitness;
+    sum_parrallel[i] = temp_individuals[class][i].fitness + temp_individuals[class+1][i].fitness + temp_individuals[class+2][i].fitness;
+    sum += sum_parrallel[i];
   }
-
-  int field = rand() \% sum;
-
+  int field = rand()\% sum;
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    fitness_test += individuals[i].fitness;
+    fitness_test += sum_parrallel[i];
     if(field < fitness_test){
-      return individuals[i];
+      individuals[class][individual_number] = temp_individuals[class][i];
+      individuals[class+1][individual_number] = temp_individuals[class+1][i];
+      individuals[class+2][individual_number] = temp_individuals[class+2][i];
+      return 1;
     }
-  }
+  } 
 }
 
 \end{lstlisting}
 
-Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation.
+Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation. Fitnessen bliver regnet for tre parrallelklasser af gangen og de bliver sendt videre sammen, da deres fitness er afhængig af hinanden. En klasse får f. eks. høj fitness, hvis den har sammenhængende klasser med en parrallelklasse. Derfor hænger parrallelklasser sammen.  

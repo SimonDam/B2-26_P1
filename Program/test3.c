@@ -303,6 +303,7 @@ void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
     for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       res = pick_individual(individuals_temp, individuals, j, i);
+      assert(res == 1);
     }
   }
 }
