@@ -14,7 +14,7 @@
 #define LESSON_OVER_MIDDAY 4
 #define NUMBER_OF_HEAVY_LESSONS 5
 #define NUMBER_OF_CLASSES 9
-#define NUMBER_OF_FAG 13
+#define NUMBER_OF_FAG 14
 #define TEACHER_FREE_BEFORE_POINT 2
 
 #define MAX_LESSONS_IN_ROW 3
@@ -31,9 +31,10 @@
 #define FITNESS_FREE_IN_MIDLE -100
 #define FITNESS_MANY_LESSONS_IN_ROW -50
 #define FITNESS_TEACHER_OVERBOOKED -100
-#define FITNESS_TEACHER_PREPARATION 2
+#define FITNESS_TEACHER_PREPARATION 20
+#define FITNESS_NOT_MEET_REQ -20
 
-enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel, hda};
+enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, fri, rel, pra};
 
 typedef struct lesson lesson;
 struct lesson{
@@ -83,8 +84,8 @@ individual create_individual();
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number);
 void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]);
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG]);
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2);
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]);
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2, requirements requirements_class);
 void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]);
 void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]);
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], int class, int parent_num, int indi_num);
@@ -117,13 +118,13 @@ int main(void){
   srand(time(NULL));
 
   create_individuals(individuals);
-  calculate_fitness_all(individuals, h_classes, teacher_data);
+  calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
   /* Genetic algorithem */
   int i, j;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
     /* Fitness */
-    calculate_fitness_all(individuals, h_classes, teacher_data);
+    calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
     /* Selektion */
     selektion(individuals);
@@ -385,18 +386,18 @@ void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   }
 }
 
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG]){
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]){
   int i, j;
   for(j = 0; j < NUMBER_OF_CLASSES; j+=3){
     for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes, teacher_data, j, j+2, j+1);
-      calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes, teacher_data, j+1, j, j+2);
-      calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes, teacher_data, j+2, j+1, j);
+      calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes, teacher_data, j, j+2, j+1, requirements_classes[j]);
+      calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes, teacher_data, j+1, j, j+2, requirements_classes[j+1]);
+      calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes, teacher_data, j+2, j+1, j, requirements_classes[j+2]);
     }
   }
 }
 
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2){
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2, requirements requirements_class){
   /* Reset the fitness */
   individual_master->fitness = 1;
   
@@ -490,6 +491,117 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
 
     }
+  }
+
+  /* requrements */
+  int temp_Dan_req = requirements_class.Dan_req;
+  int temp_Mat_req = requirements_class.Mat_req;
+  int temp_Eng_req = requirements_class.Eng_req;
+  int temp_Tys_req = requirements_class.Tys_req;
+  int temp_Fys_req = requirements_class.Fys_req;
+  int temp_His_req = requirements_class.His_req;
+  int temp_Sam_req = requirements_class.Sam_req;
+  int temp_Val_req = requirements_class.Val_req;
+  int temp_Geo_req = requirements_class.Geo_req;
+  int temp_Bio_req = requirements_class.Bio_req;
+  int temp_Gym_req = requirements_class.Gym_req;
+  int temp_Fri_req = requirements_class.Fri_req;
+  int temp_Rel_req = requirements_class.Rel_req;
+  int temp_Pra_req = requirements_class.Pra_req;
+
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      switch (individual_master->individual_num[i][j]){
+        case dan:
+          temp_Dan_req--;
+          break;
+        case mat:
+          temp_Mat_req--;
+          break;
+        case eng:
+          temp_Eng_req--;
+          break;
+        case tys:
+          temp_Tys_req--;
+          break;
+        case fys:
+          temp_Fri_req--;
+          break;
+        case his:
+          temp_His_req--;
+          break;
+        case sam:
+          temp_Sam_req--;
+          break;
+        case val:
+          temp_Val_req--;
+          break;
+        case geo:
+          temp_Geo_req--;
+          break;
+        case bio:
+          temp_Bio_req--;
+          break;
+        case gym:
+          temp_Gym_req--;
+          break;
+        case fri:
+          temp_Fri_req--;
+          break;
+        case rel:
+          temp_Rel_req--;
+          break;
+        case pra:
+          temp_Pra_req--;
+          break;
+        default:
+          printf("ERROR IN FITNESS\n");
+          break;
+      }
+    }
+  }
+
+  if (temp_Dan_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Mat_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Eng_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Tys_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Fys_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_His_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Sam_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Val_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Geo_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Bio_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Gym_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Fri_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Rel_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
+  }
+  if (temp_Pra_req > 0){
+    individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
 
   /* Teacher overbooked */
@@ -606,8 +718,8 @@ lesson create_lesson(int num){
     case sam:
       strcpy(result.lesson_name, "Sam");
       break;
-    case valg:
-      strcpy(result.lesson_name, "Valg");
+    case val:
+      strcpy(result.lesson_name, "val");
       break;
     case geo:
       strcpy(result.lesson_name, "Geo");
@@ -624,8 +736,8 @@ lesson create_lesson(int num){
     case rel:
       strcpy(result.lesson_name, "Rel");
       break;
-    case hda:
-      strcpy(result.lesson_name, "Hda");
+    case pra:
+      strcpy(result.lesson_name, "pra");
       break;
     default:
       strcpy(result.lesson_name, "ERROR");
