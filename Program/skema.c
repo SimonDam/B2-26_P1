@@ -6,19 +6,21 @@
 
 #define LESSON_NAME_MAX 12
 #define SCHOOL_DAYS_IN_WEEK 5
-#define TEACHER_NAME_MAX 4
+#define TEACHER_NAME_MAX 5
 #define LESSONS_PER_DAY_MAX 8
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
-#define NUMBER_OF_DIFFERENT_LESSONS 13
+#define NUMBER_OF_DIFFERENT_LESSONS 14
 #define DEFAULT_LENGTH_STRING 200
 #define LESSON_OVER_MIDDAY 4
 #define NUMBER_OF_HEAVY_LESSONS 5
 #define NUMBER_OF_CLASSES 9
+#define NUMBER_OF_FAG 13
+#define TEACHER_FREE_BEFORE_POINT 2
 
 #define MAX_LESSONS_IN_ROW 3
 
 #define NUMBER_OF_INDIVIDUALS 100
-#define NUMBER_OF_GENERATIONS 50
+#define NUMBER_OF_GENERATIONS 400
 
 #define CHANCE_OF_MUTATION 20
 #define MAX_MUTATIONS_PER_INDIVIDUAL 5
@@ -27,7 +29,9 @@
 #define FITNESS_PARALEL_CLASS 5
 #define FITNESS_HEAVY_LESSONS -2
 #define FITNESS_FREE_IN_MIDLE -100
-#define FITNESS_MANY_LESSONS_IN_ROW -5
+#define FITNESS_MANY_LESSONS_IN_ROW -50
+#define FITNESS_TEACHER_OVERBOOKED -100
+#define FITNESS_TEACHER_PREPARATION 2
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, valg, geo, bio, gym, fri, rel, hda};
 
@@ -52,7 +56,7 @@ struct teacher{
   char class_name[TEACHER_NAME_MAX];
 };
 
-typedef struct requirements reqs;
+typedef struct requirements requirements;
 struct requirements{
   int Dan_req;
   int Mat_req;
@@ -72,17 +76,20 @@ struct requirements{
 
 int find_number_of_classes(teacher teacher_data[], int number_of_teacher);
 int find_number_of_teachers();
-void read_teachers_name(teacher teacher_data[], int number_teachers);
-reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher);
+void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teachers);
+void find_req(teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]);
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 individual create_individual();
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[]);
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[]);
-individual choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class);
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]);
-individual pick_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class);
+int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number);
 void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]);
-void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS]);
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG]);
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2);
+void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]);
+void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]);
+void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], int class, int parent_num, int indi_num);
+void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation);
+void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class);
 void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], individual indi, int class);
 lesson create_lesson(int num);
 void print_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], int class);
@@ -95,57 +102,56 @@ int main(void){
 
   /* init klasses */
   individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  individual chosen_individual[NUMBER_OF_CLASSES];
+  individual chosen_individual[NUMBER_OF_CLASSES][NUMBER_OF_GENERATIONS];
+  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   lesson week[NUMBER_OF_CLASSES][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX];
-  
-  /*teacherinfo*/
-  teacher *teacher_data;
+  requirements requirements_classes[NUMBER_OF_CLASSES];
   
   /*Finds number of teacher and reads in info*/
   int number_of_teacher = find_number_of_teachers();
-  teacher_data = (teacher*)calloc(number_of_teacher, sizeof(teacher));
+  teacher teacher_data[NUMBER_OF_CLASSES][NUMBER_OF_FAG];
   read_teachers_name(teacher_data, number_of_teacher);
+  find_req(teacher_data, requirements_classes);
 
   /* Init genetic algorithem */
   srand(time(NULL));
 
   create_individuals(individuals);
-  calculate_fitness_all(individuals, h_classes);
+  calculate_fitness_all(individuals, h_classes, teacher_data);
 
   /* Genetic algorithem */
-  int i;
+  int i, j;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
     /* Fitness */
-    calculate_fitness_all(individuals, h_classes);
+    calculate_fitness_all(individuals, h_classes, teacher_data);
 
     /* Selektion */
     selektion(individuals);
-
+    
     /* Mutation */
     mutation(individuals);
 
     /* Crossover */
-    crossover(individuals);
+    crossover(individuals, individuals_temp);
 
     /* Tests */
-    int i = 0;
-    for(i = 0; i < NUMBER_OF_CLASSES; i++){
-      chosen_individual[i] = choose_individual(individuals, i);  
+    for(j = 0; j < (NUMBER_OF_CLASSES); j += 3){
+      choose_individual(individuals, chosen_individual, j, i);  
     }
-
-    printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual[0].fitness, chosen_individual[1].fitness, chosen_individual[2].fitness, chosen_individual[3].fitness, chosen_individual[4].fitness, chosen_individual[5].fitness, chosen_individual[6].fitness, chosen_individual[7].fitness, chosen_individual[8].fitness);
+    printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual[0][i].fitness, chosen_individual[1][i].fitness, chosen_individual[2][i].fitness, chosen_individual[3][i].fitness, chosen_individual[4][i].fitness, chosen_individual[5][i].fitness, chosen_individual[6][i].fitness, chosen_individual[7][i].fitness, chosen_individual[8][i].fitness);
   }
 
   /* Printing */
   for(i = 0; i < NUMBER_OF_CLASSES; i++){
-    printf("  The fitness is: %d   8.A's Skoleschedule: \n", chosen_individual[i].fitness);
-    create_schedule(week, chosen_individual[i], i);
+    printf("  The fitness is: %d   8.A's Skoleschedule: \n", chosen_individual[i][NUMBER_OF_GENERATIONS -1].fitness);
+    create_schedule(week, chosen_individual[i][NUMBER_OF_GENERATIONS -1], i);
     print_schedule(week, i);
 
     if (i % 3 == 0){
       printf("\n\n");
     }
   }
+
   return 0;
 }
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -177,6 +183,9 @@ int find_number_of_teachers(){
     fclose(teacher_file);
     return -1; 
   }
+  /* Keeps reading data into str from teacherinfo, until end of file is reached
+     Each line represent a single teacher, so everytime a line is read, i is
+     being counted up by one */
   while(!feof(teacher_file)){
     fgets(str, DEFAULT_LENGTH_STRING, teacher_file); 
     i++;
@@ -185,122 +194,91 @@ int find_number_of_teachers(){
   return i; 
 }
 
-void read_teachers_name(teacher teacher_data[], int number_teachers){
-
+void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teachers){
+ 
  FILE *teacherinfo = fopen("teacherinfo.txt", "r");
   if(teacherinfo == NULL){
-  perror("Error the file is empty");
-  fclose(teacherinfo);
+    perror("Error the file is empty");
+    fclose(teacherinfo);
+    exit(1);
   }
+
   teacher local_teacher_data;
-  int i = 0;
-  while(i < number_teachers){
-    fscanf(teacherinfo,
-    " %s "
-    "%s "
-    "%d "
-    "%s ",
-    local_teacher_data.teacher_name, 
-    local_teacher_data.lesson_name, 
-    &local_teacher_data.number_of_lessons, 
-    local_teacher_data.class_name);
+  int i = 0, j = 0;
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){
+    for(i = 0;i < NUMBER_OF_FAG; i++){
+      fscanf(teacherinfo,
+      " %s "
+      "%s "
+      " %d "
+      "%s ",
+      local_teacher_data.teacher_name, 
+      local_teacher_data.lesson_name, 
+      &local_teacher_data.number_of_lessons, 
+      local_teacher_data.class_name);
 
-    teacher_data[i] = local_teacher_data; 
-    i++;
-  }
+      teacher_data[j][i] = local_teacher_data; 
+  
+    } 
+  }  
   fclose(teacherinfo);
 }
 
-reqs find_req(teacher teacher_data[], char grade[], int number_of_teacher){
-  reqs local_req;
-  int i = 0;
-  local_req.Dan_req = 0;
-  for(i = 0; i < number_of_teacher; i ++){
-    if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Dan", teacher_data[i].lesson_name) == 0){
-      local_req.Dan_req = teacher_data[i].number_of_lessons;
-      printf("%d \n ", local_req.Dan_req);
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Mat", teacher_data[i].lesson_name) == 0){
-      local_req.Mat_req = teacher_data[i].number_of_lessons;
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Eng", teacher_data[i].lesson_name) == 0){
-      local_req.Eng_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Tys", teacher_data[i].lesson_name) == 0){
-      local_req.Tys_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fys", teacher_data[i].lesson_name) == 0){
-      local_req.Fys_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("His", teacher_data[i].lesson_name) == 0){
-      local_req.His_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Val", teacher_data[i].lesson_name) == 0){
-      local_req.Val_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Geo", teacher_data[i].lesson_name) == 0){
-      local_req.Geo_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Bio", teacher_data[i].lesson_name) == 0){
-      local_req.Bio_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Gym", teacher_data[i].lesson_name) == 0){
-      local_req.Gym_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Rel", teacher_data[i].lesson_name) == 0){
-      local_req.Rel_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Fri", teacher_data[i].lesson_name) == 0){
-      local_req.Fri_req = teacher_data[i].number_of_lessons;  
-    }
-    else if(strcmp(grade, teacher_data[i].class_name) == 0 && strcmp("Pra", teacher_data[i].lesson_name) == 0){
-      local_req.Fri_req = teacher_data[i].number_of_lessons;  
+void find_req(teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]){
+  int j = 0, i  = 0;
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){
+    for(i = 0; i < NUMBER_OF_FAG; i ++){
+      if(strcmp("Dan", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Dan_req = teacher_data[j][i].number_of_lessons;
+        printf("%d \n ", requirements_classes[j].Dan_req);
+      }
+      else if(strcmp("Mat", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Mat_req = teacher_data[j][i].number_of_lessons;
+      }
+      else if(strcmp("Eng", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Eng_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Tys", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Tys_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Fys", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Fys_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("His", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].His_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Val", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Val_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Geo", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Geo_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Bio", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Bio_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Gym", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Gym_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Rel", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Rel_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Fri", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Fri_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Pra", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[j].Pra_req = teacher_data[j][i].number_of_lessons;  
+      }
     }
   }
-  return local_req;
 }
 
-<<<<<<< HEAD
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   for (int j = 0; j < NUMBER_OF_CLASSES; j++ ){
     for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals[j][i] = create_individual();
     }
   }
-=======
-void make_teachers_names(FILE *teachers, char teachers_names[]){
-  char temp_name[TEACHER_NAME_MAX];
-  char temp_lesson[5];
-  int res = 0, done = 0;
-
-  while (!done){
-    res += fscanf(teachers, " %s %s ",temp_lesson, temp_name);  
-    
-    /* Doing so it is always three long */
-    if (strlen(temp_name) > 3){
-      printf("ERROR: A name is longer then three");
-      exit(0);
-    }
-    while (strlen(temp_name) < 3){
-      strcat(temp_name, " ");
-    }
-
-    /* Looking for when to stop */
-    if (strcmp(temp_name, "END") == 0){
-      done = 1;
-    }
-    /* Creating the list of names */
-    else {
-      strcat(teachers_names, temp_name);
-    }
-  }
-  if (res != 28){
-    printf("Error occurred reading file\n\n");
-    exit(0);
-  }
->>>>>>> origin/master
 }
-
 
 individual create_individual(){
   individual result;
@@ -316,20 +294,112 @@ individual create_individual(){
   return result;
 }
 
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[]){
-  for(int j = 0; j < NUMBER_OF_CLASSES; j+=3){
-    for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes);
-      calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes);
-      calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes);
+void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
+  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
+  int i, res;
+
+  /* temp == individual */
+  make_old_population(individuals, individuals_temp);
+  for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
+    for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+      res = pick_individual(individuals_temp, individuals, j, i);
     }
-  }  
+  }
 }
 
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[]){
-  /* Reset the fitness */
-  individual_master->fitness = 0;
+int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number){
+  int i, sum = 0, j;
+  int fitness_test = 0;
+  int sum_parrallel[NUMBER_OF_INDIVIDUALS];
 
+  /* First the fitness from all individuels is added together to make the roulette */
+
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    sum_parrallel[i] = temp_individuals[class][i].fitness + temp_individuals[class+1][i].fitness + temp_individuals[class+2][i].fitness;
+    sum += sum_parrallel[i];
+  }
+
+  /* Then a random spot is chosen on the roulette */
+
+  int field = rand()% sum;
+
+  /* Then starts from the bottum and adds the sum of the fitness for three parallelclasses to the sum of the previous fitness (fitness test). Then checks if the 
+     summed fitness if greater than field, in which case the random spot is found and the current individuals are being saved*/
+  
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    fitness_test += sum_parrallel[i];
+    if(field < fitness_test){
+      individuals[class][individual_number] = temp_individuals[class][i];
+      individuals[class+1][individual_number] = temp_individuals[class+1][i];
+      individuals[class+2][individual_number] = temp_individuals[class+2][i];
+      return 1;
+    }
+  } 
+}
+
+void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation){
+  int choose_fitness = -1;
+  int sum_parrallel_fitness[NUMBER_OF_INDIVIDUALS];
+  int i, j, k, f;
+  
+  calculate_finess_parallel(individuals, sum_parrallel_fitness, class);
+
+    for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
+      if (sum_parrallel_fitness[k] > choose_fitness){
+        individuals_chosen[class][generation] = individuals[class][k];
+        individuals_chosen[class+1][generation] = individuals[class+1][k];
+        individuals_chosen[class+2][generation] = individuals[class+2][k];
+        choose_fitness = sum_parrallel_fitness[k];
+      }
+    } 
+}
+
+void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class){
+  int i = 0;
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    sum_parrallel[i] = individuals[class][i].fitness + individuals[class+1][i].fitness + individuals[class+2][i].fitness;
+  }
+}
+
+void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
+  int i = 0, j = 0, k =0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+  for(k = 0; k < NUMBER_OF_CLASSES; k++){
+    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+      chance = rand()% 100;
+      mutations = rand()% MAX_MUTATIONS_PER_INDIVIDUAL;
+      for (j = 0; j < mutations; j++){
+        if (chance > CHANCE_OF_MUTATION){
+          do {
+            ran1Week = rand()% SCHOOL_DAYS_IN_WEEK;
+            ran1Day = rand()% LESSONS_PER_DAY_MAX;
+            ran2Week = rand()% SCHOOL_DAYS_IN_WEEK;
+            ran2Day = rand()% LESSONS_PER_DAY_MAX;
+          } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
+        
+          temp = individuals[j][i].individual_num[ran1Day][ran1Week];
+          individuals[j][i].individual_num[ran1Day][ran1Week] = individuals[j][i].individual_num[ran2Day][ran2Week];
+          individuals[j][i].individual_num[ran2Day][ran2Week] = temp;
+        }
+      }
+    }
+  }
+}
+
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG]){
+  int i, j;
+  for(j = 0; j < NUMBER_OF_CLASSES; j+=3){
+    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+      calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes, teacher_data, j, j+2, j+1);
+      calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes, teacher_data, j+1, j, j+2);
+      calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes, teacher_data, j+2, j+1, j);
+    }
+  }
+}
+
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2){
+  /* Reset the fitness */
+  individual_master->fitness = 1;
+  
   int i, j, k;
 
   /* Lessons in row (breaks counts as a lesson)*/
@@ -380,11 +450,31 @@ void calculate_fitness_one(individual *individual_master, individual *individual
     }
   }
 
-  /* forberedsestimer */
-
-
-  /* Too many of the same in a row */
+  /* Teacher preparation */
   int count = 0, test = 0;
+  char temp_teacher_name[TEACHER_NAME_MAX] = "TEMP";
+
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSON_OVER_MIDDAY; i++){
+      if (strcmp(teacher_data[class_master][(individual_master->individual_num[i][j])].teacher_name, temp_teacher_name) != 0){
+        count++;
+      }
+      else {
+        memset(temp_teacher_name, '\0', sizeof(temp_teacher_name));
+        strcat(temp_teacher_name, teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name);
+        count = 1;
+      }
+
+      if (count > 2){
+        individual_master->fitness += FITNESS_TEACHER_PREPARATION;
+      }
+    }
+  }
+  
+  /* Too many of the same in a row */
+  count = 0;
+  test = 0;
+
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSON_OVER_MIDDAY; i++){
       if (test == individual_master->individual_num[i][j]){
@@ -398,138 +488,86 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       if (count > MAX_LESSONS_IN_ROW){
         individual_master->fitness += FITNESS_MANY_LESSONS_IN_ROW;
       }
+
     }
   }
 
-  /* If it is negative, change to zero */
-  if (individual_master->fitness < 0){
-    individual_master->fitness = 0;
-  }
-}
-
-individual choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class){
-  individual chosen;
-  chosen.fitness = -100000;
-
-  int i, j, k, f;
-    for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
-      if (individuals[class][k].fitness > chosen.fitness){
-        for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-          for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-            chosen.individual_num[i][j] = individuals[class][k].individual_num[i][j];
-            chosen.fitness = individuals[class][k].fitness;
-          }
-        }
+  /* Teacher overbooked */
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other1][individual_other1->individual_num[i][j]].teacher_name) == 0){
+        individual_master->fitness = -10;
       }
-    } 
-
-  return chosen;
-}
-
-void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  int i;
-
-  /* temp == individual */
-  for(int j = 0; j < NUMBER_OF_CLASSES; j++){
-    for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      individuals_temp[j][i] = individuals[j][i];
-    }
-  }
-  for(int j = 0; j < NUMBER_OF_CLASSES; j++){
-    for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      individuals[j][i] = pick_individual(individuals_temp, j);
-    }
-  }
-}
-
-individual pick_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], int class){
-  int i, sum = 0, j;
-  int fitness_test = 0;
-  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    sum += individuals[class][i].fitness;
-  }
-
-  int field = rand()% sum;
-  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    fitness_test += individuals[class][i].fitness;
-    if(field < fitness_test){
-      return individuals[class][i];
-    }
-  } 
-}
-
-void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-  int i = 0, j = 0, k =0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
-  for(k = 0; k < NUMBER_OF_CLASSES; k++){
-    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      chance = rand()% 100;
-      mutations = rand()% MAX_MUTATIONS_PER_INDIVIDUAL;
-      for (j = 0; j < mutations; j++){
-        if (chance > CHANCE_OF_MUTATION){
-          do {
-            ran1Week = rand()% SCHOOL_DAYS_IN_WEEK;
-            ran1Day = rand()% LESSONS_PER_DAY_MAX;
-            ran2Week = rand()% SCHOOL_DAYS_IN_WEEK;
-            ran2Day = rand()% LESSONS_PER_DAY_MAX;
-          } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
-        
-          temp = individuals[j][i].individual_num[ran1Day][ran1Week];
-          individuals[j][i].individual_num[ran1Day][ran1Week] = individuals[j][i].individual_num[ran2Day][ran2Week];
-          individuals[j][i].individual_num[ran2Day][ran2Week] = temp;
-        }
+      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other2][individual_other2->individual_num[i][j]].teacher_name) == 0){
+        individual_master->fitness = -10;
       }
     }
   }
+
+  /* If it is negative, change to one */
+  if (individual_master->fitness < 1){
+    individual_master->fitness = 1;
+  }
 }
 
-void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS]){
+void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]){
   int i = 0, ran1day = 0, ran2day = 0, ran3day = 0, ran4day = 0, ran5day = 0, ran6day = 0, ran_lesson = 0, k = 0, j = 0;
-  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS]; 
   individual parent1;
   individual parent2;
 
-    /* temp == individual */
+  make_old_population(individuals, individuals_temp);
+  for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
+    for(i = 0, k = 0; k < NUMBER_OF_INDIVIDUALS; i += 2, k++){
+      if(i > 199){
+        i = 0;
+      }
+      crossover_indi(individuals, individuals_temp, j, i, k);
+      crossover_indi(individuals, individuals_temp, j+1, i, k);
+      crossover_indi(individuals, individuals_temp, j+2, i, k);
+    }
+  }
+} 
+
+void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], int class, int parent_num, int indi_num){
+  int i = 0, ran1day = 0, ran2day = 0, ran3day = 0, ran4day = 0, ran5day = 0, ran6day = 0, ran_lesson = 0, k = 0, j = 0;
+  ran1day = rand()% SCHOOL_DAYS_IN_WEEK;
+  ran2day = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(ran3day == ran1day){
+    ran3day = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(ran4day == ran2day){
+    ran4day = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(ran5day == ran1day || ran5day == ran3day){
+    ran5day = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(ran6day == ran2day || ran6day == ran4day){
+    ran6day = rand()% SCHOOL_DAYS_IN_WEEK;
+  }            
+  for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
+    individuals[class][indi_num].individual_num[k][0] = individuals_temp[class][parent_num].individual_num[k][ran1day];
+    individuals[class][indi_num].individual_num[k][1] = individuals_temp[class][parent_num+1].individual_num[k][ran2day];
+    individuals[class][indi_num].individual_num[k][4] = individuals_temp[class][parent_num+1].individual_num[k][ran2day]; 
+  } 
+  ran_lesson = rand()% LESSONS_PER_DAY_MAX;
+  for(k = 0; k < ran_lesson; k++){   
+    individuals[class][indi_num].individual_num[k][2] = individuals_temp[class][parent_num+1].individual_num[k][ran6day];
+    individuals[class][indi_num].individual_num[k][3] = individuals_temp[class][parent_num].individual_num[k][ran5day];
+  }
+  for(k = LESSONS_PER_DAY_MAX - ran_lesson; k < LESSONS_PER_DAY_MAX; k++){   
+    individuals[class][indi_num].individual_num[k][2] = individuals_temp[class][parent_num].individual_num[k][ran3day];
+    individuals[class][indi_num].individual_num[k][3] = individuals_temp[class][parent_num+1].individual_num[k][ran4day];
+  }  
+}
+
+void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]){
+  int j = 0, i = 0;  
   for(j = 0; j < NUMBER_OF_CLASSES; j++){ 
     for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals_temp[j][i] = individuals[j][i];
     }
   }
-  for(j = 0; j < NUMBER_OF_CLASSES; j++){
-    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      ran1day = rand()% SCHOOL_DAYS_IN_WEEK;
-      ran2day = rand()% SCHOOL_DAYS_IN_WEEK;
-      while(ran3day == ran1day){
-        ran3day = rand()% SCHOOL_DAYS_IN_WEEK;
-      }
-      while(ran4day == ran2day){
-        ran4day = rand()% SCHOOL_DAYS_IN_WEEK;
-      }
-      while(ran5day == ran1day || ran5day == ran3day){
-        ran5day = rand()% SCHOOL_DAYS_IN_WEEK;
-      }
-      while(ran6day == ran2day || ran6day == ran4day){
-        ran6day = rand()% SCHOOL_DAYS_IN_WEEK;
-      }            
-      parent1 = pick_individual(individuals_temp, j); 
-      parent2 = pick_individual(individuals_temp, j);
-      for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
-        individuals[j][i].individual_num[k][0] = parent1.individual_num[k][ran1day];
-        individuals[j][i].individual_num[k][1] = parent2.individual_num[k][ran2day];
-        individuals[j][i].individual_num[k][4] = parent2.individual_num[k][ran2day]; 
-      }
-      ran_lesson = rand()% LESSONS_PER_DAY_MAX;
-      for(k = 0; k < ran_lesson; k++){   
-        individuals[j][i].individual_num[k][2] = parent2.individual_num[k][ran6day];
-        individuals[j][i].individual_num[k][3] = parent1.individual_num[k][ran5day];
-      }
-      for(k = LESSONS_PER_DAY_MAX - ran_lesson; k < LESSONS_PER_DAY_MAX; k++){   
-        individuals[j][i].individual_num[k][2] = parent1.individual_num[k][ran3day];
-        individuals[j][i].individual_num[k][3] = parent2.individual_num[k][ran4day];
-      }
-    }
-  }
-} 
+}
 
 void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], individual indi, int class){
   int lesson_now = 0, j = 0, k = 0;
@@ -585,6 +623,9 @@ lesson create_lesson(int num){
       break;
     case rel:
       strcpy(result.lesson_name, "Rel");
+      break;
+    case hda:
+      strcpy(result.lesson_name, "Hda");
       break;
     default:
       strcpy(result.lesson_name, "ERROR");

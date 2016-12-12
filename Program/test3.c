@@ -103,8 +103,6 @@ int main(void){
   individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   lesson week[NUMBER_OF_CLASSES][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX];
   requirements requirements_classes[NUMBER_OF_CLASSES];
-
-
   
   /*Finds number of teacher and reads in info*/
   int number_of_teacher = find_number_of_teachers();
@@ -137,10 +135,8 @@ int main(void){
     for(j = 0; j < (NUMBER_OF_CLASSES); j += 3){
       choose_individual(individuals, chosen_individual, j, i);  
     }
-
     printf("%d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \t %d \n", chosen_individual[0][i].fitness, chosen_individual[1][i].fitness, chosen_individual[2][i].fitness, chosen_individual[3][i].fitness, chosen_individual[4][i].fitness, chosen_individual[5][i].fitness, chosen_individual[6][i].fitness, chosen_individual[7][i].fitness, chosen_individual[8][i].fitness);
-
-    }
+  }
 
   /* Printing */
   for(i = 0; i < NUMBER_OF_CLASSES; i++){
@@ -279,6 +275,7 @@ void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
     }
   }
 }
+
 individual create_individual(){
   /* Creating the individual */
   individual result;
@@ -299,7 +296,6 @@ void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
 
   /* temp == individual */
   make_old_population(individuals, individuals_temp);
-
   for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
     for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       res = pick_individual(individuals_temp, individuals, j, i);
@@ -387,8 +383,9 @@ void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
 }
 
 void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[]){
-  for(int j = 0; j < NUMBER_OF_CLASSES; j+=3){
-    for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+  int i, j;
+  for(j = 0; j < NUMBER_OF_CLASSES; j+=3){
+    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes);
       calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes);
       calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes);
@@ -537,7 +534,6 @@ void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], indivi
   }
 } 
 
-
 void create_schedule(lesson week[][SCHOOL_DAYS_IN_WEEK * LESSONS_PER_DAY_MAX], individual indi, int class){
   int lesson_now = 0, j = 0, k = 0;
   /* Creating the schedule based on the individual */
@@ -666,4 +662,3 @@ void print_lesson(lesson l){
     printf(" ");
   }
 }
-
