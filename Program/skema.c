@@ -311,6 +311,7 @@ void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   make_old_population(individuals, individuals_temp);
 
   /* Runs trough all individuals, 3 classes at a time (parralelclasses) and picks a combination of parralelclasses for each grade (7, 8 and 9) for each wanted 
+     number of individuals */
   for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
     for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       res = pick_individual(individuals_temp, individuals, j, i);
