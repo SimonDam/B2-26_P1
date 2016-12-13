@@ -1,0 +1,48 @@
+For nemmere at lave ændringer i antallet af lærer, de timer de kan tage, og det antal timer de forskellige fag skal have, opstilles disse bindinger i en tekstfil. 
+Elementerne i dokumentet står som følgende:
+’Lærer forkortelse’ ’fag’ ’antal timer’ ’klasse’
+Et eksempel på dette kunne være:
+CA Dan 6 7a
+JA Mat 4 7a
+HA Eng 3 7a
+RA Tys 3 7a
+MA Fys 2 7a
+MA His 2 7a
+KA Sam 2 7a
+UA Val 2 7a
+RA Geo 2 7a
+Dette bliver indlæst fra filen én gang i starten af programmet, hvorefter data’en fra dokumentet bliver gemt over i en struct.
+Vi har gjort dette som følgende:
+\begin{lstlisting}
+void read_teacher_data(teacher teacher_data[][NUMBER_OF_FAG]){
+ FILE *teacherinfo = fopen("teacherinfo.txt", "r");
+  if(teacherinfo == NULL){
+    perror("Error the file is empty");
+    fclose(teacherinfo);
+    exit(1);
+  }
+
+  teacher local_teacher_data;
+  int i = 0, j = 0;
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){
+    for(i = 0;i < NUMBER_OF_FAG; i++){
+      fscanf(teacherinfo,
+      " %s "
+      "%s "
+      " %d "
+      "%s ",
+      local_teacher_data.teacher_name, 
+      local_teacher_data.lesson_name, 
+      &local_teacher_data.number_of_lessons, 
+      local_teacher_data.class_name);
+
+      teacher_data[j][i] = local_teacher_data; 
+  
+    } 
+  }  
+  fclose(teacherinfo);
+}
+\end{lstlisting}
+Først åbnes filen, hvorefter der bliver tjekket om filen er tom. Hvis dette er sandt, bliver der printet en fejl-besked ud, og programmet bliver lukket.
+Derefter bliver der lavet Local_teacher_data af variablen ’teacher’, som er en struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local_teacher_data. Efter dette bliver det overført til ’teacher_data’ som er den endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse. 
+Efter denne løkke er blevet kørt igennem det antal af gange der svarer til antallet af klasser bilver filen lukket igen, og alle informationer burde være kopieret over i ’teacher_data.’
