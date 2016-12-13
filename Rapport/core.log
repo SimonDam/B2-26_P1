@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  13 DEC 2016 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  13 DEC 2016 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -905,63 +905,63 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 
-]) (./partials/body.tex
-(./partials/chapters/indledning.tex [2])
+] [2]) (./partials/body.tex
+(./partials/chapters/indledning.tex [3])
 (./partials/chapters/problemanalyse.tex)
 (./partials/chapters/skemaetsopbygning.tex)
-(./partials/chapters/lovmessigekrav.tex [3]
-<partials/graphics/fagkrav.png, id=23, 510.40688pt x 289.08pt>
+(./partials/chapters/lovmessigekrav.tex [4]
+<partials/graphics/fagkrav.png, id=26, 510.40688pt x 289.08pt>
 File: partials/graphics/fagkrav.png Graphic file (type png)
 
 <use partials/graphics/fagkrav.png>
 Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 6.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
 
-<partials/graphics/overallskemaovertimetal.png, id=24, 390.86024pt x 479.99326p
+<partials/graphics/overallskemaovertimetal.png, id=27, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
 input line 24.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
- [4 <./partials/graphics/fagkrav.png>]) [5 <./partials/graphics/overallskemaove
+ [5 <./partials/graphics/fagkrav.png>]) [6 <./partials/graphics/overallskemaove
 rtimetal.png>]
 (./partials/chapters/casestudy.tex) (./partials/chapters/interresentanalyse.tex
-[6]
-<partials/graphics/interessentanalyse.png, id=37, 445.06274pt x 453.49425pt>
+[7]
+<partials/graphics/interessentanalyse.png, id=40, 445.06274pt x 453.49425pt>
 File: partials/graphics/interessentanalyse.png Graphic file (type png)
 
 <use partials/graphics/interessentanalyse.png>
 Package pdftex.def Info: partials/graphics/interessentanalyse.png used on input
  line 15.
 (pdftex.def)             Requested size: 465.20166pt x 474.0448pt.
-) [7]
+) [8]
 (./partials/chapters/stateoftheart.tex
 (./partials/chapters/stateoftheartdocendo.tex
-<partials/graphics/docendo.png, id=41, 517.33275pt x 310.761pt>
+<partials/graphics/docendo.png, id=44, 517.33275pt x 310.761pt>
 File: partials/graphics/docendo.png Graphic file (type png)
 
 <use partials/graphics/docendo.png>
 Package pdftex.def Info: partials/graphics/docendo.png used on input line 4.
 (pdftex.def)             Requested size: 465.20166pt x 279.4547pt.
- [8 <./partials/graphics/interessentanalyse.png>]) (./partials/chapters/stateof
+ [9 <./partials/graphics/interessentanalyse.png>]) (./partials/chapters/stateof
 theartlantiv.tex
-<partials/graphics/LANTIV.png, id=46, 404.10976pt x 363.15675pt>
+<partials/graphics/LANTIV.png, id=49, 404.10976pt x 363.15675pt>
 File: partials/graphics/LANTIV.png Graphic file (type png)
 
 <use partials/graphics/LANTIV.png>
 Package pdftex.def Info: partials/graphics/LANTIV.png used on input line 4.
 (pdftex.def)             Requested size: 465.20166pt x 418.07031pt.
- [9 <./partials/graphics/docendo.png>])
+ [10 <./partials/graphics/docendo.png>])
 (./partials/chapters/stateofthearttabulex.tex)
 Overfull \hbox (15.43301pt too wide) in paragraph at lines 1--12
 \OT1/cmr/m/n/10.95 Skemal^^Zgningsprogrammerne er dog ikke prob-lem-fri. Selvom
  pro-gram-met op-fylder de mest v^^Zsentlige
  []
 
-[10 <./partials/graphics/LANTIV.png>]
+[11 <./partials/graphics/LANTIV.png>]
 (./partials/chapters/stateoftheartuntis.tex
-<partials/graphics/untis.png, id=55, 634.16925pt x 339.669pt>
+<partials/graphics/untis.png, id=58, 634.16925pt x 339.669pt>
 File: partials/graphics/untis.png Graphic file (type png)
 
 <use partials/graphics/untis.png>
@@ -972,10 +972,10 @@ Package pdftex.def Info: partials/graphics/untis.png used on input line 5.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./partials/chapters/genetiskealgoritmer.tex
-(./partials/chapters/genetiskalgoogskoleskemaer.tex [11]) [12 <./partials/graph
-ics/untis.png>] [13]) (./partials/chapters/delkonklusion.tex) [14] [15]
+(./partials/chapters/genetiskalgoogskoleskemaer.tex [12]) [13 <./partials/graph
+ics/untis.png>] [14]) (./partials/chapters/delkonklusion.tex) [15] [16]
 (./partials/chapters/problemafgrensning.tex)
-(./partials/chapters/problemformulering.tex [16])
+(./partials/chapters/problemformulering.tex [17])
 (./partials/chapters/designovervejelser.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
 
@@ -985,48 +985,99 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
 
-<partials/graphics/roulette.png, id=76, 451.6875pt x 209.28188pt>
+<partials/graphics/roulette.png, id=79, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
 
 <use partials/graphics/roulette.png>
 Package pdftex.def Info: partials/graphics/roulette.png used on input line 22.
 (pdftex.def)             Requested size: 465.20166pt x 215.55632pt.
- [17 <./partials/graphics/roulette.png>]
+ [18 <./partials/graphics/roulette.png>]
 (./partials/chapters/problemafgrensning.tex)
-(./partials/chapters/kravspecifikationer.tex [18]))
-(./partials/chapters/programdoku.tex (./partials/chapters/structs.tex
+(./partials/chapters/kravspecifikationer.tex [19])
+(./partials/chapters/kodestil.tex)) (./partials/chapters/programdoku.tex
+(./partials/chapters/programintro.tex) (./partials/chapters/structs.tex
 (c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (c:/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-) [19])
-(./partials/chapters/main.tex) (./partials/chapters/func.tex)))
-(./partials/footer.tex [20]) [21] (./core.aux)
+) [20])
+(./partials/chapters/main.tex) (./partials/chapters/dataindlaesning.tex
+[21]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 27.
+ (c:/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 27.
+)
+(./partials/chapters/programfitness.tex [22])
+(./partials/chapters/kodeeksempelroulette.tex
+Overfull \hbox (566.29907pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (428.32764pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.41333pt too wide) in paragraph at lines 20--21
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (40.6936pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (40.6936pt too wide) in paragraph at lines 22--23
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+) [23] (./partials/chapters/mutation.tex
+Overfull \hbox (257.50586pt too wide) in paragraph at lines 9--11
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (244.36572pt too wide) in paragraph at lines 24--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)) (./partials/chapters/videreudvikling.tex [24] [25])) (./partials/footer.tex
+[26]) [27] (./core.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11980 strings out of 493013
- 195802 string characters out of 6136992
- 475242 words of memory out of 5000000
- 15287 multiletter control sequences out of 15000+600000
+ 12112 strings out of 493013
+ 197914 string characters out of 6136992
+ 484242 words of memory out of 5000000
+ 15398 multiletter control sequences out of 15000+600000
  9626 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  45i,6n,51p,2226b,1538s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on core.pdf (22 pages, 863399 bytes).
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c
+:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on core.pdf (28 pages, 888983 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 150 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
