@@ -676,10 +676,10 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other1][individual_other1->individual_num[i][j]].teacher_name) == 0){
-        individual_master->fitness = -10;
+        individual_master->fitness = FITNESS_TEACHER_OVERBOOKED;
       }
       if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other2][individual_other2->individual_num[i][j]].teacher_name) == 0){
-        individual_master->fitness = -10;
+        individual_master->fitness = FITNESS_TEACHER_OVERBOOKED;
       }
     }
   }
