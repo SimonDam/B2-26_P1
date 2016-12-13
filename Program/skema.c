@@ -16,7 +16,7 @@
 #define NUMBER_OF_CLASSES 9
 #define NUMBER_OF_FAG 14
 #define TEACHER_FREE_BEFORE_POINT 2
-#define TOO_MANY_OF_LESSON -2
+#define TOO_MANY_OF_LESSON -1
 
 #define MAX_LESSONS_IN_ROW 3
 
@@ -35,6 +35,7 @@
 #define FITNESS_TEACHER_PREPARATION 20
 #define FITNESS_NOT_MEET_REQ -10
 #define FITNESS_WAY_OVER_REQ -10
+#define FITNESS_CORRECT_LESSONS 80
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, fri, rel, pra};
 
@@ -587,90 +588,142 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   if (temp_Dan_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Dan_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Mat_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Mat_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Eng_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Eng_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Tys_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Tys_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Fys_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Fys_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_His_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_His_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Sam_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Sam_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Val_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Val_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Geo_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Geo_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Bio_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Bio_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Gym_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Gym_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Fri_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Fri_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Rel_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
+  else if (temp_Rel_req < TOO_MANY_OF_LESSON){
+    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  }
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
+  }
+
   if (temp_Pra_req > 0){
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
-
-  /* If there is too many of a lesson */
-  if (temp_Dan_req < TOO_MANY_OF_LESSON){
+  else if (temp_Pra_req < TOO_MANY_OF_LESSON){
     individual_master->fitness += FITNESS_WAY_OVER_REQ;
   }
-  if (temp_Mat_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
+  else {
+    individual_master->fitness += FITNESS_CORRECT_LESSONS;
   }
-  if (temp_Eng_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Tys_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Fys_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_His_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Sam_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Val_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Geo_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Bio_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Gym_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Fri_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Rel_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  if (temp_Pra_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-
 
   /* Teacher overbooked */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
