@@ -59,3 +59,11 @@
 \contentsline {subsection}{\numberline {6.2}Produktafgr\IeC {\ae }nsning}{18}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.3}Kravspecifikationer}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Programdokumentation}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1}Structs}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2}main}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.3}Yderligere funktioner}{20}

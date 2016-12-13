@@ -85,10 +85,34 @@
     \field{year}{2014}
   \endentry
 
+  \entry{docendob}{manual}{}
+    \list{organization}{1}{%
+      {Docendo}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Docendo eksempel}
+    \verb{url}
+    \verb https://docendo.dk/folkeskole.html
+    \endverb
+  \endentry
+
   \entry{lantiv2016}{online}{}
     \verb{url}
     \verb http://timetablingturbo.com/advantages.html#1clicktimetabling
     \endverb
+  \endentry
+
+  \entry{lantivb}{manual}{}
+    \list{organization}{1}{%
+      {Lantiv}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Lantiv Scheduling Studio 7}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=Q_SJB0Vr8Ds
+    \endverb
+    \field{month}{11}
+    \field{year}{2016}
   \endentry
 
   \entry{tabulex}{manual}{}
@@ -107,6 +131,20 @@
     \verb{url}
     \verb http://untis.dk/
     \endverb
+  \endentry
+
+  \entry{untisb}{manual}{}
+    \list{organization}{1}{%
+      {Untis}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Untis billede}
+    \verb{url}
+    \verb http://untis.dk/wp-content/uploads/2013/07/WebUntis-l%C3%A6rerskema.g
+    \verb if
+    \endverb
+    \field{month}{07}
+    \field{year}{2013}
   \endentry
 
   \entry{brute2016}{online}{}
@@ -171,6 +209,18 @@
     \field{title}{Selection}
     \verb{url}
     \verb http://www.obitko.com/tutorials/genetic-algorithms/selection.php
+    \endverb
+  \endentry
+
+  \entry{roulette}{manual}{}
+    \list{organization}{1}{%
+      {tutorialspoint}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Genetic Algorithms - Parent Selection}
+    \verb{url}
+    \verb https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_
+    \verb parent_selection.htm
     \endverb
   \endentry
 \endsortlist
