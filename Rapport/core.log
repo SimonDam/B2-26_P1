@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.11.21)  14 DEC 2016 00:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.11.21)  14 DEC 2016 00:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,6 +1064,9 @@ Overfull \hbox (244.36572pt too wide) in paragraph at lines 24--25
 
 )) (./partials/chapters/videreudvikling.tex [24] [25])) (./partials/footer.tex
 [26]) [27] (./core.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
@@ -1090,7 +1093,7 @@ t/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2016/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt9.pfb>
-Output written on core.pdf (28 pages, 962994 bytes).
+Output written on core.pdf (28 pages, 963203 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  109 compressed objects within 2 object streams
