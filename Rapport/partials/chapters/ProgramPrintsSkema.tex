@@ -8,7 +8,7 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
     /* Printing the days */
     printf("  Class: ");
     print_class_name(c);
-    printf("  Has a fitness of: %d   The perfection grade is: %d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS].perfection);
+    printf("  Has a fitness of: \%d   The perfection grade is: \%d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS].perfection);
     printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
     printf("  ------------------------------------------------------------------------------------------------\n");
     
@@ -22,7 +22,7 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
         printf("\t\t");
       }
       /* To signal a break */
-      if ((i+1) % 2 == 0){
+      if ((i+1) \% 2 == 0){
         printf("\n");
       }
       printf("\n");
