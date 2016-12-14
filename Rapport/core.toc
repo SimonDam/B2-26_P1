@@ -66,11 +66,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.1}Structs}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}main}{21}
+\contentsline {subsection}{\numberline {7.2}main}{22}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Fitness}{24}
+\contentsline {subsection}{\numberline {7.4}Fitness}{25}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.5}Selektion}{25}
 \defcounter {refsection}{0}\relax 
@@ -78,12 +78,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.7}Print funktion}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Videreudvikling}{27}
+\contentsline {section}{\numberline {8}Videreudvikling}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.1}Mangler i l\IeC {\o }sningen}{27}
+\contentsline {subsubsection}{\numberline {8.0.1}Mangler i l\IeC {\o }sningen}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.2}Graphic user interface}{27}
+\contentsline {subsubsection}{\numberline {8.0.2}Graphic user interface}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.3}Brugertest}{28}
+\contentsline {subsubsection}{\numberline {8.0.3}Brugertest}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.4}Empiri fra flere skoler}{28}
+\contentsline {subsubsection}{\numberline {8.0.4}Empiri fra flere skoler}{29}
