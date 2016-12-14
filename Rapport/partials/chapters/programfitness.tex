@@ -1,16 +1,27 @@
-Fitness - programmet
 Fitnessen bliver beregnet ved at tage de enkelte individer, samt deres parallelle klasser, og så gå igennem disse enkeltvis, hvor det undersøges om de overholder nogle specifikke krav, eller overtræder nogle andre. Hvis en af disse parametre er sande, får individet så en bonus eller en straf anpå hvilken parametre der går i opfyldelse, og hvor vigtig denne er. Denne straf, eller bonus, bliver så lagt ind på fitness-variablen i det enkelte individ. Hvis individet har en negativ fitness-værdi, bliver dette ændret til 0, så disse nemmere kan sorteres fra i de følgende processer. Grunden til at disse bliver sorteret fra, er at disse skemaer ikke kan bruges, da der er alvorlige fejl i dem.
 De forskellige krav der bliver tjekket for, som giver bonus, er som følgende:
+
    -	Om timerne lægger i træk. Hvis der F.eks. ligger to matematiktimer i streg.
+   
    -	Om parallel klasserne har de samme timer på det samme tidspunkt. 
+   
    -	Hvis en lærer har to forberedelses-timer i streg.
+   
    -	Hvis der er en fri time i bunden af dagen.
+   
    -	Hvis et skema overholder kravene for antal timer en klasse skal have.
+   
+   
 De krav der giver en straf er:
+
    -	Hvis der er tunge fag over middag.
+   
    -	Om der er fri midt på dagen.
+   
    -	Hvis en lærer er booket til flere timer på samme tid.
+   
    -	Eller hvis der er for mange af de samme fag i streg.
+   
    -	Hvis et skema ikke overholder kravene for antallet af timer en klasse skal have.
 
 Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses herunder:
