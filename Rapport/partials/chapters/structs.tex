@@ -6,7 +6,6 @@ struct lesson{
   char lesson_name[LESSON_NAME_MAX];
 };
 \end{lstlisting}
-
 Structen, ”lesson”, består af two variabler, et navn på læreren og et navn på lektionen. Hovedsageligt bliver denne funktion brugt til at printe skemaet ud.
 
 \begin{lstlisting}[language = C]
@@ -16,7 +15,6 @@ struct individual{
   int grade;
 };
 \end{lstlisting}
-
 ”Individual” består af integer array af arrays, individual\_num, og to integers, fitness og grade. Array’et har to indgange, hvor det første identificerer, hvilken lektion skal tilgås og den anden tilgår ugedagen. Hver indgang i skemaet er givet ved et heltal, som korrelerer med et fag. Fitness er en værdi, der udregnes ud fra, hvor godt skemaet opfylder de krav, der stilles af skemalæggeren. Det er denne værdi, som bestemmer skemaets bæredygtighed i forhold til andre skemaer. Grade er et heltal, som bestemmer hvilken klasse, der er tale om. Siden forskellige krav stilles til forskellige klassetrin, er det vigtigt for programmet, at være i stand til at skelne mellem klassentrinnene.
 
 \begin{lstlisting}[language = C]
@@ -27,7 +25,6 @@ struct teacher{
   char class_name[TEACHER_NAME_MAX];
 };
 \end{lstlisting}
-
 “teacher” structen indeholder navnet på læreren, navnet på faget, antallet af lektioner læreren har for det givne fag og klassen læreren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læreren ”Jørgen”. 
 
 \begin{lstlisting}[language = C]
@@ -48,7 +45,6 @@ struct requirements{
   int Pra_req;
 };
 \end{lstlisting}
-
 ”requirements” er en struct udelukkende bestående af heltal. Disse heltal afspejler minimumsantallet lektioner for de forskellige fag. Det er disse krav, som programmet bl.a. bruger til at tjekke om skemaet er opfyldt, eller om der mangler et specifikt fag, som skal fyldes ind i skemaet.
 
 Hvordan disse krav bruges vil bruges i kodeeksempler senere i afsnittet.
