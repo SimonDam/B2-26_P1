@@ -16,11 +16,11 @@
 #define NUMBER_OF_CLASSES 9
 #define NUMBER_OF_SUBJECTS 13
 #define TEACHER_FREE_BEFORE_POINT 2
-#define TOO_MANY_OF_LESSON -2
+#define TOO_MANY_OF_LESSON -1
 
 #define MAX_LESSONS_IN_ROW 3
 
-#define NUMBER_OF_FREE_REQ 2
+#define NUMBER_OF_FREE_REQ 4
 
 #define NUMBER_OF_INDIVIDUALS 100
 #define NUMBER_OF_GENERATIONS 200
@@ -32,17 +32,17 @@
 #define FITNESS_PARALEL_CLASS 50
 #define FITNESS_HEAVY_LESSONS 20
 #define FITNESS_FREE_IN_MIDLE -10000
-#define FITNESS_MANY_LESSONS_IN_ROW -50
+#define FITNESS_MANY_LESSONS_IN_ROW -500
 #define FITNESS_TEACHER_OVERBOOKED -100
 #define FITNESS_TEACHER_PREPARATION 60
 #define FITNESS_NOT_MEET_REQ -60
-#define FITNESS_WAY_OVER_REQ -60
+#define FITNESS_WAY_OVER_REQ -600
 #define FITNESS_CORRECT_LESSONS 80
 #define FITNESS_BONUS_FREE_END 50
 #define FITNESS_PERFECTION_BONUS 100
 #define FITNESS_NO_FREE_TIME -100
 
-enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, fri, rel, pra};
+enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, rel, pra, fri};
 
 typedef struct individual individual;
 struct individual{
@@ -122,15 +122,12 @@ int main(void){
   calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
  for(int j = 0; j < (NUMBER_OF_CLASSES); j += 3){
-      choose_individual(individuals, chosen_individual, j, 0);  
-  
-    printf("%d   %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \n",i , chosen_individual[0][i].fitness, chosen_individual[0][i].perfection , chosen_individual[1][i].fitness, chosen_individual[1][i].perfection, chosen_individual[2][i].fitness, chosen_individual[2][i].perfection, chosen_individual[3][i].fitness, chosen_individual[3][i].perfection, chosen_individual[4][i].fitness, chosen_individual[4][i].perfection, chosen_individual[5][i].fitness, chosen_individual[5][i].perfection, chosen_individual[6][i].fitness, chosen_individual[6][i].perfection, chosen_individual[7][i].fitness, chosen_individual[7][i].perfection, chosen_individual[8][i].fitness, chosen_individual[8][i].perfection);
+    choose_individual(individuals, chosen_individual, j, 0);
   }
  
   /* Genetic algorithem */
   int i, j;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
-  
     /* Selektion */
     selektion(individuals);
     
@@ -156,14 +153,6 @@ int main(void){
   return 0;
 }
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
-
-void clean_up(){
-  requirements *requirements_temp;
-  requirements_temp = (requirements *)calloc(1 , sizeof(requirements));
-
-  free(requirements_temp);
-
-}
 
 int find_number_of_classes(teacher teacher_data[], int number_of_teacher){
   int i = 0, k = 0;
@@ -243,6 +232,9 @@ void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requireme
       }
       else if(strcmp("Rel", teacher_data[j][i].lesson_name) == 0){
         requirements_classes[k].Rel_req = teacher_data[j][i].number_of_lessons;  
+      }
+      else if(strcmp("Sam", teacher_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Sam_req = teacher_data[j][i].number_of_lessons;  
       }
       else if(strcmp("Fri", teacher_data[j][i].lesson_name) == 0){
         requirements_classes[k].Fri_req = teacher_data[j][i].number_of_lessons;  
@@ -531,6 +523,21 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   int temp_Rel_req = requirements_class.Rel_req;
   int temp_Pra_req = requirements_class.Pra_req;
 
+  /*printf("\n %d %d %d %d %d %d %d %d %d %d %d %d %d \n",
+  temp_Dan_req,
+  temp_Mat_req,
+  temp_Eng_req,
+  temp_Tys_req,
+  temp_Fys_req,
+  temp_His_req,
+  temp_Val_req,
+  temp_Geo_req,
+  temp_Bio_req,
+  temp_Gym_req,
+  temp_Rel_req,
+  temp_Pra_req,
+  temp_Sam_req);
+*/
 
   /* Everytime a specific lesson is met in the schedule, the remaining required lessons of that type is counted down by one*/
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
@@ -569,14 +576,13 @@ void calculate_fitness_one(individual *individual_master, individual *individual
         case gym:
           temp_Gym_req--;
           break;
-        case fri:
-          temp_Fri_req--;
-          break;
         case rel:
           temp_Rel_req--;
           break;
         case pra:
           temp_Pra_req--;
+          break;
+        case fri:
           break;
         default:
           printf("ERROR IN FITNESS\n");
@@ -703,17 +709,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
     individual_master->fitness += FITNESS_NOT_MEET_REQ;
   }
   else if (temp_Gym_req < TOO_MANY_OF_LESSON){
-    individual_master->fitness += FITNESS_WAY_OVER_REQ;
-  }
-  else {
-    individual_master->fitness += FITNESS_CORRECT_LESSONS;
-    perfection_temp++;
-  }
-
-  if (temp_Fri_req > 0){
-    individual_master->fitness += FITNESS_NOT_MEET_REQ;
-  }
-  else if (temp_Fri_req < TOO_MANY_OF_LESSON){
     individual_master->fitness += FITNESS_WAY_OVER_REQ;
   }
   else {
@@ -1003,7 +998,7 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
     /* Printing the days */
     printf("  Class: ");
     print_class_name(c);
-    printf("  Has a fitness of: %d   The perfection grade is: %d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS].perfection);
+    printf("  Has a fitness of: %d   The perfection grade is: %d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS-1].perfection);
     printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
     printf("  ------------------------------------------------------------------------------------------------\n");
     
