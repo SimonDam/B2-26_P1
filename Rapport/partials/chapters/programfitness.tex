@@ -1,20 +1,38 @@
+Fitness - programmet
 Fitnessen bliver beregnet ved at tage de enkelte individer, samt deres parallelle klasser, og så gå igennem disse enkeltvis, hvor det undersøges om de overholder nogle specifikke krav, eller overtræder nogle andre. Hvis en af disse parametre er sande, får individet så en bonus eller en straf anpå hvilken parametre der går i opfyldelse, og hvor vigtig denne er. Denne straf, eller bonus, bliver så lagt ind på fitness-variablen i det enkelte individ. Hvis individet har en negativ fitness-værdi, bliver dette ændret til 0, så disse nemmere kan sorteres fra i de følgende processer. Grunden til at disse bliver sorteret fra, er at disse skemaer ikke kan bruges, da der er alvorlige fejl i dem.
-
 De forskellige krav der bliver tjekket for, som giver bonus, er som følgende:
-
--	Om timerne lægger i træk. Hvis der F.eks. ligger to matematiktimer i streg.
-
--	Om parallel klasserne har de samme timer på det samme tidspunkt. 
-
--	Hvis en lærer har to forberedelses-timer i streg.
-
+   -	Om timerne lægger i træk. Hvis der F.eks. ligger to matematiktimer i streg.
+   -	Om parallel klasserne har de samme timer på det samme tidspunkt. 
+   -	Hvis en lærer har to forberedelses-timer i streg.
+   -	Hvis der er en fri time i bunden af dagen.
+   -	Hvis et skema overholder kravene for antal timer en klasse skal have.
 De krav der giver en straf er:
+   -	Hvis der er tunge fag over middag.
+   -	Om der er fri midt på dagen.
+   -	Hvis en lærer er booket til flere timer på samme tid.
+   -	Eller hvis der er for mange af de samme fag i streg.
+   -	Hvis et skema ikke overholder kravene for antallet af timer en klasse skal have.
 
--	Hvis der er tunge fag over middag.
+Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses herunder:
 
--	Om der er tomt skema inde midt på en dag.
+\begin{lstlisting}
+#define SCHOOL_DAYS_IN_WEEK 5
+#define LESSONS_PER_DAY_MAX 8
+#define FITNESS_PARALEL_CLASS 50
 
--	Hvis en lærer er booket til flere timer på samme tid.
+/* Parallel classes - lessons in a sync */
+for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+  for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+    if (individual_master->lesson_num[i][j] == individual_parallel1->lesson_num[i][j]){
+      individual_master->fitness += FITNESS_PARALEL_CLASS;
+    }
+    if (individual_master->lesson_num[i][j] == individual_parallel2->lesson_num[i][j]){
+      individual_master->fitness += FITNESS_PARALEL_CLASS;
+    }
+  }
+}
+\end{lstlisting}
 
--	Eller hvis der er for mange af de samme fag i streg.
-
+I fitness bruger vi de forskellige variabler ’individual_master’, ’individual_parallel1’ og ’individual_parallel1’. Disse variabler er af typen ’individual’, som er et struct med informationer omkring et skema.
+Vi starter med at gå gennem to for-løkker, en variabel ’j’ bliver talt op antallet af skoledage på en uge, og en variabel ’i’ bliver talt op til antallet af lektioner på en dag. Nu ses der på om ’master’ har samme time på samme plads, som en af parallelklasserne. Hvis dette er sandt bliver fitness talt op på ’master’. Det samme tjekkes nu om den anden parallelklasse. 
+Der bruges stort set samme metode for at tjekke om lektionerne sidder i streg, om der er fritimer i midten samt andre.
