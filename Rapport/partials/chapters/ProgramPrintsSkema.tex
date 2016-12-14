@@ -1,0 +1,37 @@
+I struct’et ’individual’ har vi et multidimensionalt integer array ’lesson\_num’. Denne indeholder tal som repræsentere de forskellige fag. Det er disse tal der bliver ændret på i de forskellige funktioner. 
+
+Når der så skal printes et endeligt skema ud. Bliver der kaldt funktionen ’print\_func()’. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
+\begin{lstlisting}[language = C]
+void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
+  int i, j, c;
+  for (c = 0; c < NUMBER_OF_CLASSES; c++){
+    /* Printing the days */
+    printf("  Class: ");
+    print_class_name(c);
+    printf("  Has a fitness of: %d   The perfection grade is: %d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS].perfection);
+    printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
+    printf("  ------------------------------------------------------------------------------------------------\n");
+    
+    for (i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      /* Printing the times */
+      print_time_func(i);
+
+      for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+        /* Printing lesson name */
+        print_lesson_name(chosen_individual[c][NUMBER_OF_GENERATIONS-1].lesson_num[j][i]);
+        printf("\t\t");
+      }
+      /* To signal a break */
+      if ((i+1) % 2 == 0){
+        printf("\n");
+      }
+      printf("\n");
+    }
+    printf("\n\n\n");
+  }
+}
+\end{lstlisting}
+
+Der starter en for-løkke som går igennem ’antal klasser’-gange. Nu bliver der printet klassenavnet, dens fitness og antallet af krav den overholder i forhold til antallet af timer den skal have. 
+Efterfølgende bliver der kørt endnu en for-løkke. Denne køre ’antallet af lektioner’-gange. Nu bliver tidspunktet på dagen printet ud, hvorefter der kommer endnu en for-løkke som printer, de første lektioner af hver dag, ud. 
+Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet bliver der printet en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.
