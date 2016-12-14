@@ -1,4 +1,4 @@
-Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Fire structs, ”lesson”, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis en lektionens information, skemaets information, lærens information og og de faglige krav.
+Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Fire structs, ”lesson”, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis en lektionens information, skemaets information, lærerens information og og de faglige krav.
 
 \begin{lstlisting}[language = C]
 struct lesson{
@@ -7,7 +7,7 @@ struct lesson{
 };
 \end{lstlisting}
 
-Structen, ”lesson”, består af two variabler, et navn på læren og et navn på lektionen. Hovedsagligt bliver denne funktion brugt til at prine skemaet ud.
+Structen, ”lesson”, består af two variabler, et navn på læreren og et navn på lektionen. Hovedsageligt bliver denne funktion brugt til at printe skemaet ud.
 
 \begin{lstlisting}[language = C]
 struct individual{
@@ -28,7 +28,7 @@ struct teacher{
 };
 \end{lstlisting}
 
-“teacher” structen indeholder navnet på læren, navnet på faget, antallet af lektioner læren har for det givne fag og klassen læren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læren ”Jørgen”. 
+“teacher” structen indeholder navnet på læreren, navnet på faget, antallet af lektioner læreren har for det givne fag og klassen læreren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læreren ”Jørgen”. 
 
 \begin{lstlisting}[language = C]
 struct requirements{
@@ -49,4 +49,6 @@ struct requirements{
 };
 \end{lstlisting}
 
-”requirements” er en struct udelukkende bestående af heltal. Disse heltal viser kravene til de forskellige fag. Det er disse krav, som programmet bl.a. bruger til at tjekke om skemaet er opfyldt, eller om der mangler et specifikt fag, som skal fyldes ind i skemaet.
+”requirements” er en struct udelukkende bestående af heltal. Disse heltal afspejler minimumsantallet lektioner for de forskellige fag. Det er disse krav, som programmet bl.a. bruger til at tjekke om skemaet er opfyldt, eller om der mangler et specifikt fag, som skal fyldes ind i skemaet.
+
+Hvordan disse krav bruges vil bruges i kodeeksempler senere i afsnittet.
