@@ -14,7 +14,7 @@
 #define LESSON_OVER_MIDDAY 4
 #define NUMBER_OF_HEAVY_LESSONS 5
 #define NUMBER_OF_CLASSES 9
-#define NUMBER_OF_FAG 13
+#define NUMBER_OF_SUBJECTS 13
 #define TEACHER_FREE_BEFORE_POINT 2
 #define TOO_MANY_OF_LESSON -2
 
@@ -86,15 +86,15 @@ struct requirements{
 
 int find_number_of_classes(teacher teacher_data[], int number_of_teacher);
 int find_number_of_teachers();
-void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teachers);
-void find_req(teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]);
+void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS], int number_teachers);
+void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]);
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 individual create_individual();
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]);
 int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number);
 void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]);
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]);
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2, requirements requirements_class);
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]);
+void calculate_fitness_one(individual *individual_master, individual *individual_parallel1, individual *individual_parallel2, int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], int class_master, int class_other1, int class_other2, requirements requirements_class);
 void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]);
 void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], requirements requirements_classes[], int generation);
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation);
@@ -120,7 +120,7 @@ int main(void){
   
   /*Finds number of teacher and reads in info*/
   int number_of_teacher = find_number_of_teachers();
-  teacher teacher_data[NUMBER_OF_CLASSES][NUMBER_OF_FAG];
+  teacher teacher_data[NUMBER_OF_CLASSES][NUMBER_OF_SUBJECTS];
   read_teachers_name(teacher_data, number_of_teacher);
   find_req(teacher_data, requirements_classes);
 
@@ -204,7 +204,7 @@ int find_number_of_teachers(){
   return i; 
 }
 
-void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teachers){
+void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS], int number_teachers){
  
  FILE *teacherinfo = fopen("teacherinfo.txt", "r");
   if(teacherinfo == NULL){
@@ -216,7 +216,7 @@ void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teache
   teacher local_teacher_data;
   int i = 0, j = 0;
   for(j = 0; j < NUMBER_OF_CLASSES; j++){
-    for(i = 0;i < NUMBER_OF_FAG; i++){
+    for(i = 0;i < NUMBER_OF_SUBJECTS; i++){
       fscanf(teacherinfo,
       " %s "
       "%s "
@@ -235,10 +235,10 @@ void read_teachers_name(teacher teacher_data[][NUMBER_OF_FAG], int number_teache
   fclose(teacherinfo);
 }
 
-void find_req(teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]){
+void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]){
   int j = 0, i  = 0, k = 0;
   for(j = 0, k = 0; j < NUMBER_OF_CLASSES; j++, k++){
-    for(i = 0; i < NUMBER_OF_FAG; i ++){
+    for(i = 0; i < NUMBER_OF_SUBJECTS; i ++){
       if(strcmp("Dan", teacher_data[j][i].lesson_name) == 0){
         requirements_classes[k].Dan_req = teacher_data[j][i].number_of_lessons;
       }
@@ -413,7 +413,7 @@ void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
 
 /* Runs through a for loop for each grade (expecting there is 3 parallelclasses in each grade) Inside this loop a loop is run that calculates the fitness for each class 
    while also having the parallelclasses a parameter to check for identical lessons */
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], requirements requirements_classes[]){
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]){
   int i, j;
   for(j = 0; j < NUMBER_OF_CLASSES; j+=3){
     for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
@@ -425,7 +425,7 @@ void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int 
 }
 
 /*  */
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_FAG], int class_master, int class_other1, int class_other2, requirements requirements_class){
+void calculate_fitness_one(individual *individual_master, individual *individual_parallel1, individual *individual_parallel2, int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], int class_master, int class_other1, int class_other2, requirements requirements_class){
   /* Reset the fitness */
   individual_master->fitness = 1;
   int i, j, k;
@@ -442,14 +442,15 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   /* Parallel classes - lessons in a sync */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-      if (individual_master->individual_num[i][j] == individual_other1->individual_num[i][j]){
+      if (individual_master->individual_num[i][j] == individual_parallel1->individual_num[i][j]){
         individual_master->fitness += FITNESS_PARALEL_CLASS;
       }
-      if (individual_master->individual_num[i][j] == individual_other2->individual_num[i][j]){
+      if (individual_master->individual_num[i][j] == individual_parallel2->individual_num[i][j]){
         individual_master->fitness += FITNESS_PARALEL_CLASS;
       }
     }
   }
+  
   /* Heavy lessons after 11.20 is bad  */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSON_OVER_MIDDAY; i++){
@@ -778,10 +779,10 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   /* Teacher overbooked */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other1][individual_other1->individual_num[i][j]].teacher_name) == 0){
+      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other1][individual_parallel1->individual_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
       }
-      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other2][individual_other2->individual_num[i][j]].teacher_name) == 0){
+      if (strcmp(teacher_data[class_master][individual_master->individual_num[i][j]].teacher_name, teacher_data[class_other2][individual_parallel2->individual_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
       }
     }
@@ -809,7 +810,7 @@ void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual indiv
 
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation){
   int i = 0, ran1day = 0, ran2day = 0, ran3day = 0, ran4day = 0, ran5day = 0, ran6day = 0, ran_lesson = 0, k = 0, j = 0;
-  int classes[1][NUMBER_OF_FAG];
+  int classes[1][NUMBER_OF_SUBJECTS];
   int chance = 0;
   requirements requirements_temp;
 
@@ -922,7 +923,7 @@ void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual 
 
   chance = 0;
   for(i = 0, k = 0; i < 200; i++){
-    chance = rand()% NUMBER_OF_FAG;
+    chance = rand()% NUMBER_OF_SUBJECTS;
     switch(chance){
       case dan:
         if(requirements_temp.Dan_req < requirements_classes.Dan_req){
