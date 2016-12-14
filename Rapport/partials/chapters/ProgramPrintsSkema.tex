@@ -1,6 +1,6 @@
-I struct’et ’individual’ har vi et multidimensionalt integer array ’lesson\_num’. Denne indeholder tal som repræsentere de forskellige fag. Det er disse tal der bliver ændret på i de forskellige funktioner. 
+I struct’et ’individual’ findes det multidimensionalt integer array ’lesson\_num’. Denne indeholder tal som repræsentere de forskellige fag. Det er disse tal der bliver ændret på i de forskellige funktioner. 
 
-Når der så skal printes et endeligt skema ud. Bliver der kaldt funktionen ’print\_func()’. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
+Når der så skal printes et endeligt skema ud, bliver funktionen ’print\_func()’ kaldt. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
 \begin{lstlisting}[language = C]
 void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
   int i, j, c;
@@ -32,6 +32,6 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
 }
 \end{lstlisting}
 
-Der starter en for-løkke som går igennem ’antal klasser’-gange. Nu bliver der printet klassenavnet, dens fitness og antallet af krav den overholder i forhold til antallet af timer den skal have. 
-Efterfølgende bliver der kørt endnu en for-løkke. Denne køre ’antallet af lektioner’-gange. Nu bliver tidspunktet på dagen printet ud, hvorefter der kommer endnu en for-løkke som printer, de første lektioner af hver dag, ud. 
-Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet bliver der printet en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.
+Funktionen starter med en for-løkke som gentages ’antal klasser’-gange. Nu bliver der printet klassenavnet, dens fitness og antallet af krav den overholder i forhold til antallet af timer den skal have. 
+Efterfølgende bliver der kørt endnu en for-løkke. Denne gentages ’antallet af lektioner’-gange. Nu bliver tidspunktet på dagen printet ud, hvorefter der kommer endnu en for-løkke som printer, de første lektioner af hver dag, ud. 
+Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet, bliver der printet en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.
