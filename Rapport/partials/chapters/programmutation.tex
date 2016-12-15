@@ -1,6 +1,6 @@
 Mutation er til for at lave små ændringer i skemaet. Den skal kunne sørge for at der er mangfoldighed, således at skemaet ikke ender i et lokalt maksimum. 
-Måden hvorpå dette foregår er ved at tage et individ, finder to helt tilfældige timer på hele skemaet, og bytter disse ud. Der kommer her to variabler, der kan finpudses for at finde den bedste løsning. Der er en procentvis chance for at en mutation kan ske, og antal mutationer der maksimalt kan ske pr individ. 
-Her under kan koden til mutations funktionen ses, som der er brugt i programmet.
+Måden hvorpå dette foregår er ved at tage et individ, finde to helt tilfældige timer på skemaet og bytte disse ud. Der kommer her to variabler, der kan finpudses for at finde den bedste løsning. Der er en procentvis chance for at en mutation kan ske, og antal mutationer der maksimalt kan ske pr. individ. 
+Her under kan koden til mutations funktionen, der er brugt i programmet, ses.
 \begin{lstlisting}
 void mutation(individual individuals[]){
   int i = 0, j = 0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
@@ -26,4 +26,4 @@ void mutation(individual individuals[]){
 }
 \end{lstlisting}
 
-Der bliver kørt gennem tre for-løkker. Den første tæller klassen op, så der først bliver lavet mutationer på 9.a, så 9.b osv. Dernæst bliver der kørt gennem endnu en for-lykke som går igennem antallet af individer, og til sidst genere vi et tilfældigt tal mellem 0, og det maksimale antal mutationer der kan ske pr individ. Til sidst bliver den sidste for-løkke for det maksimale antal af mutationer der kan forekomme. Der bliver også generet et tal, som skal bestemme om der skal påstå en mutation på denne mulige plads. Hvis der skal ske en mutation, bliver der generet fire yderligere tal, som høre sammen to og to. Disse tal står for en tilfældig time på en tilfældig dag. Disse to timer bliver nu byttet om. 
+Der bliver kørt gennem tre for-løkker. Den første tæller klassen op, så der først bliver lavet mutationer på 7.a, så 7.b osv. Dernæst bliver der kørt gennem endnu en for-lykke, som går igennem antallet af individer, hvorefter et tilfældig tal mellem 0 og genereres. Hvis det generede tal er mindre end den valgte chance for mutation, forekommer mutationen. Antallet af ændringer ved en mutation vælges tilfældigt mellem 0 og det højeste antal tilladte mutationer.
