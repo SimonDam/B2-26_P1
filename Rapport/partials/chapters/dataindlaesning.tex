@@ -1,4 +1,4 @@
-For at nemmere lave ændringer i antallet af lærer, de timer de kan tage, og det antal timer de forskellige fag skal have, er der opstillet et tekstdokument hvor dette står. 
+For at nemmere lave ændringer i antallet af lærer, de timer de kan tage og det antal timer de forskellige fag skal have, er der opstillet et tekstdokument hvor dette står. 
 Elementerne i dokumentet står som følgende:
 ’Lærer forkortelse’ ’fag’ ’antal timer’ ’klasse’
 
@@ -42,4 +42,4 @@ void read_teacher_data(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
 \end{lstlisting}
 Først åbnes filen, hvorefter det tjekkes om filen er tom. Hvis dette er sandt, bliver der printet en fejl-besked ud, og programmet lukker igen.
 Dernæst bliver der lavet Local\_teacher\_data af typen ’teacher’, som er et struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local\_teacher\_data. Efter dette bliver det overført til ’teacher\_data’ som er det endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse. 
-Efter denne løkke bilver filen lukket igen, og alle informationer burde være kopieret over i ’teacher\_data’
+Efter denne løkke bilver filen lukket igen, og alle informationer er kopieret over i ’teacher\_data’.
