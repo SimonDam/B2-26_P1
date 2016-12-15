@@ -16,24 +16,24 @@
 #define NUMBER_OF_CLASSES 9
 #define NUMBER_OF_SUBJECTS 13
 #define TEACHER_FREE_BEFORE_POINT 2
-#define TOO_MANY_OF_LESSON -1
+#define TOO_MANY_OF_LESSON -2
 
 #define MAX_LESSONS_IN_ROW 3
 
 #define NUMBER_OF_FREE_REQ 4
 
 #define NUMBER_OF_INDIVIDUALS 100
-#define NUMBER_OF_GENERATIONS 200
+#define NUMBER_OF_GENERATIONS 200 
 
 #define CHANCE_OF_MUTATION 20
-#define MAX_MUTATIONS_PER_INDIVIDUAL 4
+#define MAX_MUTATIONS_PER_INDIVIDUAL 8
 
 #define FITNESS_LESSONS_IN_ROW 80
-#define FITNESS_PARALEL_CLASS 50
-#define FITNESS_HEAVY_LESSONS 20
-#define FITNESS_FREE_IN_MIDLE -10000
+#define FITNESS_PARALEL_CLASS 500
+#define FITNESS_HEAVY_LESSONS -200
+#define FITNESS_FREE_IN_MIDLE -100000
 #define FITNESS_MANY_LESSONS_IN_ROW -500
-#define FITNESS_TEACHER_OVERBOOKED -100
+#define FITNESS_TEACHER_OVERBOOKED -100000
 #define FITNESS_TEACHER_PREPARATION 60
 #define FITNESS_NOT_MEET_REQ -60
 #define FITNESS_WAY_OVER_REQ -600
@@ -50,6 +50,9 @@ struct individual{
   int fitness;
   int grade;
   int perfection;
+  int lessons_with_parallel;
+  int lessons_with_both;
+  int heavy_lesson_after;
 };
 
 typedef struct teacher teacher;
@@ -93,11 +96,11 @@ void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual indiv
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation);
 void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation);
 void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class);
-void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]);
+void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS], requirements requirements_class[]);
 void print_time_func (int i);
 void print_class_name(int c);
 void print_lesson_name(int num);
-
+void print_req(individual chosen_individual, requirements requirements_class);
 
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 int main(void){
@@ -145,14 +148,38 @@ int main(void){
       choose_individual(individuals, chosen_individual, j, i);  
     }
     printf("%d   %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \n",i , chosen_individual[0][i].fitness, chosen_individual[0][i].perfection , chosen_individual[1][i].fitness, chosen_individual[1][i].perfection, chosen_individual[2][i].fitness, chosen_individual[2][i].perfection, chosen_individual[3][i].fitness, chosen_individual[3][i].perfection, chosen_individual[4][i].fitness, chosen_individual[4][i].perfection, chosen_individual[5][i].fitness, chosen_individual[5][i].perfection, chosen_individual[6][i].fitness, chosen_individual[6][i].perfection, chosen_individual[7][i].fitness, chosen_individual[7][i].perfection, chosen_individual[8][i].fitness, chosen_individual[8][i].perfection);
+    if ((chosen_individual[0][i].perfection >= 13) && (chosen_individual[1][i].perfection >= 13) && (chosen_individual[2][i].perfection >= 13) && (chosen_individual[3][i].perfection >= 13) && (chosen_individual[4][i].perfection >= 13) && (chosen_individual[5][i].perfection >= 13) && (chosen_individual[6][i].perfection >= 13) && (chosen_individual[7][i].perfection >= 13) && (chosen_individual[8][i].perfection >= 13) && (chosen_individual[9][i].perfection >= 13)){
+      printf("\n\n\nYES!\n\n\n");
+    }
   }
+  
+  /* The best of the best
+  int best = find_best();
+  */
 
   /* Printing */
-  print_func(chosen_individual);
+  printf("\n\n\n");
+  print_func(chosen_individual, requirements_classes);
 
   return 0;
 }
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
+/*
+int find_best(individual chosen_individuals[]){
+  int i = 0, best = 0, fitness_best = -1, perfecktion_best = 0;;
+  for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    /* Sum 
+    for (NUMBER_OF_CLASSES){}
+
+    /* chose 
+    if (){
+      best = i;
+    }
+  }
+  return best;
+}
+*/
 
 int find_number_of_classes(teacher teacher_data[], int number_of_teacher){
   int i = 0, k = 0;
@@ -409,22 +436,41 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   }
   
   /* Parallel classes - lessons in a sync */
+  int test_parallel_both = 0;
+  individual_master->lessons_with_parallel = 0;
+  individual_master->lessons_with_both = 0;
+
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       if (individual_master->lesson_num[i][j] == individual_other1->lesson_num[i][j]){
-        individual_master->fitness += FITNESS_PARALEL_CLASS;
+        if (individual_master->lesson_num[i][j] != fri){
+          individual_master->fitness += FITNESS_PARALEL_CLASS;
+          individual_master->lessons_with_parallel++;
+          test_parallel_both++;
+        }
       }
       if (individual_master->lesson_num[i][j] == individual_other2->lesson_num[i][j]){
-        individual_master->fitness += FITNESS_PARALEL_CLASS;
+        if (individual_master->lesson_num[i][j] != fri){
+          individual_master->fitness += FITNESS_PARALEL_CLASS;
+          individual_master->lessons_with_parallel++;
+          test_parallel_both++;
+        }
       }
+      if (test_parallel_both == 2){
+        individual_master->lessons_with_both++;
+      }
+      test_parallel_both = 0;
     }
   }
+
   /* Heavy lessons after 11.20 is bad  */
+  individual_master->heavy_lesson_after = 0;
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-    for(i = 0; i < LESSON_OVER_MIDDAY; i++){
+    for(i = LESSON_OVER_MIDDAY; i < LESSONS_PER_DAY_MAX; i++){
       for (k = 0; k < NUMBER_OF_HEAVY_LESSONS; k++){
         if (individual_master->lesson_num[i][j] == h_classes[k]){
           individual_master->fitness += FITNESS_HEAVY_LESSONS;
+          individual_master->heavy_lesson_after++;
         }
       }
     }
@@ -461,6 +507,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
     }
   }
+
   /* Give punish for not having a free lesson */
   if (count_free_lessons < NUMBER_OF_FREE_REQ){
     individual_master->fitness += FITNESS_NO_FREE_TIME;
@@ -522,22 +569,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   int temp_Fri_req = requirements_class.Fri_req;
   int temp_Rel_req = requirements_class.Rel_req;
   int temp_Pra_req = requirements_class.Pra_req;
-
-  /*printf("\n %d %d %d %d %d %d %d %d %d %d %d %d %d \n",
-  temp_Dan_req,
-  temp_Mat_req,
-  temp_Eng_req,
-  temp_Tys_req,
-  temp_Fys_req,
-  temp_His_req,
-  temp_Val_req,
-  temp_Geo_req,
-  temp_Bio_req,
-  temp_Gym_req,
-  temp_Rel_req,
-  temp_Pra_req,
-  temp_Sam_req);
-*/
 
   /* Everytime a specific lesson is met in the schedule, the remaining required lessons of that type is counted down by one*/
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
@@ -992,13 +1023,120 @@ void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], indivi
   }
 }
 
-void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
+void print_req(individual chosen_individual, requirements requirements_class){
+  printf("Must have:\t %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
+                  requirements_class.Dan_req,
+                  requirements_class.Mat_req,
+                  requirements_class.Eng_req,
+                  requirements_class.Tys_req,
+                  requirements_class.Fys_req,
+                  requirements_class.His_req,
+                  requirements_class.Sam_req,
+                  requirements_class.Val_req,
+                  requirements_class.Geo_req,
+                  requirements_class.Bio_req,
+                  requirements_class.Gym_req,
+                  requirements_class.Rel_req,
+                  requirements_class.Pra_req,
+                  requirements_class.Fri_req);
+
+
+  int temp_Dan_req = 0;
+  int temp_Mat_req = 0;
+  int temp_Eng_req = 0;
+  int temp_Tys_req = 0;
+  int temp_Fys_req = 0;
+  int temp_His_req = 0;
+  int temp_Sam_req = 0;
+  int temp_Val_req = 0;
+  int temp_Geo_req = 0;
+  int temp_Bio_req = 0;
+  int temp_Gym_req = 0;
+  int temp_Rel_req = 0;
+  int temp_Pra_req = 0;
+  int temp_Fri_req = 0;
+
+  int i, j;
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      switch (chosen_individual.lesson_num[i][j]){
+        case dan:
+          temp_Dan_req++;
+          break;
+        case mat:
+          temp_Mat_req++;
+          break;
+        case eng:
+          temp_Eng_req++;
+          break;
+        case tys:
+          temp_Tys_req++;
+          break;
+        case fys:
+          temp_Fys_req++;
+          break;
+        case his:
+          temp_His_req++;
+          break;
+        case sam:
+          temp_Sam_req++;
+          break;
+        case val:
+          temp_Val_req++;
+          break;
+        case geo:
+          temp_Geo_req++;
+          break;
+        case bio:
+          temp_Bio_req++;
+          break;
+        case fri:
+          temp_Fri_req++;
+          break;
+        case gym:
+          temp_Gym_req++;
+          break;
+        case rel:
+          temp_Rel_req++;
+          break;
+        case pra:
+          temp_Pra_req++;
+          break;
+        default:
+          printf("ERROR IN FITNESS\n");
+          break;
+      }
+    }
+  }
+
+  printf("Have: \t\t %d %d %d %d %d %d %d %d %d %d %d %d %d %d \n",
+          temp_Dan_req,
+          temp_Mat_req,
+          temp_Eng_req,
+          temp_Tys_req,
+          temp_Fys_req,
+          temp_His_req,
+          temp_Sam_req,
+          temp_Val_req,
+          temp_Geo_req,
+          temp_Bio_req,
+          temp_Gym_req,
+          temp_Rel_req,
+          temp_Pra_req,
+          temp_Fri_req);
+}
+
+void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS], requirements requirements_classes[]){
   int i, j, c;
   for (c = 0; c < NUMBER_OF_CLASSES; c++){
+    /* Printing testing */
+    print_req(chosen_individual[c][NUMBER_OF_GENERATIONS-1], requirements_classes[c]);
+    printf("Has a fitness of: %d   The perfection grade is: %d  Lessons with parallel: %d  Lessons With Both %d Heavy lessons after: %d \n\n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS-1].perfection, chosen_individual[c][NUMBER_OF_GENERATIONS-1].lessons_with_parallel, chosen_individual[c][NUMBER_OF_GENERATIONS-1].lessons_with_both, chosen_individual[c][NUMBER_OF_GENERATIONS-1].heavy_lesson_after);
+
     /* Printing the days */
     printf("  Class: ");
     print_class_name(c);
-    printf("  Has a fitness of: %d   The perfection grade is: %d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS-1].perfection);
+    printf("\n");
     printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
     printf("  ------------------------------------------------------------------------------------------------\n");
     
