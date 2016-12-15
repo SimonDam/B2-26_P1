@@ -1,23 +1,32 @@
-Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Fire structs, ”lesson”, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis en lektionens information, skemaets information, lærens information og og de faglige krav.
-
+Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Fire structs, ”lesson”, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis de faglige krav, lektionernes -, skemaernes - og lærernes information.
 \begin{lstlisting}[language = C]
 struct lesson{
   char teacher_name[TEACHER_NAME_MAX];
   char lesson_name[LESSON_NAME_MAX];
+  int number_of_lessons;
+  char class_name[TEACHER_NAME_MAX];
 };
 \end{lstlisting}
 
-Structen, ”lesson”, består af two variabler, et navn på læren og et navn på lektionen. Hovedsagligt bliver denne funktion brugt til at prine skemaet ud.
+Structen, ”lesson”, består af to variabler, et navn på læren og et navn på lektionen. Denne struct bruges ved printning af skemaet. %SKAL RETTES
 
 \begin{lstlisting}[language = C]
 struct individual{
-  int individual_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
+  int lesson_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
   int grade;
+  int perfection;
+  int lessons_with_parallel;
+  int lessons_with_both;
+  int heavy_lesson_after;
 };
 \end{lstlisting}
 
-”Individual” består af integer array af arrays, individual\_num, og to integers, fitness og grade. Array’et har to indgange, hvor det første identificerer, hvilken lektion skal tilgås og den anden tilgår ugedagen. Hver indgang i skemaet er givet ved et heltal, som korrelerer med et fag. Fitness er en værdi, der udregnes ud fra, hvor godt skemaet opfylder de krav, der stilles af skemalæggeren. Det er denne værdi, som bestemmer skemaets bæredygtighed i forhold til andre skemaer. Grade er et heltal, som bestemmer hvilken klasse, der er tale om. Siden forskellige krav stilles til forskellige klassetrin, er det vigtigt for programmet, at være i stand til at skelne mellem klassentrinnene.
+”Individual” består af et array af arrays af integers, lesson_num, der repræsenterer lektionnummeret (faget) for hver blok på hver dag.
+
+%HERFRA OG NED SKAL OGSÅ RETTES
+
+ og to integers, fitness og grade. Array’et har to indgange, hvor det første identificerer, hvilken lektion skal tilgås og den anden tilgår ugedagen. Hver indgang i skemaet er givet ved et heltal, som korrelerer med et fag. Fitness er en værdi, der udregnes ud fra, hvor godt skemaet opfylder de krav, der stilles af skemalæggeren. Det er denne værdi, som bestemmer skemaets bæredygtighed i forhold til andre skemaer. Grade er et heltal, som bestemmer hvilken klasse, der er tale om. Siden forskellige krav stilles til forskellige klassetrin, er det vigtigt for programmet, at være i stand til at skelne mellem klassentrinnene.
 
 \begin{lstlisting}[language = C]
 struct teacher{
