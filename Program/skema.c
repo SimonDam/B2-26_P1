@@ -29,18 +29,20 @@
 #define MAX_MUTATIONS_PER_INDIVIDUAL 8
 
 #define FITNESS_LESSONS_IN_ROW 80
-#define FITNESS_PARALEL_CLASS 500
+#define FITNESS_PARALEL_CLASS 100
 #define FITNESS_HEAVY_LESSONS -200
+#define FITNESS_HEAVY_LESSONS_BEFORE 200
 #define FITNESS_FREE_IN_MIDLE -100000
 #define FITNESS_MANY_LESSONS_IN_ROW -500
-#define FITNESS_TEACHER_OVERBOOKED -100000
+#define FITNESS_TEACHER_OVERBOOKED -1000
 #define FITNESS_TEACHER_PREPARATION 60
 #define FITNESS_NOT_MEET_REQ -60
 #define FITNESS_WAY_OVER_REQ -600
 #define FITNESS_CORRECT_LESSONS 80
 #define FITNESS_BONUS_FREE_END 50
-#define FITNESS_PERFECTION_BONUS 100
+#define FITNESS_PERFECTION_BONUS 200
 #define FITNESS_NO_FREE_TIME -100
+#define FITNESS_NOT_OVERBOOKED 50
 
 enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, rel, pra, fri};
 
@@ -53,6 +55,11 @@ struct individual{
   int lessons_with_parallel;
   int lessons_with_both;
   int heavy_lesson_after;
+  int heavy_lesson_before;
+  int teacher_overbooked;
+  int best_gena7;
+  int best_gena8;
+  int best_gena9;
 };
 
 typedef struct teacher teacher;
@@ -96,10 +103,11 @@ void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual indiv
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation);
 void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation);
 void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class);
-void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS], requirements requirements_class[]);
+void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individual best_of_best[]);
+void print_func(individual best_of_best[], requirements requirements_class[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]);
+void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUMBER_OF_SUBJECTS]);
 void print_time_func (int i);
 void print_class_name(int c);
-void print_lesson_name(int num);
 void print_req(individual chosen_individual, requirements requirements_class);
 
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -110,6 +118,7 @@ int main(void){
   /* init klasses */
   individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   individual chosen_individual[NUMBER_OF_CLASSES][NUMBER_OF_GENERATIONS];
+  individual best_of_best[NUMBER_OF_CLASSES];
   individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   requirements requirements_classes[NUMBER_OF_CLASSES];
   
@@ -124,7 +133,7 @@ int main(void){
   create_individuals(individuals);
   calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
- for(int j = 0; j < (NUMBER_OF_CLASSES); j += 3){
+ for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
     choose_individual(individuals, chosen_individual, j, 0);
   }
  
@@ -152,34 +161,131 @@ int main(void){
       printf("\n\n\nYES!\n\n\n");
     }
   }
-  
-  /* The best of the best
-  int best = find_best();
-  */
+  i--;
+  /* The best of the best */
+  find_best(chosen_individual, best_of_best);
 
   /* Printing */
   printf("\n\n\n");
-  print_func(chosen_individual, requirements_classes);
+  print_func(best_of_best, requirements_classes, i, teacher_data);
 
   return 0;
 }
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-/*
-int find_best(individual chosen_individuals[]){
-  int i = 0, best = 0, fitness_best = -1, perfecktion_best = 0;;
-  for (i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    /* Sum 
-    for (NUMBER_OF_CLASSES){}
+void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individual best_of_best[]){
+  printf("\n\n");
+  int i, k, j = 0;
+  int best_sum1, best_sum2, best_sum3;
+  int best_gen1, best_gen2, best_gen3;
+  int sum1, sum2, sum3;
+  int temp_perfect1 = 0, temp_perfect2 = 0, temp_perfect3 = 0;
+  int perfect1 = 0, perfect2 = 0, perfect3 = 0;
+  
+  for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
+    /* Getting the sum */
+    if ((chosen_individuals[0][i].fitness != 1) && (chosen_individuals[1][i].fitness != 1) && (chosen_individuals[2][i].fitness != 1)){
+      sum1 = chosen_individuals[0][i].fitness + chosen_individuals[1][i].fitness + chosen_individuals[2][i].fitness;
+    }
+    else {
+      sum1 = 0;
+    }
 
-    /* chose 
-    if (){
-      best = i;
+    if ((chosen_individuals[3][i].fitness != 1) && (chosen_individuals[4][i].fitness != 1) && (chosen_individuals[5][i].fitness != 1)){
+      sum2 = chosen_individuals[3][i].fitness + chosen_individuals[4][i].fitness + chosen_individuals[5][i].fitness;
+    }
+    else {
+      sum2 = 0;
+    }
+
+    if ((chosen_individuals[6][i].fitness != 1) && (chosen_individuals[7][i].fitness != 1) && (chosen_individuals[8][i].fitness != 1)){
+      sum3 = chosen_individuals[6][i].fitness + chosen_individuals[7][i].fitness + chosen_individuals[8][i].fitness;
+    }
+    else {
+      sum3 = 0;
+    }
+
+    /* Getting the lowest perfection grade */
+    temp_perfect1 = 15;
+    temp_perfect2 = 15;
+    temp_perfect3 = 15;
+
+    if (temp_perfect1 > chosen_individuals[0][i].perfection){
+      temp_perfect1 = chosen_individuals[0][i].perfection;
+    }
+    if (temp_perfect1 > chosen_individuals[1][i].perfection){
+      temp_perfect1 = chosen_individuals[1][i].perfection;
+    }
+    if (temp_perfect1 > chosen_individuals[2][i].perfection){
+      temp_perfect1 = chosen_individuals[2][i].perfection;
+    }
+
+    if (temp_perfect2 > chosen_individuals[3][i].perfection){
+      temp_perfect2 = chosen_individuals[3][i].perfection;
+    }
+    if (temp_perfect2 > chosen_individuals[4][i].perfection){
+      temp_perfect2 = chosen_individuals[4][i].perfection;
+    }
+    if (temp_perfect2 > chosen_individuals[5][i].perfection){
+      temp_perfect2 = chosen_individuals[5][i].perfection;
+    }
+
+    if (temp_perfect3 > chosen_individuals[6][i].perfection){
+      temp_perfect3 = chosen_individuals[6][i].perfection;
+    }
+    if (temp_perfect3 > chosen_individuals[7][i].perfection){
+      temp_perfect3 = chosen_individuals[7][i].perfection;
+    }
+    if (temp_perfect3 > chosen_individuals[8][i].perfection){
+      temp_perfect3 = chosen_individuals[8][i].perfection;
+    }
+
+    /* Saving the best */
+    if (perfect1 <= temp_perfect1){
+      if (best_sum1 < sum1){
+        best_sum1 = sum1;
+        best_gen1 = i;
+        perfect1 = temp_perfect1;
+        printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
+      }
+    }
+
+    if (perfect2 <= temp_perfect2){
+      if (best_sum2 < sum2){
+        best_sum2 = sum2;
+        best_gen2 = i;
+        perfect2 = temp_perfect2;
+        printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
+      }
+    }
+
+    if (perfect3 <= temp_perfect3){
+      if (best_sum3 < sum3){
+        best_sum3 = sum3;
+        best_gen3 = i;
+        perfect3 = temp_perfect3;
+        printf("  3  perfection: %d  sum: %d \n", perfect3, best_sum3);
+      }
     }
   }
-  return best;
+  
+  best_of_best[0] = chosen_individuals[0][best_gen1];
+  best_of_best[1] = chosen_individuals[1][best_gen1];
+  best_of_best[2] = chosen_individuals[2][best_gen1];
+  best_of_best[3] = chosen_individuals[3][best_gen2];
+  best_of_best[4] = chosen_individuals[4][best_gen2];
+  best_of_best[5] = chosen_individuals[5][best_gen2];
+  best_of_best[6] = chosen_individuals[6][best_gen3];
+  best_of_best[7] = chosen_individuals[7][best_gen3];
+  best_of_best[8] = chosen_individuals[8][best_gen3];
+  
+  for (j = 0; j < NUMBER_OF_CLASSES; j++){
+    best_of_best[j].best_gena7 = best_gen1;
+    best_of_best[j].best_gena8 = best_gen2;
+    best_of_best[j].best_gena9 = best_gen3;
+  }
 }
-*/
+
 
 int find_number_of_classes(teacher teacher_data[], int number_of_teacher){
   int i = 0, k = 0;
@@ -465,12 +571,21 @@ void calculate_fitness_one(individual *individual_master, individual *individual
 
   /* Heavy lessons after 11.20 is bad  */
   individual_master->heavy_lesson_after = 0;
+  individual_master->heavy_lesson_before = 0;
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-    for(i = LESSON_OVER_MIDDAY; i < LESSONS_PER_DAY_MAX; i++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       for (k = 0; k < NUMBER_OF_HEAVY_LESSONS; k++){
-        if (individual_master->lesson_num[i][j] == h_classes[k]){
-          individual_master->fitness += FITNESS_HEAVY_LESSONS;
-          individual_master->heavy_lesson_after++;
+        if (i > LESSON_OVER_MIDDAY){
+          if (individual_master->lesson_num[i][j] == h_classes[k]){
+            individual_master->fitness += FITNESS_HEAVY_LESSONS;
+            individual_master->heavy_lesson_after++;
+          }
+        }
+        else {
+          if (individual_master->lesson_num[i][j] == h_classes[k]){
+            individual_master->fitness += FITNESS_HEAVY_LESSONS_BEFORE;
+            individual_master->heavy_lesson_before++;
+          }
         }
       }
     }
@@ -507,11 +622,11 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
     }
   }
-
   /* Give punish for not having a free lesson */
   if (count_free_lessons < NUMBER_OF_FREE_REQ){
     individual_master->fitness += FITNESS_NO_FREE_TIME;
   }
+
   /* Teacher preparation */
   int count = 0, test = 0;
   char temp_teacher_name[TEACHER_NAME_MAX] = "TEMP";
@@ -777,18 +892,29 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   }
 
   /* Teacher overbooked */
+  individual_master->teacher_overbooked = 0;
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       if (strcmp(teacher_data[class_master][individual_master->lesson_num[i][j]].teacher_name, teacher_data[class_other1][individual_other1->lesson_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
+        individual_master->teacher_overbooked += 1;
       }
+      else {
+        individual_master->fitness += FITNESS_NOT_OVERBOOKED;
+      }
+
       if (strcmp(teacher_data[class_master][individual_master->lesson_num[i][j]].teacher_name, teacher_data[class_other2][individual_other2->lesson_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
+        individual_master->teacher_overbooked += 1;
+      }
+      else {
+        individual_master->fitness += FITNESS_NOT_OVERBOOKED;
       }
     }
   }
 
- /* If it is negative, change to one */
+
+  /* If it is negative, change to one */
   if (individual_master->fitness < 1){
     individual_master->fitness = 1;
   }
@@ -1126,12 +1252,23 @@ void print_req(individual chosen_individual, requirements requirements_class){
           temp_Fri_req);
 }
 
-void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS], requirements requirements_classes[]){
+void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   int i, j, c;
+  printf("\n\n   Teachers\n");
+  for (i = 0; i < NUMBER_OF_CLASSES; i++){
+    for (j = 0; j < NUMBER_OF_SUBJECTS; j++){
+      printf("%s  %s %s\t", teacher_data[i][j].teacher_name, teacher_data[i][j].lesson_name, teacher_data[i][j].class_name);
+    }
+    printf("\n");
+  }
+  printf("\n\n");
+
+  printf("taken from     7: %d  8: %d  9: %d  \n\n", best_of_best[0].best_gena7, best_of_best[0].best_gena8, best_of_best[0].best_gena9);
+
   for (c = 0; c < NUMBER_OF_CLASSES; c++){
     /* Printing testing */
-    print_req(chosen_individual[c][NUMBER_OF_GENERATIONS-1], requirements_classes[c]);
-    printf("Has a fitness of: %d   The perfection grade is: %d  Lessons with parallel: %d  Lessons With Both %d Heavy lessons after: %d \n\n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS-1].perfection, chosen_individual[c][NUMBER_OF_GENERATIONS-1].lessons_with_parallel, chosen_individual[c][NUMBER_OF_GENERATIONS-1].lessons_with_both, chosen_individual[c][NUMBER_OF_GENERATIONS-1].heavy_lesson_after);
+    print_req(best_of_best[c], requirements_classes[c]);
+    printf("Has a fitness of: %d   The perfection grade is: %d  Lessons with parallel: %d  Lessons With Both: %d  Heavy lessons after: %d Before: %d   Overbooked: %d \n\n", best_of_best[c].fitness, best_of_best[c].perfection, best_of_best[c].lessons_with_parallel, best_of_best[c].lessons_with_both, best_of_best[c].heavy_lesson_after, best_of_best[c].heavy_lesson_before, best_of_best[c].teacher_overbooked);
 
     /* Printing the days */
     printf("  Class: ");
@@ -1146,7 +1283,7 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS], requireme
 
       for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
         /* Printing lesson name */
-        print_lesson_name(chosen_individual[c][NUMBER_OF_GENERATIONS-1].lesson_num[i][j]);
+        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, teacher_data);
         printf("\t\t");
       }
       /* To signal a break */
@@ -1186,6 +1323,134 @@ void print_time_func (int i){
   }
 }
 
+void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
+  /* Saving the name of subjekt */
+  char subject_name[LESSON_NAME_MAX];
+  memset(subject_name, '\0', LESSON_NAME_MAX);
+  switch (subject){
+    case dan:
+      strcpy(subject_name, "Dan");
+      break;
+    case mat:
+      strcpy(subject_name, "Mat");
+      break;
+    case eng:
+      strcpy(subject_name, "Eng");
+      break;
+    case tys:
+      strcpy(subject_name, "Tys");
+      break;
+    case fys:
+      strcpy(subject_name, "Fys");
+      break;
+    case his:
+      strcpy(subject_name, "His");
+      break;
+    case sam:
+      strcpy(subject_name, "Sam");
+      break;
+    case val:
+      strcpy(subject_name, "Val");
+      break;
+    case geo:
+      strcpy(subject_name, "Geo");
+      break;
+    case bio:
+      strcpy(subject_name, "Bio");
+      break;
+    case gym:
+      strcpy(subject_name, "Gym");
+      break;
+    case fri:
+      strcpy(subject_name, "---");
+      break;
+    case rel:
+      strcpy(subject_name, "Rel");
+      break;
+    case pra:
+      strcpy(subject_name, "Pra");
+      break;
+    default:
+      printf("ERROR\n");
+      break;
+  }
+
+  /* Finding the class and subject. And printing the name */
+  int i;
+  for (i = 0; i < NUMBER_OF_SUBJECTS; i++){
+    switch (class){
+      case 0:
+        if (strcmp("7a", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 1:
+        if (strcmp("7b", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 2:
+        if (strcmp("7c", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 3:
+        if (strcmp("8a", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 4:
+        if (strcmp("8b", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 5:
+        if (strcmp("8c", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 6:
+        if (strcmp("9a", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 7:
+        if (strcmp("9b", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      case 8:
+        if (strcmp("9c", teacher_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
+            printf("%s", teacher_data[class][i].teacher_name);
+          }
+        }
+        break;
+      default:
+        printf("ERROR");
+        break; 
+    }
+  }
+  /* Printing the lesson */
+  printf("  %s", subject_name);
+}
+
 void print_class_name(int c){
   switch (c){
     case 0:
@@ -1218,56 +1483,128 @@ void print_class_name(int c){
     default:
       printf("ERROR");
       break;
-    
   }
 }
 
-void print_lesson_name(int num){
-  switch (num){
-    case dan:
-      printf("Dan");
-      break;
-    case mat:
-      printf("Mat");
-      break;
-    case eng:
-      printf("Eng");
-      break;
-    case tys:
-      printf("Tys");
-      break;
-    case fys:
-      printf("Fys");
-      break;
-    case his:
-      printf("His");
-      break;
-    case sam:
-      printf("Sam");
-      break;
-    case val:
-      printf("Val");
-      break;
-    case geo:
-      printf("Geo");
-      break;
-    case bio:
-      printf("Bio");
-      break;
-    case gym:
-      printf("Gym");
-      break;
-    case fri:
-      printf("---");
-      break;
-    case rel:
-      printf("Rel");
-      break;
-    case pra:
-      printf("Pra");
-      break;
-    default:
-      printf("ERROR\n");
-      break;
-  }
-}
+/*
+Gamle lærer:
+
+CA Dan 6 7a
+JA Mat 4 7a
+HA Eng 3 7a
+RA Tys 3 7a
+MA Fys 2 7a
+MA His 2 7a
+KA Sam 2 7a
+UA Val 2 7a
+RA Geo 2 7a
+MA Bio 2 7a
+WA Gym 2 7a
+DA Rel 0 7a
+UA Pra 2 7a
+CA Dan 6 7b
+JB Mat 4 7b
+HB Eng 3 7b
+RB Tys 3 7b
+MB Fys 2 7b
+MB His 2 7b
+KB Sam 2 7b
+UB Val 2 7b
+RB Geo 2 7b
+MB Bio 2 7b
+WB Gym 2 7b
+DB Rel 0 7b
+UB Pra 2 7b
+CC Dan 6 7c
+JC Mat 4 7c
+HC Eng 3 7c
+RC Tys 3 7c
+MC Fys 2 7c
+MC His 2 7c
+KC Sam 2 7c
+UC Val 2 7c
+RC Geo 2 7c
+MC Bio 2 7c
+WC Gym 2 7c
+DC Rel 0 7c
+UC Pra 2 7c
+CB Dan 6 8a
+JD Mat 4 8a
+HC Eng 3 8a
+RC Tys 3 8a
+MD Fys 2 8a
+MD His 2 8a
+KD Sam 2 8a
+UD Val 2 8a
+RD Geo 1 8a
+MD Bio 2 8a
+WD Gym 2 8a
+DD Rel 1 8a
+UD Pra 0 8a
+CB Dan 6 8b
+JA Mat 4 8b
+HA Eng 3 8b
+RB Tys 3 8b
+MB Fys 2 8b
+ME His 2 8b
+KE Sam 2 8b
+UE Val 2 8b
+RE Geo 1 8b
+ME Bio 2 8b
+WE Gym 2 8b
+DE Rel 1 8b
+UE Pra 0 8b
+CF Dan 6 8c
+JF Mat 4 8c
+HF Eng 3 8c
+RB Tys 3 8c
+MB Fys 2 8c
+MF His 2 8c
+KF Sam 2 8c
+UF Val 2 8c
+RF Geo 1 8c
+MF Bio 2 8c
+WF Gym 2 8c
+DF Rel 1 8c
+UF Pra 0 8c
+CR Dan 6 9a
+JR Mat 4 9a
+HR Eng 3 9a
+RR Tys 3 9a
+MF Fys 3 9a
+ME His 1 9a
+KF Sam 2 9a
+UR Val 2 9a
+RR Geo 1 9a
+MR Bio 1 9a
+WR Gym 2 9a
+DR Rel 1 9a
+UR Pra 0 9a
+CS Dan 6 9b
+JS Mat 4 9b
+HS Eng 3 9b
+RS Tys 3 9b
+MS Fys 3 9b
+MS His 1 9b
+KS Sam 2 9b
+US Val 2 9b
+RS Geo 1 9b
+MS Bio 1 9b
+WS Gym 2 9b
+DS Rel 1 9b
+US Pra 0 9b
+CA Dan 6 9c
+JB Mat 4 9c
+HC Eng 3 9c
+RT Tys 3 9c
+MT Fys 3 9c
+MT His 1 9c
+KT Sam 2 9c
+UC Val 2 9c
+RF Geo 1 9c
+ME Bio 1 9c
+WB Gym 2 9c
+DT Rel 1 9c
+UT Pra 0 9c
+
+*/
