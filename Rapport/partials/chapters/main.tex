@@ -51,8 +51,11 @@ int main(void){
   return 0;
 }
 \end{lstlisting}
+
+%KODE EKSEMPEL SKAL RETTES NÅR PROGRAMMET ER FÆRDIGT OG TESTSPRINTS SKAL IKKE VÆRE MED 
 Først initialiseres de arrays der bliver brugt i programmets funktioner. De arrays der bliver dannet har to dimensioner.
-Dernæst forberedes der til brugen af den genetiske algoritme. Srand funktionen klar gøres ved at sætte time til at være NULL. Herefter udregnes individernes fitness. Individerne bliver herefter sendt ned til selektion. I selektionen benyttes roulette metoden, til at finde den næste generations forældre. Efter selektionen er færdiggjort bliver individerne muteret. Til sidst i den genetiske algoritmer bliver der foretaget en crossover på individerne. Den genetiske algoritme køres i 400 gange, det vil sige at der dannes 400 generationer i den genetiske algoritme.  De individerne med den bedste fitness bliver dernæst printet, og det undersøges om det generede skema er tilpas. Der kan dannes et overblik over main med følgende diagram:
+Dernæst forberedes der til brugen af den genetiske algoritme. Srand funktionen klargøres ved at sætte time til at være NULL. %Mener ikke dette er rigtigt, men ved faktisk ikke hvad NULL bruges til
+Individerne bliver givet tilfædige værdier i lesson_num (der får indsat tilfældige lektioner). Herefter udregnes individernes fitness og de bliver sendt ind i for loopet der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til crossovers mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra. Der kan dannes et overblik over main med følgende diagram:
 \begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{partials/graphics/main.png}
