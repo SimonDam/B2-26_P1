@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  15 DEC 2016 14:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.11.21)  16 DEC 2016 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -433,50 +433,104 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+(c:/texlive/2016/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+
+(c:/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(c:/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count100
+\calc@Bcount=\count101
+\calc@Adimen=\dimen116
+\calc@Bdimen=\dimen117
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count102
+\calc@Cskip=\skip45
+)
+(c:/texlive/2016/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+(c:/texlive/2016/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+)
+(c:/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(c:/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
 (c:/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-\Gin@req@height=\dimen116
-\Gin@req@width=\dimen117
+\Gin@req@height=\dimen118
+\Gin@req@width=\dimen119
+)
+\AM@pagewidth=\dimen120
+\AM@pageheight=\dimen121
+
+(c:/texlive/2016/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box28
+\AM@global@opts=\toks19
+\AM@toc@title=\toks20
+\c@AM@survey=\count103
+\AM@templatesizebox=\box29
 )
 (c:/texlive/2016/texmf-dist/tex/latex/tabulary/tabulary.sty
 Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
 
 (c:/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen118
-\extrarowheight=\dimen119
-\NC@list=\toks19
-\extratabsurround=\skip43
-\backup@length=\skip44
+\col@sep=\dimen122
+\extrarowheight=\dimen123
+\NC@list=\toks21
+\extratabsurround=\skip46
+\backup@length=\skip47
 )
-\TY@count=\count100
-\TY@linewidth=\dimen120
-\tymin=\dimen121
-\tymax=\dimen122
-\TY@tablewidth=\dimen123
+\TY@count=\count104
+\TY@linewidth=\dimen124
+\tymin=\dimen125
+\tymax=\dimen126
+\TY@tablewidth=\dimen127
 )
 (c:/texlive/2016/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip45
-\enit@outerparindent=\dimen124
-\enit@toks=\toks20
-\enit@inbox=\box28
-\enitdp@description=\count101
+\labelindent=\skip48
+\enit@outerparindent=\dimen128
+\enit@toks=\toks22
+\enit@inbox=\box30
+\enitdp@description=\count105
 )
 (c:/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2016/07/14 v5.1h context-sensitive quotations (JAW)
 
 (c:/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count102
+\etb@tempcnta=\count106
 )
-\csq@reset=\count103
-\csq@gtype=\count104
-\csq@glevel=\count105
-\csq@qlevel=\count106
-\csq@maxlvl=\count107
-\csq@tshold=\count108
-\csq@ltx@everypar=\toks21
+\csq@reset=\count107
+\csq@gtype=\count108
+\csq@glevel=\count109
+\csq@qlevel=\count110
+\csq@maxlvl=\count111
+\csq@tshold=\count112
+\csq@ltx@everypar=\toks23
 
 (c:/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2016/07/14 v5.1h csquotes generic definitions (JAW)
@@ -518,14 +572,11 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (c:/texlive/2016/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count109
+\lrq@indent=\count113
 
 (c:/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(c:/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
 (c:/texlive/2016/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -533,62 +584,62 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (c:/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
 (c:/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
-\integerpart=\count110
-\decimalpart=\count111
+\integerpart=\count114
+\decimalpart=\count115
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count112
-\c@listtotal=\count113
-\c@listcount=\count114
-\c@liststart=\count115
-\c@liststop=\count116
-\c@citecount=\count117
-\c@citetotal=\count118
-\c@multicitecount=\count119
-\c@multicitetotal=\count120
-\c@instcount=\count121
-\c@maxnames=\count122
-\c@minnames=\count123
-\c@maxitems=\count124
-\c@minitems=\count125
-\c@citecounter=\count126
-\c@savedcitecounter=\count127
-\c@uniquelist=\count128
-\c@uniquename=\count129
-\c@refsection=\count130
-\c@refsegment=\count131
-\c@maxextratitle=\count132
-\c@maxextratitleyear=\count133
-\c@maxextrayear=\count134
-\c@maxextraalpha=\count135
-\c@abbrvpenalty=\count136
-\c@highnamepenalty=\count137
-\c@lownamepenalty=\count138
-\c@maxparens=\count139
-\c@parenlevel=\count140
-\blx@tempcnta=\count141
-\blx@tempcntb=\count142
-\blx@tempcntc=\count143
-\blx@maxsection=\count144
-\blx@maxsegment@0=\count145
-\blx@notetype=\count146
-\blx@parenlevel@text=\count147
-\blx@parenlevel@foot=\count148
-\blx@sectionciteorder@0=\count149
-\labelnumberwidth=\skip46
-\labelalphawidth=\skip47
-\biblabelsep=\skip48
-\bibitemsep=\skip49
-\bibnamesep=\skip50
-\bibinitsep=\skip51
-\bibparsep=\skip52
-\bibhang=\skip53
+\c@tabx@nest=\count116
+\c@listtotal=\count117
+\c@listcount=\count118
+\c@liststart=\count119
+\c@liststop=\count120
+\c@citecount=\count121
+\c@citetotal=\count122
+\c@multicitecount=\count123
+\c@multicitetotal=\count124
+\c@instcount=\count125
+\c@maxnames=\count126
+\c@minnames=\count127
+\c@maxitems=\count128
+\c@minitems=\count129
+\c@citecounter=\count130
+\c@savedcitecounter=\count131
+\c@uniquelist=\count132
+\c@uniquename=\count133
+\c@refsection=\count134
+\c@refsegment=\count135
+\c@maxextratitle=\count136
+\c@maxextratitleyear=\count137
+\c@maxextrayear=\count138
+\c@maxextraalpha=\count139
+\c@abbrvpenalty=\count140
+\c@highnamepenalty=\count141
+\c@lownamepenalty=\count142
+\c@maxparens=\count143
+\c@parenlevel=\count144
+\blx@tempcnta=\count145
+\blx@tempcntb=\count146
+\blx@tempcntc=\count147
+\blx@maxsection=\count148
+\blx@maxsegment@0=\count149
+\blx@notetype=\count150
+\blx@parenlevel@text=\count151
+\blx@parenlevel@foot=\count152
+\blx@sectionciteorder@0=\count153
+\labelnumberwidth=\skip49
+\labelalphawidth=\skip50
+\biblabelsep=\skip51
+\bibitemsep=\skip52
+\bibnamesep=\skip53
+\bibinitsep=\skip54
+\bibparsep=\skip55
+\bibhang=\skip56
 \blx@bcfin=\read1
 \blx@bcfout=\write4
-\c@mincomprange=\count150
-\c@maxcomprange=\count151
-\c@mincompwidth=\count152
+\c@mincomprange=\count154
+\c@maxcomprange=\count155
+\c@mincompwidth=\count156
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -597,78 +648,78 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count153
-\c@savedafterword=\count154
-\c@annotator=\count155
-\c@savedannotator=\count156
-\c@author=\count157
-\c@savedauthor=\count158
-\c@bookauthor=\count159
-\c@savedbookauthor=\count160
-\c@commentator=\count161
-\c@savedcommentator=\count162
-\c@editor=\count163
-\c@savededitor=\count164
-\c@editora=\count165
-\c@savededitora=\count166
-\c@editorb=\count167
-\c@savededitorb=\count168
-\c@editorc=\count169
-\c@savededitorc=\count170
-\c@foreword=\count171
-\c@savedforeword=\count172
-\c@holder=\count173
-\c@savedholder=\count174
-\c@introduction=\count175
-\c@savedintroduction=\count176
-\c@namea=\count177
-\c@savednamea=\count178
-\c@nameb=\count179
-\c@savednameb=\count180
-\c@namec=\count181
-\c@savednamec=\count182
-\c@translator=\count183
-\c@savedtranslator=\count184
-\c@shortauthor=\count185
-\c@savedshortauthor=\count186
-\c@shorteditor=\count187
-\c@savedshorteditor=\count188
-\c@labelname=\count189
-\c@savedlabelname=\count190
-\c@institution=\count191
-\c@savedinstitution=\count192
-\c@lista=\count193
-\c@savedlista=\count194
-\c@listb=\count195
-\c@savedlistb=\count196
-\c@listc=\count197
-\c@savedlistc=\count198
-\c@listd=\count199
-\c@savedlistd=\count266
-\c@liste=\count267
-\c@savedliste=\count268
-\c@listf=\count269
-\c@savedlistf=\count270
-\c@location=\count271
-\c@savedlocation=\count272
-\c@organization=\count273
-\c@savedorganization=\count274
-\c@origlocation=\count275
-\c@savedoriglocation=\count276
-\c@origpublisher=\count277
-\c@savedorigpublisher=\count278
-\c@publisher=\count279
-\c@savedpublisher=\count280
-\c@language=\count281
-\c@savedlanguage=\count282
-\c@pageref=\count283
-\c@savedpageref=\count284
-\shorthandwidth=\skip54
-\shortjournalwidth=\skip55
-\shortserieswidth=\skip56
-\shorttitlewidth=\skip57
-\shortauthorwidth=\skip58
-\shorteditorwidth=\skip59
+\c@afterword=\count157
+\c@savedafterword=\count158
+\c@annotator=\count159
+\c@savedannotator=\count160
+\c@author=\count161
+\c@savedauthor=\count162
+\c@bookauthor=\count163
+\c@savedbookauthor=\count164
+\c@commentator=\count165
+\c@savedcommentator=\count166
+\c@editor=\count167
+\c@savededitor=\count168
+\c@editora=\count169
+\c@savededitora=\count170
+\c@editorb=\count171
+\c@savededitorb=\count172
+\c@editorc=\count173
+\c@savededitorc=\count174
+\c@foreword=\count175
+\c@savedforeword=\count176
+\c@holder=\count177
+\c@savedholder=\count178
+\c@introduction=\count179
+\c@savedintroduction=\count180
+\c@namea=\count181
+\c@savednamea=\count182
+\c@nameb=\count183
+\c@savednameb=\count184
+\c@namec=\count185
+\c@savednamec=\count186
+\c@translator=\count187
+\c@savedtranslator=\count188
+\c@shortauthor=\count189
+\c@savedshortauthor=\count190
+\c@shorteditor=\count191
+\c@savedshorteditor=\count192
+\c@labelname=\count193
+\c@savedlabelname=\count194
+\c@institution=\count195
+\c@savedinstitution=\count196
+\c@lista=\count197
+\c@savedlista=\count198
+\c@listb=\count199
+\c@savedlistb=\count266
+\c@listc=\count267
+\c@savedlistc=\count268
+\c@listd=\count269
+\c@savedlistd=\count270
+\c@liste=\count271
+\c@savedliste=\count272
+\c@listf=\count273
+\c@savedlistf=\count274
+\c@location=\count275
+\c@savedlocation=\count276
+\c@organization=\count277
+\c@savedorganization=\count278
+\c@origlocation=\count279
+\c@savedoriglocation=\count280
+\c@origpublisher=\count281
+\c@savedorigpublisher=\count282
+\c@publisher=\count283
+\c@savedpublisher=\count284
+\c@language=\count285
+\c@savedlanguage=\count286
+\c@pageref=\count287
+\c@savedpageref=\count288
+\shorthandwidth=\skip57
+\shortjournalwidth=\skip58
+\shortserieswidth=\skip59
+\shorttitlewidth=\skip60
+\shortauthorwidth=\skip61
+\shorteditorwidth=\skip62
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -690,13 +741,13 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (c:/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2016/09/17 v3.6 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count285
-\c@textcitetotal=\count286
-\c@textcitemaxnames=\count287
-\c@biburlnumpenalty=\count288
-\c@biburlucpenalty=\count289
-\c@biburllcpenalty=\count290
-\c@smartand=\count291
+\c@textcitecount=\count289
+\c@textcitetotal=\count290
+\c@textcitemaxnames=\count291
+\c@biburlnumpenalty=\count292
+\c@biburlucpenalty=\count293
+\c@biburllcpenalty=\count294
+\c@smartand=\count295
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -708,8 +759,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (c:/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/09/17 v3.6 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count292
-\c@bbx:relatedtotal=\count293
+\c@bbx:relatedcount=\count296
+\c@bbx:relatedtotal=\count297
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -752,18 +803,18 @@ File: danish.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
 ) (./core.aux)
 \openout1 = `core.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -801,17 +852,17 @@ LaTeX Font Info:    ... okay on input line 23.
 
 (c:/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen125
-\scratchbox=\box29
-\nofMPsegments=\count295
-\nofMParguments=\count296
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen126
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count298
+\scratchdimen=\dimen129
+\scratchbox=\box31
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen130
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks25
 ) (c:/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -832,7 +883,17 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count300
+\c@lstlisting=\count304
+\AtBeginShipoutBox=\box32
+
+(c:/texlive/2016/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(c:/texlive/2016/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -843,8 +904,7 @@ Package biblatex Info: Data encoding 'utf8' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'core.bbl' found.
-
-(./core.bbl
+ (./core.bbl
 
 Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'lov2016':
@@ -868,40 +928,111 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                - Invalid format of field 'date'.
 
 )
-Package biblatex Info: Reference section=0 on input line 23.
-Package biblatex Info: Reference segment=0 on input line 23.
+Package biblatex Info: Reference section=0 on input line 24.
+Package biblatex Info: Reference segment=0 on input line 24.
  (./partials/header.tex (./partials/frontpage.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 4.
+<partials/graphics/forside.pdf, id=1, 597.55246pt x 845.07718pt>
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
+<use partials/graphics/forside.pdf>
+Package pdftex.def Info: partials/graphics/forside.pdf used on input line 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: partials/graphics/forside.pdf Graphic file (type pdf)
+ <use partials/graphics/forside.pdf>
+Package pdftex.def Info: partials/graphics/forside.pdf used on input line 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
-LaTeX Warning: No \author given.
+<partials/graphics/forside.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
-<partials/graphics/forside.png, id=1, 603.25375pt x 302.12875pt>
-File: partials/graphics/forside.png Graphic file (type png)
+<use partials/graphics/forside.pdf, page 1>
+Package pdftex.def Info: partials/graphics/forside.pdf, page1 used on input lin
+e 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
-<use partials/graphics/forside.png>
-Package pdftex.def Info: partials/graphics/forside.png used on input line 11.
-(pdftex.def)             Requested size: 542.92336pt x 271.91336pt.
+<use partials/graphics/forside.pdf, page 1>
+Package pdftex.def Info: partials/graphics/forside.pdf, page1 used on input lin
+e 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
-Overfull \hbox (77.7217pt too wide) in paragraph at lines 11--12
- [][] 
- []
+<use partials/graphics/forside.pdf, page 1>
+Package pdftex.def Info: partials/graphics/forside.pdf, page1 used on input lin
+e 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
-[1
+<use partials/graphics/forside.pdf, page 1>
+Package pdftex.def Info: partials/graphics/forside.pdf, page1 used on input lin
+e 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/forside.pdf Graphic file (type pdf)
 
-{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./partials/grap
-hics/forside.png>]) (./core.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 9.
+<use partials/graphics/forside.pdf, page 1>
+Package pdftex.def Info: partials/graphics/forside.pdf, page1 used on input lin
+e 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
  [1
 
+ <./partials/graphics/forside.pdf>])
+<partials/graphics/synopsis_Software.pdf, id=26, 597.55246pt x 845.07718pt>
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
 
-])
+<use partials/graphics/synopsis_Software.pdf>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf used on input 
+line 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+
+<use partials/graphics/synopsis_Software.pdf>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf used on input 
+line 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+<partials/graphics/synopsis_Software.pdf, id=29, page=1, 597.55246pt x 845.0771
+8pt>
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+ <use partials/graphics/synopsis_Software.pdf, page 1>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf, page1 used on
+ input line 2.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+
+<use partials/graphics/synopsis_Software.pdf, page 1>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf, page1 used on
+ input line 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+
+<use partials/graphics/synopsis_Software.pdf, page 1>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf, page1 used on
+ input line 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+
+<use partials/graphics/synopsis_Software.pdf, page 1>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf, page1 used on
+ input line 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: partials/graphics/synopsis_Software.pdf Graphic file (type pdf)
+
+<use partials/graphics/synopsis_Software.pdf, page 1>
+Package pdftex.def Info: partials/graphics/synopsis_Software.pdf, page1 used on
+ input line 2.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [1
+
+ <./partials/graphics/synopsis_Software.pdf>] (./core.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+ [1
+
+{c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write5
 \openout5 = `core.toc'.
 
@@ -920,25 +1051,39 @@ Overfull \hbox (2.12778pt too wide) in paragraph at lines 3--4
  []
 
 ) (./partials/chapters/lovmessigekrav.tex [4]
-<partials/graphics/fagkrav.png, id=32, 510.40688pt x 289.08pt>
+<partials/graphics/fagkrav.png, id=69, 510.40688pt x 289.08pt>
 File: partials/graphics/fagkrav.png Graphic file (type png)
 
 <use partials/graphics/fagkrav.png>
 Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 5.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
 
-<partials/graphics/overallskemaovertimetal.png, id=33, 390.86024pt x 479.99326p
+
+LaTeX Warning: Reference `fig:Time' on page 5 undefined on input line 12.
+
+
+<partials/graphics/overallskemaovertimetal.png, id=71, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
 input line 24.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
- [5 <./partials/graphics/fagkrav.png>] [6 <./partials/graphics/overallskemaover
-timetal.png>])
-(./partials/chapters/casestudy.tex [7])
+
+
+LaTeX Warning: Reference `fig:Timetal' on page 5 undefined on input line 29.
+
+
+LaTeX Warning: Reference `fig:Time' on page 5 undefined on input line 29.
+
+[5 <./partials/graphics/fagkrav.png>] [6 <./partials/graphics/overallskemaovert
+imetal.png>]) (./partials/chapters/casestudy.tex [7])
 (./partials/chapters/interresentanalyse.tex [8]
-<partials/graphics/interessentanalyse.png, id=49, 445.06274pt x 453.49425pt>
+
+LaTeX Warning: Reference `fig:interessenter' on page 9 undefined on input line 
+18.
+
+<partials/graphics/interessentanalyse.png, id=87, 445.06274pt x 453.49425pt>
 File: partials/graphics/interessentanalyse.png Graphic file (type png)
 
 <use partials/graphics/interessentanalyse.png>
@@ -951,7 +1096,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./partials/chapters/stateoftheart.tex
 (./partials/chapters/stateoftheartdocendo.tex
-<partials/graphics/docendo.png, id=50, 517.33275pt x 310.761pt>
+<partials/graphics/docendo.png, id=88, 517.33275pt x 310.761pt>
 File: partials/graphics/docendo.png Graphic file (type png)
 
 <use partials/graphics/docendo.png>
@@ -962,7 +1107,7 @@ Package pdftex.def Info: partials/graphics/docendo.png used on input line 4.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./partials/chapters/stateoftheartlantiv.tex
-<partials/graphics/LANTIV.png, id=54, 404.10976pt x 363.15675pt>
+<partials/graphics/LANTIV.png, id=92, 404.10976pt x 363.15675pt>
 File: partials/graphics/LANTIV.png Graphic file (type png)
 
 <use partials/graphics/LANTIV.png>
@@ -980,7 +1125,7 @@ Overfull \hbox (15.43301pt too wide) in paragraph at lines 1--12
 
 [11 <./partials/graphics/docendo.png>]
 (./partials/chapters/stateoftheartuntis.tex
-<partials/graphics/untis.png, id=63, 634.16925pt x 339.669pt>
+<partials/graphics/untis.png, id=102, 634.16925pt x 339.669pt>
 File: partials/graphics/untis.png Graphic file (type png)
 
 <use partials/graphics/untis.png>
@@ -1001,7 +1146,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
 
-<partials/graphics/roulette.png, id=85, 451.6875pt x 209.28188pt>
+<partials/graphics/roulette.png, id=124, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
 
 <use partials/graphics/roulette.png>
@@ -1036,7 +1181,7 @@ Overfull \hbox (34.12354pt too wide) in paragraph at lines 10--11
 [][][][][][][][][][][][][][][] 
  []
 
-
+[22]
 Overfull \hbox (86.68408pt too wide) in paragraph at lines 21--23
 [][][][][][][][][][][][][][][][] 
  []
@@ -1052,7 +1197,7 @@ Overfull \hbox (99.82422pt too wide) in paragraph at lines 25--27
 [][][][][][][][][][][][][][][][] 
  []
 
-[22]
+
 Overfull \hbox (625.42969pt too wide) in paragraph at lines 36--37
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1080,28 +1225,28 @@ Overfull \hbox (40.6936pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][][][][][][][] 
  []
 
-<partials/graphics/main.png, id=104, 1349.04pt x 710.655pt>
+<partials/graphics/main.png, id=141, 1349.04pt x 710.655pt>
 File: partials/graphics/main.png Graphic file (type png)
 
 <use partials/graphics/main.png>
-Package pdftex.def Info: partials/graphics/main.png used on input line 58.
+Package pdftex.def Info: partials/graphics/main.png used on input line 61.
 (pdftex.def)             Requested size: 465.20166pt x 245.05696pt.
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./partials/chapters/dataindlaesning.tex [23]) [24 <./partials/graphics/main.pn
-g>] (./partials/chapters/programfitness.tex
+(./partials/chapters/dataindlaesning.tex [23] [24 <./partials/graphics/main.png
+>]) (./partials/chapters/programfitness.tex
 Overfull \hbox (106.39429pt too wide) in paragraph at lines 37--38
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[25]
 Overfull \hbox (106.39429pt too wide) in paragraph at lines 40--41
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [25] (./partials/chapters/kodeeksempelroulette.tex
+) (./partials/chapters/kodeeksempelroulette.tex
 Overfull \hbox (566.29907pt too wide) in paragraph at lines 7--8
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1126,7 +1271,7 @@ Overfull \hbox (40.6936pt too wide) in paragraph at lines 22--23
 [][][][][][][][][][][][][][][][][][] 
  []
 
-) [26] (./partials/chapters/programmutation.tex
+[26]) (./partials/chapters/programmutation.tex
 Overfull \hbox (257.50586pt too wide) in paragraph at lines 6--8
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][] 
@@ -1137,7 +1282,7 @@ Overfull \hbox (290.3562pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (./partials/chapters/ProgramPrintsSkema.tex [27]
+) [27] (./partials/chapters/ProgramPrintsSkema.tex
 Overfull \hbox (1.2732pt too wide) in paragraph at lines 5--6
 [][][][][][][][][][][][] 
  []
@@ -1165,39 +1310,48 @@ Overfull \hbox (126.10449pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][] 
  []
 
-)) [28] (./partials/chapters/videreudvikling.tex [29]) [30] [31]
-(./partials/chapters/konklusion.tex)) (./partials/footer.tex [32]) [33]
+)) [28] [29] (./partials/chapters/videreudvikling.tex [30]) [31] [32]
+(./partials/chapters/konklusion.tex)) (./partials/footer.tex [33]) [34]
 (./core.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                core
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12233 strings out of 493013
- 199962 string characters out of 6136992
- 490242 words of memory out of 5000000
- 15508 multiletter control sequences out of 15000+600000
- 11351 words of font info for 40 fonts, out of 8000000 for 9000
+ 13479 strings out of 493013
+ 218311 string characters out of 6136992
+ 517515 words of memory out of 5000000
+ 16723 multiletter control sequences out of 15000+600000
+ 10437 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,10n,64p,2242b,1583s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,18n,64p,2242b,1599s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
-.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2016/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt9.pfb>
-Output written on core.pdf (34 pages, 1019139 bytes).
+lic/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
+fb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on core.pdf (36 pages, 1379770 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 122 compressed objects within 2 object streams
+ 227 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
