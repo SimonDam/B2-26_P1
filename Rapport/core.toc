@@ -10,6 +10,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2}Lovm\IeC {\ae }ssige krav til folkeskoleskemaet}{5}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.1}Skolereformen}{7}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{7}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4}Interresentanalyse}{8}
