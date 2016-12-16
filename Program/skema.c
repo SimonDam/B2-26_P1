@@ -114,7 +114,7 @@ int main(void){
   /* init general stuff */
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
-  /* init klasses */
+  /* init classes */
   individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
   individual chosen_individual[NUMBER_OF_CLASSES][NUMBER_OF_GENERATIONS];
   individual best_of_best[NUMBER_OF_CLASSES];
