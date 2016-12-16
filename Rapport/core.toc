@@ -80,16 +80,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.7}Print funktion}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Videreudvikling}{30}
+\contentsline {section}{\numberline {8}Program test}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.1}Mangler i l\IeC {\o }sningen}{30}
+\contentsline {section}{\numberline {9}Videreudvikling}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.2}Graphic user interface}{30}
+\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.3}Brugertest}{31}
+\contentsline {subsection}{\numberline {9.2}Graphic user interface}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.4}Empiri fra flere skoler}{31}
+\contentsline {subsection}{\numberline {9.3}Brugertest}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Diskussion}{32}
+\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Konklusion}{33}
+\contentsline {section}{\numberline {10}Diskussion}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11}Konklusion}{33}

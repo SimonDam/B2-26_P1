@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.11.21)  16 DEC 2016 00:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  16 DEC 2016 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1058,10 +1058,6 @@ File: partials/graphics/fagkrav.png Graphic file (type png)
 Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 5.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
 
-
-LaTeX Warning: Reference `fig:Time' on page 5 undefined on input line 12.
-
-
 <partials/graphics/overallskemaovertimetal.png, id=71, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
@@ -1069,20 +1065,10 @@ File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
 input line 24.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
-
-
-LaTeX Warning: Reference `fig:Timetal' on page 5 undefined on input line 29.
-
-
-LaTeX Warning: Reference `fig:Time' on page 5 undefined on input line 29.
-
-[5 <./partials/graphics/fagkrav.png>] [6 <./partials/graphics/overallskemaovert
-imetal.png>]) (./partials/chapters/casestudy.tex [7])
+ [5 <./partials/graphics/fagkrav.png>] [6 <./partials/graphics/overallskemaover
+timetal.png>])
+(./partials/chapters/casestudy.tex [7])
 (./partials/chapters/interresentanalyse.tex [8]
-
-LaTeX Warning: Reference `fig:interessenter' on page 9 undefined on input line 
-18.
-
 <partials/graphics/interessentanalyse.png, id=87, 445.06274pt x 453.49425pt>
 File: partials/graphics/interessentanalyse.png Graphic file (type png)
 
@@ -1282,7 +1268,7 @@ Overfull \hbox (290.3562pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [27] (./partials/chapters/ProgramPrintsSkema.tex
+) (./partials/chapters/ProgramPrintsSkema.tex [27]
 Overfull \hbox (1.2732pt too wide) in paragraph at lines 5--6
 [][][][][][][][][][][][] 
  []
@@ -1313,17 +1299,6 @@ Overfull \hbox (126.10449pt too wide) in paragraph at lines 21--22
 )) [28] [29] (./partials/chapters/videreudvikling.tex [30]) [31] [32]
 (./partials/chapters/konklusion.tex)) (./partials/footer.tex [33]) [34]
 (./core.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                core
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
@@ -1348,7 +1323,7 @@ xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on core.pdf (36 pages, 1379770 bytes).
+Output written on core.pdf (36 pages, 1388609 bytes).
 PDF statistics:
  227 PDF objects out of 1000 (max. 8388607)
  145 compressed objects within 2 object streams
