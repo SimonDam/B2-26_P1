@@ -155,10 +155,6 @@ int main(void){
     for(j = 0; j < (NUMBER_OF_CLASSES); j += 3){
       choose_individual(individuals, chosen_individual, j, i);  
     }
-    printf("%d   %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \n",i , chosen_individual[0][i].fitness, chosen_individual[0][i].perfection , chosen_individual[1][i].fitness, chosen_individual[1][i].perfection, chosen_individual[2][i].fitness, chosen_individual[2][i].perfection, chosen_individual[3][i].fitness, chosen_individual[3][i].perfection, chosen_individual[4][i].fitness, chosen_individual[4][i].perfection, chosen_individual[5][i].fitness, chosen_individual[5][i].perfection, chosen_individual[6][i].fitness, chosen_individual[6][i].perfection, chosen_individual[7][i].fitness, chosen_individual[7][i].perfection, chosen_individual[8][i].fitness, chosen_individual[8][i].perfection);
-    if ((chosen_individual[0][i].perfection >= 13) && (chosen_individual[1][i].perfection >= 13) && (chosen_individual[2][i].perfection >= 13) && (chosen_individual[3][i].perfection >= 13) && (chosen_individual[4][i].perfection >= 13) && (chosen_individual[5][i].perfection >= 13) && (chosen_individual[6][i].perfection >= 13) && (chosen_individual[7][i].perfection >= 13) && (chosen_individual[8][i].perfection >= 13) && (chosen_individual[9][i].perfection >= 13)){
-      printf("\n\n\nYES!\n\n\n");
-    }
   }
   i--;
   /* The best of the best */
