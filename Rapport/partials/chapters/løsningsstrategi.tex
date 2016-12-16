@@ -1,0 +1,10 @@
+I det følgende afsnit vil det blive undersøgt hvorledes problemerne relateret til skemalægningsprocessen kan løses ved hjælp af en softwareløsning. 
+Kravene til den softwareløsning der skal udarbejdes er at den skal kunne automatisere skemalægningsprocessen for en skole ved hjælp af genetisk algoritme. Derudover skal softwareløsningen tage højde for en række bindinger, såsom at lærerne skal have to eller flere forberedelsestimer. 
+Det første trin i programmet skal være at indlæse en fil med lærernes navn, hvilken klasser de underviser i og hvor mange timer lærerne skal have af disse fag ugeligt. Den fil skal simulere input fra brugeren. 
+Dernæst skal der generes helt tilfældige skemaer for hele udskolingssektoren. Disse skemaer vil siden hen blive modificeret, således at de opfylder diverse bindinger i processen. For at undersøge, hvilke skemaer der bedst opfylder skolens krav skal skemaernes fitness udregnes. Fitnessen udregnes for hvert enkelt skema, men summen af fitness for hver årgang udregnes også. Summen udregnes således at de bedst skemaer for hver årgang i hver generation kan blive gemt. De årgange med den bedste fitness i forhold til alle generation bliver til sidst printet som det endelige skema. Nedenstående funktions diagram er en oversigt over løsningsstrategien:
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=\textwidth]{partials/graphics/programflow.png}
+    \caption{Funktionsdiagram over løsningsstrategien}
+  \label{fig:løsningsstrategi}
+\end{figure}
