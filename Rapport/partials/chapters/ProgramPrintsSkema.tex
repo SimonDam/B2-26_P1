@@ -1,14 +1,29 @@
-I struct’et ’individual’ findes det multidimensionalt integer array ’lesson\_num’. Denne indeholder tal som repræsentere de forskellige fag. Det er disse tal der bliver ændret på i de forskellige funktioner. 
+I struct’et ’individual’ findes et multidimensionalt integer array ’lesson\_num’. Arrayet indeholder heltal, som repræsentere forskellige fag. Det er disse tal, der ændres i de forskellige funktioner. 
 
-Når der så skal printes et endeligt skema ud, bliver funktionen ’print\_func()’ kaldt. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
+Når et endeligt skema skal printes ud, bliver funktionen ’print\_func()’ kaldt. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
 \begin{lstlisting}[language = C]
-void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
+void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   int i, j, c;
+  printf("\n\n   Teachers\n");
+  for (i = 0; i < NUMBER_OF_CLASSES; i++){
+    for (j = 0; j < NUMBER_OF_SUBJECTS; j++){
+      printf("%s  %s %s\t", teacher_data[i][j].teacher_name, teacher_data[i][j].lesson_name, teacher_data[i][j].class_name);
+    }
+    printf("\n");
+  }
+  printf("\n\n");
+
+  printf("taken from     7: %d  8: %d  9: %d  \n\n", best_of_best[0].best_gena7, best_of_best[0].best_gena8, best_of_best[0].best_gena9);
+
   for (c = 0; c < NUMBER_OF_CLASSES; c++){
+    /* Printing testing */
+    print_req(best_of_best[c], requirements_classes[c]);
+    printf("Has a fitness of: %d   The perfection grade is: %d  Lessons with parallel: %d  Lessons With Both: %d  Heavy lessons after: %d Before: %d   Overbooked: %d \n\n", best_of_best[c].fitness, best_of_best[c].perfection, best_of_best[c].lessons_with_parallel, best_of_best[c].lessons_with_both, best_of_best[c].heavy_lesson_after, best_of_best[c].heavy_lesson_before, best_of_best[c].teacher_overbooked);
+
     /* Printing the days */
     printf("  Class: ");
     print_class_name(c);
-    printf("  Has a fitness of: \%d   The perfection grade is: \%d \n", chosen_individual[c][NUMBER_OF_GENERATIONS-1].fitness, chosen_individual[c][NUMBER_OF_GENERATIONS].perfection);
+    printf("\n");
     printf("  Tidspunkt\t\tMandag\t\tTirsdag\t\tOnsdag\t\tTorsdag\t\tFredag\n");
     printf("  ------------------------------------------------------------------------------------------------\n");
     
@@ -18,11 +33,11 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
 
       for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
         /* Printing lesson name */
-        print_lesson_name(chosen_individual[c][NUMBER_OF_GENERATIONS-1].lesson_num[j][i]);
+        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, teacher_data);
         printf("\t\t");
       }
       /* To signal a break */
-      if ((i+1) \% 2 == 0){
+      if ((i+1) % 2 == 0){
         printf("\n");
       }
       printf("\n");
@@ -32,6 +47,6 @@ void print_func(individual chosen_individual[][NUMBER_OF_GENERATIONS]){
 }
 \end{lstlisting}
 
-Funktionen starter med en for-løkke som gentages ’antal klasser’-gange. Nu bliver der printet klassenavnet, dens fitness og antallet af krav den overholder i forhold til antallet af timer den skal have. 
-Efterfølgende bliver der kørt endnu en for-løkke. Denne gentages ’antallet af lektioner’-gange. Nu bliver tidspunktet på dagen printet ud, hvorefter der kommer endnu en for-løkke som printer, de første lektioner af hver dag, ud. 
-Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet, bliver der printet en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.
+Funktionen starter med en for-lykke, som gentages ’antal klasser’-gange. Klassenavnet, dens fitness og antallet af krav den overholder bliver printet i forhold til antallet af timer den skal have, . 
+Efterfølgende køres endnu en for-lykke, som gentages ’antallet af lektioner’-gange. Dette printer tidspunktet på dagen ud, hvorefter endnu en for-lykke printer de første lektioner af hver dag ud.
+Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet printes en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.
