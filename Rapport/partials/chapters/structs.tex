@@ -1,32 +1,23 @@
-Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Fire structs, ”lesson”, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis de faglige krav, lektionernes -, skemaernes - og lærernes information.
-\begin{lstlisting}[language = C]
-struct lesson{
-  char teacher_name[TEACHER_NAME_MAX];
-  char lesson_name[LESSON_NAME_MAX];
-  int number_of_lessons;
-  char class_name[TEACHER_NAME_MAX];
-};
-\end{lstlisting}
-
-Structen, ”lesson”, består af to variabler, et navn på læren og et navn på lektionen. Denne struct bruges ved printning af skemaet. %SKAL RETTES
+Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Tre structs, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis de skemaerne, information om lærerne og -kravene til en klasse.
 
 \begin{lstlisting}[language = C]
+typedef struct individual individual;
 struct individual{
   int lesson_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
-  int grade;
   int perfection;
   int lessons_with_parallel;
   int lessons_with_both;
   int heavy_lesson_after;
+  int heavy_lesson_before;
+  int teacher_overbooked;
+  int best_gena7;
+  int best_gena8;
+  int best_gena9;
 };
 \end{lstlisting}
 
-”Individual” består af et array af arrays af integers, lesson\_num, der repræsenterer lektionnummeret (faget) for hver blok på hver dag.
-
-%HERFRA OG NED SKAL OGSÅ RETTES
-
- og to integers, fitness og grade. Array’et har to indgange, hvor det første identificerer, hvilken lektion skal tilgås og den anden tilgår ugedagen. Hver indgang i skemaet er givet ved et heltal, som korrelerer med et fag. Fitness er en værdi, der udregnes ud fra, hvor godt skemaet opfylder de krav, der stilles af skemalæggeren. Det er denne værdi, som bestemmer skemaets bæredygtighed i forhold til andre skemaer. Grade er et heltal, som bestemmer hvilken klasse, der er tale om. Siden forskellige krav stilles til forskellige klassetrin, er det vigtigt for programmet, at være i stand til at skelne mellem klassentrinnene.
+”Individual” består af et array af arrays af integers, lesson\_num, der repræsenterer lektionnummeret (faget) for hver blok på hver dag. Fitness indeholde skemaet fitness værdi. Perfection indeholder antallet af fag der optræder nok gange i skemaet udfra kravene, og som ikke har mere end en blok for meget. lessons\_with\_parallel indeholder antallet af gange, skemaet har samme fag som en parallelklasse. lessons\_with\_both angiver antallet af gange, skemaet har samme fag som begge parallelklasser. heavy\_lesson variabler angiver, hvor mange gange de tunge fag ligger før og efter middag. teacher\_overbooked fortæller hvor mange gange, en lærer i skemaet bliver brugt i en anden parallelklasse på samme tid. best\_gen variablerne angiver i hvilken generation, de bedste skemaer for hver årgang er opstået.
 
 \begin{lstlisting}[language = C]
 struct teacher{
@@ -37,7 +28,7 @@ struct teacher{
 };
 \end{lstlisting}
 
-“teacher” structen indeholder navnet på læren, navnet på faget, antallet af lektioner læren har for det givne fag og klassen læren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læren ”Jørgen”. 
+“teacher” structen indeholder navnet på læren, navnet på faget, antallet af lektioner læren har for det givne fag og klassen læren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læren ”Jens”. 
 
 \begin{lstlisting}[language = C]
 struct requirements{
