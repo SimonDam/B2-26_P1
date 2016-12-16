@@ -50,7 +50,6 @@ typedef struct individual individual;
 struct individual{
   int lesson_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
-  int grade;
   int perfection;
   int lessons_with_parallel;
   int lessons_with_both;
