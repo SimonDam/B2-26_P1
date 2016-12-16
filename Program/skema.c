@@ -11,7 +11,7 @@
 #define LESSONS_PER_WEEK_MAX (LESSONS_PER_DAY_MAX * SCHOOL_DAYS_IN_WEEK)
 #define NUMBER_OF_DIFFERENT_LESSONS 14
 #define DEFAULT_LENGTH_STRING 200
-#define LESSON_OVER_MIDDAY 4
+#define LESSON_OVER_MIDDAY 3
 #define NUMBER_OF_HEAVY_LESSONS 5
 #define NUMBER_OF_CLASSES 9
 #define NUMBER_OF_SUBJECTS 13
@@ -23,7 +23,7 @@
 #define NUMBER_OF_FREE_REQ 4
 
 #define NUMBER_OF_INDIVIDUALS 100
-#define NUMBER_OF_GENERATIONS 200 
+#define NUMBER_OF_GENERATIONS 800
 
 #define CHANCE_OF_MUTATION 20
 #define MAX_MUTATIONS_PER_INDIVIDUAL 8
@@ -241,7 +241,13 @@ void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individua
     }
 
     /* Saving the best */
-    if (perfect1 <= temp_perfect1){
+    if (perfect1 < temp_perfect1){
+      best_sum1 = sum1;
+      best_gen1 = i;
+      perfect1 = temp_perfect1;
+      printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
+    }
+    else if (perfect1 == temp_perfect1){
       if (best_sum1 < sum1){
         best_sum1 = sum1;
         best_gen1 = i;
@@ -250,7 +256,13 @@ void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individua
       }
     }
 
-    if (perfect2 <= temp_perfect2){
+    if (perfect2 < temp_perfect2){
+      best_sum2 = sum2;
+      best_gen2 = i;
+      perfect2 = temp_perfect2;
+      printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
+    }
+    else if (perfect2 == temp_perfect2){
       if (best_sum2 < sum2){
         best_sum2 = sum2;
         best_gen2 = i;
@@ -259,7 +271,13 @@ void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individua
       }
     }
 
-    if (perfect3 <= temp_perfect3){
+    if (perfect3 < temp_perfect3){
+      best_sum3 = sum3;
+      best_gen3 = i;
+      perfect3 = temp_perfect3;
+      printf("  3  perfection: %d  sum: %d \n", perfect3, best_sum3);
+    }
+    else if (perfect3 == temp_perfect3){
       if (best_sum3 < sum3){
         best_sum3 = sum3;
         best_gen3 = i;
@@ -284,6 +302,10 @@ void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individua
     best_of_best[j].best_gena8 = best_gen2;
     best_of_best[j].best_gena9 = best_gen3;
   }
+  printf("\n\n");
+  printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
+  printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
+  printf("  3  perfection: %d  sum: %d \n\n", perfect3, best_sum3);
 }
 
 
