@@ -70,7 +70,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2}main}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{24}
+\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{23}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.4}Fitness}{25}
 \defcounter {refsection}{0}\relax 
@@ -80,18 +80,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.7}Print funktion}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Program test}{29}
+\contentsline {section}{\numberline {8}Program test}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Videreudvikling}{30}
+\contentsline {section}{\numberline {9}Videreudvikling}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{30}
+\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Graphic user interface}{30}
+\contentsline {subsection}{\numberline {9.2}Graphic user interface}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3}Brugertest}{31}
+\contentsline {subsection}{\numberline {9.3}Brugertest}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{31}
+\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Diskussion}{32}
+\contentsline {section}{\numberline {10}Diskussion}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Konklusion}{33}
+\contentsline {section}{\numberline {11}Konklusion}{34}

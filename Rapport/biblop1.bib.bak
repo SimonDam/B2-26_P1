@@ -178,6 +178,11 @@
   url          = {http://untis.dk/wp-content/uploads/2013/07/WebUntis-l%C3%A6rerskema.gif},
 }
 
+@Online{timefunc,
+  title = {C library function - time()},
+  url   = {https://www.tutorialspoint.com/c\_standard\_library/c\_function_time.htm},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-entrytype: Online: req[author/editor;title;year/date;url] opt[subtitle;titleaddon;note;organization;urldate;language;version;month;addendum;pubstate]}
