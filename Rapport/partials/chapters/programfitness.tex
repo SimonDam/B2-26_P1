@@ -1,3 +1,10 @@
+Det følgende er et diagram over hvordan fitnessen udregnes:
+\begin{figure}[!h]
+\includegraphics{partials/graphics/calculate_fitness_all.png}
+\caption{Grafisk diagram over funktionen for fitness}
+\label{fig:diagramfitness}
+\end{figure}
+
 Fitnessen bliver beregnet ved at tage de enkelte individer, samt deres parallelle klasser, og så gå igennem disse enkeltvis, hvor det undersøges om de overholder nogle specifikke krav, eller overtræder nogle andre. Hvis en af disse parametre er sande, får individet så en bonus eller en straf afhængigt af hvilken parametre der går i opfyldelse, og hvor vigtig denne er. Denne straf, eller bonus, bliver så lagt ind på fitness-variablen i det enkelte individ. Hvis individet har en negativ fitness-værdi, bliver dette ændret til 1, da negative værdier ville udgå fra selektion, eller gør processen mere kompliseret. med en fitness værdi på 1 er det stadig meget usandsynligt, men muligt hvergang selektionen kører, at et sådant skema vil blive valgt og påvirke udviklingen.
 De forskellige krav der bliver tjekket for, som giver bonus, er som følgende:
 

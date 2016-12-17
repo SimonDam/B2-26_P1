@@ -1,3 +1,10 @@
+Det følgende er et diagram over crossover funktionen:
+\begin{figure}[!h]
+\includegraphics{partials/graphics/crossover.png}
+\caption{Grafisk diagram over funktionen for crossoveren}
+\label{fig:diagramcrossover}
+\end{figure}
+
 Crossover funktionen kører indtil der er dannet NUMBER_OF_INDIVIDUALS. Crossoveren vælger 2 tilfældige forældre fra old_population. De 2 tilfældige forældre blandes og danner et tilfældigt skema som bliver sat ind i matricen individuals.
 begin{lstlisting}[language=c]
   for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
