@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  17 DEC 2016 21:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  17 DEC 2016 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1556,13 +1556,46 @@ Package pdftex.def Info: partials/graphics/crossovertest.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./partials/chapters/helhedstest.tex)) [32]
-(./partials/chapters/videreudvikling.tex
+) (./partials/chapters/helhedstest.tex
+<partials/graphics/programtestdef.png, id=186, 263.48438pt x 207.77625pt>
+File: partials/graphics/programtestdef.png Graphic file (type png)
+
+<use partials/graphics/programtestdef.png>
+Package pdftex.def Info: partials/graphics/programtestdef.png used on input lin
+e 4.
+(pdftex.def)             Requested size: 263.48372pt x 207.77573pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<partials/graphics/programtestinfo.png, id=187, 249.93375pt x 383.93437pt>
+File: partials/graphics/programtestinfo.png Graphic file (type png)
+
+<use partials/graphics/programtestinfo.png>
+Package pdftex.def Info: partials/graphics/programtestinfo.png used on input li
+ne 10.
+(pdftex.def)             Requested size: 249.93314pt x 383.93343pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<partials/graphics/programtestres.png, id=188, 448.67625pt x 642.14906pt>
+File: partials/graphics/programtestres.png Graphic file (type png)
+
+<use partials/graphics/programtestres.png>
+Package pdftex.def Info: partials/graphics/programtestres.png used on input lin
+e 18.
+(pdftex.def)             Requested size: 448.67516pt x 642.14749pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)) [32] (./partials/chapters/videreudvikling.tex
 
 LaTeX Warning: Citation 'interview' on page 33 undefined on input line 18.
 
 [33]) [34] (./partials/chapters/vurdering.tex
-<partials/graphics/spredning.png, id=195, 1725.44624pt x 950.55125pt>
+<partials/graphics/spredning.png, id=198, 1725.44624pt x 950.55125pt>
 File: partials/graphics/spredning.png Graphic file (type png)
 
 <use partials/graphics/spredning.png>
@@ -1573,7 +1606,7 @@ Package pdftex.def Info: partials/graphics/spredning.png used on input line 4.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<partials/graphics/spredningudenmutation.png, id=196, 1725.44624pt x 950.55125p
+<partials/graphics/spredningudenmutation.png, id=199, 1725.44624pt x 950.55125p
 t>
 File: partials/graphics/spredningudenmutation.png Graphic file (type png)
  <use partials/graphics/spredningudenmutation.png>
@@ -1585,7 +1618,7 @@ put line 12.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<partials/graphics/spredningudencrossover.png, id=197, 1724.4425pt x 948.54375p
+<partials/graphics/spredningudencrossover.png, id=200, 1724.4425pt x 948.54375p
 t>
 File: partials/graphics/spredningudencrossover.png Graphic file (type png)
  <use partials/graphics/spredningudencrossover.png>
@@ -1606,11 +1639,15 @@ all.png> <./partials/graphics/selektion.png> <./partials/graphics/mutation.png>
 kema.png>] [40 <./partials/graphics/fitness.png> <./partials/graphics/fitness1.
 png>] [41 <./partials/graphics/fitness2.png> <./partials/graphics/fitness3.png>
 ] [42 <./partials/graphics/mutationbevis.png>] [43 <./partials/graphics/crossov
-ertest.png>] [44 <./partials/graphics/spredning.png> <./partials/graphics/spred
-ningudenmutation.png> <./partials/graphics/spredningudencrossover.png>]
-(./core.aux)
+ertest.png>] [44 <./partials/graphics/programtestdef.png> <./partials/graphics/
+programtestinfo.png>] [45 <./partials/graphics/programtestres.png>] [46 <./part
+ials/graphics/spredning.png> <./partials/graphics/spredningudenmutation.png> <.
+/partials/graphics/spredningudencrossover.png>] (./core.aux)
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
@@ -1622,10 +1659,10 @@ Package logreq Info: Writing requests to 'core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13535 strings out of 493013
- 220320 string characters out of 6136992
+ 13553 strings out of 493013
+ 220897 string characters out of 6136992
  520515 words of memory out of 5000000
- 16748 multiletter control sequences out of 15000+600000
+ 16763 multiletter control sequences out of 15000+600000
  9463 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,18n,51p,2236b,1599s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1638,10 +1675,10 @@ c/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 ><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on core.pdf (46 pages, 1774745 bytes).
+Output written on core.pdf (48 pages, 1833286 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
+ 286 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
