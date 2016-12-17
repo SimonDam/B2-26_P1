@@ -1,1 +1,11 @@
-I programmet anvendes en række defines i toppen, hvor værdierne kan ændres efter behov. Så er de forskellige skolefag skrevet som en enumeration type, efterfulgt af definitioner på de anvendte structs. Herefter ligger alle anvendte funktioner som prototyper. Selve funktionerne ligger i bunden. Kommentarer skrives over det stykke kode den forklarer. Når der udføres en algoritme i en funktion eller en løkke, er algoritmen rykket ind med et tab af to mellemrum. Tuborgklammer starter inden linjeskift, efter funktioner og løkker, og afsluttes efter et linjeskift. 
+I programmet anvendes en række defines i toppen, hvor værdierne kan ændres efter behov. Så er de forskellige skolefag skrevet som en enumeration type, efterfulgt af definitioner på de anvendte structs. Herefter ligger alle anvendte funktioner som prototyper. Selve funktionerne ligger i bunden. Kommentarer skrives over det stykke kode den forklarer. Når der udføres en algoritme i en funktion eller en løkke, er algoritmen rykket ind med et tab af to mellemrum. Tuborgklammer starter inden linjeskift, efter funktioner og løkker, og afsluttes efter et linjeskift. Det følgende er et eksempel på kodestillen i softwareløsningen: 
+\begin{lstlisting}[language=c]
+/* Free lessons */
+  int count_free_lessons = 0;
+  for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      /* Need to be a free lesson - count op */
+      if (individual_master->lesson_num[i][j] == fri){
+        count_free_lessons++;
+      }
+\end{lstlisting}
