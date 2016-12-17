@@ -1,0 +1,47 @@
+Crossover funktionen kører indtil der er dannet NUMBER_OF_INDIVIDUALS. Crossoveren vælger 2 tilfældige forældre fra old_population. De 2 tilfældige forældre blandes og danner et tilfældigt skema som bliver sat ind i matricen individuals.
+begin{lstlisting}[language=c]
+  for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
+    for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
+      rand_parent1 = rand()% NUMBER_OF_INDIVIDUALS;
+      rand_parent2 = rand()% NUMBER_OF_INDIVIDUALS;
+      crossover_indi(individuals, individuals_temp[j][rand_parent1], individuals_temp[j][rand_parent2], requirements_classes[j], j, k, generation);
+      crossover_indi(individuals, individuals_temp[j+1][rand_parent1], individuals_temp[j+1][rand_parent2], requirements_classes[j+1], j+1, k, generation);
+      crossover_indi(individuals, individuals_temp[j+2][rand_parent1], individuals_temp[j+2][rand_parent2], requirements_classes[j+2], j+2, k, generation);
+    }
+  }
+} 
+  day1_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
+  day1_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(day2_parent1 == day1_parent1){
+    day2_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(day2_parent2 == day1_parent2){
+    day2_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(day3_parent1 == day1_parent1 || day3_parent1 == day2_parent1){
+    day3_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+  while(day3_parent2 == day1_parent2 || day3_parent2 == day2_parent2){
+    day3_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
+  }
+
+  for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
+    individuals[class][indi_num].lesson_num[k][0] = parent1.lesson_num[k][day1_parent1];
+    individuals[class][indi_num].lesson_num[k][1] = parent2.lesson_num[k][day1_parent2];
+}
+
+  ran_lesson = rand()% LESSONS_PER_DAY_MAX;
+  for(k = 0; k < ran_lesson; k++){   
+    individuals[class][indi_num].lesson_num[k][2] = parent2.lesson_num[k][day3_parent2];
+    individuals[class][indi_num].lesson_num[k][3] = parent1.lesson_num[k][day3_parent1];
+  }
+  for(k = ran_lesson; k < LESSONS_PER_DAY_MAX; k++){   
+    individuals[class][indi_num].lesson_num[k][2] = parent1.lesson_num[k][day2_parent1];
+    individuals[class][indi_num].lesson_num[k][3] = parent2.lesson_num[k][day2_parent2];
+  }
+ end{lstlisting}
+Crossoveren fungerer ved at den vælger 3 tilfældige dage fra forældre 1 og forældre 2. Day1\_parent1 day2\_parent1 og day3\_parent1 er en tilfældige dage fra forældre 1 og day1\_parent2 day2\_parent2 og day3\_parent2 fra skema 2. Der er taget forbehold for at funktionen ikke kan vælge den samme dag i den samme forældre så day1\_parent1 day2\_parent1 og day3\_parent1 er forskellige fra hinanden og det samme gælder for dagene valgt fra forældre 2. 
+Dag 1 og 2 i det nye skema dannes ved at smide en day1\_parent1 fra forældre 1 ind som dag et og day2\_parent2 fra forældre 2 ind som dag 2.
+Dag 3 i det det nye skema dannes ved at blande day2\_parent1 og day\_2 parent2 fra forældre 1 og 2 på et tilfældigt punkt på dagen som bestemmes af ran_lesson. Dag 4 i det det nye skema dannes ved at blande day3\_parent1 og day\_3 parent2 fra forældre 1 og 2 på et tilfældigt punkt på dagen som bestemmes af ran_lesson. 
+Dag 5 bliver lavet ved at tilfældigt udfylde de timer der mangler for at kravet af timeantallet er opfyldt.  
+
