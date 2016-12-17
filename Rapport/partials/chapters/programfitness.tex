@@ -31,19 +31,30 @@ Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses 
 #define LESSONS_PER_DAY_MAX 8
 #define FITNESS_PARALEL_CLASS 50
 
-/* Parallel classes - lessons in a sync */
 for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-  for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-    if (individual_master->lesson_num[i][j] == individual_parallel1->lesson_num[i][j]){
-      individual_master->fitness += FITNESS_PARALEL_CLASS;
-    }
-    if (individual_master->lesson_num[i][j] == individual_parallel2->lesson_num[i][j]){
-      individual_master->fitness += FITNESS_PARALEL_CLASS;
+    for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
+      if (individual_master->lesson_num[i][j] == individual_other1->lesson_num[i][j]){
+        if (individual_master->lesson_num[i][j] != fri){
+          individual_master->fitness += FITNESS_PARALEL_CLASS;
+          individual_master->lessons_with_parallel++;
+          test_parallel_both++;
+        }
+      }
+      if (individual_master->lesson_num[i][j] == individual_other2->lesson_num[i][j]){
+        if (individual_master->lesson_num[i][j] != fri){
+          individual_master->fitness += FITNESS_PARALEL_CLASS;
+          individual_master->lessons_with_parallel++;
+          test_parallel_both++;
+        }
+      }
+      if (test_parallel_both == 2){
+        individual_master->lessons_with_both++;
+      }
+      test_parallel_both = 0;
     }
   }
-}
 \end{lstlisting}
 
 I fitness bruger vi de forskellige variabler ’individual\_master’, ’individual\_parallel1’ og ’individual\_parallel1’. Disse variabler er af typen ’individual’, som er et struct med informationer omkring et skema.
-Vi starter med at gå gennem to for-løkker, en variabel ’j’ bliver talt op antallet af skoledage på en uge, og en variabel ’i’ bliver talt op til antallet af lektioner på en dag. Nu ses der på om ’master’ har samme time på samme plads, som en af parallelklasserne. Hvis dette er sandt bliver fitness talt op på ’master’. Det samme tjekkes nu om den anden parallelklasse. 
+Vi starter med at gå gennem to for-løkker, en variabel ’j’ bliver talt op antallet af skoledage på en uge, og en variabel ’i’ bliver talt op til antallet af lektioner på en dag. Nu ses der på om ’master’ har samme time på samme plads, som hver af parallelklasserne. Hvis dette er sandt bliver fitness talt op på ’master’ og de enkelte bindingers variabel bliver talt op i structet for individet.
 De andre bindinger bliver tjekket med lignende stykker kode inde i fitnessfunktionen og påvirker fitnessen med en bestemt værdi, skrevet som symbolske konstanter, så programmet er tilpasseligt.
