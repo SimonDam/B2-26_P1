@@ -10,7 +10,7 @@
 
 
 void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS]){ 
- FILE *teacherinfo = fopen("teacherinfo.txt", "r");
+ FILE *teacherinfo = fopen("info.txt", "r");
   if(teacherinfo == NULL){
     perror("Error the file is empty");
     fclose(teacherinfo);
