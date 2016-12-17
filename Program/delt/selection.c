@@ -7,7 +7,7 @@
 #include "structs.h"
 #include "defines.h"
 #include "selection.h"
-
+#include "muta_cross.h"
 
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
