@@ -1,7 +1,7 @@
 Ud fra test afsnittet kan det konkluderes at alle de testede funktioner virker, som de skal. Den genetiske algoritme er dog ikke optimal, dette kan observeres på nedenstående spredningsdiagram:
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{partials/graphics/spredning.png}
+\includegraphics[scale = 0.2]{partials/graphics/spredning.png}
 \caption{Graf over spredningen af fitness værdier}
 \label{fig:spredning}
 \end{figure}
@@ -9,7 +9,7 @@ Ud fra test afsnittet kan det konkluderes at alle de testede funktioner virker, 
 Fitnessen er tilfældig i gennem programmet. Skemaerne bliver altså ikke bedre efter hver generation, som det er meningen de skal, de bliver hellere ikke dårligere, men der bliver ved med at blive dannet tilfældige skemaer. Dette kan skyldes flere faktorer. Det kan skyldes at mutationen i algoritmen er for kraftig og sker for hyppigt, programmet er dog blevet testet med flere forskellige sandsynligheder for at mutationen opstår. Ud fra disse test blev det synliggjort at sandsynligheden for at en mutation finder sted, ikke havde nogen synlig effekt på spredningsdiagrammet, dette kan observeres på nedenstående graf:
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{partials/graphics/spredningudenmutation.png}
+\includegraphics[scale = 0.2]{partials/graphics/spredningudenmutation.png}
 \caption{Graf over spredningen af fitness værdier uden mutations funktionen}
 \label{fig:spredningudenmutation}
 \end{figure}
@@ -17,7 +17,7 @@ Fitnessen er tilfældig i gennem programmet. Skemaerne bliver altså ikke bedre 
 Det kunne også være at crossoveren gør skemaerne for tilfældige. Da programmet blev kørt igennem en gang uden crossoveren så spredningsdiagrammet sådan ud:
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{partials/graphics/spredningudencrossover.png}
+\includegraphics[scale = 0.2]{partials/graphics/spredningudencrossover.png}
 \caption{Graf over spredningen af fitness værdier uden crossover funktionen}
 \label{fig:spredningudencrossover}
 \end{figure}
