@@ -47,6 +47,13 @@ Operatoren vælger 2 tilfældige kromosomer og blander dem så der bliver dannet
 \paragraph{Mutation}
 
 Operationen flipper tilfældigt nogle stykker af kromosomet fx strengen 1001000 bliver muteret i dens tredje position til 1011000. Mutation kan ske i alle positioner i strengen med en hvis sandsynlighed. Mutationsprocessen er vigtig for den genetiske algoritme, da man ved at muterer kromosomet udforsker flere muglie løsninger til det givende problem.\footfullcite{jebari2013}
+\begin{figure}[!h]
+  \includegraphics{partials/graphics/lokaltmaksimum.png}
+  \caption{Afbildning af variationer af skemaer på x-aksen og fitness værdi på y-aksen}
+  \label{fig:Lokalmax}
+\end{figure}
+
+På figur~\ref{fig:Lokalmax} ses variationer af skemaer hen ad x-aksen og fitness værdien op af y-aksen. Det første toppunkt markeret med "lokalt maksimum" indikerer et punkt, hvor en variations  har den bedste fitness værdi i forhold til andre tætliggende variationer. Men et globalt maksimum eksisterer også, som indikerer den bedste fitness værdi et skema kan have. Et problem opstår, hvis produktet et fanget i det lokale maksimum. Dette kan forekomme, hvis produktets fitnessværdi ender i det lokale maksimum og der ikke bliver lavet store ændringer nok til at få variationen hen til punktet P. Før punktet P vil variationen ikke være nok til at få en høj fitness værdi. Det er derfor vigtigt, at produktet bliver ændret til en grad, som kan tillade at den kan bryde ud af det lokale maksimum. Det skal bemærkes, at produktet ikke nødvendigvis bliver bedre med en højere variatio, men det gælder om at varierer den nok gange indtil fitness værdien er høj nok. Yderligere skal det bemærkes, at figur~\ref{fig:Lokalmax} skal ses, som en generalisering af princippet og ikke realistisk afbildning. Det er vigtigt, at forstå at variation kan være en stor mængde parametre, som ikke kan afbildes i en 2-dimensionel graf.
 
 \paragraph{Mangfoldighed}
 
@@ -58,7 +65,7 @@ Det er gavnligt at have er et individ med, ikke bare stor fitness, men et som he
 
 Både ved brug af brute force og generisk algoritme er målet at finde den optimale løsning. Denne beregnes ud fra et fitness niveau, hvor der på hver løsning laves en udregning ud fra valgte parametre. Denne returnerer et fitnessniveau. Herefter gemmes løsningen med det bedste fitnessniveau. Det bedste fitnessniveau kan være defineret ved den højest mulige eller lavest mulige værdi.\footfullcite{winston2014}
 
-løsning til problemet.
+Løsning til problemet.
 
 1.	Der bliver tilfældet generet en population af n-individer med l-kromosomer.
 
