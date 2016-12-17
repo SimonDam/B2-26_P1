@@ -1,0 +1,2 @@
+void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]);
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], int class_master, int class_other1, int class_other2, requirements requirements_class);
