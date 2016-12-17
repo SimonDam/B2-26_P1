@@ -6,15 +6,15 @@ void mutation(individual individuals[]){
   int i = 0, j = 0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
 
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    chance = rand()\% 100;
-    mutations = rand()\% MAX_MUTATIONS_PER_INDIVIDUAL;
+    chance = rand() % 100;
+    mutations = rand() % MAX_MUTATIONS_PER_INDIVIDUAL;
     for (j = 0; j < mutations; j++){
       if (chance > CHANCE_OF_MUTATION){
         do {
-          ran1Week = rand()\% SCHOOL_DAYS_IN_WEEK;
-          ran1Day = rand()\% LESSONS_PER_DAY_MAX;
-          ran2Week = rand()\% SCHOOL_DAYS_IN_WEEK;
-          ran2Day = rand()\% LESSONS_PER_DAY_MAX;
+          ran1Week = rand() % SCHOOL_DAYS_IN_WEEK;
+          ran1Day = rand() % LESSONS_PER_DAY_MAX;
+          ran2Week = rand() % SCHOOL_DAYS_IN_WEEK;
+          ran2Day = rand() % LESSONS_PER_DAY_MAX;
         } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
         
         temp = individuals[i].individual_num[ran1Day][ran1Week];
