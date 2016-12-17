@@ -223,5 +223,14 @@
     \verb parent_selection.htm
     \endverb
   \endentry
+
+  \entry{timefunc}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{C library function - time()}
+    \verb{url}
+    \verb https://www.tutorialspoint.com/c\_standard\_library/c\_function_time.
+    \verb htm
+    \endverb
+  \endentry
 \endsortlist
 \endinput

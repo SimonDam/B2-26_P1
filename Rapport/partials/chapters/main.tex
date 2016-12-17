@@ -48,8 +48,8 @@ int main(void){
 }
 \end{lstlisting}
 
-Først initialiseres de arrays der bliver brugt i programmets funktioner. De arrays der bliver dannet har to dimensioner.
-Dernæst forberedes der til brugen af den genetiske algoritme. Srand funktionen klargøres ved at kalde seeded til rand med antallet af sekunder siden 1. januar 1970 (time(NULL)) \fullfootcite{timefunc}. Individerne bliver givet tilfædige værdier i lesson\_num (de får indsat tilfældige lektioner). Herefter udregnes individernes fitness og de bliver sendt ind i for loopet der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til crossovers mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra. Der kan dannes et overblik over main med følgende diagram:
+Først initialiseres de arrays, der bliver brugt i programmets funktioner. De arrays, som bliver dannet to dimensionelle.
+Dernæst forberedes den genetiske algoritme. Srand funktionen klargøres ved at kalde seeded til rand med antallet af sekunder siden 1. januar 1970 (time(NULL)).\footfullcite{timefunc} Individerne bliver givet tilfædige værdier i lesson\_num (de får indsat tilfældige lektioner). Herefter udregnes individernes fitness og de bliver sendt ind i for loopet der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til crossovers mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra. Der kan dannes et overblik over main med følgende diagram:
 \begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{partials/graphics/main.png}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  16 DEC 2016 16:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  17 DEC 2016 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -492,6 +492,10 @@ File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count103
 \AM@templatesizebox=\box29
 )
+(c:/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (c:/texlive/2016/texmf-dist/tex/latex/tabulary/tabulary.sty
 Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
 
@@ -577,10 +581,6 @@ Package: logreq 2010/08/04 v1.0 xml request logger
 (c:/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(c:/texlive/2016/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 (c:/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
 (c:/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
@@ -803,18 +803,18 @@ File: danish.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
 ) (./core.aux)
 \openout1 = `core.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -928,8 +928,8 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                - Invalid format of field 'date'.
 
 )
-Package biblatex Info: Reference section=0 on input line 24.
-Package biblatex Info: Reference segment=0 on input line 24.
+Package biblatex Info: Reference section=0 on input line 25.
+Package biblatex Info: Reference segment=0 on input line 25.
  (./partials/header.tex (./partials/frontpage.tex
 <partials/graphics/forside.pdf, id=1, 597.55246pt x 845.07718pt>
 File: partials/graphics/forside.pdf Graphic file (type pdf)
@@ -1153,69 +1153,37 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) [21])
 (./partials/chapters/main.tex
-Overfull \hbox (14.41333pt too wide) in paragraph at lines 8--9
+Overfull \hbox (14.41333pt too wide) in paragraph at lines 9--10
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (7.84326pt too wide) in paragraph at lines 9--10
+Overfull \hbox (7.84326pt too wide) in paragraph at lines 11--12
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (34.12354pt too wide) in paragraph at lines 10--11
-[][][][][][][][][][][][][][][] 
- []
-
-[22]
 Overfull \hbox (86.68408pt too wide) in paragraph at lines 21--23
 [][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 24.
-(c:/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+[22]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 23.
+ (c:/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 24.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 23.
 
-Overfull \hbox (99.82422pt too wide) in paragraph at lines 25--27
+Overfull \hbox (99.82422pt too wide) in paragraph at lines 35--37
 [][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (625.42969pt too wide) in paragraph at lines 36--37
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][] 
- []
-
-
-Overfull \hbox (625.42969pt too wide) in paragraph at lines 37--38
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (631.99976pt too wide) in paragraph at lines 38--39
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (303.49634pt too wide) in paragraph at lines 42--43
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][] 
- []
-
-
-Overfull \hbox (40.6936pt too wide) in paragraph at lines 43--44
-[][][][][][][][][][][][][][][][][][] 
  []
 
 <partials/graphics/main.png, id=141, 1349.04pt x 710.655pt>
 File: partials/graphics/main.png Graphic file (type png)
 
 <use partials/graphics/main.png>
-Package pdftex.def Info: partials/graphics/main.png used on input line 61.
+Package pdftex.def Info: partials/graphics/main.png used on input line 55.
 (pdftex.def)             Requested size: 465.20166pt x 245.05696pt.
 )
 
@@ -1223,12 +1191,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./partials/chapters/dataindlaesning.tex [23] [24 <./partials/graphics/main.png
 >]) (./partials/chapters/programfitness.tex
-Overfull \hbox (106.39429pt too wide) in paragraph at lines 37--38
+Overfull \hbox (99.82422pt too wide) in paragraph at lines 36--37
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [25]
-Overfull \hbox (106.39429pt too wide) in paragraph at lines 40--41
+Overfull \hbox (99.82422pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1242,7 +1210,7 @@ Overfull \hbox (428.32764pt too wide) in paragraph at lines 13--14
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[26]
 Overfull \hbox (14.41333pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][] 
  []
@@ -1257,57 +1225,71 @@ Overfull \hbox (40.6936pt too wide) in paragraph at lines 22--23
 [][][][][][][][][][][][][][][][][][] 
  []
 
-[26]) (./partials/chapters/programmutation.tex
-Overfull \hbox (257.50586pt too wide) in paragraph at lines 6--8
+) (./partials/chapters/programmutation.tex
+Overfull \hbox (257.50586pt too wide) in paragraph at lines 7--9
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (290.3562pt too wide) in paragraph at lines 21--22
+Overfull \hbox (290.3562pt too wide) in paragraph at lines 22--23
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (./partials/chapters/ProgramPrintsSkema.tex [27]
-Overfull \hbox (1.2732pt too wide) in paragraph at lines 5--6
-[][][][][][][][][][][][] 
+[27]) (./partials/chapters/ProgramPrintsSkema.tex
+Overfull \hbox (494.02832pt too wide) in paragraph at lines 5--6
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (349.48682pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][] 
+ []
+
+
+Overfull \hbox (434.8977pt too wide) in paragraph at lines 16--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
 
-Overfull \hbox (737.12085pt too wide) in paragraph at lines 11--12
+Overfull \hbox (2221.9563pt too wide) in paragraph at lines 21--23
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][] 
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (60.40381pt too wide) in paragraph at lines 12--13
+Overfull \hbox (60.40381pt too wide) in paragraph at lines 27--28
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (290.3562pt too wide) in paragraph at lines 13--15
+Overfull \hbox (290.3562pt too wide) in paragraph at lines 28--30
 [][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (126.10449pt too wide) in paragraph at lines 21--22
-[][][][][][][][][][][][][][][][][] 
+[28]
+Overfull \hbox (86.68408pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [28] [29] (./partials/chapters/videreudvikling.tex [30]) [31] [32]
-(./partials/chapters/konklusion.tex)) (./partials/footer.tex [33]) [34]
+)) [29] [30] (./partials/chapters/videreudvikling.tex [31]) [32] [33]
+(./partials/chapters/konklusion.tex)) (./partials/footer.tex [34]) [35]
 (./core.aux)
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13479 strings out of 493013
- 218311 string characters out of 6136992
- 517515 words of memory out of 5000000
- 16723 multiletter control sequences out of 15000+600000
+ 13476 strings out of 493013
+ 218379 string characters out of 6136992
+ 528515 words of memory out of 5000000
+ 16720 multiletter control sequences out of 15000+600000
  10437 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,18n,64p,2242b,1599s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1323,10 +1305,10 @@ xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on core.pdf (36 pages, 1388609 bytes).
+Output written on core.pdf (37 pages, 1393356 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 233 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
