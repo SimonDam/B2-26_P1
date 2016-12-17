@@ -2,106 +2,106 @@
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Indledning}{2}
+\contentsline {section}{\numberline {1}Indledning}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Problemanalyse}{3}
+\contentsline {section}{\numberline {2}Problemanalyse}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Skeamets opbygning}{3}
+\contentsline {subsection}{\numberline {2.1}Skeamets opbygning}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Lovm\IeC {\ae }ssige krav til folkeskoleskemaet}{4}
+\contentsline {subsection}{\numberline {2.2}Lovm\IeC {\ae }ssige krav til folkeskoleskemaet}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Skolereformen}{6}
+\contentsline {subsubsection}{\numberline {2.2.1}Skolereformen}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{6}
+\contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Interresentanalyse}{7}
+\contentsline {subsection}{\numberline {2.4}Interresentanalyse}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}State of the art}{8}
+\contentsline {subsection}{\numberline {2.5}State of the art}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{8}
+\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{9}
+\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{10}
+\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Untis}{11}
+\contentsline {subsubsection}{\numberline {2.5.4}Untis}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{12}
+\contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Brute Force}{13}
+\contentsline {subsubsection}{\numberline {2.6.1}Brute Force}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Genetiske algoritmer}{13}
+\contentsline {subsubsection}{\numberline {2.6.2}Genetiske algoritmer}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Selektion}{13}
+\contentsline {paragraph}{Selektion}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Crossover}{14}
+\contentsline {paragraph}{Crossover}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Mutation}{14}
+\contentsline {paragraph}{Mutation}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Mangfoldighed}{15}
+\contentsline {paragraph}{Mangfoldighed}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{15}
+\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Delkonklusion}{16}
+\contentsline {section}{\numberline {3}Delkonklusion}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Problemafgr\IeC {\ae }nsing}{17}
+\contentsline {section}{\numberline {4}Problemafgr\IeC {\ae }nsing}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Problemformulering}{17}
+\contentsline {section}{\numberline {5}Problemformulering}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Designovervejelser}{18}
+\contentsline {section}{\numberline {6}Designovervejelser}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Selektion}{18}
+\contentsline {subsection}{\numberline {6.1}Selektion}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.1}Roulette metoden}{18}
+\contentsline {subsubsection}{\numberline {6.1.1}Roulette metoden}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.2}Rank metoden}{18}
+\contentsline {subsubsection}{\numberline {6.1.2}Rank metoden}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.3}Tournament metoden}{18}
+\contentsline {subsubsection}{\numberline {6.1.3}Tournament metoden}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Produktafgr\IeC {\ae }nsning}{19}
+\contentsline {subsection}{\numberline {6.2}Produktafgr\IeC {\ae }nsning}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Kravspecifikationer}{20}
+\contentsline {subsection}{\numberline {6.3}Kravspecifikationer}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Selektion}{20}
+\contentsline {subsection}{\numberline {6.4}Selektion}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Programdokumentation}{21}
+\contentsline {section}{\numberline {7}Programdokumentation}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Structs}{21}
+\contentsline {subsection}{\numberline {7.1}Structs}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}main}{22}
+\contentsline {subsection}{\numberline {7.2}main}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{24}
+\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Fitness}{25}
+\contentsline {subsection}{\numberline {7.4}Fitness}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.5}Selektion}{27}
+\contentsline {subsection}{\numberline {7.5}Selektion}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.6}Mutation}{28}
+\contentsline {subsection}{\numberline {7.6}Mutation}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.7}Print funktion}{29}
+\contentsline {subsection}{\numberline {7.7}Print funktion}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Program test}{32}
+\contentsline {section}{\numberline {8}Program test}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Test af initierende skema generering}{32}
+\contentsline {subsection}{\numberline {8.1}Test af initierende skema generering}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Test af fitness funktion}{32}
+\contentsline {subsection}{\numberline {8.2}Test af fitness funktion}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.3}Test mutations funktion}{35}
+\contentsline {subsection}{\numberline {8.3}Test mutations funktion}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{35}
+\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.5}Helheds test}{36}
+\contentsline {subsection}{\numberline {8.5}Helheds test}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Videreudvikling}{37}
+\contentsline {section}{\numberline {9}Videreudvikling}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{37}
+\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Graphic user interface}{37}
+\contentsline {subsection}{\numberline {9.2}Graphic user interface}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3}Brugertest}{38}
+\contentsline {subsection}{\numberline {9.3}Brugertest}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{38}
+\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Diskussion}{39}
+\contentsline {section}{\numberline {10}Diskussion}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Konklusion}{40}
+\contentsline {section}{\numberline {11}Konklusion}{41}
