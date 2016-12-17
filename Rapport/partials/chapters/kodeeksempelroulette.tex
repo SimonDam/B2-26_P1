@@ -13,7 +13,7 @@ int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], indivi
     sum_parrallel[i] = temp_individuals[class][i].fitness + temp_individuals[class+1][i].fitness + temp_individuals[class+2][i].fitness;
     sum += sum_parrallel[i];
   }
-  int field = rand()\% sum;
+  int field = rand() % sum;
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
     fitness_test += sum_parrallel[i];
     if(field < fitness_test){
@@ -27,4 +27,4 @@ int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], indivi
 
 \end{lstlisting}
 
-Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation. Fitnessen bliver regnet for tre parrallelklasser af gangen og de bliver sendt videre sammen, da deres fitness er afhængig af hinanden. En klasse får f. eks. høj fitness, hvis den har sammenhængende klasser med en parrallelklasse. Derfor hænger parrallelklasser sammen.  
+Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation. Fitnessen bliver regnet for tre parrallelklasser af gangen og de bliver sendt videre sammen, da deres fitness er afhængig af hinanden. En klasse får f. eks. høj fitness, hvis den har sammenhængende timer med en parrallelklasse, og det ville derfor være et problem, hvis skemaet blev sat sammen med skemaer fra nye parallelklasser, da fitnessen for sammenhængende timer ville være forkert.
