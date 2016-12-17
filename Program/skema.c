@@ -101,7 +101,7 @@ void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], indivi
 void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], requirements requirements_classes[], int generation);
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation);
 void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation);
-void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class);
+void calculate_fitness_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class);
 void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individual best_of_best[]);
 void print_func(individual best_of_best[], requirements requirements_class[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]);
 void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUMBER_OF_SUBJECTS]);
@@ -476,7 +476,7 @@ void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individu
   int sum_parrallel_fitness[NUMBER_OF_INDIVIDUALS];
   int i, j, k, f;
   
-  calculate_finess_parallel(individuals, sum_parrallel_fitness, class);
+  calculate_fitness_parallel(individuals, sum_parrallel_fitness, class);
 
   for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
     if (sum_parrallel_fitness[k] > choose_fitness){
@@ -490,7 +490,7 @@ void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individu
 }
 
 /* Adds the fitness of three parallelclasses to eachother, since they are dependent of eachother */
-void calculate_finess_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class){
+void calculate_fitness_parallel(individual individuals[][NUMBER_OF_INDIVIDUALS], int sum_parrallel[], int class){
   int i;
   for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
     if((individuals[class][i].fitness == 1) || (individuals[class+1][i].fitness == 1) || (individuals[class+2][i].fitness == 1)){
