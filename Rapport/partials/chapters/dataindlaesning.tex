@@ -1,21 +1,35 @@
-For at det er nemmere at lave ændringer i antallet af lærer, de timer de kan tage og det antal timer de forskellige fag skal have, er dette opstillet i en tekstfil. 
+For at det er nemmere at lave ændringer i antallet af lærer, de timer de kan tage og det antal timer de forskellige fag skal have, er dette opstillet i en tekstfil. På figur~\ref{datacollect} ses et grafisk diagram over funktionen.
+\begin{figure}[!h]
+\includegraphics[scale = 1]{partials/graphics/read_teachers_name.png}
+\caption{Grafisk diagram over read_teachers_name}
+\label{fig:datacollect}
+\end{figure}
 Elementerne i dokumentet står som følgende:
 
-’Lærer forkortelse’ ’fag’ ’antal timer’ ’klasse’
+Lærerforkortelse fag antal timer klasse
 
 Et eksempel på dette kunne være:
 
     CA Dan 6 7a
+
     JA Mat 4 7a
+
     HA Eng 3 7a
+
     RA Tys 3 7a
+
     MA Fys 2 7a
+
     MA His 2 7a
+
     KA Sam 2 7a
+
     UA Val 2 7a
+
     RA Geo 2 7a
 
-Dette bliver indlæst fra filen én gang i starten af programmet, hvorefter data’en fra dokumentet bliver gemt over i en struct.
+Dette bliver indlæst fra filen én gang i starten af programmet, hvorefter data’en fra dokumentet bliver gemt over i et array af structs.
+
 Dette er implementeret på følgende vis:
 
 \begin{lstlisting}
@@ -45,6 +59,8 @@ void read_teacher_data(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
 }
 \end{lstlisting}
 
-Først åbnes filen, hvorefter det tjekkes om filen er tom. Hvis dette er sandt, bliver der printet en fejl-besked ud, og programmet lukker igen.
-Dernæst bliver der lavet Local\_teacher\_data af typen ’teacher’, som er et struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local\_teacher\_data. Efter dette bliver det overført til ’teacher\_data’ som er det endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse. 
+Først åbnes filen, hvorefter det tjekkes om filen er tom. Hvis dette er sandt, bliver en fejl-besked printet ud, og programmet lukker igen.
+
+Dernæst bliver der lavet Local\_teacher\_data af typen ’teacher’, som er et struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local\_teacher\_data. Efter dette bliver det overført til ’teacher\_data’ som er det endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse.
+ 
 Efter denne løkke bliver filen lukket igen, og alle informationer er kopieret over i ’teacher\_data’.

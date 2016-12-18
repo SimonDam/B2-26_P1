@@ -1,4 +1,4 @@
-Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Tre structs, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis de skemaerne, information om lærerne og -kravene til en klasse.
+Programmet bruger structs, så strukturen af dataene, der produceres, er lettere at håndtere. Tre structs, ”individual”, ”teacher” og ”requirements” er brugt til henholdsvis skemaerne, information om lærerne og -kravene til en klasse.
 
 \begin{lstlisting}[language = C]
 typedef struct individual individual;
@@ -17,7 +17,7 @@ struct individual{
 };
 \end{lstlisting}
 
-”Individual” består af et array af arrays af integers, lesson\_num, der repræsenterer lektionnummeret (faget) for hver blok på hver dag. Fitness indeholde skemaet fitness værdi. Perfection indeholder antallet af fag der optræder nok gange i skemaet udfra kravene, og som ikke har mere end en blok for meget. lessons\_with\_parallel indeholder antallet af gange, skemaet har samme fag som en parallelklasse. lessons\_with\_both angiver antallet af gange, skemaet har samme fag som begge parallelklasser. heavy\_lesson variabler angiver, hvor mange gange de tunge fag ligger før og efter middag. teacher\_overbooked fortæller hvor mange gange, en lærer i skemaet bliver brugt i en anden parallelklasse på samme tid. best\_gen variablerne angiver i hvilken generation, de bedste skemaer for hver årgang er opstået.
+”Individual” består af et array af arrays af integers, lesson\_num, der repræsenterer lektionnummeret (faget) for hver blok på hver dag. Fitness indeholder skemaets fitnessværdi. Perfection indeholder antallet af fag, der optræder nok gange i skemaet ud fra kravene, og som ikke har mere end en blok for meget. lessons\_with\_parallel indeholder antallet af gange, skemaet har samme fag som en parallelklasse. lessons\_with\_both angiver antallet af gange, skemaet har samme fag som begge parallelklasser. heavy\_lesson variabler angiver, hvor mange gange de tunge fag ligger før og efter middag. teacher\_overbooked fortæller hvor mange gange, en lærer i skemaet bliver brugt i en anden parallelklasse på samme tid. best\_gen variablerne angiver i hvilken generation, de bedste skemaer for hver årgang er opstået.
 
 \begin{lstlisting}[language = C]
 struct teacher{
@@ -28,7 +28,7 @@ struct teacher{
 };
 \end{lstlisting}
 
-“teacher” structen indeholder navnet på læren, navnet på faget, antallet af lektioner læren har for det givne fag og klassen læren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læren ”Jens”. 
+“teacher” structen indeholder navnet på læren, navnet på faget, antallet af lektioner læren har for det givne fag og klassen læren har til faget. Denne struct skal forstås sådan, at en klasse med et specifikt fag har et specifikt antal undervisningstimer med en specifik lære. Som eksempel, 7.a kunne have 4 timers matematik med læren ”JP”. 
 
 \begin{lstlisting}[language = C]
 struct requirements{
@@ -49,4 +49,5 @@ struct requirements{
 };
 \end{lstlisting}
 
-”requirements” er en struct udelukkende bestående af heltal. Disse heltal viser kravene til de forskellige fag. Det er disse krav, som programmet bl.a. bruger til at tjekke om skemaet er opfyldt, eller om der mangler et specifikt fag, som skal fyldes ind i skemaet.
+”requirements” er en struct udelukkende bestående af heltal. Disse heltal viser kravene til de forskellige fag. Det er disse krav, som programmet blandt andet bruger til at tjekke om skemaet er opfyldt, eller om der mangler et specifikt fag, som skal fyldes ind i skemaet.
+\newpage

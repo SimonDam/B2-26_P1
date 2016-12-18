@@ -1,15 +1,14 @@
-Det følgende er et diagram over main i softwareløsningen:
+På figur~\ref{fig:diagrammain} ses et diagram over main.
 \begin{figure}[!h]
-\includegraphics[scale = 0.4]{partials/graphics/main2.png}
+\includegraphics[scale = 0.45]{partials/graphics/main2.png}
 \caption{Grafisk diagram over main}
 \label{fig:diagrammain}
 \end{figure}
 
-Følgende kode er main funktionen, der bliver brugt til at danne et skema for udskolingssektorene på en vilkårlig skole. Under koden findes et diagram der kan bruges til at danne overblik over main funktionen, funktionerne der bliver kaldt i main funktionen og hvad de returnere til main funktionen. 
+Følgende kode er main funktionen, der bliver brugt til at danne et skema for udskolingssektoren på en vilkårlig skole. Under koden findes et diagram, der kan bruges til at danne overblik over main funktionen, funktionerne der bliver kaldt i main funktionen og hvad de returnere til main funktionen. 
 \begin{lstlisting}[showstringspaces=false,language = c]
 int main(void){
-  
-  int main(void){
+  int i, j;
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
   individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
@@ -27,11 +26,10 @@ int main(void){
   create_individuals(individuals);
   calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
- for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
+ for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
     choose_individual(individuals, chosen_individual, j, 0);
   }
  
-  int i, j;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
     selektion(individuals);
     
@@ -55,11 +53,5 @@ int main(void){
 }
 \end{lstlisting}
 
-Først initialiseres de arrays, der bliver brugt i programmets funktioner. De arrays, som bliver dannet to dimensionelle.
-Dernæst forberedes den genetiske algoritme. Srand funktionen klargøres ved at kalde seeded til rand med antallet af sekunder siden 1. januar 1970 (time(NULL)).\footfullcite{timefunc} Individerne bliver givet tilfædige værdier i lesson\_num (de får indsat tilfældige lektioner). Herefter udregnes individernes fitness og de bliver sendt ind i for loopet der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til crossovers mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra. Der kan dannes et overblik over main med følgende diagram:
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=\textwidth]{partials/graphics/main.png}
-  \caption{Diagram over main.}
-  \label{fig:main}
-\end{figure}
+Først initialiseres de arrays, der bliver brugt i programmets funktioner. De arrays, som bliver dannet, er todimensionelle.
+Dernæst forberedes den genetiske algoritme. Srand funktionen klargøres ved at kalde seeded til rand med antallet af sekunder siden 1. januar 1970 (time(NULL)).\footfullcite{timefunc} Individerne bliver givet tilfædige værdier i lesson\_num (de får indsat tilfældige lektioner). Herefter udregnes individernes fitness, og de bliver sendt ind i for loopet, der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til et crossover mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra.
