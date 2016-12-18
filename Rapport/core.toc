@@ -60,52 +60,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.2}Rank metoden}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.3}Tournament metoden}{20}
+\contentsline {subsubsection}{\numberline {6.1.3}Tournament metoden}{21}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.2}Produktafgr\IeC {\ae }nsning}{21}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.3}Kravspecifikationer}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Selektion}{22}
+\contentsline {subsection}{\numberline {6.4}Kodestil}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Programdokumentation}{23}
+\contentsline {section}{\numberline {7}Programdokumentation}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Structs}{23}
+\contentsline {subsection}{\numberline {7.1}Structs}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}main}{24}
+\contentsline {subsection}{\numberline {7.2}main}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{26}
+\contentsline {subsection}{\numberline {7.3}Dataindl\IeC {\ae }sning}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Fitness}{27}
+\contentsline {subsection}{\numberline {7.4}Fitness}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.5}Selektion}{28}
+\contentsline {subsection}{\numberline {7.5}Selektion}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.6}Mutation}{29}
+\contentsline {subsection}{\numberline {7.6}Mutation}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.7}Print funktion}{30}
+\contentsline {subsection}{\numberline {7.7}Print funktion}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Program test}{32}
+\contentsline {section}{\numberline {8}Program test}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Test af initierende skema generering}{32}
+\contentsline {subsection}{\numberline {8.1}Test af initierende skema generering}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Test af fitness funktion}{32}
+\contentsline {subsection}{\numberline {8.2}Test af fitness funktion}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.3}Test mutations funktion}{33}
+\contentsline {subsection}{\numberline {8.3}Test mutations funktion}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{33}
+\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.5}Helheds test}{33}
+\contentsline {subsection}{\numberline {8.5}Helheds test}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Videreudvikling}{34}
+\contentsline {section}{\numberline {9}Videreudvikling}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{34}
+\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Graphic user interface}{34}
+\contentsline {subsection}{\numberline {9.2}Graphic user interface}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3}Brugertest}{35}
+\contentsline {subsection}{\numberline {9.3}Brugertest}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{35}
+\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Diskussion}{36}
+\contentsline {section}{\numberline {10}Diskussion}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Konklusion}{37}
+\contentsline {section}{\numberline {11}Konklusion}{38}

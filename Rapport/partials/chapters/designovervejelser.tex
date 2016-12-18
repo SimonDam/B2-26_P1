@@ -19,23 +19,22 @@ Som tidligere diskuteret er processen for genetiske algoritmer følgende:
 I det følgende afsnit beskrives nogle af de selektionsmetoder, der kan bruges. Det vil endvidere også blive diskuteret, hvilken af disse metoder, som bedst kan anvendes til at producere skoleskemaer.\footfullcite{winston2014}
 
 \subsubsection{Roulette metoden}
-Roulettemetoden, går udfra et hvert individ i en generation får tildelt et felt på en roulette. Individets fitness niveau afgør størrelsen på individets felt. Et tilfældigt punkt vælges på rouletten. Det felt, det tilfældige punkt ligger på, bliver valgt. På denne måde vil individer med gode fitnessværdier oftest blive gemt, men individer med dårlige fitnessværdier kan også mindre ofte gå videre og derved påvirke genitikken. \footfullcite{jebari2013}\footfullcite{selection}
-Roulette metoden kan illustreres på følgende måde:
+Roulettemetoden går ud fra et hvert individ i en generation får tildelt et felt på en roulette. Individets fitness niveau afgør størrelsen på individets felt. Et tilfældigt punkt vælges på rouletten. Det felt, det tilfældige punkt ligger på, bliver valgt. På denne måde vil individer med gode fitnessværdier oftest blive gemt, men individer med dårlige fitnessværdier kan også mindre ofte gå videre og derved påvirke genitikken. \footfullcite{jebari2013}\footfullcite{selection}
+
+Roulette metoden er illustreret på figur~\ref{fig:roulette}.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=\textwidth]{partials/graphics/roulette.png}
-  \caption{Model over roulette metoden\footfullcite{roulette}.}
+  \caption{Model over roulette metoden.\footfullcite{roulette}}
   \label{fig:roulette}
 \end{figure}
 
-\subsubsection{Rank metoden}
-
-I rang metoden bliver individerne sorteret efter størrelsen på deres fitness. Derefter bliver individerne tildelt lodder efter den plads de har fået efter sorteringen. Det vil sige at den med den laveste fitness får tildelt et lod, den med den anden mindste får tildelt to lodder osv. Antallet af lodder et individ er blevet tildelt forstørre chancen for at individet bliver valgt som forældre til en fremtidig generation. I modsætning til roulette metoden, har fitnessen altså i rang metoden en indirekte påvirkning på individernes chance for at bliver valgt.\footfullcite{jebari2013} 
+\subsubsection{Rang metoden}
+I rang metoden bliver individerne sorteret efter størrelsen på deres fitness. Derefter bliver individerne tildelt lodder efter den plads de har fået efter sorteringen. Det vil sige at det individ med den laveste fitness får tildelt et lod, den med den anden mindste får tildelt to lodder osv.. Antallet af lodder et individ er blevet tildelt forstørre chancen for at individet bliver valgt som forældre til en fremtidig generation. I modsætning til roulette metoden, har fitnessen altså i rang metoden en indirekte påvirkning på individernes chance for at bliver valgt.\footfullcite{jebari2013}
 
 \subsubsection{Tournament metoden}
-
-2 tilfældige individer bliver valgt fra populationen. Man generer en tilfældig værdi fra 0-1 for at sammenligne den med valgte sandsynlighedsværdi. Hvis værdien er mindre eller lige med sandsynlighedsværdien bliver det individ med højst fitness valgt ellers bliver individet med den lavere fitness valgt. Sandsynlighedsværdien bliver altid sat højere end 0.5 for at favorisere individet med den højeste fitness\footfullcite{jebari2013}. 
-
+To tilfældige individer bliver valgt fra populationen. En tilfældig værdi fra 0-1 genereres for at sammenligne den med valgte sandsynlighedsværdi. Hvis værdien er mindre eller lige med sandsynlighedsværdien, bliver det individ med højst fitness valgt ellers bliver individet med den lavere fitness valgt. Sandsynlighedsværdien bliver altid sat højere end 0.5 for at favorisere individet med den højeste fitness.\footfullcite{jebari2013}
+\\\\
 I det følgende program benyttes roulette metoden. Ved brug af roulette metoden er der forskel ved sammenligning af to individer, hvor deres fitness ligger tæt på hinanden, og to individer hvor deres fitness ligger langt fra hinanden. Tournemant metoden laver ikke nogle forskel på disse situationer og er derfor ikke optimal til dette problem.
 
 \subsection{Produktafgrænsning}
