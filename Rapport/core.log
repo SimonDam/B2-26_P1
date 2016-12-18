@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 14:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,18 +1033,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--3
  []
 
 [3] (./partials/chapters/problemanalyse.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--7
+
+ []
+
 (./partials/chapters/skemaetsopbygning.tex
+
+LaTeX Warning: Citation 'lov2016' on page 4 undefined on input line 1.
+
+
+LaTeX Warning: Citation 'interview' on page 4 undefined on input line 1.
+
 
 LaTeX Warning: Citation 'lov2016' on page 4 undefined on input line 3.
 
 
+LaTeX Warning: Citation 'interview' on page 4 undefined on input line 3.
+
+
 LaTeX Warning: Citation 'lov2016' on page 4 undefined on input line 5.
 
-) (./partials/chapters/lovmessigekrav.tex
 
-LaTeX Warning: Citation 'lov2016' on page 4 undefined on input line 1.
+LaTeX Warning: Citation 'interview' on page 4 undefined on input line 5.
 
-[4] <partials/graphics/fagkrav.png, id=68, 510.40688pt x 289.08pt>
+) [4] (./partials/chapters/lovmessigekrav.tex
+
+LaTeX Warning: Citation 'lov2016' on page 5 undefined on input line 1.
+
+<partials/graphics/fagkrav.png, id=68, 510.40688pt x 289.08pt>
 File: partials/graphics/fagkrav.png Graphic file (type png)
 
 <use partials/graphics/fagkrav.png>
@@ -1057,7 +1088,8 @@ LaTeX Warning: Citation 'lov2016' on page 5 undefined on input line 10.
 
 LaTeX Warning: Citation 'timeskema2016' on page 5 undefined on input line 12.
 
-<partials/graphics/planlagttime.png, id=70, 599.23875pt x 360.34625pt>
+[5 <./partials/graphics/fagkrav.png>]
+<partials/graphics/planlagttime.png, id=75, 599.23875pt x 360.34625pt>
 File: partials/graphics/planlagttime.png Graphic file (type png)
 
 <use partials/graphics/planlagttime.png>
@@ -1066,17 +1098,17 @@ Package pdftex.def Info: partials/graphics/planlagttime.png used on input line
 (pdftex.def)             Requested size: 465.20166pt x 279.74931pt.
 
 
-LaTeX Warning: Citation 'timetalifolkeskolen2016' on page 5 undefined on input 
+LaTeX Warning: Citation 'timetalifolkeskolen2016' on page 6 undefined on input 
 line 29.
 
 
-LaTeX Warning: Citation 'dennyefolkeskole' on page 5 undefined on input line 29
+LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 29
 .
 
 
-LaTeX Warning: Citation 'lov2016' on page 5 undefined on input line 29.
+LaTeX Warning: Citation 'lov2016' on page 6 undefined on input line 29.
 
-[5 <./partials/graphics/fagkrav.png>]
+
 <partials/graphics/overallskemaovertimetal.png, id=76, 390.86024pt x 479.99326p
 t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
@@ -1093,12 +1125,12 @@ LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 39
 LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 47
 .
 
-) (./partials/chapters/casestudy.tex [6 <./partials/graphics/planlagttime.png (
-PNG copy)>]
+) [6 <./partials/graphics/planlagttime.png (PNG copy)>]
+(./partials/chapters/casestudy.tex [7 <./partials/graphics/overallskemaovertime
+tal.png>]
 
-LaTeX Warning: Citation 'interview' on page 7 undefined on input line 4.
+LaTeX Warning: Citation 'interview' on page 8 undefined on input line 4.
 
-[7 <./partials/graphics/overallskemaovertimetal.png>]
 
 LaTeX Warning: Citation 'interview' on page 8 undefined on input line 7.
 
@@ -1112,10 +1144,10 @@ LaTeX Warning: Citation 'interview' on page 8 undefined on input line 13.
 
 LaTeX Warning: Citation 'lov2016' on page 8 undefined on input line 4.
 
-
-LaTeX Warning: Citation 'interview' on page 8 undefined on input line 7.
-
 [8]
+
+LaTeX Warning: Citation 'interview' on page 9 undefined on input line 7.
+
 
 LaTeX Warning: Citation 'interview' on page 9 undefined on input line 10.
 
@@ -1204,10 +1236,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Citation 'brute2016' on page 14 undefined on input line 13.
 
-
-LaTeX Warning: Citation 'jebari2013' on page 14 undefined on input line 19.
-
 [14 <./partials/graphics/untis.png>]
+
+LaTeX Warning: Citation 'jebari2013' on page 15 undefined on input line 19.
+
 
 LaTeX Warning: Citation 'jebari2013' on page 15 undefined on input line 41.
 
@@ -1239,15 +1271,15 @@ LaTeX Warning: Citation 'jebari2013' on page 17 undefined on input line 82.
 
 LaTeX Warning: Citation 'jebari2013' on page 17 undefined on input line 87.
 
-) (./partials/chapters/delkonklusion.tex) [17]
+) (./partials/chapters/delkonklusion.tex) [17] [18]
 (./partials/chapters/problemafgrensning.tex
 
-LaTeX Warning: Citation 'interview' on page 18 undefined on input line 1.
+LaTeX Warning: Citation 'interview' on page 19 undefined on input line 1.
 
 
-LaTeX Warning: Citation 'interview' on page 18 undefined on input line 8.
+LaTeX Warning: Citation 'interview' on page 19 undefined on input line 8.
 
-) (./partials/chapters/problemformulering.tex [18])
+) (./partials/chapters/problemformulering.tex [19])
 (./partials/chapters/designovervejelser.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
 
@@ -1258,15 +1290,15 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
 
 
-LaTeX Warning: Citation 'winston2014' on page 19 undefined on input line 19.
+LaTeX Warning: Citation 'winston2014' on page 20 undefined on input line 19.
 
 
-LaTeX Warning: Citation 'jebari2013' on page 19 undefined on input line 23.
+LaTeX Warning: Citation 'jebari2013' on page 20 undefined on input line 23.
 
 
-LaTeX Warning: Citation 'selection' on page 19 undefined on input line 23.
+LaTeX Warning: Citation 'selection' on page 20 undefined on input line 23.
 
-<partials/graphics/roulette.png, id=129, 451.6875pt x 209.28188pt>
+<partials/graphics/roulette.png, id=132, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
 
 <use partials/graphics/roulette.png>
@@ -1274,25 +1306,25 @@ Package pdftex.def Info: partials/graphics/roulette.png used on input line 27.
 (pdftex.def)             Requested size: 465.20166pt x 215.55632pt.
 
 
-LaTeX Warning: Citation 'roulette' on page 19 undefined on input line 28.
+LaTeX Warning: Citation 'roulette' on page 20 undefined on input line 28.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation 'jebari2013' on page 19 undefined on input line 34.
+LaTeX Warning: Citation 'jebari2013' on page 20 undefined on input line 34.
 
 
-LaTeX Warning: Citation 'jebari2013' on page 19 undefined on input line 38.
+LaTeX Warning: Citation 'jebari2013' on page 20 undefined on input line 38.
 
-[19] (./partials/chapters/problemafgrensning.tex
+[20] (./partials/chapters/problemafgrensning.tex
 
-LaTeX Warning: Citation 'interview' on page 20 undefined on input line 1.
+LaTeX Warning: Citation 'interview' on page 21 undefined on input line 1.
 
 
-LaTeX Warning: Citation 'interview' on page 20 undefined on input line 8.
+LaTeX Warning: Citation 'interview' on page 21 undefined on input line 8.
 
-) [20 <./partials/graphics/roulette.png>]
+) [21 <./partials/graphics/roulette.png>]
 (./partials/chapters/kravspecifikationer.tex) (./partials/chapters/kodestil.tex
 (c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -1309,10 +1341,10 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 5.
-)) [21]
+)) [22]
 (./partials/chapters/programdoku.tex (./partials/chapters/programintro.tex)
-(./partials/chapters/structs.tex [22]) (./partials/chapters/main.tex
-<partials/graphics/main2.png, id=145, 1206.5075pt x 975.645pt>
+(./partials/chapters/structs.tex [23]) (./partials/chapters/main.tex
+<partials/graphics/main2.png, id=149, 1206.5075pt x 975.645pt>
 File: partials/graphics/main2.png Graphic file (type png)
 
 <use partials/graphics/main2.png>
@@ -1341,16 +1373,16 @@ Overfull \hbox (86.68408pt too wide) in paragraph at lines 28--30
 [][][][][][][][][][][][][][][][] 
  []
 
-[23]
+[24]
 Overfull \hbox (99.82422pt too wide) in paragraph at lines 42--44
 [][][][][][][][][][][][][][][][] 
  []
 
-[24 <./partials/graphics/main2.png>]
+[25 <./partials/graphics/main2.png>]
 
-LaTeX Warning: Citation 'timefunc' on page 25 undefined on input line 59.
+LaTeX Warning: Citation 'timefunc' on page 26 undefined on input line 59.
 
-<partials/graphics/main.png, id=154, 404.51125pt x 975.645pt>
+<partials/graphics/main.png, id=157, 404.51125pt x 975.645pt>
 File: partials/graphics/main.png Graphic file (type png)
 
 <use partials/graphics/main.png>
@@ -1364,9 +1396,9 @@ LaTeX Warning: Float too large for page by 441.33806pt on input line 65.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./partials/chapters/dataindlaesning.tex [25])
+(./partials/chapters/dataindlaesning.tex [26])
 (./partials/chapters/programfitness.tex
-<partials/graphics/calculate_fitness_all.png, id=158, 917.4275pt x 253.94875pt>
+<partials/graphics/calculate_fitness_all.png, id=161, 917.4275pt x 253.94875pt>
 File: partials/graphics/calculate_fitness_all.png Graphic file (type png)
 <use partials/graphics/calculate_fitness_all.png>
 Package pdftex.def Info: partials/graphics/calculate_fitness_all.png used on in
@@ -1376,7 +1408,7 @@ put line 3.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26]
+[27]
 Overfull \hbox (99.82422pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1387,7 +1419,7 @@ Overfull \hbox (99.82422pt too wide) in paragraph at lines 50--51
  []
 
 ) (./partials/chapters/kodeeksempelroulette.tex
-<partials/graphics/selektion.png, id=162, 691.58376pt x 233.87375pt>
+<partials/graphics/selektion.png, id=165, 691.58376pt x 233.87375pt>
 File: partials/graphics/selektion.png Graphic file (type png)
 
 <use partials/graphics/selektion.png>
@@ -1397,7 +1429,7 @@ Package pdftex.def Info: partials/graphics/selektion.png used on input line 3.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27]
+[28]
 Overfull \hbox (566.29907pt too wide) in paragraph at lines 14--15
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1423,7 +1455,7 @@ Overfull \hbox (40.6936pt too wide) in paragraph at lines 29--30
  []
 
 ) (./partials/chapters/programmutation.tex
-<partials/graphics/mutation.png, id=166, 676.5275pt x 284.06125pt>
+<partials/graphics/mutation.png, id=169, 676.5275pt x 284.06125pt>
 File: partials/graphics/mutation.png Graphic file (type png)
 
 <use partials/graphics/mutation.png>
@@ -1439,13 +1471,13 @@ Overfull \hbox (257.50586pt too wide) in paragraph at lines 13--15
 ][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
+[29]
 Overfull \hbox (290.3562pt too wide) in paragraph at lines 28--29
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 ) (./partials/chapters/ProgramPrintsSkema.tex
-<partials/graphics/read_teachers_name.png, id=170, 538.01pt x 203.76125pt>
+<partials/graphics/read_teachers_name.png, id=174, 538.01pt x 203.76125pt>
 File: partials/graphics/read_teachers_name.png Graphic file (type png)
 
 <use partials/graphics/read_teachers_name.png>
@@ -1473,7 +1505,7 @@ Overfull \hbox (434.8977pt too wide) in paragraph at lines 23--25
 ][][][][][][][][][][][][][] 
  []
 
-[29]
+[30]
 Overfull \hbox (2221.9563pt too wide) in paragraph at lines 28--30
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1496,8 +1528,8 @@ Overfull \hbox (86.68408pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [30] (./partials/chapters/programtest.tex (./partials/chapters/starttest.tex
-<partials/graphics/startsskema.png, id=178, 913.91437pt x 760.34062pt>
+)) [31] (./partials/chapters/programtest.tex (./partials/chapters/starttest.tex
+<partials/graphics/startsskema.png, id=181, 913.91437pt x 760.34062pt>
 File: partials/graphics/startsskema.png Graphic file (type png)
 
 <use partials/graphics/startsskema.png>
@@ -1509,14 +1541,14 @@ Package pdftex.def Info: partials/graphics/startsskema.png used on input line 4
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 (./partials/chapters/fitnesstest.tex
-<partials/graphics/fitness.png, id=179, 205.36725pt x 166.221pt>
+<partials/graphics/fitness.png, id=182, 205.36725pt x 166.221pt>
 File: partials/graphics/fitness.png Graphic file (type png)
 
 <use partials/graphics/fitness.png>
 Package pdftex.def Info: partials/graphics/fitness.png used on input line 3.
 (pdftex.def)             Requested size: 465.20166pt x 376.5681pt.
 
-<partials/graphics/fitness1.png, id=180, 952.30782pt x 248.42813pt>
+<partials/graphics/fitness1.png, id=183, 952.30782pt x 248.42813pt>
 File: partials/graphics/fitness1.png Graphic file (type png)
 
 <use partials/graphics/fitness1.png>
@@ -1529,7 +1561,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/fitness2.png, id=181, 995.21812pt x 264.99pt>
+<partials/graphics/fitness2.png, id=184, 995.21812pt x 264.99pt>
 File: partials/graphics/fitness2.png Graphic file (type png)
 
 <use partials/graphics/fitness2.png>
@@ -1539,7 +1571,7 @@ Package pdftex.def Info: partials/graphics/fitness2.png used on input line 19.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/fitness3.png, id=182, 954.56625pt x 232.61906pt>
+<partials/graphics/fitness3.png, id=185, 954.56625pt x 232.61906pt>
 File: partials/graphics/fitness3.png Graphic file (type png)
 
 <use partials/graphics/fitness3.png>
@@ -1549,8 +1581,8 @@ Package pdftex.def Info: partials/graphics/fitness3.png used on input line 26.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [31] (./partials/chapters/mutationtest.tex
-<partials/graphics/mutationbevis.png, id=186, 313.9228pt x 328.22626pt>
+) [32] (./partials/chapters/mutationtest.tex
+<partials/graphics/mutationbevis.png, id=189, 313.9228pt x 328.22626pt>
 File: partials/graphics/mutationbevis.png Graphic file (type png)
 
 <use partials/graphics/mutationbevis.png>
@@ -1559,7 +1591,7 @@ Package pdftex.def Info: partials/graphics/mutationbevis.png used on input line
 (pdftex.def)             Requested size: 465.20166pt x 486.41833pt.
 )
 (./partials/chapters/crossovertest.tex
-<partials/graphics/crossovertest.png, id=187, 287.57437pt x 505.13719pt>
+<partials/graphics/crossovertest.png, id=190, 287.57437pt x 505.13719pt>
 File: partials/graphics/crossovertest.png Graphic file (type png)
 
 <use partials/graphics/crossovertest.png>
@@ -1571,7 +1603,7 @@ Package pdftex.def Info: partials/graphics/crossovertest.png used on input line
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./partials/chapters/helhedstest.tex
-<partials/graphics/programtestdef.png, id=188, 263.48438pt x 207.77625pt>
+<partials/graphics/programtestdef.png, id=191, 263.48438pt x 207.77625pt>
 File: partials/graphics/programtestdef.png Graphic file (type png)
 
 <use partials/graphics/programtestdef.png>
@@ -1582,7 +1614,7 @@ e 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/programtestinfo.png, id=189, 249.93375pt x 383.93437pt>
+<partials/graphics/programtestinfo.png, id=192, 249.93375pt x 383.93437pt>
 File: partials/graphics/programtestinfo.png Graphic file (type png)
 
 <use partials/graphics/programtestinfo.png>
@@ -1593,7 +1625,7 @@ ne 10.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/programtestres.png, id=190, 448.67625pt x 642.14906pt>
+<partials/graphics/programtestres.png, id=193, 448.67625pt x 642.14906pt>
 File: partials/graphics/programtestres.png Graphic file (type png)
 
 <use partials/graphics/programtestres.png>
@@ -1604,12 +1636,12 @@ e 18.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)) [32] (./partials/chapters/videreudvikling.tex
+)) [33] (./partials/chapters/videreudvikling.tex
 
-LaTeX Warning: Citation 'interview' on page 33 undefined on input line 18.
+LaTeX Warning: Citation 'interview' on page 34 undefined on input line 18.
 
-[33]) [34] (./partials/chapters/vurdering.tex
-<partials/graphics/spredning.png, id=200, 1725.44624pt x 950.55125pt>
+[34]) [35] (./partials/chapters/vurdering.tex
+<partials/graphics/spredning.png, id=204, 1725.44624pt x 950.55125pt>
 File: partials/graphics/spredning.png Graphic file (type png)
 
 <use partials/graphics/spredning.png>
@@ -1620,7 +1652,7 @@ Package pdftex.def Info: partials/graphics/spredning.png used on input line 4.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<partials/graphics/spredningudenmutation.png, id=201, 1725.44624pt x 950.55125p
+<partials/graphics/spredningudenmutation.png, id=205, 1725.44624pt x 950.55125p
 t>
 File: partials/graphics/spredningudenmutation.png Graphic file (type png)
  <use partials/graphics/spredningudenmutation.png>
@@ -1632,7 +1664,7 @@ put line 12.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<partials/graphics/spredningudencrossover.png, id=202, 1724.4425pt x 948.54375p
+<partials/graphics/spredningudencrossover.png, id=206, 1724.4425pt x 948.54375p
 t>
 File: partials/graphics/spredningudencrossover.png Graphic file (type png)
  <use partials/graphics/spredningudencrossover.png>
@@ -1643,22 +1675,25 @@ nput line 20.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [35] (./partials/chapters/konklusion.tex)) (./partials/footer.tex [36])
+) [36] (./partials/chapters/konklusion.tex)) (./partials/footer.tex [37])
 
 LaTeX Warning: Empty bibliography on input line 2.
 
-[37 <./partials/graphics/main.png>] [38 <./partials/graphics/calculate_fitness_
+[38 <./partials/graphics/main.png>] [39 <./partials/graphics/calculate_fitness_
 all.png> <./partials/graphics/selektion.png> <./partials/graphics/mutation.png>
-] [39 <./partials/graphics/read_teachers_name.png> <./partials/graphics/startss
-kema.png>] [40 <./partials/graphics/fitness.png> <./partials/graphics/fitness1.
-png>] [41 <./partials/graphics/fitness2.png> <./partials/graphics/fitness3.png>
-] [42 <./partials/graphics/mutationbevis.png>] [43 <./partials/graphics/crossov
-ertest.png>] [44 <./partials/graphics/programtestdef.png> <./partials/graphics/
-programtestinfo.png>] [45 <./partials/graphics/programtestres.png>] [46 <./part
+] [40 <./partials/graphics/read_teachers_name.png> <./partials/graphics/startss
+kema.png>] [41 <./partials/graphics/fitness.png> <./partials/graphics/fitness1.
+png>] [42 <./partials/graphics/fitness2.png> <./partials/graphics/fitness3.png>
+] [43 <./partials/graphics/mutationbevis.png>] [44 <./partials/graphics/crossov
+ertest.png>] [45 <./partials/graphics/programtestdef.png> <./partials/graphics/
+programtestinfo.png>] [46 <./partials/graphics/programtestres.png>] [47 <./part
 ials/graphics/spredning.png> <./partials/graphics/spredningudenmutation.png> <.
 /partials/graphics/spredningudencrossover.png>] (./core.aux)
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
@@ -1686,10 +1721,10 @@ c/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 ><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on core.pdf (48 pages, 1895956 bytes).
+Output written on core.pdf (49 pages, 1913775 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
+ 292 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
