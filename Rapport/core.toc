@@ -92,20 +92,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.3}Test mutations funktion}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{39}
+\contentsline {subsection}{\numberline {8.4}Test crossover funktion}{40}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.5}Helheds test}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Videreudvikling}{44}
+\contentsline {section}{\numberline {9}Videreudvikling}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{44}
+\contentsline {subsection}{\numberline {9.1}Mangler i l\IeC {\o }sningen}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Graphic user interface}{44}
+\contentsline {subsection}{\numberline {9.2}Graphic user interface}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3}Brugertest}{45}
+\contentsline {subsection}{\numberline {9.3}Brugertest}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{45}
+\contentsline {subsection}{\numberline {9.4}Empiri fra flere skoler}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Diskussion}{46}
+\contentsline {section}{\numberline {10}Diskussion}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Konklusion}{48}
+\contentsline {section}{\numberline {11}Konklusion}{47}
