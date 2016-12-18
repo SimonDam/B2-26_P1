@@ -10,28 +10,36 @@ Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at fit
 Herefter køres en for-løkke der starter fra bunden af rouletten og lægger summen af fitnessen for tre parallelklasser sammen med summen af den forrige sum, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver de i'ende individer (tre parralelklasser) valgt og gemt ned i temp\_individuals.  
 
 \begin{lstlisting}[language = c]
+int pick_individual(individual **population, individual **old_population, int class, int indi_num){
+  int i;
+  int fitness_test = 0, sum = 0;
+  int *sum_parrallel;
+  sum_parrallel = (int *)calloc(SIZE_OF_POPULATION, sizeof(int));
 
-int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], individual individuals[][NUMBER_OF_INDIVIDUALS], int class, int individual_number){
-  int i, sum = 0, j;
-  int fitness_test = 0;
-  int sum_parrallel[NUMBER_OF_INDIVIDUALS];
-
-  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    sum_parrallel[i] = temp_individuals[class][i].fitness + temp_individuals[class+1][i].fitness + temp_individuals[class+2][i].fitness;
+  for(i = 0; i < SIZE_OF_POPULATION; i++){
+    if ((old_population[class][i].fitness == 1) || (old_population[class+1][i].fitness == 1) || (old_population[class+2][i].fitness == 1)){
+      sum_parrallel[i] = 1;
+    }
+    else {
+      sum_parrallel[i] = old_population[class][i].fitness + old_population[class+1][i].fitness + old_population[class+2][i].fitness;
+    }
     sum += sum_parrallel[i];
   }
-  int field = rand() % sum;
-  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+
+  int field = rand()% sum;
+  
+  for(i = 0; i < SIZE_OF_POPULATION; i++){
     fitness_test += sum_parrallel[i];
     if(field < fitness_test){
-      individuals[class][individual_number] = temp_individuals[class][i];
-      individuals[class+1][individual_number] = temp_individuals[class+1][i];
-      individuals[class+2][individual_number] = temp_individuals[class+2][i];
+      population[class][indi_num] = old_population[class][i];
+      population[class+1][indi_num] = old_population[class+1][i];
+      population[class+2][indi_num] = old_population[class+2][i];
       return 1;
     }
-  } 
+  }
+  free(sum_parrallel); 
+  return 0;
 }
-
 \end{lstlisting}
 
-Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation. Fitnessen bliver regnet for tre parrallelklasser af gangen og de bliver sendt videre sammen, da deres fitness er afhængig af hinanden. En klasse får f. eks. høj fitness, hvis den har sammenhængende timer med en parrallelklasse, og det ville derfor være et problem, hvis skemaet blev sat sammen med skemaer fra nye parallelklasser, da fitnessen for sammenhængende timer ville være forkert.
+Med denne metode sikres det, at alle individer har en chance for at blive valgt, men at de bedre skemaer, i forhold til fitnessniveauet, har større chance for at blive valgt, og derved få skabt den bedst mulige fremtidige generation. Fitnessen bliver regnet for tre parrallelklasser af gangen og de bliver sendt videre sammen, da deres fitness er afhængig af hinanden. En klasse får f.eks. høj fitness, hvis den har sammenhængende timer med en parrallelklasse, og det ville derfor være et problem, hvis skemaet blev sat sammen med skemaer fra nye parallelklasser, da fitnessen for sammenhængende timer ville være forkert.

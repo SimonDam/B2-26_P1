@@ -8,50 +8,80 @@ På figur~\ref{fig:diagrammain} ses et diagram over main.
 Følgende kode er main funktionen, der bliver brugt til at danne et skema for udskolingssektoren på en vilkårlig skole. Under koden findes et diagram, der kan bruges til at danne overblik over main funktionen, funktionerne der bliver kaldt i main funktionen og hvad de returnere til main funktionen. 
 \begin{lstlisting}[showstringspaces=false,language = c]
 int main(void){
-  int i, j;
+  /*init general stuff*/
+  int i, j; 
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
-  individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  individual chosen_individual[NUMBER_OF_CLASSES][NUMBER_OF_GENERATIONS];
-  individual best_of_best[NUMBER_OF_CLASSES];
-  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  requirements requirements_classes[NUMBER_OF_CLASSES];
-  
-  teacher teacher_data[NUMBER_OF_CLASSES][NUMBER_OF_SUBJECTS];
-  read_teachers_name(teacher_data);
-  find_req(teacher_data, requirements_classes);
+  individual **population;
+  population = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
+
+  individual **old_population;
+  old_population = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
+
+  individual **chosen_individual;
+  chosen_individual = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
+
+  individual *best_of_best;
+  best_of_best = (individual *)calloc(NUMBER_OF_CLASSES, sizeof(individual ));
+
+  requirements *requirements_classes;
+  requirements_classes = (requirements *)calloc(NUMBER_OF_CLASSES, sizeof(requirements));
+
+  class_info **class_data;
+  class_data = (class_info **)calloc(NUMBER_OF_CLASSES, sizeof(class_info *));
+
+  for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    population[i] = (individual *)calloc(SIZE_OF_POPULATION +3, sizeof(individual));
+    old_population[i] = (individual *)calloc(SIZE_OF_POPULATION, sizeof(individual));
+    chosen_individual[i] = (individual *)calloc(NUMBER_OF_GENERATIONS, sizeof(individual));
+    class_data[i] = (class_info *)calloc(NUMBER_OF_SUBJECTS, sizeof(class_info));
+  }
+
+  read_teachers_name(class_data);
+  find_req(class_data, requirements_classes);
 
   srand(time(NULL));
+  create_individuals(population);
+  calculate_fitness_all(population, h_classes, class_data, requirements_classes);
 
-  create_individuals(individuals);
-  calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
+  for(i = 0; i < NUMBER_OF_GENERATIONS; i++){
 
- for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
-    choose_individual(individuals, chosen_individual, j, 0);
-  }
- 
-  for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
-    selektion(individuals);
-    
-    mutation(individuals);
+    selektion(population, old_population);
 
-    crossover(individuals, individuals_temp, requirements_classes, i);
+    mutation(population);
 
-    calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
+    crossover(population, old_population, requirements_classes);
+
+    calculate_fitness_all(population, h_classes, class_data, requirements_classes);
 
     for(j = 0; j < (NUMBER_OF_CLASSES); j += 3){
-      choose_individual(individuals, chosen_individual, j, i);  
+      choose_individual(population, chosen_individual, j, i);  
     }
+
   }
-  i--;
+   i--;
+
   find_best(chosen_individual, best_of_best);
-
+  /* Printing */
   printf("\n\n\n");
-  print_func(best_of_best, requirements_classes, i, teacher_data);
+  print_func(best_of_best, requirements_classes, class_data);
 
-  return 0;
+  for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    free(population[i]);
+    free(old_population[i]);
+    free(class_data[i]);
+    free(chosen_individual[i]);
+  }
+  free(population);
+  free(old_population);
+  free(chosen_individual);
+  free(best_of_best);
+  free(class_data);
+  free(requirements_classes);
+
+  return 0; 
 }
 \end{lstlisting}
 
-Først initialiseres de arrays, der bliver brugt i programmets funktioner. De arrays, som bliver dannet, er todimensionelle.
+Først initialiseres de arrays, der bliver brugt i programmets funktioner. De arrays, som bliver dannet, er todimensionelle. Pladsen til de arrays, som bliver initialiseret allokeres dynamisk. Pladsen bliver alokeret dynamisk for at sikre, at der kun bliver allokeret den præcise mængden plads til arrays'ne.
 Dernæst forberedes den genetiske algoritme. Srand funktionen klargøres ved at kalde seeded til rand med antallet af sekunder siden 1. januar 1970 (time(NULL)).\footfullcite{timefunc} Individerne bliver givet tilfædige værdier i lesson\_num (de får indsat tilfældige lektioner). Herefter udregnes individernes fitness, og de bliver sendt ind i for loopet, der kører en gang per generation. I loopet udføres en selektion af alle individer ved hjælp af roulette metoden. Herefter er der i hvert skema sandsynlighed for mutationer. Efter mutationen bliver skemaerne lavet om til et crossover mellem to tilfældige forældre. Efter denne process bliver skemaernes fitness igen regnet ud, inden for loopet begynder forfra.

@@ -9,12 +9,12 @@ I struct’et ’individual’ findes et multidimensionalt integer array ’less
 
 Når et endeligt skema skal printes ud, bliver funktionen ’print\_func()’ kaldt. Denne funktion tager et array af individer ind som parametre. I dette tilfælde ’chosen\_individual’. Funktionen ser ud som følgende:
 \begin{lstlisting}[language = C]
-void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
+void print_func(individual best_of_best[], requirements requirements_classes[], class_info **class_data){
   int i, j, c;
-  printf("\n\n   Teachers\n");
+  printf("\n\n   teachers\n");
   for (i = 0; i < NUMBER_OF_CLASSES; i++){
     for (j = 0; j < NUMBER_OF_SUBJECTS; j++){
-      printf("%s  %s %s\t", teacher_data[i][j].teacher_name, teacher_data[i][j].lesson_name, teacher_data[i][j].class_name);
+      printf("%s  %s %s\t", class_data[i][j].teacher_name, class_data[i][j].lesson_name, class_data[i][j].class_name);
     }
     printf("\n");
   }
@@ -23,11 +23,16 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
   printf("taken from     7: %d  8: %d  9: %d  \n\n", best_of_best[0].best_gena7, best_of_best[0].best_gena8, best_of_best[0].best_gena9);
 
   for (c = 0; c < NUMBER_OF_CLASSES; c++){
-    /* Printing testing */
-    print_req(best_of_best[c], requirements_classes[c]);
-    printf("Has a fitness of: %d   The perfection grade is: %d  Lessons with parallel: %d  Lessons With Both: %d  Heavy lessons after: %d Before: %d   Overbooked: %d \n\n", best_of_best[c].fitness, best_of_best[c].perfection, best_of_best[c].lessons_with_parallel, best_of_best[c].lessons_with_both, best_of_best[c].heavy_lesson_after, best_of_best[c].heavy_lesson_before, best_of_best[c].teacher_overbooked);
 
-    /* Printing the days */
+    print_req(best_of_best[c], requirements_classes[c]);
+    printf("Has a fitness of: %d   The perfection grade is: %d "
+           "Lessons with parallel: %d  Lessons With Both: %d " 
+           " Heavy lessons after: %d Before: %d   Overbooked: %d \n\n", 
+          best_of_best[c].fitness, best_of_best[c].perfection, 
+          best_of_best[c].lessons_with_parallel, best_of_best[c].lessons_with_both, 
+          best_of_best[c].heavy_lesson_after, best_of_best[c].heavy_lesson_before, 
+          best_of_best[c].teacher_overbooked);
+
     printf("  Class: ");
     print_class_name(c);
     printf("\n");
@@ -35,12 +40,10 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
     printf("  ------------------------------------------------------------------------------------------------\n");
     
     for (i = 0; i < LESSONS_PER_DAY_MAX; i++){
-      /* Printing the times */
       print_time_func(i);
 
       for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
-        /* Printing lesson name */
-        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, teacher_data);
+        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, class_data);
         printf("\t\t");
       }
       /* To signal a break */
@@ -55,5 +58,5 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
 \end{lstlisting}
 
 Funktionen starter med en for-lykke, som gentages ’antal klasser’-gange. Klassenavnet, dens fitness og antallet af krav den overholder bliver printet i forhold til antallet af timer den skal have, . 
-Efterfølgende køres endnu en for-lykke, som gentages ’antallet af lektioner’-gange. Dette printer tidspunktet på dagen ud, hvorefter endnu en for-lykke printer de første lektioner af hver dag ud.
+Efterfølgende køres endnu en for-lykke, som gentages ’antallet af lektioner’-gange. Dette printer tidspunktet på dagen ud, hvorefter endnu en for-lykke printer de første lektioner af hver dag ud, samt deres lærer.
 Efter dette bliver der printet nye linjer ud, som starter de næste timer. Efter hver anden dag der bliver printet printes en ekstra linje ud, som tydeliggøre hvor der er pauser på skemaet.

@@ -9,24 +9,27 @@ Mutation er til for at lave små ændringer i skemaet. Den skal kunne sørge for
 Måden hvorpå dette foregår er ved at tage et individ, finde to helt tilfældige timer på skemaet og bytte disse ud. Der kommer her to variabler, der kan finpudses for at finde den bedste løsning. Der er en procentvis chance for at en mutation kan ske, og antal mutationer der maksimalt kan ske pr. individ. 
 Her under kan koden til mutations funktionen, der er brugt i programmet, ses.
 \begin{lstlisting}
-void mutation(individual individuals[]){
-  int i = 0, j = 0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+void mutation(individual **population){
+  int i, j, k; 
+  int ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
 
-  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-    chance = rand() % 100;
-    mutations = rand() % MAX_MUTATIONS_PER_INDIVIDUAL;
-    for (j = 0; j < mutations; j++){
-      if (chance > CHANCE_OF_MUTATION){
-        do {
-          ran1Week = rand() % SCHOOL_DAYS_IN_WEEK;
-          ran1Day = rand() % LESSONS_PER_DAY_MAX;
-          ran2Week = rand() % SCHOOL_DAYS_IN_WEEK;
-          ran2Day = rand() % LESSONS_PER_DAY_MAX;
-        } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
+  for(k = 0; k < NUMBER_OF_CLASSES; k++){
+    for(i = 0; i < SIZE_OF_POPULATION; i++){
+      mutations = rand()% (MAX_MUTATIONS_PER_INDIVIDUAL+1);
+      for (j = 0; j < mutations; j++){
+        chance = rand()% 100;
+        if (chance < CHANCE_OF_MUTATION){
+          do {
+            ran1Week = rand()% SCHOOL_DAYS_IN_WEEK;
+            ran1Day = rand()% LESSONS_PER_DAY_MAX;
+            ran2Week = rand()% SCHOOL_DAYS_IN_WEEK;
+            ran2Day = rand()% LESSONS_PER_DAY_MAX;
+          } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
         
-        temp = individuals[i].individual_num[ran1Day][ran1Week];
-        individuals[i].individual_num[ran1Day][ran1Week] =        individuals[i].individual_num[ran2Day][ran2Week];
-        individuals[i].individual_num[ran2Day][ran2Week] = temp;
+          temp = population[k][i].lesson_num[ran1Day][ran1Week];
+          population[k][i].lesson_num[ran1Day][ran1Week] = population[j][i].lesson_num[ran2Day][ran2Week];
+          population[k][i].lesson_num[ran2Day][ran2Week] = temp;
+        }
       }
     }
   }

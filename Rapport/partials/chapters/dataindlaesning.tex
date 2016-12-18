@@ -33,26 +33,25 @@ Dette bliver indlæst fra filen én gang i starten af programmet, hvorefter data
 Dette er implementeret på følgende vis:
 
 \begin{lstlisting}
-void read_teacher_data(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
- FILE *teacherinfo = fopen("teacherinfo.txt", "r");
+void read_teachers_name(class_info **class_data){ 
+  int i, j;
+  class_info local_class_data;
+  FILE *teacherinfo = fopen("teacherinfo.txt", "r");
   if(teacherinfo == NULL){
     perror("Error the file is empty");
     fclose(teacherinfo);
     exit(1);
   }
 
-  teacher local_teacher_data;
-  int i = 0, j = 0;
   for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for(i = 0;i < NUMBER_OF_SUBJECTS; i++){
       fscanf(teacherinfo,
       " %s %s %d %s ",
-      local_teacher_data.teacher_name, 
-      local_teacher_data.lesson_name, 
-      &local_teacher_data.number_of_lessons, 
-      local_teacher_data.class_name);
-      teacher_data[j][i] = local_teacher_data; 
-  
+      local_class_data.teacher_name, 
+      local_class_data.lesson_name, 
+      &local_class_data.number_of_lessons, 
+      local_class_data.class_name);
+      class_data[j][i] = local_class_data;
     } 
   }  
   fclose(teacherinfo);
@@ -61,6 +60,4 @@ void read_teacher_data(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
 
 Først åbnes filen, hvorefter det tjekkes om filen er tom. Hvis dette er sandt, bliver en fejl-besked printet ud, og programmet lukker igen.
 
-Dernæst bliver der lavet Local\_teacher\_data af typen ’teacher’, som er et struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local\_teacher\_data. Efter dette bliver det overført til ’teacher\_data’ som er det endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse.
- 
-Efter denne løkke bliver filen lukket igen, og alle informationer er kopieret over i ’teacher\_data’.
+Dernæst bliver der lavet local\_class\_data af typen ’class\_info’, som er et struct. Denne bliver brugt i den efterfølgende løkke, som læser filen linje for linje, hvor den gemmer informationerne for hver linje, ind i local\_class\_data. Efter dette bliver det overført til ’class\_info’ som er det endelige struct, med alt informationen omkring lærerne, deres dag, antal timer og deres klasse. Efter denne løkke bliver filen lukket igen.
