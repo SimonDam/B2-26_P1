@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.31)  18 DEC 2016 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,46 +1150,90 @@ LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 48
 ) [6 <./partials/graphics/planlagttime.png (PNG copy)>] [7 <./partials/graphics
 /overallskemaovertimetal.png>] (./partials/chapters/casestudy.tex
 
-LaTeX Warning: Citation 'interview' on page 8 undefined on input line 4.
+LaTeX Warning: Citation 'interview' on page 8 undefined on input line 3.
+
+
+LaTeX Warning: Citation 'interview' on page 8 undefined on input line 5.
 
 
 LaTeX Warning: Citation 'interview' on page 8 undefined on input line 7.
 
 
-LaTeX Warning: Citation 'interview' on page 8 undefined on input line 10.
+LaTeX Warning: Citation 'interview' on page 8 undefined on input line 9.
 
 
-LaTeX Warning: Citation 'interview' on page 8 undefined on input line 13.
+Underfull \hbox (badness 10000) in paragraph at lines 1--10
 
-) (./partials/chapters/interresentanalyse.tex [8]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--10
+
+ []
+
+) [8] (./partials/chapters/interresentanalyse.tex
 
 LaTeX Warning: Citation 'lov2016' on page 9 undefined on input line 4.
 
 
-LaTeX Warning: Citation 'interview' on page 9 undefined on input line 7.
+LaTeX Warning: Citation 'interview' on page 9 undefined on input line 6.
 
 
-LaTeX Warning: Citation 'interview' on page 9 undefined on input line 10.
+LaTeX Warning: Citation 'interview' on page 9 undefined on input line 8.
 
 
-LaTeX Warning: Citation 'interview' on page 9 undefined on input line 10.
+LaTeX Warning: Citation 'interview' on page 9 undefined on input line 8.
 
 
-LaTeX Warning: Citation 'interview' on page 9 undefined on input line 16.
+LaTeX Warning: Citation 'interview' on page 9 undefined on input line 12.
 
 <partials/graphics/interessentanalyse.png, id=88, 445.06274pt x 453.49425pt>
 File: partials/graphics/interessentanalyse.png Graphic file (type png)
 
 <use partials/graphics/interessentanalyse.png>
 Package pdftex.def Info: partials/graphics/interessentanalyse.png used on input
- line 21.
+ line 17.
 (pdftex.def)             Requested size: 465.20166pt x 474.0448pt.
-) [9]
+)
+Underfull \hbox (badness 10000) in paragraph at lines 4--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--19
+
+ []
+
+[9] [10 <./partials/graphics/interessentanalyse.png>]
 (./partials/chapters/stateoftheart.tex
 
-LaTeX Warning: Citation 'interview' on page 10 undefined on input line 2.
+LaTeX Warning: Citation 'interview' on page 11 undefined on input line 2.
 
-[10 <./partials/graphics/interessentanalyse.png>]
 (./partials/chapters/stateoftheartdocendo.tex
 
 LaTeX Warning: Citation 'docendo' on page 11 undefined on input line 1.
@@ -1204,11 +1248,12 @@ Package pdftex.def Info: partials/graphics/docendo.png used on input line 4.
 
 LaTeX Warning: Citation 'docendob' on page 11 undefined on input line 5.
 
-) (./partials/chapters/stateoftheartlantiv.tex
+) [11 <./partials/graphics/docendo.png>]
+(./partials/chapters/stateoftheartlantiv.tex
 
-LaTeX Warning: Citation 'lantiv2016' on page 11 undefined on input line 1.
+LaTeX Warning: Citation 'lantiv2016' on page 12 undefined on input line 1.
 
-<partials/graphics/LANTIV.png, id=97, 404.10976pt x 363.15675pt>
+<partials/graphics/LANTIV.png, id=102, 404.10976pt x 363.15675pt>
 File: partials/graphics/LANTIV.png Graphic file (type png)
 
 <use partials/graphics/LANTIV.png>
@@ -1216,9 +1261,8 @@ Package pdftex.def Info: partials/graphics/LANTIV.png used on input line 4.
 (pdftex.def)             Requested size: 465.20166pt x 418.07031pt.
 
 
-LaTeX Warning: Citation 'lantivb' on page 11 undefined on input line 5.
+LaTeX Warning: Citation 'lantivb' on page 12 undefined on input line 5.
 
-[11 <./partials/graphics/docendo.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1246,17 +1290,13 @@ Package pdftex.def Info: partials/graphics/untis.png used on input line 5.
 
 LaTeX Warning: Citation 'untisb' on page 12 undefined on input line 6.
 
-)) [12]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+)) [12] [13 <./partials/graphics/LANTIV.png>]
 (./partials/chapters/genetiskealgoritmer.tex
-(./partials/chapters/genetiskalgoogskoleskemaer.tex [13 <./partials/graphics/LA
-NTIV.png>])
+(./partials/chapters/genetiskalgoogskoleskemaer.tex) [14 <./partials/graphics/u
+ntis.png>]
 
-LaTeX Warning: Citation 'brute2016' on page 14 undefined on input line 13.
+LaTeX Warning: Citation 'brute2016' on page 15 undefined on input line 13.
 
-[14 <./partials/graphics/untis.png>]
 
 LaTeX Warning: Citation 'jebari2013' on page 15 undefined on input line 19.
 
@@ -1276,22 +1316,17 @@ File: partials/graphics/lokaltmaksimum.png Graphic file (type png)
 Package pdftex.def Info: partials/graphics/lokaltmaksimum.png used on input lin
 e 51.
 (pdftex.def)             Requested size: 465.20166pt x 307.77684pt.
+ [15] [16 <./partials/graphics/lokaltmaksimum.png>]
 
+LaTeX Warning: Citation 'winston2014' on page 17 undefined on input line 66.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[15]
-
-LaTeX Warning: Citation 'winston2014' on page 16 undefined on input line 66.
-
-[16 <./partials/graphics/lokaltmaksimum.png>]
 
 LaTeX Warning: Citation 'jebari2013' on page 17 undefined on input line 82.
 
 
 LaTeX Warning: Citation 'jebari2013' on page 17 undefined on input line 87.
 
-) (./partials/chapters/delkonklusion.tex) [17] [18]
+) (./partials/chapters/delkonklusion.tex [17]) [18]
 (./partials/chapters/problemafgrensning.tex
 
 LaTeX Warning: Citation 'interview' on page 19 undefined on input line 1.
@@ -1705,9 +1740,6 @@ ials/graphics/spredning.png> <./partials/graphics/spredningudenmutation.png> <.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                core
 (biblatex)                and rerun LaTeX afterwards.
@@ -1733,7 +1765,7 @@ c/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 ><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on core.pdf (49 pages, 1895932 bytes).
+Output written on core.pdf (49 pages, 1896486 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams
