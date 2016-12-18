@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,8 +1180,8 @@ File: partials/graphics/LANTIV.png Graphic file (type png)
 Package pdftex.def Info: partials/graphics/LANTIV.png used on input line 4.
 (pdftex.def)             Requested size: 323.28824pt x 290.52579pt.
 ) [11 <./partials/graphics/docendo.png>]
-(./partials/chapters/stateofthearttabulex.tex) [12 <./partials/graphics/LANTIV.
-png>] (./partials/chapters/stateoftheartuntis.tex
+(./partials/chapters/stateofthearttabulex.tex [12 <./partials/graphics/LANTIV.p
+ng>]) (./partials/chapters/stateoftheartuntis.tex
 <partials/graphics/untis.png, id=109, 634.16925pt x 339.669pt>
 File: partials/graphics/untis.png Graphic file (type png)
 
@@ -1189,11 +1189,6 @@ File: partials/graphics/untis.png Graphic file (type png)
 Package pdftex.def Info: partials/graphics/untis.png used on input line 5.
 (pdftex.def)             Requested size: 465.20166pt x 249.16911pt.
 ) [13])
-Overfull \hbox (15.43301pt too wide) in paragraph at lines 18--22
-\OT1/cmr/m/n/10.95 Skemal^^Zgningsprogrammerne er dog ikke prob-lem-fri. Selvom
- pro-gram-met op-fylder de mest v^^Zsentlige
- []
-
 (./partials/chapters/genetiskealgoritmer.tex
 (./partials/chapters/genetiskalgoogskoleskemaer.tex [14 <./partials/graphics/un
 tis.png>]) [15]
@@ -1585,9 +1580,6 @@ ossovertest.png>] [46 <./partials/graphics/programtestdef.png> <./partials/grap
 hics/programtestinfo.png>] [47 <./partials/graphics/programtestres.png>]
 [48 <./partials/graphics/spredning.png> <./partials/graphics/spredningudenmutat
 ion.png> <./partials/graphics/spredningudencrossover.png>] (./core.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
@@ -1612,7 +1604,7 @@ xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on core.pdf (50 pages, 1967947 bytes).
+Output written on core.pdf (50 pages, 1968777 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams
