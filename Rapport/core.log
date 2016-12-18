@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 14:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,30 +1083,49 @@ Package pdftex.def Info: partials/graphics/fagkrav.png used on input line 5.
 (pdftex.def)             Requested size: 465.20166pt x 263.49107pt.
 
 
+LaTeX Warning: Citation 'lov2016' on page 5 undefined on input line 6.
+
+
 LaTeX Warning: Citation 'lov2016' on page 5 undefined on input line 10.
 
 
 LaTeX Warning: Citation 'timeskema2016' on page 5 undefined on input line 12.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+
+ []
+
 [5 <./partials/graphics/fagkrav.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
+
+(c:/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
+
 <partials/graphics/planlagttime.png, id=75, 599.23875pt x 360.34625pt>
 File: partials/graphics/planlagttime.png Graphic file (type png)
 
 <use partials/graphics/planlagttime.png>
 Package pdftex.def Info: partials/graphics/planlagttime.png used on input line 
-24.
+25.
 (pdftex.def)             Requested size: 465.20166pt x 279.74931pt.
 
 
+LaTeX Warning: Citation 'timefolke2016' on page 6 undefined on input line 26.
+
+
 LaTeX Warning: Citation 'timetalifolkeskolen2016' on page 6 undefined on input 
-line 29.
+line 30.
 
 
-LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 29
+LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 30
 .
 
 
-LaTeX Warning: Citation 'lov2016' on page 6 undefined on input line 29.
+LaTeX Warning: Citation 'lov2016' on page 6 undefined on input line 30.
 
 
 <partials/graphics/overallskemaovertimetal.png, id=76, 390.86024pt x 479.99326p
@@ -1114,20 +1133,22 @@ t>
 File: partials/graphics/overallskemaovertimetal.png Graphic file (type png)
  <use partials/graphics/overallskemaovertimetal.png>
 Package pdftex.def Info: partials/graphics/overallskemaovertimetal.png used on 
-input line 33.
+input line 34.
 (pdftex.def)             Requested size: 465.20166pt x 571.30893pt.
 
 
-LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 39
+LaTeX Warning: Citation 'timeskema2016' on page 6 undefined on input line 35.
+
+
+LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 40
 .
 
 
-LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 47
+LaTeX Warning: Citation 'dennyefolkeskole' on page 6 undefined on input line 48
 .
 
-) [6 <./partials/graphics/planlagttime.png (PNG copy)>]
-(./partials/chapters/casestudy.tex [7 <./partials/graphics/overallskemaovertime
-tal.png>]
+) [6 <./partials/graphics/planlagttime.png (PNG copy)>] [7 <./partials/graphics
+/overallskemaovertimetal.png>] (./partials/chapters/casestudy.tex
 
 LaTeX Warning: Citation 'interview' on page 8 undefined on input line 4.
 
@@ -1140,11 +1161,10 @@ LaTeX Warning: Citation 'interview' on page 8 undefined on input line 10.
 
 LaTeX Warning: Citation 'interview' on page 8 undefined on input line 13.
 
-) (./partials/chapters/interresentanalyse.tex
+) (./partials/chapters/interresentanalyse.tex [8]
 
-LaTeX Warning: Citation 'lov2016' on page 8 undefined on input line 4.
+LaTeX Warning: Citation 'lov2016' on page 9 undefined on input line 4.
 
-[8]
 
 LaTeX Warning: Citation 'interview' on page 9 undefined on input line 7.
 
@@ -1157,26 +1177,24 @@ LaTeX Warning: Citation 'interview' on page 9 undefined on input line 10.
 
 LaTeX Warning: Citation 'interview' on page 9 undefined on input line 16.
 
-<partials/graphics/interessentanalyse.png, id=87, 445.06274pt x 453.49425pt>
+<partials/graphics/interessentanalyse.png, id=88, 445.06274pt x 453.49425pt>
 File: partials/graphics/interessentanalyse.png Graphic file (type png)
 
 <use partials/graphics/interessentanalyse.png>
 Package pdftex.def Info: partials/graphics/interessentanalyse.png used on input
  line 21.
 (pdftex.def)             Requested size: 465.20166pt x 474.0448pt.
-)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+) [9]
 (./partials/chapters/stateoftheart.tex
 
-LaTeX Warning: Citation 'interview' on page 9 undefined on input line 2.
+LaTeX Warning: Citation 'interview' on page 10 undefined on input line 2.
 
-[9] (./partials/chapters/stateoftheartdocendo.tex
+[10 <./partials/graphics/interessentanalyse.png>]
+(./partials/chapters/stateoftheartdocendo.tex
 
-LaTeX Warning: Citation 'docendo' on page 10 undefined on input line 1.
+LaTeX Warning: Citation 'docendo' on page 11 undefined on input line 1.
 
-<partials/graphics/docendo.png, id=91, 517.33275pt x 310.761pt>
+<partials/graphics/docendo.png, id=96, 517.33275pt x 310.761pt>
 File: partials/graphics/docendo.png Graphic file (type png)
 
 <use partials/graphics/docendo.png>
@@ -1184,14 +1202,13 @@ Package pdftex.def Info: partials/graphics/docendo.png used on input line 4.
 (pdftex.def)             Requested size: 465.20166pt x 279.4547pt.
 
 
-LaTeX Warning: Citation 'docendob' on page 10 undefined on input line 5.
+LaTeX Warning: Citation 'docendob' on page 11 undefined on input line 5.
 
-[10 <./partials/graphics/interessentanalyse.png>])
-(./partials/chapters/stateoftheartlantiv.tex
+) (./partials/chapters/stateoftheartlantiv.tex
 
 LaTeX Warning: Citation 'lantiv2016' on page 11 undefined on input line 1.
 
-<partials/graphics/LANTIV.png, id=96, 404.10976pt x 363.15675pt>
+<partials/graphics/LANTIV.png, id=97, 404.10976pt x 363.15675pt>
 File: partials/graphics/LANTIV.png Graphic file (type png)
 
 <use partials/graphics/LANTIV.png>
@@ -1201,8 +1218,11 @@ Package pdftex.def Info: partials/graphics/LANTIV.png used on input line 4.
 
 LaTeX Warning: Citation 'lantivb' on page 11 undefined on input line 5.
 
-[11 <./partials/graphics/docendo.png>])
-(./partials/chapters/stateofthearttabulex.tex
+[11 <./partials/graphics/docendo.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./partials/chapters/stateofthearttabulex.tex
 
 LaTeX Warning: Citation 'tabulex' on page 12 undefined on input line 2.
 
@@ -1212,12 +1232,11 @@ Overfull \hbox (15.43301pt too wide) in paragraph at lines 1--12
  pro-gram-met op-fylder de mest v^^Zsentlige
  []
 
-[12 <./partials/graphics/LANTIV.png>]
 (./partials/chapters/stateoftheartuntis.tex
 
-LaTeX Warning: Citation 'untis2016' on page 13 undefined on input line 2.
+LaTeX Warning: Citation 'untis2016' on page 12 undefined on input line 2.
 
-<partials/graphics/untis.png, id=106, 634.16925pt x 339.669pt>
+<partials/graphics/untis.png, id=103, 634.16925pt x 339.669pt>
 File: partials/graphics/untis.png Graphic file (type png)
 
 <use partials/graphics/untis.png>
@@ -1225,14 +1244,15 @@ Package pdftex.def Info: partials/graphics/untis.png used on input line 5.
 (pdftex.def)             Requested size: 465.20166pt x 249.16911pt.
 
 
-LaTeX Warning: Citation 'untisb' on page 13 undefined on input line 6.
+LaTeX Warning: Citation 'untisb' on page 12 undefined on input line 6.
 
-))
+)) [12]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 (./partials/chapters/genetiskealgoritmer.tex
-(./partials/chapters/genetiskalgoogskoleskemaer.tex [13])
+(./partials/chapters/genetiskalgoogskoleskemaer.tex [13 <./partials/graphics/LA
+NTIV.png>])
 
 LaTeX Warning: Citation 'brute2016' on page 14 undefined on input line 13.
 
@@ -1249,7 +1269,7 @@ LaTeX Warning: Citation 'jebari2013' on page 15 undefined on input line 45.
 
 LaTeX Warning: Citation 'jebari2013' on page 15 undefined on input line 49.
 
-<partials/graphics/lokaltmaksimum.png, id=114, 442.65375pt x 292.84406pt>
+<partials/graphics/lokaltmaksimum.png, id=115, 442.65375pt x 292.84406pt>
 File: partials/graphics/lokaltmaksimum.png Graphic file (type png)
 
 <use partials/graphics/lokaltmaksimum.png>
@@ -1281,14 +1301,6 @@ LaTeX Warning: Citation 'interview' on page 19 undefined on input line 8.
 
 ) (./partials/chapters/problemformulering.tex [19])
 (./partials/chapters/designovervejelser.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
-
-(c:/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
-
 
 LaTeX Warning: Citation 'winston2014' on page 20 undefined on input line 19.
 
@@ -1298,7 +1310,7 @@ LaTeX Warning: Citation 'jebari2013' on page 20 undefined on input line 23.
 
 LaTeX Warning: Citation 'selection' on page 20 undefined on input line 23.
 
-<partials/graphics/roulette.png, id=132, 451.6875pt x 209.28188pt>
+<partials/graphics/roulette.png, id=133, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
 
 <use partials/graphics/roulette.png>
@@ -1721,7 +1733,7 @@ c/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 ><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on core.pdf (49 pages, 1913775 bytes).
+Output written on core.pdf (49 pages, 1895932 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams

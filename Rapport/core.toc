@@ -22,9 +22,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{13}
+\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Untis}{13}
+\contentsline {subsubsection}{\numberline {2.5.4}Untis}{12}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{13}
 \defcounter {refsection}{0}\relax 
