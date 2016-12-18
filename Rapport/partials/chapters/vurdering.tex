@@ -1,4 +1,4 @@
-Ud fra test afsnittet kan det konkluderes at alle de testede funktioner virker, som de skal. Den genetiske algoritme er dog ikke optimal, dette kan observeres på nedenstående spredningsdiagram:
+Ud fra test afsnittet kan det konkluderes at alle de testede funktioner virker, som de skal. Den genetiske algoritme er dog ikke optimal, dette kan observeres på figur~\ref{fig:spredning}.
 \begin{figure}[!h]
 \centering
 \includegraphics[scale = 0.2]{partials/graphics/spredning.png}
@@ -6,7 +6,7 @@ Ud fra test afsnittet kan det konkluderes at alle de testede funktioner virker, 
 \label{fig:spredning}
 \end{figure}
 
-Fitnessen er tilfældig i gennem programmet. Skemaerne bliver altså ikke bedre efter hver generation, som det er meningen de skal, de bliver hellere ikke dårligere, men der bliver ved med at blive dannet tilfældige skemaer. Dette kan skyldes flere faktorer. Det kan skyldes at mutationen i algoritmen er for kraftig og sker for hyppigt, programmet er dog blevet testet med flere forskellige sandsynligheder for at mutationen opstår. Ud fra disse test blev det synliggjort at sandsynligheden for at en mutation finder sted, ikke havde nogen synlig effekt på spredningsdiagrammet, dette kan observeres på nedenstående graf:
+Fitnessen er tilfældig i gennem programmet. Skemaerne bliver altså ikke bedre efter hver generation. De bliver hellere ikke dårligere, men bliver ved med at blive dannet tilfældige skemaer. Det kan skyldes, at mutationen i algoritmen er for kraftig og sker for hyppigt. Programmet er dog blevet testet med flere forskellige sandsynligheder for at mutationen opstår. Ud fra disse tests kunne det ses at sandsynligheden for at en mutation finder sted, ikke havde nogen synlig effekt på spredningsdiagrammet. Dette kan observeres på figur~\ref{fig:spredningudenmutation}.
 \begin{figure}[!h]
 \centering
 \includegraphics[scale = 0.2]{partials/graphics/spredningudenmutation.png}
@@ -14,15 +14,22 @@ Fitnessen er tilfældig i gennem programmet. Skemaerne bliver altså ikke bedre 
 \label{fig:spredningudenmutation}
 \end{figure}
 
-Det kunne også være at crossoveren gør skemaerne for tilfældige. Da programmet blev kørt igennem en gang uden crossoveren så spredningsdiagrammet sådan ud:
+Det kunne også være, at crossoveren gør skemaerne for tilfældige. På figur~\ref{fig:spredningudencrossover} ses spredningsdiagrammet da programmet blev kørt igennem en gang uden crossoveren.
 \begin{figure}[!h]
 \centering
 \includegraphics[scale = 0.2]{partials/graphics/spredningudencrossover.png}
 \caption{Graf over spredningen af fitness værdier uden crossover funktionen}
 \label{fig:spredningudencrossover}
 \end{figure}
-Der er altså en mere tydelig tendens i grafen når crossoveren bliver fjernet, men kurven stiger stadig ikke konsekvent i de senere generation. Spredningen er dog mindre tilfældigt. Ud fra denne test kunne det godt være crossoverfunktionen der skaber problemer, ved at danne for tilfældige skemaer. 
-På følgende billede ses det at der ikke er nogen signifikant vækst i fitnessen efter femte generation
+Der er altså en mere tydelig tendens i grafen, når crossoveren bliver fjernet, men kurven stiger stadig ikke konsekvent i de senere generation. Spredningen er dog mindre tilfældigt. Ud fra denne test kunne crossoverfunktionen godt være problematisk, ved at danne for tilfældige skemaer. 
 
+På figur~\ref{fig:generationsfitness} ses det at der ikke er nogen signifikant vækst i fitnessen efter 30. generation.
 
-Udover problemerne med den genetiske algoritme, er der ikke det samme antal timer i alle parallelklasserne. Der er altså nogle af parallelklasserne der har for mange lektioner af diverse fag. Det kan reguleres i fitnessværdierne, hvor meget negativ fitness det skal give at have for mange lektioner af nogle fag. I det den nuværende løsning giver det -8000 i fitnessværdi hvis der er for mange timer.
+\begin{figure}[!h]
+\centering
+\includegraphics[scale = 0.2]{partials/graphics/generationsfitness.png}
+\caption{Fitness udvikling over generationer.}
+\label{fig:generationsfitness}
+\end{figure}
+
+Udover problemerne med den genetiske algoritme er der ikke det samme antal timer i alle parallelklasserne. Der er altså nogle af parallelklasserne, der har for mange lektioner af diverse fag. Det kan reguleres i fitnessværdierne, hvor meget negativ fitness det skal give at have for mange lektioner af nogle fag. I det den nuværende løsning giver det -8000 i fitnessværdi, hvis der er for mange timer.
