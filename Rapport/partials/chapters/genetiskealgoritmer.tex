@@ -39,17 +39,16 @@ På figur~\ref{fig:Lokalmax} ses variationer af skemaer hen ad x-aksen og fitnes
 Når den optimale løsning skal findes, er det vigtigt at algoritmen ikke bliver fanget på et lokalt højde-punkt, men at man kan komme over disse til det globale højdepunkt. Eksempelvis, hvis et problem havde fem parametre, og man udregnede fitness heraf. Heri vil der forekomme selektion, crossover og mutation. Dette betyder at endnu en fitness kan udregnes for den givne population. Men hvad nu, hvis algoritmen hænger fast. 
 
 Hvis parametrene kun ændres en lille smule for hver generation, gør det at programmet nu hænger fast, da tallene omkring disse parametre ikke gør at der kommer en højere fitness. Ud fra parametrene er det muligt at udregne den højeste fitness. Minimale ændringer vil ikke nødvendigvis resultere i den højeste fitness, hvorimod store ændringer i parametrene muligvis vil forårsage en højere fitness. Programmet skal i starten gerne finde løsninger, som lægger spredt ud over hele problemet, og så derefter fjerne denne mangfoldighed igen for at ’zoome’ ind på den endelige optimale løsning. 
-Det er gavnligt at have et individ med, der udover at have god fitness, ikke ligner de andre. På figur XX%mangler figur xx
- ses, at der forsøges at finde det individ, der ligger på linjerne.
+Det er gavnligt at have et individ med, der udover at have god fitness, ikke ligner de andre. 
 
-Både ved brug af brute force og generisk algoritme er målet at finde den optimale løsning. Denne beregnes ud fra et fitness niveau, hvor der på hver løsning laves en udregning ud fra valgte parametre. Denne returnerer et fitnessniveau. Herefter gemmes løsningen med det bedste fitnessniveau. Det bedste fitnessniveau kan være defineret ved den højest mulige eller lavest mulige værdi.\footfullcite{winston2014}
+Ved brug af generisk algoritme er målet at finde den optimale løsning. Denne beregnes ud fra et fitness niveau, hvor der på hver løsning laves en udregning ud fra valgte parametre. Denne returnerer et fitnessniveau. Herefter gemmes løsningen med det bedste fitnessniveau. Det bedste fitnessniveau kan være defineret ved den højest mulige eller lavest mulige værdi.\footfullcite{winston2014}
 
 Løsning til problemet.
 
 1.	Der bliver tilfældet generet en population af n-individer med l-kromosomer.
 
 
-2.	De genetiske algoritme operatorer udsætter populationen for mutation og derved vil der fore-komme ændringer hos kromosomerne i individerne eller danne nye individer.
+2.	De genetiske algoritme operatorer udsætter populationen for mutation og derved vil der fore-komme ændringer hos kromosomerne i individerne eller danne 	nye individer.
 
 
 3.	Der bliver beregnet fitness for hvert n-individ i populationen. Fitness bestemmer sandsynligheden for individet overlever i populationen.
@@ -60,8 +59,8 @@ Løsning til problemet.
 
 Algoritmen er færdig når x antal generationer er kørt igennem eller et givet kriterium er opfyldt og der vil være en population med potentielle løsninger til problemet, hvor der herudfra vil blive valgt en løsning til problemet som typisk er løsningen med højst fitness. Genetiske algoritmer kan bruges til at optimere problemet med skemalægning, udefra en række retningslinjer som bliver bestemt. Det vil udmunde i en optimal løsning til skemalægningsproblemet, hvis der bliver givet de korrekte retningslinjer.\footfullcite{jebari2013}
 
-\subsubsection{Searchspace}
-”Seach space” referer til en gruppe af kandidat løsning til et problem, hvor der er en ”distance” i mellem kandidaterne. For eksempel lad os tage vigtigt problem indenfor bioengeering, hvordan man designer et protein. Antaget at man vil søge efter et protein som er en sekvens af aminosyre som kan blive brugt til at bekæmpe en virus. ”Seach space” vil være en kollektion af alle mulige proteiner. Dette vil give os uendelige mange muligheder derfor begrænser vi længden af proteinet til længden 50 som stadig vil være et stort ”seach space” siden der er 20 mulige aminosyre i hver position i proteinet. Hvis vi repræsenter aminosyrerne i form af alfabetet vil et muligt protein se ledes ud. 
+\subsubsection{Udfaldsrum}
+Udfaldsrum referer til en gruppe af kandidat løsning til et problem, hvor der er en ”distance” i mellem kandidaterne. For eksempel lad os tage vigtigt problem indenfor bioengeering, hvordan man designer et protein. Antaget at man vil søge efter et protein som er en sekvens af aminosyre som kan blive brugt til at bekæmpe en virus. udfaldsrum vil være en kollektion af alle mulige proteiner. Dette vil give os uendelige mange muligheder derfor begrænser vi længden af proteinet til længden 50 som stadig vil være et stort udfaldsrum siden der er 20 mulige aminosyre i hver position i proteinet. Hvis vi repræsenter aminosyrerne i form af alfabetet vil et muligt protein se ledes ud. 
 ASDKEGHB…. Vi definer distance mellem proteinerne som forskellen i alfabetet på den tilsvarende position i et andet protein fx ASDKEGHB og BSDKEGHB er distance 1 og distance mellem ASDKEGHB og GCCHAKAA er 8.\footfullcite{jebari2013}
 
 
@@ -76,5 +75,5 @@ Selvom denne metode er sikker på den optimale løsning, vil et problem med mang
 Der er visse applikationer hvor brute-force kan være meget brugbart, hvis man F.eks. vil cracke et pass-word. Når man skal cracke et password kan man ikke bruge genetiske algoritmer, for du får ikke et output der fortæller om ens løsning er tæt på at være rigtig. Med brute-force er det sikkert, at man får den rigtige løsning, da brute-force tester alle løsninger.\footfullcite{brute2016}
 
 
-\subsection{Genetiske algoritmer i relation til skoleskemaer}
+\subsubsection{Genetiske algoritmer i relation til skoleskemaer}
   \input{partials/chapters/genetiskalgoogskoleskemaer.tex}
