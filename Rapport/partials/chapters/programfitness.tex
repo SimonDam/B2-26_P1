@@ -1,4 +1,4 @@
-Det følgende er et diagram over hvordan fitnessen udregnes:
+Figur~\ref{fig:diagramfitness} viser et diagram om fitness funktionen.
 \begin{figure}[!h]
 \includegraphics[width=\textwidth]{partials/graphics/calculate_fitness_all.png}
 \caption{Grafisk diagram over funktionen for fitness}
@@ -8,30 +8,29 @@ Det følgende er et diagram over hvordan fitnessen udregnes:
 Fitnessen bliver beregnet ved at tage de enkelte individer, samt deres parallelle klasser, og så gå igennem disse enkeltvis, hvor det undersøges om de overholder nogle specifikke krav, eller overtræder nogle andre. Hvis en af disse parametre er sande, får individet så en bonus eller en straf afhængigt af hvilken parametre der går i opfyldelse, og hvor vigtig denne er. Denne straf, eller bonus, bliver så lagt ind på fitness-variablen i det enkelte individ. Hvis individet har en negativ fitness-værdi, bliver dette ændret til 1, da negative værdier ville udgå fra selektion, eller gør processen mere kompliseret. med en fitness værdi på 1 er det stadig meget usandsynligt, men muligt hvergang selektionen kører, at et sådant skema vil blive valgt og påvirke udviklingen.
 De forskellige krav der bliver tjekket for, som giver bonus, er som følgende:
 
-   -	Hvis timerne lægger i træk. Hvis der F.eks. ligger to matematiktimer i streg.
+•	Hvis timerne lægger i træk. Hvis der F.eks. ligger to matematiktimer i streg.
    
-   -	Hvis parallel klasserne har de samme timer på det samme tidspunkt. 
+•	Hvis parallel klasserne har de samme timer på det samme tidspunkt. 
    
-   -	Hvis en lærer har to forberedelses-timer i streg.
+•	Hvis en lærer har to forberedelses-timer i streg.
    
-   -	Hvis der er en fri time i bunden af dagen.
+•	Hvis der er en fri time i bunden af dagen.
    
-   -	Hvis et skema overholder kravene for antal timer en klasse skal have.
-   
-   
+•	Hvis et skema overholder kravene for antal timer en klasse skal have.
+\\\\   
 De krav der giver en straf er:
 
-   -	Hvis der er tunge fag over middag.
+•	Hvis der er tunge fag over middag.
    
-   -	Hvis der er fri midt på dagen.
+•	Hvis der er fri midt på dagen.
    
-   -	Hvis en lærer er booket til flere timer på samme tid.
+•	Hvis en lærer er booket til flere timer på samme tid.
    
-   -	Hvis der er for mange af de samme fag i streg.
+•	Hvis der er for mange af de samme fag i streg.
    
-   -	Hvis et skema ikke overholder kravene for antallet af timer en klasse skal have.
-
-Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses herunder:
+•	Hvis et skema ikke overholder kravene for antallet af timer en klasse skal have.
+\\\\
+Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses på kodeeksemplet herunder:
 
 \begin{lstlisting}
 #define SCHOOL_DAYS_IN_WEEK 5
@@ -62,6 +61,7 @@ for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
   }
 \end{lstlisting}
 
-I fitness bruger vi de forskellige variabler ’individual\_master’, ’individual\_parallel1’ og ’individual\_parallel1’. Disse variabler er af typen ’individual’, som er et struct med informationer omkring et skema.
-Vi starter med at gå gennem to for-løkker, en variabel ’j’ bliver talt op antallet af skoledage på en uge, og en variabel ’i’ bliver talt op til antallet af lektioner på en dag. Nu ses der på om ’master’ har samme time på samme plads, som hver af parallelklasserne. Hvis dette er sandt bliver fitness talt op på ’master’ og de enkelte bindingers variabel bliver talt op i structet for individet.
+I fitness bruges de forskellige variabler ’individual\_master’, ’individual\_parallel1’ og ’individual\_parallel1’. Disse variabler er af datatypen ’individual’, som er et struct med informationer omkring et skema.
+Funktionen starter med at gå gennem to for-løkker, en variabel ’j’ bliver talt op antallet af skoledage på en uge og en variabel ’i’ bliver talt op til antallet af lektioner på en dag. Derefter testes om ’master’ har samme time på samme plads, som hver af parallelklasserne. Hvis dette er sandt, bliver fitness talt op på ’master’ og de enkelte bindingers variabel bliver talt op i structet for individet.
+
 De andre bindinger bliver tjekket med lignende stykker kode inde i fitnessfunktionen og påvirker fitnessen med en bestemt værdi, skrevet som symbolske konstanter, så programmet er tilpasseligt.

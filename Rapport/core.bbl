@@ -157,15 +157,6 @@
     \field{year}{2013}
   \endentry
 
-  \entry{brute2016}{online}{}
-    \field{labeltitlesource}{title}
-    \field{title}{Brute force cracking}
-    \verb{url}
-    \verb http://searchsecurity.techtarget.com/definition/brute-force-cracking
-    \endverb
-    \field{year}{2016}
-  \endentry
-
   \entry{jebari2013}{article}{}
     \name{author}{2}{}{%
       {{hash=JK}{%
@@ -214,33 +205,13 @@
   'date'}
   \endentry
 
-  \entry{selection}{online}{}
+  \entry{brute2016}{online}{}
     \field{labeltitlesource}{title}
-    \field{title}{Selection}
+    \field{title}{Brute force cracking}
     \verb{url}
-    \verb http://www.obitko.com/tutorials/genetic-algorithms/selection.php
+    \verb http://searchsecurity.techtarget.com/definition/brute-force-cracking
     \endverb
-  \endentry
-
-  \entry{roulette}{manual}{}
-    \list{organization}{1}{%
-      {tutorialspoint}%
-    }
-    \field{labeltitlesource}{title}
-    \field{title}{Genetic Algorithms - Parent Selection}
-    \verb{url}
-    \verb https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_
-    \verb parent_selection.htm
-    \endverb
-  \endentry
-
-  \entry{timefunc}{online}{}
-    \field{labeltitlesource}{title}
-    \field{title}{C library function - time()}
-    \verb{url}
-    \verb https://www.tutorialspoint.com/c\_standard\_library/c\_function_time.
-    \verb htm
-    \endverb
+    \field{year}{2016}
   \endentry
 \endsortlist
 \endinput

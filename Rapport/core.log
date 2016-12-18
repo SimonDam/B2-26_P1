@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 20:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,13 +1249,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--8
 
 ) (./partials/chapters/problemformulering.tex) [19]
 (./partials/chapters/designovervejelser.tex
+
+LaTeX Warning: Citation 'selection' on page 20 undefined on input line 22.
+
 <partials/graphics/roulette.png, id=135, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
 
 <use partials/graphics/roulette.png>
 Package pdftex.def Info: partials/graphics/roulette.png used on input line 27.
 (pdftex.def)             Requested size: 465.20166pt x 215.55632pt.
- [20 <./partials/graphics/roulette.png>]
+
+
+LaTeX Warning: Citation 'roulette' on page 20 undefined on input line 28.
+
+[20 <./partials/graphics/roulette.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
 
  []
@@ -1285,17 +1292,12 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 )) [23]
 (./partials/chapters/programdoku.tex (./partials/chapters/programintro.tex)
 (./partials/chapters/structs.tex [24] [25]) (./partials/chapters/main.tex
-<partials/graphics/main2.png, id=157, 1206.5075pt x 975.645pt>
+<partials/graphics/main2.png, id=158, 1016.79875pt x 989.6975pt>
 File: partials/graphics/main2.png Graphic file (type png)
 
 <use partials/graphics/main2.png>
 Package pdftex.def Info: partials/graphics/main2.png used on input line 3.
-(pdftex.def)             Requested size: 542.92337pt x 439.0362pt.
-
-Overfull \hbox (77.72171pt too wide) in paragraph at lines 3--4
-[][] 
- []
-
+(pdftex.def)             Requested size: 457.55522pt x 445.35976pt.
 
 Overfull \hbox (14.41333pt too wide) in paragraph at lines 15--16
 [][][][][][][][][][][] 
@@ -1316,36 +1318,58 @@ Overfull \hbox (99.82422pt too wide) in paragraph at lines 40--42
 [][][][][][][][][][][][][][][][] 
  []
 
-) [27] (./partials/chapters/dataindlaesning.tex [28])
+
+LaTeX Warning: Citation 'timefunc' on page 27 undefined on input line 57.
+
+) [27] (./partials/chapters/dataindlaesning.tex
+<partials/graphics/read_teachers_name.png, id=166, 538.01pt x 203.76125pt>
+File: partials/graphics/read_teachers_name.png Graphic file (type png)
+
+<use partials/graphics/read_teachers_name.png>
+Package pdftex.def Info: partials/graphics/read_teachers_name.png used on input
+ line 3.
+(pdftex.def)             Requested size: 538.00868pt x 203.76074pt.
+
+Overfull \hbox (72.80702pt too wide) in paragraph at lines 3--4
+[][] 
+ []
+
+[28 <./partials/graphics/read_teachers_name.png>])
 (./partials/chapters/programfitness.tex
-<partials/graphics/calculate_fitness_all.png, id=168, 917.4275pt x 253.94875pt>
+<partials/graphics/calculate_fitness_all.png, id=171, 917.4275pt x 253.94875pt>
 File: partials/graphics/calculate_fitness_all.png Graphic file (type png)
 <use partials/graphics/calculate_fitness_all.png>
 Package pdftex.def Info: partials/graphics/calculate_fitness_all.png used on in
 put line 3.
 (pdftex.def)             Requested size: 465.20166pt x 128.77202pt.
  [29 <./partials/graphics/calculate_fitness_all.png>]
-Overfull \hbox (99.82422pt too wide) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 19--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--34
+
+ []
+
+
+Overfull \hbox (99.82422pt too wide) in paragraph at lines 42--43
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (99.82422pt too wide) in paragraph at lines 50--51
+Overfull \hbox (99.82422pt too wide) in paragraph at lines 49--50
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (./partials/chapters/kodeeksempelroulette.tex
-<partials/graphics/selektion.png, id=174, 691.58376pt x 233.87375pt>
+[30]) (./partials/chapters/kodeeksempelroulette.tex
+<partials/graphics/selektion.png, id=180, 691.58376pt x 233.87375pt>
 File: partials/graphics/selektion.png Graphic file (type png)
 
 <use partials/graphics/selektion.png>
 Package pdftex.def Info: partials/graphics/selektion.png used on input line 3.
 (pdftex.def)             Requested size: 465.20166pt x 157.31909pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[30]
 Overfull \hbox (566.29907pt too wide) in paragraph at lines 14--15
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1355,7 +1379,7 @@ Overfull \hbox (428.32764pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[31 <./partials/graphics/selektion.png>]
 Overfull \hbox (14.41333pt too wide) in paragraph at lines 27--28
 [][][][][][][][][][][][][][][][][][] 
  []
@@ -1371,33 +1395,31 @@ Overfull \hbox (40.6936pt too wide) in paragraph at lines 29--30
  []
 
 ) (./partials/chapters/programmutation.tex
-<partials/graphics/mutation.png, id=178, 676.5275pt x 284.06125pt>
+<partials/graphics/mutation.png, id=185, 676.5275pt x 284.06125pt>
 File: partials/graphics/mutation.png Graphic file (type png)
 
 <use partials/graphics/mutation.png>
 Package pdftex.def Info: partials/graphics/mutation.png used on input line 3.
 (pdftex.def)             Requested size: 465.20166pt x 195.33495pt.
- [31 <./partials/graphics/selektion.png>]
+
 Overfull \hbox (257.50586pt too wide) in paragraph at lines 13--15
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[32 <./partials/graphics/mutation.png>]
 Overfull \hbox (290.3562pt too wide) in paragraph at lines 28--29
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[32 <./partials/graphics/mutation.png>])
-(./partials/chapters/ProgramPrintsSkema.tex
-<partials/graphics/read_teachers_name.png, id=187, 538.01pt x 203.76125pt>
+) (./partials/chapters/ProgramPrintsSkema.tex
 File: partials/graphics/read_teachers_name.png Graphic file (type png)
 
 <use partials/graphics/read_teachers_name.png>
 Package pdftex.def Info: partials/graphics/read_teachers_name.png used on input
  line 3.
 (pdftex.def)             Requested size: 465.20166pt x 176.18886pt.
-
+ [33]
 Overfull \hbox (494.02832pt too wide) in paragraph at lines 12--13
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1414,7 +1436,7 @@ Overfull \hbox (434.8977pt too wide) in paragraph at lines 23--25
 ][][][][][][][][][][][][][] 
  []
 
-[33 <./partials/graphics/read_teachers_name.png>]
+
 Overfull \hbox (2221.9563pt too wide) in paragraph at lines 28--30
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1437,8 +1459,9 @@ Overfull \hbox (86.68408pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)) [34] (./partials/chapters/programtest.tex (./partials/chapters/starttest.tex
-<partials/graphics/startsskema.png, id=195, 913.91437pt x 760.34062pt>
+[34])) [35] (./partials/chapters/programtest.tex
+(./partials/chapters/starttest.tex
+<partials/graphics/startsskema.png, id=200, 913.91437pt x 760.34062pt>
 File: partials/graphics/startsskema.png Graphic file (type png)
 
 <use partials/graphics/startsskema.png>
@@ -1446,14 +1469,14 @@ Package pdftex.def Info: partials/graphics/startsskema.png used on input line 4
 .
 (pdftex.def)             Requested size: 465.20166pt x 387.02606pt.
 ) (./partials/chapters/fitnesstest.tex
-<partials/graphics/fitness.png, id=196, 205.36725pt x 166.221pt>
+<partials/graphics/fitness.png, id=201, 205.36725pt x 166.221pt>
 File: partials/graphics/fitness.png Graphic file (type png)
 
 <use partials/graphics/fitness.png>
 Package pdftex.def Info: partials/graphics/fitness.png used on input line 3.
 (pdftex.def)             Requested size: 465.20166pt x 376.5681pt.
 
-<partials/graphics/fitness1.png, id=197, 952.30782pt x 248.42813pt>
+<partials/graphics/fitness1.png, id=202, 952.30782pt x 248.42813pt>
 File: partials/graphics/fitness1.png Graphic file (type png)
 
 <use partials/graphics/fitness1.png>
@@ -1463,11 +1486,11 @@ Package pdftex.def Info: partials/graphics/fitness1.png used on input line 12.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35 <./partials/graphics/startsskema.png>]
+[36 <./partials/graphics/startsskema.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/fitness2.png, id=202, 995.21812pt x 264.99pt>
+<partials/graphics/fitness2.png, id=207, 995.21812pt x 264.99pt>
 File: partials/graphics/fitness2.png Graphic file (type png)
 
 <use partials/graphics/fitness2.png>
@@ -1477,16 +1500,16 @@ Package pdftex.def Info: partials/graphics/fitness2.png used on input line 19.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/fitness3.png, id=203, 954.56625pt x 232.61906pt>
+<partials/graphics/fitness3.png, id=208, 954.56625pt x 232.61906pt>
 File: partials/graphics/fitness3.png Graphic file (type png)
 
 <use partials/graphics/fitness3.png>
 Package pdftex.def Info: partials/graphics/fitness3.png used on input line 26.
 (pdftex.def)             Requested size: 465.20166pt x 113.36317pt.
- [36 <./partials/graphics/fitness.png>])
-(./partials/chapters/mutationtest.tex [37 <./partials/graphics/fitness1.png> <.
+ [37 <./partials/graphics/fitness.png>])
+(./partials/chapters/mutationtest.tex [38 <./partials/graphics/fitness1.png> <.
 /partials/graphics/fitness2.png> <./partials/graphics/fitness3.png>]
-<partials/graphics/mutationbevis.png, id=212, 313.9228pt x 328.22626pt>
+<partials/graphics/mutationbevis.png, id=216, 313.9228pt x 328.22626pt>
 File: partials/graphics/mutationbevis.png Graphic file (type png)
 
 <use partials/graphics/mutationbevis.png>
@@ -1495,7 +1518,7 @@ Package pdftex.def Info: partials/graphics/mutationbevis.png used on input line
 (pdftex.def)             Requested size: 465.20166pt x 486.41833pt.
 )
 (./partials/chapters/crossovertest.tex
-<partials/graphics/crossovertest.png, id=213, 287.57437pt x 505.13719pt>
+<partials/graphics/crossovertest.png, id=217, 287.57437pt x 505.13719pt>
 File: partials/graphics/crossovertest.png Graphic file (type png)
 
 <use partials/graphics/crossovertest.png>
@@ -1506,9 +1529,9 @@ Package pdftex.def Info: partials/graphics/crossovertest.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[38 <./partials/graphics/mutationbevis.png>])
+[39 <./partials/graphics/mutationbevis.png>])
 (./partials/chapters/helhedstest.tex
-<partials/graphics/programtestdef.png, id=218, 263.48438pt x 207.77625pt>
+<partials/graphics/programtestdef.png, id=222, 263.48438pt x 207.77625pt>
 File: partials/graphics/programtestdef.png Graphic file (type png)
 
 <use partials/graphics/programtestdef.png>
@@ -1519,7 +1542,7 @@ e 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<partials/graphics/programtestinfo.png, id=219, 249.93375pt x 383.93437pt>
+<partials/graphics/programtestinfo.png, id=223, 249.93375pt x 383.93437pt>
 File: partials/graphics/programtestinfo.png Graphic file (type png)
 
 <use partials/graphics/programtestinfo.png>
@@ -1530,9 +1553,9 @@ ne 10.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[39 <./partials/graphics/crossovertest.png>] [40 <./partials/graphics/programte
+[40 <./partials/graphics/crossovertest.png>] [41 <./partials/graphics/programte
 stdef.png> <./partials/graphics/programtestinfo.png>]
-<partials/graphics/programtestres.png, id=227, 448.67625pt x 642.14906pt>
+<partials/graphics/programtestres.png, id=232, 448.67625pt x 642.14906pt>
 File: partials/graphics/programtestres.png Graphic file (type png)
 
 <use partials/graphics/programtestres.png>
@@ -1543,21 +1566,21 @@ e 18.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)) [41]
+)) [42]
 
-LaTeX Warning: Text page 42 contains only floats.
+LaTeX Warning: Text page 43 contains only floats.
 
-[42 <./partials/graphics/programtestres.png>]
-(./partials/chapters/videreudvikling.tex [43]) [44]
+[43 <./partials/graphics/programtestres.png>]
+(./partials/chapters/videreudvikling.tex [44]) [45]
 (./partials/chapters/vurdering.tex
-<partials/graphics/spredning.png, id=241, 1725.44624pt x 950.55125pt>
+<partials/graphics/spredning.png, id=245, 1725.44624pt x 950.55125pt>
 File: partials/graphics/spredning.png Graphic file (type png)
 
 <use partials/graphics/spredning.png>
 Package pdftex.def Info: partials/graphics/spredning.png used on input line 4.
 (pdftex.def)             Requested size: 345.08313pt x 190.10687pt.
 
-<partials/graphics/spredningudenmutation.png, id=242, 1725.44624pt x 950.55125p
+<partials/graphics/spredningudenmutation.png, id=246, 1725.44624pt x 950.55125p
 t>
 File: partials/graphics/spredningudenmutation.png Graphic file (type png)
  <use partials/graphics/spredningudenmutation.png>
@@ -1565,7 +1588,7 @@ Package pdftex.def Info: partials/graphics/spredningudenmutation.png used on in
 put line 12.
 (pdftex.def)             Requested size: 345.08313pt x 190.10687pt.
 
-<partials/graphics/spredningudencrossover.png, id=243, 1724.4425pt x 948.54375p
+<partials/graphics/spredningudencrossover.png, id=247, 1724.4425pt x 948.54375p
 t>
 File: partials/graphics/spredningudencrossover.png Graphic file (type png)
  <use partials/graphics/spredningudencrossover.png>
@@ -1576,46 +1599,52 @@ nput line 20.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[45 <./partials/graphics/spredning.png> <./partials/graphics/spredningudenmutat
-ion.png>]) [46 <./partials/graphics/spredningudencrossover.png>]
-(./partials/chapters/konklusion.tex)) (./partials/footer.tex [47])
+[46 <./partials/graphics/spredning.png> <./partials/graphics/spredningudenmutat
+ion.png>]) [47 <./partials/graphics/spredningudencrossover.png>]
+(./partials/chapters/konklusion.tex)) (./partials/footer.tex [48])
 Overfull \hbox (2.68198pt too wide) in paragraph at lines 28--28
 \OT1/cmtt/m/n/10.95 og -[] frie -[] skoler / Statistik -[] om -[] undervisnings
 timetal -[] i -[] folkeskolen ? allowCookies =
  []
 
-[48] (./core.aux)
+[49] (./core.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                core
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13616 strings out of 493013
- 222715 string characters out of 6136992
- 518515 words of memory out of 5000000
- 16819 multiletter control sequences out of 15000+600000
- 10437 words of font info for 37 fonts, out of 8000000 for 9000
+ 13613 strings out of 493013
+ 222545 string characters out of 6136992
+ 532515 words of memory out of 5000000
+ 16815 multiletter control sequences out of 15000+600000
+ 10745 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,18n,64p,2230b,1599s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
-fb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on core.pdf (50 pages, 1958384 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2016/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2016/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmtt9.pfb>
+Output written on core.pdf (51 pages, 1971173 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 312 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
