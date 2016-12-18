@@ -1,0 +1,2 @@
+Terminalen åbnes først. Der sørges for at der compiles i samme fil som programmet ligger i. Herefter gcc’s der alle fil navnene som ender på .c 
+gcc skema5.c fitness.c  read_data.c muta_cross.c selection.c print.c. Så køres a.exe efterfølgende.
