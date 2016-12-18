@@ -40,11 +40,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Mangfoldighed}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Searchspace}{17}
+\contentsline {subsubsection}{\numberline {2.7.2}Udfaldsrum}{17}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.7.3}Brute Force}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}Genetiske algoritmer i relation til skoleskemaer}{18}
+\contentsline {subsubsection}{\numberline {2.7.4}Genetiske algoritmer i relation til skoleskemaer}{18}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Delkonklusion}{18}
 \defcounter {refsection}{0}\relax 

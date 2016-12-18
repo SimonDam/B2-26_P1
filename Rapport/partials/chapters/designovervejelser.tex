@@ -16,11 +16,10 @@ Som tidligere diskuteret er processen for genetiske algoritmer følgende:
 •	Sandsynligheden for at en crossover eller mutation finder sted bliver bestemt ud fra en selektionsmetode.
 
 
-I det følgende afsnit beskrives nogle af de selektionsmetoder der kan bruges. Det vil endvidere også blive diskuteret, hvilken af disse metoder der bedst kan anvendes til at producere skoleskemaer.\footfullcite{winston2014}
+I det følgende afsnit beskrives nogle af de selektionsmetoder, der kan bruges. Det vil endvidere også blive diskuteret, hvilken af disse metoder, som bedst kan anvendes til at producere skoleskemaer.\footfullcite{winston2014}
 
 \subsubsection{Roulette metoden}
-
-Man kan forestille sig at hvert individ er tildelt et stykke på en roulette og størrelsen på stykket er proportional med individets fitness. Roulette bliver spinnet n antal gange, det vil tage for at vælge forældrene til den næste generation. Under hvert spin bliver individet under roulettens markør valgt til, at være en del af en gruppe af forældre til den næste generation. En kandidat kan godt blive valgt til, at være forældre flere gange, da det er forældrene til næste generation og ikke selve individerne i generationen, der bliver valgt, gør det dog ingen forskel. Formålet med denne metode er, at få valgt de forældre med den største fitness til næste generation, da de har større sandsynlig for, at skabe individer med større fitness. Problemet med denne metode er dog, at den genetiske algoritme hurtigt vil stå fast i den ene del af fitness rummet, da det er muligt at vælge den samme forældre flere gange, og derved kan der blive skabt en meget ensartet population, som gør at der kun vil blive udforsket et bestemt område af rummet i stedet for at udforske hele rummet.\footfullcite{jebari2013}\footfullcite{selection}
+Et individ er tildelt et stykke på en roulette, og størrelsen på stykket er proportional med individets fitness. Rouletten bliver spinnet n antal gange, og n individer vælges til næste generation. En kandidat kan godt blive valgt til, at være forældre flere gange, da det er forældrene til næste generation og ikke selve individerne i generationen, der bliver valgt, gør det dog ingen forskel. Formålet med denne metode er, at få valgt de forældre med den største fitness til næste generation, da de har større sandsynlig for, at skabe individer med større fitness. Problemet med denne metode er dog, at den genetiske algoritme hurtigt vil stå fast i den ene del af fitness rummet, da det er muligt at vælge den samme forældre flere gange, og derved kan der blive skabt en meget ensartet population, som gør at der kun vil blive udforsket et bestemt område af rummet i stedet for at udforske hele rummet.\footfullcite{jebari2013}\footfullcite{selection}
 Roulette metoden kan illustreres på følgende måde:
 \begin{figure}[!h]
   \centering
@@ -38,6 +37,7 @@ I rang metoden bliver individerne sorteret efter størrelsen på deres fitness. 
 2 tilfældige individer bliver valgt fra populationen. Man generer en tilfældig værdi fra 0-1 for at sammenligne den med valgte sandsynlighedsværdi. Hvis værdien er mindre eller lige med sandsynlighedsværdien bliver det individ med højst fitness valgt ellers bliver individet med den lavere fitness valgt. Sandsynlighedsværdien bliver altid sat højere end 0.5 for at favorisere individet med den højeste fitness\footfullcite{jebari2013}. 
 
 I det følgende program benyttes roulette metoden. Ved brug af roulette metoden er der forskel ved sammenligning af to individer, hvor deres fitness ligger tæt på hinanden, og to individer hvor deres fitness ligger langt fra hinanden. Tournemant metoden laver ikke nogle forskel på disse situationer og er derfor ikke optimal til dette problem.
+
 \subsection{Produktafgrænsning}
   \input{partials/chapters/problemafgrensning.tex}
 

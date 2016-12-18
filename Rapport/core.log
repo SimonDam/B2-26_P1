@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.12)  18 DEC 2016 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1232,8 +1232,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--4
  []
 
 [17])) (./partials/chapters/delkonklusion.tex) [18]
-(./partials/chapters/problemafgrensning.tex)
-(./partials/chapters/problemformulering.tex [19])
+(./partials/chapters/problemafgrensning.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+) (./partials/chapters/problemformulering.tex [19])
 (./partials/chapters/designovervejelser.tex
 <partials/graphics/roulette.png, id=135, 451.6875pt x 209.28188pt>
 File: partials/graphics/roulette.png Graphic file (type png)
@@ -1245,9 +1259,23 @@ Package pdftex.def Info: partials/graphics/roulette.png used on input line 27.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20] (./partials/chapters/problemafgrensning.tex) [21 <./partials/graphics/roul
-ette.png>] (./partials/chapters/kravspecifikationer.tex)
-(./partials/chapters/kodestil.tex
+[20] (./partials/chapters/problemafgrensning.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--8
+
+ []
+
+[21 <./partials/graphics/roulette.png>])
+(./partials/chapters/kravspecifikationer.tex) (./partials/chapters/kodestil.tex
 (c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -1607,9 +1635,6 @@ ossovertest.png>] [46 <./partials/graphics/programtestdef.png> <./partials/grap
 hics/programtestinfo.png>] [47 <./partials/graphics/programtestres.png>]
 [48 <./partials/graphics/spredning.png> <./partials/graphics/spredningudenmutat
 ion.png> <./partials/graphics/spredningudencrossover.png>] (./core.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'core.run.xml'.
 \openout1 = `core.run.xml'.
 
@@ -1634,7 +1659,7 @@ xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2016/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on core.pdf (50 pages, 1968719 bytes).
+Output written on core.pdf (50 pages, 1968957 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams
