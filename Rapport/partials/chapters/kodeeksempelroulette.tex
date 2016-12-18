@@ -7,7 +7,7 @@ Figur~\ref{fig:diagramselektion} er et diagram over selektions metoden.
 
 Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at fitnessen for alle individer i et bestemt klassetrin først lægges sammen for at finde størrelsen på rouletten. Denne gemmes i variablen "sum", som er en integer. Herefter vælges et tilfældigt punkt på rouletten ved hjælp af rand() modolus summen. Punktet gemmes i field integer'en.
 
-Herefter køres en for-løkke der starter fra bunden af rouletten og lægger summen af fitnessen for tre parallelklasser sammen med summen af den forrige sum, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver de i'ende individer (tre parralelklasser) valgt og gemt ned i temp\_individuals.  
+Herefter køres en for-løkke der starter fra bunden af rouletten og lægger summen af fitnessen for tre parallelklasser sammen med summen af den forrige sum, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver de i'ende individer (tre parralelklasser) valgt og gemt ned i population.  
 
 \begin{lstlisting}[language = c]
 int pick_individual(individual **population, individual **old_population, int class, int indi_num){
