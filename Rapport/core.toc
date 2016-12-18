@@ -10,7 +10,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2}Lovm\IeC {\ae }ssige krav til folkeskoleskemaet}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Skolereformen}{7}
+\contentsline {subsubsection}{\numberline {2.2.1}Skolereformen}{6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3}Case study - Sofiendalskolen}{7}
 \defcounter {refsection}{0}\relax 
@@ -18,13 +18,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5}State of the art}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{9}
+\contentsline {subsubsection}{\numberline {2.5.1}Docendo}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{10}
+\contentsline {subsubsection}{\numberline {2.5.2}Lantiv}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{11}
+\contentsline {subsubsection}{\numberline {2.5.3}Tabulex}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Untis}{12}
+\contentsline {subsubsection}{\numberline {2.5.4}Untis}{13}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Genetiske algoritmer}{13}
 \defcounter {refsection}{0}\relax 
@@ -32,7 +32,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.6.2}Genetiske algoritmer}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Selektion}{14}
+\contentsline {paragraph}{Selektion}{15}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Crossover}{15}
 \defcounter {refsection}{0}\relax 
@@ -40,7 +40,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Mangfoldighed}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{16}
+\contentsline {subsubsection}{\numberline {2.6.3}Searchspace}{17}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Delkonklusion}{17}
 \defcounter {refsection}{0}\relax 
