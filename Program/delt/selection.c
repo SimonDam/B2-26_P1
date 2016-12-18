@@ -84,7 +84,7 @@ void choose_individual(individual **population, individual **chosen_individual, 
 }
 
 /* Adds the fitness of three parallelclasses to eachother, since they are dependent of eachother */
-void calculate_finess_parallel(individual **population, int sum_parrallel[], int class){
+void calculate_fitness_parallel(individual **population, int sum_parrallel[], int class){
   int i;
   for(i = 0; i < SIZE_OF_POPULATION; i++){
     if((population[class][i].fitness == 1) || (population[class+1][i].fitness == 1) || (population[class+2][i].fitness == 1)){
