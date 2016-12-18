@@ -16,6 +16,7 @@
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 int main(void){
   /* init general stuff */
+  int i, j;
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
 
   /* init classes */
@@ -35,8 +36,6 @@ int main(void){
 
   create_individuals(individuals);
   calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
-
-  int i, j;
 
  for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
     choose_individual(individuals, chosen_individual, j, 0);

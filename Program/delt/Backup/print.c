@@ -8,9 +8,10 @@
 #include "defines.h"
 #include "print.h"
 
+/*Finding best individuals from all generations*/
 void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individual best_of_best[]){
   printf("\n\n");
-  int i, k, j = 0;
+  int i, k, j;
   int best_sum1, best_sum2, best_sum3;
   int best_gen1, best_gen2, best_gen3;
   int sum1, sum2, sum3;
@@ -252,7 +253,7 @@ void print_req(individual chosen_individual, requirements requirements_class){
           temp_Pra_req,
           temp_Fri_req);
 }
-
+/*Printing the entire schudule*/
 void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   int i, j, c;
   printf("\n\n   Teachers\n");
@@ -296,7 +297,7 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
     printf("\n\n\n");
   }
 }
-
+/*Printing time of day*/
 void print_time_func (int i){
   if (i == 0){
     printf("   8.00 -  8.45  |\t");
@@ -324,6 +325,7 @@ void print_time_func (int i){
   }
 }
 
+/*Printing subjekt and teacher name*/
 void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   /* Saving the name of subjekt */
   char subject_name[LESSON_NAME_MAX];
@@ -452,6 +454,7 @@ void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUM
   printf("  %s", subject_name);
 }
 
+/*Printing class name*/
 void print_class_name(int c){
   switch (c){
     case 0:

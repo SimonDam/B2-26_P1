@@ -8,7 +8,7 @@
 #include "defines.h"
 #include "read_data.h"
 
-
+/* Reading info from file into arrays of struct */
 void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS]){ 
  FILE *teacherinfo = fopen("info.txt", "r");
   if(teacherinfo == NULL){
@@ -18,7 +18,7 @@ void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   }
 
   teacher local_teacher_data;
-  int i = 0, j = 0;
+  int i, j;
   for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for(i = 0;i < NUMBER_OF_SUBJECTS; i++){
       fscanf(teacherinfo,
@@ -32,9 +32,9 @@ void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS]){
   }  
   fclose(teacherinfo);
 }
-
+/*Setting requirements into array struct*/
 void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]){
-  int j = 0, i  = 0, k = 0;
+  int j, i, k;
   for(j = 0, k = 0; j < NUMBER_OF_CLASSES; j++, k++){
     for(i = 0; i < NUMBER_OF_SUBJECTS; i ++){
       if(strcmp("Dan", teacher_data[j][i].lesson_name) == 0){
@@ -83,9 +83,8 @@ void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requireme
   }
 }
 
-
+/*creating schudules with random lessons */
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-
   int i, j;
   
   for (j = 0; j < NUMBER_OF_CLASSES; j++ ){

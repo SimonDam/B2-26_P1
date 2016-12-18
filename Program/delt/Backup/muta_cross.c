@@ -8,13 +8,15 @@
 #include "defines.h"
 #include "muta_cross.h"
 
-
+/*Creating SIZE_OF_POPULATION numbers of children which is created from random choosen parents from old_population*/
 void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS], requirements requirements_classes[], int generation){
-  int i = 0, rand_parent1 = 0, rand_parent2 = 0, k = 0, j = 0, g = 0, h = 0;
+  int k, j;
+  int rand_parent1 = 0, rand_parent2 = 0;
   
   make_old_population(individuals, individuals_temp);
   for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
     for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
+      /*Choosing random parents*/
       rand_parent1 = rand()% NUMBER_OF_INDIVIDUALS;
       rand_parent2 = rand()% NUMBER_OF_INDIVIDUALS;
       crossover_indi(individuals, individuals_temp[j][rand_parent1], individuals_temp[j][rand_parent2], requirements_classes[j], j, k, generation);
@@ -24,14 +26,17 @@ void crossover(individual individuals[][NUMBER_OF_INDIVIDUALS], individual indiv
   }
 } 
 
+/*Creating a child using 2 parents. Child day 1 = random day from parent 1. Child day 2 = random day from parent 2. 
+Child day 3 and 4 mixing 2 random days(different from the used random days) from parent 1 and 2 each and mixing them together.
+Child day 5 is filled with lessons to meet requirements. When requirements is meet the rest is fri.*/
 void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation){
-  int i = 0, ran1day = 0, ran2day = 0, ran3day = 0, ran4day = 0, ran5day = 0, ran6day = 0, ran_lesson = 0, k = 0, j = 0;
-  int classes[1][NUMBER_OF_SUBJECTS];
-  int chance = 0;
-
+  int i, k, j;
+  //int classes[1][NUMBER_OF_SUBJECTS];
+  int chance = 0, day1_parent1 = 0, day1_parent2 = 0, day2_parent1 = 0, day2_parent2 = 0, day3_parent1 = 0, day3_parent2 = 0, ran_lesson = 0;
+  /*Allocating space for req_temp to count requirements*/
   requirements *requirements_temp;
   requirements_temp = (requirements *)calloc(1 , sizeof(requirements));
-
+  /*reseting child using fri lesson*/
   for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
     individuals[class][indi_num].lesson_num[k][0] = fri;
     individuals[class][indi_num].lesson_num[k][1] = fri;
@@ -39,36 +44,37 @@ void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual 
     individuals[class][indi_num].lesson_num[k][3] = fri;
     individuals[class][indi_num].lesson_num[k][4] = fri;
   } 
-
-  ran1day = rand()% SCHOOL_DAYS_IN_WEEK;
-  ran2day = rand()% SCHOOL_DAYS_IN_WEEK;
-  while(ran3day == ran1day){
-    ran3day = rand()% SCHOOL_DAYS_IN_WEEK;
+  /*Choosing random days*/
+  day1_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
+  day1_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(day2_parent1 == day1_parent1){
+    day2_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
   }
-  while(ran4day == ran2day){
-    ran4day = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(day2_parent2 == day1_parent2){
+    day2_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
   }
-  while(ran5day == ran1day || ran5day == ran3day){
-    ran5day = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(day3_parent1 == day1_parent1 || day3_parent1 == day2_parent1){
+    day3_parent1 = rand()% SCHOOL_DAYS_IN_WEEK;
   }
-  while(ran6day == ran2day || ran6day == ran4day){
-    ran6day = rand()% SCHOOL_DAYS_IN_WEEK;
+  while(day3_parent2 == day1_parent2 || day3_parent2 == day2_parent2){
+    day3_parent2 = rand()% SCHOOL_DAYS_IN_WEEK;
   }
   for(k = 0; k < LESSONS_PER_DAY_MAX; k++){   
-    individuals[class][indi_num].lesson_num[k][0] = parent1.lesson_num[k][ran1day];
-    individuals[class][indi_num].lesson_num[k][1] = parent2.lesson_num[k][ran2day];
+    individuals[class][indi_num].lesson_num[k][0] = parent1.lesson_num[k][day1_parent1];
+    individuals[class][indi_num].lesson_num[k][1] = parent2.lesson_num[k][day1_parent2];
   } 
 
   ran_lesson = rand()% LESSONS_PER_DAY_MAX;
   for(k = 0; k < ran_lesson; k++){   
-    individuals[class][indi_num].lesson_num[k][2] = parent2.lesson_num[k][ran6day];
-    individuals[class][indi_num].lesson_num[k][3] = parent1.lesson_num[k][ran5day];
+    individuals[class][indi_num].lesson_num[k][2] = parent2.lesson_num[k][day3_parent2];
+    individuals[class][indi_num].lesson_num[k][3] = parent1.lesson_num[k][day3_parent1];
   }
   for(k = ran_lesson; k < LESSONS_PER_DAY_MAX; k++){   
-    individuals[class][indi_num].lesson_num[k][2] = parent1.lesson_num[k][ran3day];
-    individuals[class][indi_num].lesson_num[k][3] = parent2.lesson_num[k][ran4day];
+    individuals[class][indi_num].lesson_num[k][2] = parent1.lesson_num[k][day2_parent1];
+    individuals[class][indi_num].lesson_num[k][3] = parent2.lesson_num[k][day2_parent2];
   }
 
+  /*Counting lessons in child so far */
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK-1; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
       switch (individuals[class][indi_num].lesson_num[i][j]){
@@ -121,7 +127,7 @@ void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual 
     }
   }
 
-
+  /*Comparing lessons so far to requirements and filling day 5 if it's needed*/
   chance = 0;
   for(i = 0, k = 0; i < 400; i++){
     if(k == 8){
@@ -230,8 +236,9 @@ void crossover_indi(individual individuals[][NUMBER_OF_INDIVIDUALS], individual 
   free(requirements_temp);
 }
 
+/*Putting current population over in old population*/
 void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_temp[][NUMBER_OF_INDIVIDUALS]){
-  int j = 0, i = 0;  
+  int j, i;  
   for(j = 0; j < NUMBER_OF_CLASSES; j++){ 
     for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals_temp[j][i] = individuals[j][i];
@@ -239,8 +246,12 @@ void make_old_population(individual individuals[][NUMBER_OF_INDIVIDUALS], indivi
   }
 }
 
+/* A for loop is run as many times as the possible mutations is set. Each time the loop is run, there is a specific chance (CHANCE_OF_MUTATION) that mutations
+   will ocour. When mutation occours, program picks 2 random days that are not the same and 2 random lessons that are not the same. the first random lesson 
+   in the first random day is then swapped with the second random lesson in the second random day S*/
 void mutation(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-  int i = 0, j = 0, k =0, ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+  int i, j, k;
+  int ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
   for(k = 0; k < NUMBER_OF_CLASSES; k++){
     for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       mutations = rand()% (MAX_MUTATIONS_PER_INDIVIDUAL+1);

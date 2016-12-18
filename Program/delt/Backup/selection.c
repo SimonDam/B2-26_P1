@@ -9,6 +9,8 @@
 #include "selection.h"
 #include "muta_cross.h"
 
+/*Selection of the best individuals in a population using the roulette method */
+
 void selektion(individual individuals[][NUMBER_OF_INDIVIDUALS]){
   individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
 
@@ -62,23 +64,23 @@ int pick_individual(individual temp_individuals[][NUMBER_OF_INDIVIDUALS], indivi
 }
 
 /* function finds the three parralelclasses with the highest summed fitness
-/* int class represents 7, 8, 9 class as: 0 = 7a, 1 = 7b, 2 = 7c, 3 = 8a, 4 = 8b and so on. generation interger tells which individuals is currently being changed*/
+ int class represents 7, 8, 9 class as: 0 = 7a, 1 = 7b, 2 = 7c, 3 = 8a, 4 = 8b and so on. generation interger tells which individuals is currently being changed*/
 
 void choose_individual(individual individuals[][NUMBER_OF_INDIVIDUALS], individual individuals_chosen[][NUMBER_OF_GENERATIONS], int class, int generation){
   int choose_fitness = -1;
   int individual_test = -2;
   int sum_parrallel_fitness[NUMBER_OF_INDIVIDUALS];
-  int i, j, k, f;
+  int i;
   
   calculate_finess_parallel(individuals, sum_parrallel_fitness, class);
 
-  for(k = 0; k < NUMBER_OF_INDIVIDUALS; k++){
-    if (sum_parrallel_fitness[k] > choose_fitness){
-      individuals_chosen[class][generation] = individuals[class][k];
-      individuals_chosen[class+1][generation] = individuals[class+1][k];
-      individuals_chosen[class+2][generation] = individuals[class+2][k];
-      choose_fitness = sum_parrallel_fitness[k];
-      individual_test = k;
+  for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+    if (sum_parrallel_fitness[i] > choose_fitness){
+      individuals_chosen[class][generation] = individuals[class][i];
+      individuals_chosen[class+1][generation] = individuals[class+1][i];
+      individuals_chosen[class+2][generation] = individuals[class+2][i];
+      choose_fitness = sum_parrallel_fitness[i];
+      individual_test = i;
     }
   }
 }
