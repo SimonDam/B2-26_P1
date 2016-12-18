@@ -85,8 +85,11 @@ void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requireme
 
 
 void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-  for (int j = 0; j < NUMBER_OF_CLASSES; j++ ){
-    for(int i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
+
+  int i, j;
+  
+  for (j = 0; j < NUMBER_OF_CLASSES; j++ ){
+    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
       individuals[j][i] = create_individual();
     }
   }

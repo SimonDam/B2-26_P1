@@ -36,12 +36,13 @@ int main(void){
   create_individuals(individuals);
   calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
 
- for(int j = 0; j < NUMBER_OF_CLASSES; j += 3){
+  int i, j;
+
+ for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
     choose_individual(individuals, chosen_individual, j, 0);
   }
  
   /* Genetic algorithem */
-  int i, j;
   for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
     /* Selektion */
     selektion(individuals);
