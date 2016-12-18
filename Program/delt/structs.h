@@ -2,7 +2,8 @@
 
 #include "defines.h"
 
-typedef struct individual individual;
+enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, rel, pra, fri};
+
 struct individual{
   int lesson_num[LESSONS_PER_DAY_MAX][SCHOOL_DAYS_IN_WEEK];
   int fitness;
@@ -14,18 +15,16 @@ struct individual{
   int teacher_overbooked;
   int best_gena7;
   int best_gena8;
-  int best_gena9;
+  int best_gena9; 
 };
 
-typedef struct teacher teacher;
-struct teacher{
+struct class_info{
   char teacher_name[TEACHER_NAME_MAX];
   char lesson_name[LESSON_NAME_MAX];
   int number_of_lessons;
-  char class_name[TEACHER_NAME_MAX];
+  char class_name[TEACHER_NAME_MAX];  
 };
 
-typedef struct requirements requirements;
 struct requirements{
   int Dan_req;
   int Mat_req;
@@ -38,9 +37,10 @@ struct requirements{
   int Geo_req;
   int Bio_req;
   int Gym_req;
-  int Fri_req;
   int Rel_req;
   int Pra_req;
+  int Fri_req;
 };
-
-enum lesson_number {dan, mat, eng, tys, fys, his, sam, val, geo, bio, gym, rel, pra, fri};
+typedef struct individual individual;
+typedef struct class_info class_info;
+typedef struct requirements requirements;

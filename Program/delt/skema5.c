@@ -15,63 +15,89 @@
 
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 int main(void){
-  /* init general stuff */
+  /*Init general stuff*/
+  int i, j; 
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
+  /* Allocating space for arrays of structs*/
+  individual **population;
+  population = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
 
-  /* init classes */
-  individual individuals[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  individual chosen_individual[NUMBER_OF_CLASSES][NUMBER_OF_GENERATIONS];
-  individual best_of_best[NUMBER_OF_CLASSES];
-  individual individuals_temp[NUMBER_OF_CLASSES][NUMBER_OF_INDIVIDUALS];
-  requirements requirements_classes[NUMBER_OF_CLASSES];
-  
-  /*Finds number of teacher and reads in info*/
-  teacher teacher_data[NUMBER_OF_CLASSES][NUMBER_OF_SUBJECTS];
-  read_teachers_name(teacher_data);
-  find_req(teacher_data, requirements_classes);
+  individual **old_population;
+  old_population = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
+
+  individual **chosen_individual;
+  chosen_individual = (individual **)calloc(NUMBER_OF_CLASSES, sizeof(individual *));
+
+  individual *best_of_best;
+  best_of_best = (individual *)calloc(NUMBER_OF_CLASSES, sizeof(individual ));
+
+  requirements *requirements_classes;
+  requirements_classes = (requirements *)calloc(NUMBER_OF_CLASSES, sizeof(requirements));
+
+  class_info **class_data;
+  class_data = (class_info **)calloc(NUMBER_OF_CLASSES, sizeof(class_info *));
+  /* Allocating space for double arrays*/
+  for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    population[i] = (individual *)calloc(SIZE_OF_POPULATION, sizeof(individual)); 
+    old_population[i] = (individual *)calloc(SIZE_OF_POPULATION, sizeof(individual));
+    chosen_individual[i] = (individual *)calloc(NUMBER_OF_GENERATIONS, sizeof(individual));
+    class_data[i] = (class_info *)calloc(NUMBER_OF_SUBJECTS, sizeof(class_info)); 
+  }
+
+  read_teachers_name(class_data);
+  find_req(class_data, requirements_classes);
 
   /* Init genetic algorithem */
   srand(time(NULL));
+  create_individuals(population);
+  calculate_fitness_all(population, h_classes, class_data, requirements_classes);
 
-  create_individuals(individuals);
-  calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
-
-  int i, j;
-
- for(j = 0; j < NUMBER_OF_CLASSES; j += 3){
-    choose_individual(individuals, chosen_individual, j, 0);
-  }
- 
   /* Genetic algorithem */
-  for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
+  for(i = 0; i < NUMBER_OF_GENERATIONS; i++){
+
+
     /* Selektion */
-    selektion(individuals);
-    
+    selektion(population, old_population);
+
     /* Mutation */
-    mutation(individuals);
+    mutation(population);
 
     /* Crossover */
-    crossover(individuals, individuals_temp, requirements_classes, i);
+    crossover(population, old_population, requirements_classes, i);
 
     /* Fitness */
-    calculate_fitness_all(individuals, h_classes, teacher_data, requirements_classes);
+    calculate_fitness_all(population, h_classes, class_data, requirements_classes);
 
     /* Tests */
     for(j = 0; j < (NUMBER_OF_CLASSES); j += 3){
-      choose_individual(individuals, chosen_individual, j, i);  
+      choose_individual(population, chosen_individual, j, i);  
     }
+    
     printf("%d   %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \t %d %d \n",i , chosen_individual[0][i].fitness, chosen_individual[0][i].perfection , chosen_individual[1][i].fitness, chosen_individual[1][i].perfection, chosen_individual[2][i].fitness, chosen_individual[2][i].perfection, chosen_individual[3][i].fitness, chosen_individual[3][i].perfection, chosen_individual[4][i].fitness, chosen_individual[4][i].perfection, chosen_individual[5][i].fitness, chosen_individual[5][i].perfection, chosen_individual[6][i].fitness, chosen_individual[6][i].perfection, chosen_individual[7][i].fitness, chosen_individual[7][i].perfection, chosen_individual[8][i].fitness, chosen_individual[8][i].perfection);
-  
+
   }
-  i--;
+   i--;
   /* The best of the best */
   find_best(chosen_individual, best_of_best);
-
   /* Printing */
   printf("\n\n\n");
-  print_func(best_of_best, requirements_classes, i, teacher_data);
+  print_func(best_of_best, requirements_classes, i, class_data);
 
-  return 0;
+  /*Freeing alloceted space*/
+  for(i = 0; i < NUMBER_OF_CLASSES; i++){
+    free(population[i]);
+    free(old_population[i]);
+    free(class_data[i]);
+    free(chosen_individual[i]);
+  }
+  free(population);
+  free(old_population);
+  free(chosen_individual);
+  free(best_of_best);
+  free(class_data);
+  free(requirements_classes);
+
+  return 0; 
 }
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 

@@ -9,88 +9,88 @@
 #include "read_data.h"
 
 
-void read_teachers_name(teacher teacher_data[][NUMBER_OF_SUBJECTS]){ 
- FILE *teacherinfo = fopen("info.txt", "r");
-  if(teacherinfo == NULL){
+/* Reading info from file into arrays of struct */
+void read_teachers_name(class_info **class_data){ 
+  int i, j;
+  class_info local_class_data;
+  FILE *info = fopen("info.txt", "r");
+  if(info == NULL){
     perror("Error the file is empty");
-    fclose(teacherinfo);
+    fclose(info);
     exit(1);
   }
 
-  teacher local_teacher_data;
-  int i = 0, j = 0;
   for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for(i = 0;i < NUMBER_OF_SUBJECTS; i++){
-      fscanf(teacherinfo,
+      fscanf(info,
       " %s %s %d %s ",
-      local_teacher_data.teacher_name, 
-      local_teacher_data.lesson_name, 
-      &local_teacher_data.number_of_lessons, 
-      local_teacher_data.class_name);
-      teacher_data[j][i] = local_teacher_data;
+      local_class_data.teacher_name, 
+      local_class_data.lesson_name, 
+      &local_class_data.number_of_lessons, 
+      local_class_data.class_name);
+      class_data[j][i] = local_class_data;
     } 
   }  
-  fclose(teacherinfo);
+  fclose(info);
 }
 
-void find_req(teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]){
+/*Setting requirements into array struct*/
+void find_req(class_info **class_data, requirements *requirements_classes){
   int j = 0, i  = 0, k = 0;
   for(j = 0, k = 0; j < NUMBER_OF_CLASSES; j++, k++){
     for(i = 0; i < NUMBER_OF_SUBJECTS; i ++){
-      if(strcmp("Dan", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Dan_req = teacher_data[j][i].number_of_lessons;
+      if(strcmp("Dan", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Dan_req = class_data[j][i].number_of_lessons;
       }
-      else if(strcmp("Mat", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Mat_req = teacher_data[j][i].number_of_lessons;
+      else if(strcmp("Mat", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Mat_req = class_data[j][i].number_of_lessons;
       }
-      else if(strcmp("Eng", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Eng_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Eng", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Eng_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Tys", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Tys_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Tys", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Tys_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Fys", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Fys_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Fys", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Fys_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("His", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].His_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("His", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].His_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Val", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Val_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Val", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Val_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Geo", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Geo_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Geo", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Geo_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Bio", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Bio_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Bio", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Bio_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Gym", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Gym_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Gym", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Gym_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Rel", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Rel_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Rel", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Rel_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Sam", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Sam_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Sam", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Sam_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Fri", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Fri_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Fri", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Fri_req = class_data[j][i].number_of_lessons;  
       }
-      else if(strcmp("Pra", teacher_data[j][i].lesson_name) == 0){
-        requirements_classes[k].Pra_req = teacher_data[j][i].number_of_lessons;  
+      else if(strcmp("Pra", class_data[j][i].lesson_name) == 0){
+        requirements_classes[k].Pra_req = class_data[j][i].number_of_lessons;  
       }
     }
   }
 }
 
-
-void create_individuals(individual individuals[][NUMBER_OF_INDIVIDUALS]){
-
+/*creating schudules with random lessons */
+void create_individuals(individual **population){
   int i, j;
-  
   for (j = 0; j < NUMBER_OF_CLASSES; j++ ){
-    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      individuals[j][i] = create_individual();
+    for(i = 0; i < SIZE_OF_POPULATION; i++){
+      population[j][i] = create_individual();
     }
   }
 }
@@ -107,4 +107,3 @@ individual create_individual(){
   }
   return result;
 }
-

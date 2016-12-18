@@ -8,25 +8,25 @@
 #include "defines.h"
 #include "fitness.h"
 
+
 /* Runs through a for loop for each grade (expecting there is 3 parallelclasses in each grade) Inside this loop a loop is run that calculates the fitness for each class 
    while also having the parallelclasses a parameter to check for identical lessons */
-void calculate_fitness_all(individual individuals[][NUMBER_OF_INDIVIDUALS], int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], requirements requirements_classes[]){
+void calculate_fitness_all(individual **population, int h_classes[], class_info **class_data, requirements *requirements_classes){
   int i, j;
   for(j = 0; j < NUMBER_OF_CLASSES; j+=3){
-    for(i = 0; i < NUMBER_OF_INDIVIDUALS; i++){
-      calculate_fitness_one(&(individuals[j][i]), &(individuals[j+2][i]), &(individuals[j+1][i]), h_classes, teacher_data, j, j+2, j+1, requirements_classes[j]);
-      calculate_fitness_one(&(individuals[j+1][i]), &(individuals[j][i]), &(individuals[j][i+2]), h_classes, teacher_data, j+1, j, j+2, requirements_classes[j+1]);
-      calculate_fitness_one(&(individuals[j+2][i]), &(individuals[j+1][i]), &(individuals[j][i]), h_classes, teacher_data, j+2, j+1, j, requirements_classes[j+2]);
+    for(i = 0; i < SIZE_OF_POPULATION; i++){
+      calculate_fitness_one(&(population[j][i]), &(population[j+2][i]), &(population[j+1][i]), h_classes, class_data, j, j+2, j+1, requirements_classes[j]);
+      calculate_fitness_one(&(population[j+1][i]), &(population[j][i]), &(population[j][i+2]), h_classes, class_data, j+1, j, j+2, requirements_classes[j+1]);
+      calculate_fitness_one(&(population[j+2][i]), &(population[j+1][i]), &(population[j][i]), h_classes, class_data, j+2, j+1, j, requirements_classes[j+2]);
     }
   }
 }
 
-/*  */
-void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], teacher teacher_data[][NUMBER_OF_SUBJECTS], int class_master, int class_other1, int class_other2, requirements requirements_class){
+/* Calculating fitness of individual_master*/
+void calculate_fitness_one(individual *individual_master, individual *individual_other1, individual *individual_other2, int h_classes[], class_info **class_data, int class_master, int class_other1, int class_other2, requirements requirements_class){
   /* Reset the fitness */
   individual_master->fitness = 1;
   int i, j, k;
-
   /* Lessons in row (breaks counts as a lesson)*/
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i += 2){
@@ -35,7 +35,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
     }
   }
-  
   /* Parallel classes - lessons in a sync */
   int test_parallel_both = 0;
   individual_master->lessons_with_parallel = 0;
@@ -63,7 +62,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       test_parallel_both = 0;
     }
   }
-
   /* Heavy lessons after 11.20 is bad  */
   individual_master->heavy_lesson_after = 0;
   individual_master->heavy_lesson_before = 0;
@@ -85,7 +83,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
     }
   }
-
   /* Free lessons */
   int count_free_lessons = 0;
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
@@ -121,19 +118,18 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   if (count_free_lessons < NUMBER_OF_FREE_REQ){
     individual_master->fitness += FITNESS_NO_FREE_TIME;
   }
-
   /* Teacher preparation */
   int count = 0, test = 0;
   char temp_teacher_name[TEACHER_NAME_MAX] = "TEMP";
 
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSON_OVER_MIDDAY; i++){
-      if (strcmp(teacher_data[class_master][(individual_master->lesson_num[i][j])].teacher_name, temp_teacher_name) != 0){
+      if (strcmp(class_data[class_master][(individual_master->lesson_num[i][j])].teacher_name, temp_teacher_name) != 0){
         count++;
       }
       else {
         memset(temp_teacher_name, '\0', sizeof(temp_teacher_name));
-        strcat(temp_teacher_name, teacher_data[class_master][individual_master->lesson_num[i][j]].teacher_name);
+        strcat(temp_teacher_name, class_data[class_master][individual_master->lesson_num[i][j]].teacher_name);
         count = 1;
       }
 
@@ -142,7 +138,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
       }
     }
   }
-  
   /* Too many of the same in a row */
   count = 0;
   test = 0;
@@ -163,7 +158,6 @@ void calculate_fitness_one(individual *individual_master, individual *individual
 
     }
   }
-
   /* Reads all the requirements for the current class into temp variables */
   int temp_Dan_req = requirements_class.Dan_req;
   int temp_Mat_req = requirements_class.Mat_req;
@@ -385,12 +379,11 @@ void calculate_fitness_one(individual *individual_master, individual *individual
   for (y = 0; y < perfection_temp; y++){
     individual_master->fitness += FITNESS_PERFECTION_BONUS;
   }
-
   /* Teacher overbooked */
   individual_master->teacher_overbooked = 0;
   for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-      if (strcmp(teacher_data[class_master][individual_master->lesson_num[i][j]].teacher_name, teacher_data[class_other1][individual_other1->lesson_num[i][j]].teacher_name) == 0){
+      if (strcmp(class_data[class_master][individual_master->lesson_num[i][j]].teacher_name, class_data[class_other1][individual_other1->lesson_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
         individual_master->teacher_overbooked += 1;
       }
@@ -398,7 +391,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
         individual_master->fitness += FITNESS_NOT_OVERBOOKED;
       }
 
-      if (strcmp(teacher_data[class_master][individual_master->lesson_num[i][j]].teacher_name, teacher_data[class_other2][individual_other2->lesson_num[i][j]].teacher_name) == 0){
+      if (strcmp(class_data[class_master][individual_master->lesson_num[i][j]].teacher_name, class_data[class_other2][individual_other2->lesson_num[i][j]].teacher_name) == 0){
         individual_master->fitness += FITNESS_TEACHER_OVERBOOKED;
         individual_master->teacher_overbooked += 1;
       }
@@ -408,8 +401,7 @@ void calculate_fitness_one(individual *individual_master, individual *individual
     }
   }
 
-
-  /* If it is negative, change to one */
+ /* If it is negative, change to one */
   if (individual_master->fitness < 1){
     individual_master->fitness = 1;
   }

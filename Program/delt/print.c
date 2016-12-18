@@ -8,165 +8,22 @@
 #include "defines.h"
 #include "print.h"
 
-void find_best(individual chosen_individuals[][NUMBER_OF_GENERATIONS], individual best_of_best[]){
-  printf("\n\n");
-  int i, k, j = 0;
-  int best_sum1, best_sum2, best_sum3;
-  int best_gen1, best_gen2, best_gen3;
-  int sum1, sum2, sum3;
-  int temp_perfect1 = 0, temp_perfect2 = 0, temp_perfect3 = 0;
-  int perfect1 = 0, perfect2 = 0, perfect3 = 0;
-  
-  for (i = 0; i < NUMBER_OF_GENERATIONS; i++){
-    /* Getting the sum */
-    if ((chosen_individuals[0][i].fitness != 1) && (chosen_individuals[1][i].fitness != 1) && (chosen_individuals[2][i].fitness != 1)){
-      sum1 = chosen_individuals[0][i].fitness + chosen_individuals[1][i].fitness + chosen_individuals[2][i].fitness;
-    }
-    else {
-      sum1 = 0;
-    }
-
-    if ((chosen_individuals[3][i].fitness != 1) && (chosen_individuals[4][i].fitness != 1) && (chosen_individuals[5][i].fitness != 1)){
-      sum2 = chosen_individuals[3][i].fitness + chosen_individuals[4][i].fitness + chosen_individuals[5][i].fitness;
-    }
-    else {
-      sum2 = 0;
-    }
-
-    if ((chosen_individuals[6][i].fitness != 1) && (chosen_individuals[7][i].fitness != 1) && (chosen_individuals[8][i].fitness != 1)){
-      sum3 = chosen_individuals[6][i].fitness + chosen_individuals[7][i].fitness + chosen_individuals[8][i].fitness;
-    }
-    else {
-      sum3 = 0;
-    }
-
-    /* Getting the lowest perfection grade */
-    temp_perfect1 = 15;
-    temp_perfect2 = 15;
-    temp_perfect3 = 15;
-
-    if (temp_perfect1 > chosen_individuals[0][i].perfection){
-      temp_perfect1 = chosen_individuals[0][i].perfection;
-    }
-    if (temp_perfect1 > chosen_individuals[1][i].perfection){
-      temp_perfect1 = chosen_individuals[1][i].perfection;
-    }
-    if (temp_perfect1 > chosen_individuals[2][i].perfection){
-      temp_perfect1 = chosen_individuals[2][i].perfection;
-    }
-
-    if (temp_perfect2 > chosen_individuals[3][i].perfection){
-      temp_perfect2 = chosen_individuals[3][i].perfection;
-    }
-    if (temp_perfect2 > chosen_individuals[4][i].perfection){
-      temp_perfect2 = chosen_individuals[4][i].perfection;
-    }
-    if (temp_perfect2 > chosen_individuals[5][i].perfection){
-      temp_perfect2 = chosen_individuals[5][i].perfection;
-    }
-
-    if (temp_perfect3 > chosen_individuals[6][i].perfection){
-      temp_perfect3 = chosen_individuals[6][i].perfection;
-    }
-    if (temp_perfect3 > chosen_individuals[7][i].perfection){
-      temp_perfect3 = chosen_individuals[7][i].perfection;
-    }
-    if (temp_perfect3 > chosen_individuals[8][i].perfection){
-      temp_perfect3 = chosen_individuals[8][i].perfection;
-    }
-
-    /* Saving the best */
-    if (perfect1 < temp_perfect1){
-      best_sum1 = sum1;
-      best_gen1 = i;
-      perfect1 = temp_perfect1;
-      printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
-    }
-    else if (perfect1 == temp_perfect1){
-      if (best_sum1 < sum1){
-        best_sum1 = sum1;
-        best_gen1 = i;
-        perfect1 = temp_perfect1;
-        printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
-      }
-    }
-
-    if (perfect2 < temp_perfect2){
-      best_sum2 = sum2;
-      best_gen2 = i;
-      perfect2 = temp_perfect2;
-      printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
-    }
-    else if (perfect2 == temp_perfect2){
-      if (best_sum2 < sum2){
-        best_sum2 = sum2;
-        best_gen2 = i;
-        perfect2 = temp_perfect2;
-        printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
-      }
-    }
-
-    if (perfect3 < temp_perfect3){
-      best_sum3 = sum3;
-      best_gen3 = i;
-      perfect3 = temp_perfect3;
-      printf("  3  perfection: %d  sum: %d \n", perfect3, best_sum3);
-    }
-    else if (perfect3 == temp_perfect3){
-      if (best_sum3 < sum3){
-        best_sum3 = sum3;
-        best_gen3 = i;
-        perfect3 = temp_perfect3;
-        printf("  3  perfection: %d  sum: %d \n", perfect3, best_sum3);
-      }
-    }
-  }
-  
-  best_of_best[0] = chosen_individuals[0][best_gen1];
-  best_of_best[1] = chosen_individuals[1][best_gen1];
-  best_of_best[2] = chosen_individuals[2][best_gen1];
-  best_of_best[3] = chosen_individuals[3][best_gen2];
-  best_of_best[4] = chosen_individuals[4][best_gen2];
-  best_of_best[5] = chosen_individuals[5][best_gen2];
-  best_of_best[6] = chosen_individuals[6][best_gen3];
-  best_of_best[7] = chosen_individuals[7][best_gen3];
-  best_of_best[8] = chosen_individuals[8][best_gen3];
-  
-  for (j = 0; j < NUMBER_OF_CLASSES; j++){
-    best_of_best[j].best_gena7 = best_gen1;
-    best_of_best[j].best_gena8 = best_gen2;
-    best_of_best[j].best_gena9 = best_gen3;
-  }
-  printf("\n\n");
-  printf("  1  perfection: %d  sum: %d \n", perfect1, best_sum1);
-  printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
-  printf("  3  perfection: %d  sum: %d \n\n", perfect3, best_sum3);
-}
-
-
-
-
-
-
-
-
 void print_req(individual chosen_individual, requirements requirements_class){
   printf("Must have:\t %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
-                  requirements_class.Dan_req,
-                  requirements_class.Mat_req,
-                  requirements_class.Eng_req,
-                  requirements_class.Tys_req,
-                  requirements_class.Fys_req,
-                  requirements_class.His_req,
-                  requirements_class.Sam_req,
-                  requirements_class.Val_req,
-                  requirements_class.Geo_req,
-                  requirements_class.Bio_req,
-                  requirements_class.Gym_req,
-                  requirements_class.Rel_req,
-                  requirements_class.Pra_req,
-                  requirements_class.Fri_req);
-
+  requirements_class.Dan_req,
+  requirements_class.Mat_req,
+  requirements_class.Eng_req,
+  requirements_class.Tys_req,
+  requirements_class.Fys_req,
+  requirements_class.His_req,
+  requirements_class.Sam_req,
+  requirements_class.Val_req,
+  requirements_class.Geo_req,
+  requirements_class.Bio_req,
+  requirements_class.Gym_req,
+  requirements_class.Rel_req,
+  requirements_class.Pra_req,
+  requirements_class.Fri_req);
 
   int temp_Dan_req = 0;
   int temp_Mat_req = 0;
@@ -252,13 +109,13 @@ void print_req(individual chosen_individual, requirements requirements_class){
           temp_Pra_req,
           temp_Fri_req);
 }
-
-void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
+/*Printing the entire schudule*/
+void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, class_info **class_data){
   int i, j, c;
-  printf("\n\n   Teachers\n");
+  printf("\n\n   teachers\n");
   for (i = 0; i < NUMBER_OF_CLASSES; i++){
     for (j = 0; j < NUMBER_OF_SUBJECTS; j++){
-      printf("%s  %s %s\t", teacher_data[i][j].teacher_name, teacher_data[i][j].lesson_name, teacher_data[i][j].class_name);
+      printf("%s  %s %s\t", class_data[i][j].teacher_name, class_data[i][j].lesson_name, class_data[i][j].class_name);
     }
     printf("\n");
   }
@@ -284,7 +141,7 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
 
       for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
         /* Printing lesson name */
-        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, teacher_data);
+        print_teacher_and_lesson(best_of_best[c].lesson_num[i][j], c, class_data);
         printf("\t\t");
       }
       /* To signal a break */
@@ -296,7 +153,7 @@ void print_func(individual best_of_best[], requirements requirements_classes[], 
     printf("\n\n\n");
   }
 }
-
+/*Printing time of day*/
 void print_time_func (int i){
   if (i == 0){
     printf("   8.00 -  8.45  |\t");
@@ -323,8 +180,8 @@ void print_time_func (int i){
     printf("  14.15 - 15.00  |\t");
   }
 }
-
-void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUMBER_OF_SUBJECTS]){
+/*Printing subjekt and teacher name*/
+void print_teacher_and_lesson(int subject, int class, class_info **class_data){
   /* Saving the name of subjekt */
   char subject_name[LESSON_NAME_MAX];
   memset(subject_name, '\0', LESSON_NAME_MAX);
@@ -381,65 +238,65 @@ void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUM
   for (i = 0; i < NUMBER_OF_SUBJECTS; i++){
     switch (class){
       case 0:
-        if (strcmp("7a", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("7a", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 1:
-        if (strcmp("7b", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("7b", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 2:
-        if (strcmp("7c", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("7c", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 3:
-        if (strcmp("8a", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("8a", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 4:
-        if (strcmp("8b", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("8b", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 5:
-        if (strcmp("8c", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("8c", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 6:
-        if (strcmp("9a", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("9a", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 7:
-        if (strcmp("9b", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("9b", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
       case 8:
-        if (strcmp("9c", teacher_data[class][i].class_name) == 0){
-          if (strcmp(subject_name, teacher_data[class][i].lesson_name) == 0){
-            printf("%s", teacher_data[class][i].teacher_name);
+        if (strcmp("9c", class_data[class][i].class_name) == 0){
+          if (strcmp(subject_name, class_data[class][i].lesson_name) == 0){
+            printf("%s", class_data[class][i].teacher_name);
           }
         }
         break;
@@ -451,7 +308,7 @@ void print_teacher_and_lesson(int subject, int class, teacher teacher_data[][NUM
   /* Printing the lesson */
   printf("  %s", subject_name);
 }
-
+/*Printing class name*/
 void print_class_name(int c){
   switch (c){
     case 0:
