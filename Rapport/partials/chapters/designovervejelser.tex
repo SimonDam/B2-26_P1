@@ -37,8 +37,7 @@ I rang metoden bliver individerne sorteret efter størrelsen på deres fitness. 
 
 2 tilfældige individer bliver valgt fra populationen. Man generer en tilfældig værdi fra 0-1 for at sammenligne den med valgte sandsynlighedsværdi. Hvis værdien er mindre eller lige med sandsynlighedsværdien bliver det individ med højst fitness valgt ellers bliver individet med den lavere fitness valgt. Sandsynlighedsværdien bliver altid sat højere end 0.5 for at favorisere individet med den højeste fitness\footfullcite{jebari2013}. 
 
-I det følgende program benyttes roulette metoden. Ved brug af roulette metoden sikres det at der er større sandsynlighed for at individerne med den højeste fitness bliver brugt til at skabe de fremtidige generationer. 
-
+I det følgende program benyttes roulette metoden. Ved brug af roulette metoden er der forskel ved sammenligning af to individer, hvor deres fitness ligger tæt på hinanden, og to individer hvor deres fitness ligger langt fra hinanden. Tournemant metoden laver ikke nogle forskel på disse situationer og er derfor ikke optimal til dette problem.
 \subsection{Produktafgrænsning}
   \input{partials/chapters/problemafgrensning.tex}
 
