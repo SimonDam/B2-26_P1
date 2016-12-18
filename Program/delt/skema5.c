@@ -15,7 +15,7 @@
 
 /*'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 int main(void){
-  /*Init general stuff*/
+  /*init general stuff*/
   int i, j; 
   int h_classes[NUMBER_OF_HEAVY_LESSONS] = {mat, fys, eng, dan, tys};
   /* Allocating space for arrays of structs*/
@@ -38,10 +38,10 @@ int main(void){
   class_data = (class_info **)calloc(NUMBER_OF_CLASSES, sizeof(class_info *));
   /* Allocating space for double arrays*/
   for(i = 0; i < NUMBER_OF_CLASSES; i++){
-    population[i] = (individual *)calloc(SIZE_OF_POPULATION, sizeof(individual)); 
+    population[i] = (individual *)calloc(SIZE_OF_POPULATION +3, sizeof(individual));
     old_population[i] = (individual *)calloc(SIZE_OF_POPULATION, sizeof(individual));
     chosen_individual[i] = (individual *)calloc(NUMBER_OF_GENERATIONS, sizeof(individual));
-    class_data[i] = (class_info *)calloc(NUMBER_OF_SUBJECTS, sizeof(class_info)); 
+    class_data[i] = (class_info *)calloc(NUMBER_OF_SUBJECTS, sizeof(class_info));
   }
 
   read_teachers_name(class_data);
@@ -63,7 +63,7 @@ int main(void){
     mutation(population);
 
     /* Crossover */
-    crossover(population, old_population, requirements_classes, i);
+    crossover(population, old_population, requirements_classes);
 
     /* Fitness */
     calculate_fitness_all(population, h_classes, class_data, requirements_classes);
@@ -81,7 +81,7 @@ int main(void){
   find_best(chosen_individual, best_of_best);
   /* Printing */
   printf("\n\n\n");
-  print_func(best_of_best, requirements_classes, i, class_data);
+  print_func(best_of_best, requirements_classes, class_data);
 
   /*Freeing alloceted space*/
   for(i = 0; i < NUMBER_OF_CLASSES; i++){

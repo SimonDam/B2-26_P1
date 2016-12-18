@@ -1,4 +1,3 @@
-
 void selektion(individual **population, individual **old_population);
 int pick_individual(individual **population, individual **old_population, int class, int indi_num);
 void choose_individual(individual **population, individual **chosen_individual, int class, int generation);

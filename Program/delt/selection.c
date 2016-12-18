@@ -25,7 +25,7 @@ void selektion(individual **population, individual **old_population){
 
 /* int class represents 7, 8, 9 class as: 0 = 7a, 1 = 7b, 2 = 7c, 3 = 8a, 4 = 8b and so on. indi_num tells which individual is currently being changed */
 int pick_individual(individual **population, individual **old_population, int class, int indi_num){
-  int i, j;
+  int i;
   int fitness_test = 0, sum = 0;
   int *sum_parrallel;
   sum_parrallel = (int *)calloc(SIZE_OF_POPULATION, sizeof(int));
@@ -68,7 +68,6 @@ int class represents 7, 8, 9 class as: 0 = 7a, 1 = 7b, 2 = 7c, 3 = 8a, 4 = 8b an
 void choose_individual(individual **population, individual **chosen_individual, int class, int generation){
   int i;
   int choose_fitness = -1;
-  int individual_test = -2;
   int sum_parrallel_fitness[SIZE_OF_POPULATION];
 
   calculate_finess_parallel(population, sum_parrallel_fitness, class);
@@ -100,10 +99,10 @@ void calculate_finess_parallel(individual **population, int sum_parrallel[], int
 /*Finding best individuals from all generations*/
 void find_best(individual **chosen_population, individual best_of_best[]){
   printf("\n\n");
-  int i, k, j;
-  int best_sum1, best_sum2, best_sum3;
-  int best_gen1, best_gen2, best_gen3;
-  int sum1, sum2, sum3;
+  int i, j;
+  int best_sum1 = 0, best_sum2 = 0, best_sum3 = 0;
+  int best_gen1 = 0, best_gen2 = 0, best_gen3 = 0;
+  int sum1 = 0, sum2 = 0, sum3 = 0;
   int temp_perfect1 = 0, temp_perfect2 = 0, temp_perfect3 = 0;
   int perfect1 = 0, perfect2 = 0, perfect3 = 0;
   
@@ -232,3 +231,4 @@ void find_best(individual **chosen_population, individual best_of_best[]){
   printf("  2  perfection: %d  sum: %d \n", perfect2, best_sum2);
   printf("  3  perfection: %d  sum: %d \n\n", perfect3, best_sum3);
 }
+

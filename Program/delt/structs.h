@@ -19,11 +19,13 @@ struct individual{
 };
 
 struct class_info{
+  int number_of_lessons;
+  char padding[2];
   char teacher_name[TEACHER_NAME_MAX];
   char lesson_name[LESSON_NAME_MAX];
-  int number_of_lessons;
   char class_name[TEACHER_NAME_MAX];  
 };
+
 
 struct requirements{
   int Dan_req;
@@ -41,6 +43,7 @@ struct requirements{
   int Pra_req;
   int Fri_req;
 };
+
 typedef struct individual individual;
 typedef struct class_info class_info;
 typedef struct requirements requirements;

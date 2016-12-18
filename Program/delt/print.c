@@ -110,7 +110,7 @@ void print_req(individual chosen_individual, requirements requirements_class){
           temp_Fri_req);
 }
 /*Printing the entire schudule*/
-void print_func(individual best_of_best[], requirements requirements_classes[], int generation_print, class_info **class_data){
+void print_func(individual best_of_best[], requirements requirements_classes[], class_info **class_data){
   int i, j, c;
   printf("\n\n   teachers\n");
   for (i = 0; i < NUMBER_OF_CLASSES; i++){

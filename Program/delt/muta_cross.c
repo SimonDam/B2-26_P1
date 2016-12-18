@@ -8,10 +8,8 @@
 #include "defines.h"
 #include "muta_cross.h"
 
-
-
 /*Creating SIZE_OF_POPULATION numbers of children which is created from random choosen parents from old_population*/
-void crossover(individual **population, individual **old_population, requirements *requirements_classes, int generation){
+void crossover(individual **population, individual **old_population, requirements *requirements_classes){
   int i, j;
   int rand_parent1 = 0, rand_parent2 = 0;
   
@@ -22,19 +20,19 @@ void crossover(individual **population, individual **old_population, requirement
       /*Choosing random parents*/
       rand_parent1 = rand()% SIZE_OF_POPULATION;
       rand_parent2 = rand()% SIZE_OF_POPULATION;
-      crossover_indi(population, old_population[j][rand_parent1], old_population[j][rand_parent2], requirements_classes[j], j, i, generation);
-      crossover_indi(population, old_population[j+1][rand_parent1], old_population[j+1][rand_parent2], requirements_classes[j+1], j+1, i, generation);
-      crossover_indi(population, old_population[j+2][rand_parent1], old_population[j+2][rand_parent2], requirements_classes[j+2], j+2, i, generation);
+      crossover_indi(population, old_population[j][rand_parent1], old_population[j][rand_parent2], requirements_classes[j], j, i);
+      crossover_indi(population, old_population[j+1][rand_parent1], old_population[j+1][rand_parent2], requirements_classes[j+1], j+1, i);
+      crossover_indi(population, old_population[j+2][rand_parent1], old_population[j+2][rand_parent2], requirements_classes[j+2], j+2, i);
     }
   }
 } 
+
 /*Creating a child using 2 parents. Child day 1 = random day from parent 1. Child day 2 = random day from parent 2. 
 Child day 3 and 4 mixing 2 random days(different from the used random days) from parent 1 and 2 each and mixing them together.
 Child day 5 is filled with lessons to meet requirements. When requirements is meet the rest is fri.*/
-void crossover_indi(individual **population, individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num, int generation){
+void crossover_indi(individual **population, individual parent1, individual parent2, requirements requirements_classes, int class, int indi_num){
   int i, j, k;
   int day1_parent1 = 0, day1_parent2 = 0, day2_parent1 = 0, day2_parent2 = 0, day3_parent1 = 0, day3_parent2 = 0, ran_lesson = 0, chance = 0;
-  int classes[1][NUMBER_OF_SUBJECTS];
   /*Allocating space for req_temp to count requirements*/
   requirements *requirements_temp;
   requirements_temp = (requirements *)calloc(1 , sizeof(requirements));
@@ -124,7 +122,6 @@ void crossover_indi(individual **population, individual parent1, individual pare
         default:
           printf("ERROR IN FITNESS\n");
           exit(0);
-          break;
       }
     }
   }
@@ -232,21 +229,11 @@ void crossover_indi(individual **population, individual parent1, individual pare
         break;  
       default:
         exit(0);
-        break;
     }
   }
   free(requirements_temp);
 }
 
-/*Putting current population over in old population*/
-void make_old_population(individual **population, individual **old_population){
-  int j = 0, i = 0;  
-  for(j = 0; j < NUMBER_OF_CLASSES; j++){ 
-    for(i = 0; i < SIZE_OF_POPULATION; i++){
-      old_population[j][i] = population[j][i];
-    }
-  }
-}
 
 /* A for loop is run as many times as the possible mutations is set. Each time the loop is run, there is a specific chance (CHANCE_OF_MUTATION) that mutations
    will ocour. When mutation occours, program picks 2 random days that are not the same and 2 random lessons that are not the same. the first random lesson 
@@ -273,6 +260,16 @@ void mutation(individual **population){
           population[k][i].lesson_num[ran2Day][ran2Week] = temp;
         }
       }
+    }
+  }
+}
+
+/*Putting current population over in old population*/
+void make_old_population(individual **population, individual **old_population){
+  int j = 0, i = 0;  
+  for(j = 0; j < NUMBER_OF_CLASSES; j++){ 
+    for(i = 0; i < SIZE_OF_POPULATION; i++){
+      old_population[j][i] = population[j][i];
     }
   }
 }

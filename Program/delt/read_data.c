@@ -13,16 +13,16 @@
 void read_teachers_name(class_info **class_data){ 
   int i, j;
   class_info local_class_data;
-  FILE *info = fopen("info.txt", "r");
-  if(info == NULL){
+  FILE *teacherinfo = fopen("teacherinfo.txt", "r");
+  if(teacherinfo == NULL){
     perror("Error the file is empty");
-    fclose(info);
+    fclose(teacherinfo);
     exit(1);
   }
 
   for(j = 0; j < NUMBER_OF_CLASSES; j++){
     for(i = 0;i < NUMBER_OF_SUBJECTS; i++){
-      fscanf(info,
+      fscanf(teacherinfo,
       " %s %s %d %s ",
       local_class_data.teacher_name, 
       local_class_data.lesson_name, 
@@ -31,7 +31,7 @@ void read_teachers_name(class_info **class_data){
       class_data[j][i] = local_class_data;
     } 
   }  
-  fclose(info);
+  fclose(teacherinfo);
 }
 
 /*Setting requirements into array struct*/
@@ -95,9 +95,10 @@ void create_individuals(individual **population){
   }
 }
 
-individual create_individual(){
+individual create_individual(void){
   /* Creating the individual */
   individual result;
+
   /* Making it random */
   int i, j;
   for(j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
