@@ -44,7 +44,7 @@ int main(void){
     class_data[i] = (class_info *)calloc(NUMBER_OF_SUBJECTS, sizeof(class_info));
   }
 
-  read_teachers_name(class_data);
+  read_data(class_data);
   find_req(class_data, requirements_classes);
 
   /* Init genetic algorithem */
