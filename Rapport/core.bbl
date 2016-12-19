@@ -213,5 +213,34 @@
     \endverb
     \field{year}{2016}
   \endentry
+
+  \entry{selection}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Selection}
+    \verb{url}
+    \verb http://www.obitko.com/tutorials/genetic-algorithms/selection.php
+    \endverb
+  \endentry
+
+  \entry{roulette}{manual}{}
+    \list{organization}{1}{%
+      {tutorialspoint}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Genetic Algorithms - Parent Selection}
+    \verb{url}
+    \verb https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_
+    \verb parent_selection.htm
+    \endverb
+  \endentry
+
+  \entry{timefunc}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{C library function - time()}
+    \verb{url}
+    \verb https://www.tutorialspoint.com/c\_standard\_library/c\_function_time.
+    \verb htm
+    \endverb
+  \endentry
 \endsortlist
 \endinput

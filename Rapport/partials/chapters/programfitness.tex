@@ -39,14 +39,16 @@ Måden hvorpå der tjekkes om parallelklasserne har timer på samme tid kan ses 
 
 for (j = 0; j < SCHOOL_DAYS_IN_WEEK; j++){
     for(i = 0; i < LESSONS_PER_DAY_MAX; i++){
-      if (individual_master->lesson_num[i][j] == individual_other1->lesson_num[i][j]){
+      if (individual_master->lesson_num[i][j]
+           == individual_other1->lesson_num[i][j]){
         if (individual_master->lesson_num[i][j] != fri){
           individual_master->fitness += FITNESS_PARALEL_CLASS;
           individual_master->lessons_with_parallel++;
           test_parallel_both++;
         }
       }
-      if (individual_master->lesson_num[i][j] == individual_other2->lesson_num[i][j]){
+      if (individual_master->lesson_num[i][j] 
+            == individual_other2->lesson_num[i][j]){
         if (individual_master->lesson_num[i][j] != fri){
           individual_master->fitness += FITNESS_PARALEL_CLASS;
           individual_master->lessons_with_parallel++;

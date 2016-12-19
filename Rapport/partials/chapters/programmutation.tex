@@ -11,7 +11,8 @@ Her under kan koden til mutations funktionen, der er brugt i programmet, ses.
 \begin{lstlisting}
 void mutation(individual **population){
   int i, j, k; 
-  int ran1Day = 0, ran1Week = 0, ran2Day = 0, ran2Week = 0, chance = 0, mutations = 0, temp = 0;
+  int ran1Day = 0, ran1Week = 0, ran2Day = 0, 
+       ran2Week = 0, chance = 0, mutations = 0, temp = 0;
 
   for(k = 0; k < NUMBER_OF_CLASSES; k++){
     for(i = 0; i < SIZE_OF_POPULATION; i++){
@@ -27,7 +28,8 @@ void mutation(individual **population){
           } while ((ran1Week == ran2Week) && (ran1Day == ran2Day));
         
           temp = population[k][i].lesson_num[ran1Day][ran1Week];
-          population[k][i].lesson_num[ran1Day][ran1Week] = population[j][i].lesson_num[ran2Day][ran2Week];
+          population[k][i].lesson_num[ran1Day][ran1Week] 
+          = population[j][i].lesson_num[ran2Day][ran2Week];
           population[k][i].lesson_num[ran2Day][ran2Week] = temp;
         }
       }

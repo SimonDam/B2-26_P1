@@ -10,18 +10,23 @@ Ved selektion anvendes roulette metoden i programmet. Dette foregår ved, at fit
 Herefter køres en for-løkke der starter fra bunden af rouletten og lægger summen af fitnessen for tre parallelklasser sammen med summen af den forrige sum, hvorefter der tjekkes om punktet ligger under den nye værdi. Hvis dette er tilfældet, bliver de i'ende individer (tre parralelklasser) valgt og gemt ned i population.  
 
 \begin{lstlisting}[language = c]
-int pick_individual(individual **population, individual **old_population, int class, int indi_num){
+int pick_individual(individual **population, individual **old_population,
+                             int class, int indi_num){
   int i;
   int fitness_test = 0, sum = 0;
   int *sum_parrallel;
   sum_parrallel = (int *)calloc(SIZE_OF_POPULATION, sizeof(int));
 
   for(i = 0; i < SIZE_OF_POPULATION; i++){
-    if ((old_population[class][i].fitness == 1) || (old_population[class+1][i].fitness == 1) || (old_population[class+2][i].fitness == 1)){
+    if ((old_population[class][i].fitness == 1) 
+         || (old_population[class+1][i].fitness == 1) 
+         || (old_population[class+2][i].fitness == 1)){
       sum_parrallel[i] = 1;
     }
     else {
-      sum_parrallel[i] = old_population[class][i].fitness + old_population[class+1][i].fitness + old_population[class+2][i].fitness;
+      sum_parrallel[i] = old_population[class][i].fitness 
+                                + old_population[class+1][i].fitness 
+                                + old_population[class+2][i].fitness;
     }
     sum += sum_parrallel[i];
   }
